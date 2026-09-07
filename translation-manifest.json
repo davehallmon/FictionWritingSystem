@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T23:29:45.551Z",
+  "generated_at": "2026-09-07T23:31:42.278Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 51,
-    "remaining": 111,
+    "translated": 52,
+    "remaining": 110,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1708,7 +1708,7 @@
       "chinese_characters": 1567,
       "latin_characters": 205,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - chapter-extractor.md",
