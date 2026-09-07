@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T23:08:39.659Z",
+  "generated_at": "2026-09-07T23:10:25.349Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 44,
-    "remaining": 118,
+    "translated": 45,
+    "remaining": 117,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -146,7 +146,7 @@
       "chinese_characters": 1342,
       "latin_characters": 655,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - cards-and-coverage.md",
