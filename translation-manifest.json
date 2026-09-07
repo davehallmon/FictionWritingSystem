@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:15:46.003Z",
+  "generated_at": "2026-09-07T22:21:22.052Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 16,
-    "remaining": 146,
+    "translated": 21,
+    "remaining": 141,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -58,7 +58,7 @@
       "chinese_characters": 144,
       "latin_characters": 71,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Evaluation - content-quality-judge-prompt.md",
@@ -69,7 +69,7 @@
       "chinese_characters": 205,
       "latin_characters": 125,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Evaluation - content-quality-rubric.md",
@@ -135,7 +135,7 @@
       "chinese_characters": 336,
       "latin_characters": 6,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - blind-forward-eval.md",
@@ -300,7 +300,7 @@
       "chinese_characters": 344,
       "latin_characters": 10,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - production-form-profiles.md",
@@ -366,7 +366,7 @@
       "chinese_characters": 288,
       "latin_characters": 162,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - stage-contract.md",
