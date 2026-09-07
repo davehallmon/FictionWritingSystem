@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:27:46.254Z",
+  "generated_at": "2026-09-07T22:33:45.693Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 26,
-    "remaining": 136,
+    "translated": 31,
+    "remaining": 131,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -267,7 +267,7 @@
       "chinese_characters": 936,
       "latin_characters": 474,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - look-development.md",
@@ -377,7 +377,7 @@
       "chinese_characters": 215,
       "latin_characters": 2533,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - story-engine.md",
@@ -784,7 +784,7 @@
       "chinese_characters": 1011,
       "latin_characters": 264,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - CLAUDE.md",
@@ -839,7 +839,7 @@
       "chinese_characters": 1143,
       "latin_characters": 6,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - deconstruction-notes.md",
@@ -1455,7 +1455,7 @@
       "chinese_characters": 1055,
       "latin_characters": 98,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - tracking-transaction.md",
