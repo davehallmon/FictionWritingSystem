@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:09:28.836Z",
+  "generated_at": "2026-09-07T22:15:46.003Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 11,
-    "remaining": 151,
+    "translated": 16,
+    "remaining": 146,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -542,7 +542,7 @@
       "chinese_characters": 933,
       "latin_characters": 120,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - agent-reference-profiles.md",
@@ -553,7 +553,7 @@
       "chinese_characters": 685,
       "latin_characters": 1088,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - AGENTS.md",
@@ -652,7 +652,7 @@
       "chinese_characters": 1020,
       "latin_characters": 16,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - analysis-short-mechanics.md",
@@ -1235,7 +1235,7 @@
       "chinese_characters": 979,
       "latin_characters": 16,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - real-market-data.md",
@@ -1686,7 +1686,7 @@
       "chinese_characters": 850,
       "latin_characters": 91,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Template - story-narrative.md",
