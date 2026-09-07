@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T21:48:59.555Z",
+  "generated_at": "2026-09-07T22:06:37.885Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 3,
-    "remaining": 159,
+    "translated": 8,
+    "remaining": 154,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -630,7 +630,7 @@
       "chinese_characters": 687,
       "latin_characters": 9,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - analysis-short-genres.md",
@@ -795,7 +795,7 @@
       "chinese_characters": 415,
       "latin_characters": 414,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - commercial-core-methods.md",
@@ -1323,7 +1323,7 @@
       "chinese_characters": 758,
       "latin_characters": 26,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - short-reversal.md",
@@ -1532,7 +1532,7 @@
       "chinese_characters": 645,
       "latin_characters": 4,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - browser-cdp.md",
@@ -1675,7 +1675,7 @@
       "chinese_characters": 633,
       "latin_characters": 264,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Template - story-format.md",
