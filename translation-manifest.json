@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:33:45.693Z",
+  "generated_at": "2026-09-07T22:36:20.616Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 31,
-    "remaining": 131,
+    "translated": 33,
+    "remaining": 129,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -674,7 +674,7 @@
       "chinese_characters": 1202,
       "latin_characters": 8,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - analysis-short-suspense.md",
@@ -685,7 +685,7 @@
       "chinese_characters": 1176,
       "latin_characters": 16,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - analysis-writing-techniques.md",
