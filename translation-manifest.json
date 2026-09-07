@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:06:37.885Z",
+  "generated_at": "2026-09-07T22:09:28.836Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 8,
-    "remaining": 154,
+    "translated": 11,
+    "remaining": 151,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -993,7 +993,7 @@
       "chinese_characters": 768,
       "latin_characters": 24,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - long-genre-catalog.md",
@@ -1026,7 +1026,7 @@
       "chinese_characters": 810,
       "latin_characters": 25,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - long-reversal.md",
@@ -1697,7 +1697,7 @@
       "chinese_characters": 741,
       "latin_characters": 190,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Template - story-outline.md",
