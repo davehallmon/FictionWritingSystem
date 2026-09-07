@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T23:15:26.446Z",
+  "generated_at": "2026-09-07T23:29:45.551Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 48,
-    "remaining": 114,
+    "translated": 51,
+    "remaining": 111,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -25,7 +25,7 @@
       "chinese_characters": 1346,
       "latin_characters": 994,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/DESIGN - Drama Skills.md",
@@ -80,7 +80,7 @@
       "chinese_characters": 1515,
       "latin_characters": 367,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/README - DRAMA SKILLS",
@@ -289,7 +289,7 @@
       "chinese_characters": 1607,
       "latin_characters": 190,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - pickup-and-alternate.md",
