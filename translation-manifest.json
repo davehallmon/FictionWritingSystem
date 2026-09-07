@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T22:53:29.804Z",
+  "generated_at": "2026-09-07T23:08:39.659Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 43,
-    "remaining": 119,
+    "translated": 44,
+    "remaining": 118,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -36,7 +36,7 @@
       "chinese_characters": 137,
       "latin_characters": 3477,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Docs - comic-drama-workflow.md",
