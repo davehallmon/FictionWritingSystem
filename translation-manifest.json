@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T02:15:34.217Z",
+  "generated_at": "2026-09-08T02:18:02.424Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 56,
-    "remaining": 106,
+    "translated": 58,
+    "remaining": 104,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -608,7 +608,7 @@
       "chinese_characters": 1752,
       "latin_characters": 6,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - analysis-reader-profile.md",
@@ -1312,7 +1312,7 @@
       "chinese_characters": 1749,
       "latin_characters": 6,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - short-quality.md",
