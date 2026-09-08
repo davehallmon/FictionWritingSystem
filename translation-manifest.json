@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T04:14:10.928Z",
+  "generated_at": "2026-09-08T04:21:45.562Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 83,
-    "remaining": 79,
+    "translated": 84,
+    "remaining": 78,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -465,7 +465,7 @@
       "chinese_characters": 4239,
       "latin_characters": 921,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/SKILL - Short Drama Write.md",
