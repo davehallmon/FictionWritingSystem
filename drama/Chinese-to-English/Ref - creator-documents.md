@@ -23,6 +23,8 @@ current state, and reason for change that downstream generation genuinely needs 
 - 连续性锁：LOCK-JIANGCHEN-SUIT《江辰深灰旧西装》（镜头：全集；图片提示词项：IMG-JIANGCHEN-SHEET）· 锁面：dark-grey worn wool suit
 ```
 
+**English guide (non-executable):** Character: Jiang Chen. Identity anchors: narrow eyes, an old scar at the end of his left eyebrow, and slightly tense shoulders. Episode look: a worn dark-grey suit with a dark rain mark on the right cuff. State change: blood appears on his right palm after EP001-SC003. Image alias: `Jiangchen`. Continuity lock `LOCK-JIANGCHEN-SUIT` applies to the full episode and image-prompt item `IMG-JIANGCHEN-SHEET`; its locked English surface is “dark-grey worn wool suit.”
+
 Level-two headings always use `## <人物|造型|地点|道具> · <名称>`; the storyboard's “visual evidence” locates entries by this heading.
 
 **Visual alias** is the name used directly for this entry in prompt text, written in the project's prompt language. Separate multiple forms with `、`,
@@ -67,6 +69,8 @@ Each shot is a level-two heading. Shot IDs are unique within the episode and rem
 > 按项目提示词语言编写的冻结瞬间正文……
 ```
 
+**English guide (non-executable):** Shot EP001-001, “Stopping Outside the Door.” Source: EP001-SC001; duration: four seconds. Show Jiang Chen hesitating outside the door before revealing the argument inside. Begin with his right hand above the handle. The sound of glass falling inside makes him withdraw it and look toward the door gap. End with his hand at his side and gaze fixed on the gap. Bind the approved character and corridor prompt items, report missing references, cite matching visual-specification entries, and write the frozen instant in the project's prompt language.
+
 Write only shots with a defined responsibility. The keyframe prompt must match the shot's “start.” Text, actions, or states that appear only at the endpoint must not
 enter the still frame early; do not put the entire action sequence into the still frame.
 
@@ -83,6 +87,8 @@ backfill it item by item from the completed image using this fixed syntax:
 - 视觉依据：《视觉设定.md》·人物「江辰」（控制：身份、造型）；地点「旧走廊」（控制：空间地理、出入口、光向）。
 ```
 
+**English guide (non-executable):** Visual evidence cites the Jiang Chen character entry for identity and look, and the Old Corridor location entry for geography, entrances, exits, and light direction.
+
 - Write `《视觉设定.md》·` only once. Join entries with `；`; each entry name must match a heading in 《视觉设定.md》.
 - List every character, location, and prop whose identity, look, or geography must be recognized in the image. Small or background characters remain in scope if their identity must be recognizable.
 - Exclude offscreen voices, unidentifiable details, and temporary objects requiring no consistency; do not add them merely to fill the list.
@@ -96,6 +102,8 @@ append an offscreen list to the same field and state truthfully that it is menti
 - 视觉依据：《视觉设定.md》·地点「教室」（控制：课桌排列、窗位）；道具「旧书包」（控制：磨损、颜色）；画外：人物「小明」。
 ```
 
+**English guide (non-executable):** Visual evidence cites the Classroom location for desk arrangement and window position, the Old Schoolbag prop for wear and color, and records Xiaoming as off-screen.
+
 When an entry name is intrinsically unreliable in prose—`道具「手机」` collides with “phone shop,” while `人物「小雨」` collides with “light rain”—
 write `画面代称：无` in that entry in 《视觉设定.md》 so the mechanical check stops searching for it by name. “Visual evidence” must still answer truthfully whether the shot depicts it.
 
@@ -104,6 +112,8 @@ Each `REF-...` slot uses this syntax:
 ```markdown
 REF-<slot>（顺序：<n>）· <项目相对路径>《<中文名称>》（用途：<用途>；控制：<范围>；不得控制：<范围>）
 ```
+
+**English guide (non-executable):** `REF-<slot>` (order: n) · project-relative path, Chinese display name, purpose, controlled scope, and prohibited scope. Keep the Chinese punctuation and field labels exactly as shown in the runnable value.
 
 `用途` answers “what this image determines in this shot” and must be one of
 `身份`, `造型状态`, `地理`, `构图`, `尺度`, `效果`, `起始帧`, `结束帧`, or `风格`. See
@@ -117,6 +127,8 @@ Its syntax matches `REF-...` exactly except that the locator changes from a proj
 ```markdown
 PLAN-<slot>（顺序：<n>）· <IMG-... 或 SHOT-...>《<中文名称>》（用途：<用途>；控制：<范围>；不得控制：<范围>）
 ```
+
+**English guide (non-executable):** `PLAN-<slot>` uses the same order, Chinese display name, purpose, controlled scope, and prohibited-scope fields, but points to an `IMG-...` or `SHOT-...` entry rather than a project-relative image path.
 
 `IMG-...` identifies a board in 《图片提示词.md》 and `SHOT-...` identifies that shot's frozen keyframe. Both must resolve within the current project,
 and an `IMG-...` Chinese name must match its heading. `PLAN-...` means “this image is outside the project and the creator will attach it in this order during generation.”
@@ -142,6 +154,8 @@ proceed directly from the screenplay and visual specification using the fallback
 - 视觉依据：《视觉设定.md》·人物「江辰」（控制：身份、造型）；地点「旧走廊」（控制：空间地理、出入口、光向）。
 ```
 
+**English guide (non-executable):** No image-prompt item or input image is available. The record identifies missing references for Jiang Chen's identity, corridor geography, and the shot's start frame, while still citing the visual-specification entries governing the shot.
+
 A prompt entry and a real image are independent. Even when an `IMG-...` entry exists, “input reference image” may remain “none.” When the creator supplies
 a real image, there is no need to invent a prompt entry:
 
@@ -151,11 +165,15 @@ a real image, there is no need to invent a prompt entry:
 - 视觉依据：《视觉设定.md》·人物「江辰」（控制：身份、体态）。
 ```
 
+**English guide (non-executable):** Jiang Chen's approved look image controls episode styling and fabric texture only—not composition, action, or expression. Visual evidence cites the character entry for identity and body type.
+
 When only some images are ready, do not discard verified images; retain the gap in the same field:
 
 ```markdown
 - 输入参考图：REF-JIANGCHEN-LOOK（顺序：1）· 输入/参考图/江辰定妆.jpg《江辰定妆照》（用途：身份；控制：脸型、体态、本集造型；不得控制：场景地理、构图、动作）；待补参考图：夜间走廊地理、本镜起始帧
 ```
+
+**English guide (non-executable):** Preserve the verified Jiang Chen reference while explicitly recording that corridor geography and the shot's start frame are still missing.
 
 When creators make images in their own tools, specify which images to attach to the shot and in what order as `PLAN-...`:
 
@@ -165,6 +183,8 @@ When creators make images in their own tools, specify which images to attach to 
 - 视觉依据：《视觉设定.md》·人物「江辰」（控制：身份、体态）；地点「旧走廊」（控制：空间地理、出入口）。
 ```
 
+**English guide (non-executable):** Attach two planned references in order: the shot's frozen starting keyframe controls initial composition and blocking, while Jiang Chen's character board controls identity, face, body type, and episode look. Neither may control the other's scope.
+
 Both may also coexist, each using its own locator:
 
 ```markdown
@@ -172,6 +192,8 @@ Both may also coexist, each using its own locator:
 - 输入参考图：REF-CORRIDOR-COMPOSITION（顺序：1）· 输入/参考图/走廊构图.jpg《走廊构图参考》（用途：构图；控制：占画比例、留白；不得控制：人物身份、动作、剧情事件）
 - 视觉依据：《视觉设定.md》·人物「江辰」（控制：身份、体态）；地点「旧走廊」（控制：空间地理、出入口）。
 ```
+
+**English guide (non-executable):** The corridor composition reference controls frame share and negative space only. It must not control character identity, action, or story events. Visual evidence continues to cite Jiang Chen and the Old Corridor for their approved scopes.
 
 ## `图片提示词.md`
 
@@ -187,6 +209,8 @@ Here, `IMG-...` is a prompt-entry ID, not a record of a generated image.
 ### 可复制提示词
 > 按项目提示词语言编写的正文……
 ```
+
+**English guide (non-executable):** Image-prompt item `IMG-JIANGCHEN-SHEET`, “Jiang Chen Character Board.” Its purpose is to lock identity, body type, and episode styling. No reference is attached. If a real reference is added, use the complete `REF-...` structure. Write the copy-ready prompt in the project's prompt language.
 
 ## `视频提示词.md`
 
@@ -217,6 +241,8 @@ characters, language, surface, and position. Disabling subtitles must not become
 ### 可复制提示词
 > A lean young East Asian man in a dark-grey worn suit stands outside an old corridor door under cold overhead light. His right hand starts suspended above the handle, then withdraws……
 ```
+
+**English guide (non-executable):** Motion item EP001-001, “Stopping Outside the Door.” It is a four-second text-to-video shot with no input image because the creator explicitly selected that mode. The static anchor fixes Jiang Chen's appearance and corridor lighting; the state chain moves from his hand above the handle, through the sound-triggered withdrawal and gaze shift, to his hand at his side and eyes on the door gap.
 
 With real input images, switch to “generation mode: image-to-video” and carry the storyboard's complete REF declaration verbatim. Static visual anchors record only
 visible starting-point facts required to execute the action that cannot be inferred solely from reference purposes. Do not put paths or REF IDs in copy-ready prose.
