@@ -32,6 +32,23 @@ Operations documentation for the story-long-analyze decomposition pipeline: the 
 - 最后处理：第{N}章 | 当前阶段 | 下一操作
 ```
 
+**English guide (non-executable):**
+
+| Protected heading or field | English meaning |
+|---|---|
+| `深度拆解进度：{书名}` | Deep-Decomposition Progress: {Book Title} |
+| `小说` / `总章数` / `输出目录` / `开始` | Novel / total chapters / output directory / start date |
+| `最终状态` | Final status |
+| `管道进度` | Pipeline progress |
+| `阶段` / `状态` / `进度` / `备注` | Stage / status / progress / notes |
+| `章节边界` | Chapter boundaries—the sole authority produced by the Stage 0 boundary substep |
+| `章号` / `标题` / `起始行` / `字数` | Chapter number / title / starting line / character count |
+| `分块进度` | Chunk progress |
+| `失败记录` | Failure log |
+| `质量检查` | Quality checks |
+| `角色合并` | Character merges |
+| `断点` / `最后处理` / `下一操作` | Checkpoint / last processed / next action |
+
 **About schema_version:**
 
 | Version | Meaning |

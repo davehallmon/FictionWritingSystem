@@ -132,3 +132,17 @@ Phase 1 问用户：「长篇还是短篇？」
                             ├─ 章节数 ≥ 5 ──────────► 长篇
                             └─ < 30000 但章节数 ≥ 5 ─► 提示用户裁定
 ```
+
+**English guide (non-executable):**
+
+1. In Phase 1, ask whether the work is long-form or short-form. If the user answers clearly, lock that type.
+2. Otherwise inspect chapter separators:
+   - Separators with at least five chapters → long-form.
+   - No separators, one self-contained file, and fewer than 20,000 Chinese characters → short-form.
+   - One self-contained work of 20,000–29,999 characters → short-form, but report that it exceeds the recommended upper bound.
+   - One self-contained file of at least 30,000 characters → ask the user to decide.
+3. If signals remain unclear, use the 30,000-character fallback:
+   - Fewer than 30,000 characters with no chapter structure → short-form.
+   - At least 30,000 characters → long-form.
+   - At least five chapters → long-form.
+   - Fewer than 30,000 characters but at least five chapters → ask the user to decide.

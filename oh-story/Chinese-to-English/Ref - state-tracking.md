@@ -44,6 +44,18 @@ After filtering, output a concise “Current-Section Brief”:
 {约束1}：{与本章相关的规则/设定}
 ```
 
+**English guide (non-executable):**
+
+| Protected heading or field | English meaning |
+|---|---|
+| `本节速记（第{N}章）` | Current-Section Brief (Chapter {N}) |
+| `角色状态` | Character states |
+| `{角色A}：{一句话当前状态，含最近变化}` | Character A: one-sentence current state, including the latest change |
+| `相关伏笔/前史` | Relevant foreshadowing and prior history |
+| `{埋设章节}` / `回收` / `推进` | Planting chapter / pay off / advance |
+| `世界约束` | World constraints |
+| `{与本章相关的规则/设定}` | Rule or setting relevant to the current chapter |
+
 **Example (Chapter 10 of the demo *You Manage the Account—and Your High-Energy Mashup Explodes Across the Internet*):**
 ```
 ## 本节速记（第10章）
@@ -60,6 +72,8 @@ After filtering, output a concise “Current-Section Brief”:
 ### 世界约束
 军宣作品采用要经过组织决策；江晨可以靠作品效果赢得认可，不能跳过军内流程直接拍板
 ```
+
+**English guide (non-executable):** In Chapter 10, Jiang Chen is moving from newcomer to recognized military-publicity creator after *Gentlemen, Hear the Dragon's Roar* becomes popular. Reporter Zhong Jiajia has shifted from interviewer to reliable collaborator, and deputy troupe leader Zhou Bosen now trusts Jiang Chen's creative ability. The unresolved five-day, one-million-followers task should advance but not conclude until Chapter 11. A professional remake that “lacks the original's spirit” reinforces the phone-shot version's value. Organizational approval remains mandatory; success cannot bypass the military decision process.
 
 ---
 
@@ -97,6 +111,20 @@ Split dynamic state into `追踪/角色状态/{角色名}.md` files for core cha
 - 五天百万粉任务尚未结算
 - 钟嘉嘉所谓“只猜对一半”仍未解释
 ```
+
+**English guide (non-executable):**
+
+| Protected field | English meaning |
+|---|---|
+| `截至章节` | Current through chapter |
+| `身份` / `位置` / `当前目标` | Identity / location / current objective |
+| `身心状态` | Physical and emotional state |
+| `能力与资源` | Abilities and resources |
+| `关键关系` | Key relationships |
+| `已知信息` | Known information |
+| `未结事项` | Unresolved matters |
+
+The sample records Jiang Chen's current status through Chapter 10: military-publicity soldier and emerging hit creator, located at a senior screening meeting, pursuing the five-day follower target, equipped with prior-life MCN experience and directing ability, supported by key collaborators, and still awaiting resolution of the follower task and Zhong Jiajia's unexplained remark.
 
 ### Update Rules
 

@@ -67,6 +67,22 @@ Use three levels. Never assign “high” from insufficient samples; a few data 
 ### 选题 3 ...
 ```
 
+**English guide (non-executable):**
+
+| Protected field | English meaning |
+|---|---|
+| `选题决策：{平台/方向}` | Topic Decision: {Platform/Direction} |
+| `扫榜日期` / `数据来源` | Ranking-scan date / data source |
+| `推荐选题` | Recommended topics |
+| `选题 1：{一句话方向}` | Topic 1: one-sentence direction |
+| `题材组合` / `目标读者` | Genre combination / target readers |
+| `核心卖点` / `能爆的原因` | Core selling point / hypothesized reason it could become a hit |
+| `待拆文验证` | Awaiting validation through story decomposition |
+| `差异化定位` | Differentiated positioning |
+| `可行性：高/中/低` | Viability: high / medium / low |
+| `失败风险` / `验证动作` | Failure risk / validation action |
+| `篇幅/平台` | Recommended length and target platform |
+
 Recommend two or three topics, ordered by viability with the highest first.
 
 ---

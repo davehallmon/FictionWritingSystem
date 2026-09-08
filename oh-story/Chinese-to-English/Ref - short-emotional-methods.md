@@ -81,6 +81,8 @@
 温暖 → 残忍 → 善意 → 真相 → 原谅 → 来不及 → 释然 → 细节暴击
 ```
 
+**English guide (non-executable):** Warmth → cruelty → kindness → truth → forgiveness → too late → acceptance → a devastating final detail.
+
 Not every story uses the full curve. Choose a subset by genre:
 
 | Genre | Typical rhythm | Core push-pull |
