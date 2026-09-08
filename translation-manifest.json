@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T02:53:29.902Z",
+  "generated_at": "2026-09-08T02:56:25.687Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 64,
-    "remaining": 98,
+    "translated": 65,
+    "remaining": 97,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1268,7 +1268,7 @@
       "chinese_characters": 1528,
       "latin_characters": 768,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - short-chapter-hooks.md",
