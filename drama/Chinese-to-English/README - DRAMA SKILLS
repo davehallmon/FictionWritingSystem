@@ -1,4 +1,4 @@
-**Chinese** | [English](README_EN.md)
+**Chinese** | [English](README%20-%20Drama%20Skills%20-%20English.md)
 
 # Drama Skills
 
@@ -81,6 +81,8 @@ Invocation differs by runtime: Claude Code uses `/short-drama`, Codex uses
 plain language. The two forms are interchangeable in the examples below.
 
 ## Quick start
+
+> **English companion:** The exact Chinese prompts below are retained for source fidelity. Their line-by-line English equivalents appear in the [English Quick Start](README%20-%20Drama%20Skills%20-%20English.md#quick-start).
 
 ```
 # 0. 有原著时（可选）：先抽样快评，再决定要不要全量拆

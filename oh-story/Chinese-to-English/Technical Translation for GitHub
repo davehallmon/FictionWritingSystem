@@ -37,6 +37,15 @@ The following must remain **completely unchanged**:
 - Non-human-readable YAML keys, dates, tags, and identifiers.
 - Exact content inside Markdown code blocks and preformatted text.
 
+#### Companion-English Acceptance Rule (Required)
+Preservation does not waive English readability. Keep every protected literal unchanged, but add an English companion when human-readable Chinese is necessary to understand or apply the workflow.
+
+- Place the English companion immediately after the protected passage and label it **English guide (non-executable)**, or link at the point of use to a complete English counterpart.
+- Translate user-facing instructions, template semantics, sample prose, diagram labels, comments, and correct/incorrect examples.
+- A repeated filename, path, command, schema key, enum value, runtime string, proper name, title, or parser token needs an English definition only at its first material occurrence. Later exact repetitions are exempt.
+- Do not present translated filenames, field labels, commands, or trigger phrases as executable unless the English form has been tested and documented as supported.
+- A file passes only when it contains neither unexplained Chinese prose nor unglossed protected Chinese whose meaning an English reader needs to understand or apply the documentation.
+
 #### Phase 4: Output Formatting (GitHub Optimization)
 - Retain the exact Markdown hierarchy. Headings (e.g., `##`, `###`) must map strictly to the original structure.
 - Optimize headings and bullet points for scannability—keep them concise but descriptive.

@@ -31,12 +31,20 @@ Follow these consistency rules whenever modifying specification, outline, or tra
 
 ### Correct
 ```
+
+**English guide (non-executable):**
+
+> Append a second F027 directly to `伏笔.md`, then manually edit `作者真相.md`, `读者已知.md`, and `上下文.md`. This creates multiple “current states” for the same foreshadowing item, leaks Zhong Jiajia's unrevealed plan into the reader view, and leaves the checkpoint unable to determine which derived files are stale.
 修订 demo 第 10 章“专业团队拍得还不如他拍得好？”后：
 1. 检查 F027、江晨快照以及第 10 章相关时间线事件
 2. 构造第 10 章 `mode=revision` 事务，保留“专业重拍版缺了灵魂、张耀祖决定继续用手机原版”的正文事实
 3. 作者真相可保留钟嘉嘉未公开的培养安排；读者视图只保留看片会已经揭示的结论
 4. 提交后运行 `tracking_commit.py check`，确认逐章增量、角色快照、伏笔与双时间线视图一致
 ```
+
+**English guide (non-executable):**
+
+> After revising Chapter 10 of the demo, inspect F027, Jiang Chen's snapshot, and the Chapter 10 timeline events. Submit a Chapter 10 `mode=revision` transaction that preserves the manuscript facts: the professional remake lacked the original's spirit, and Zhang Yaozu chose to continue using the phone-shot version. The author timeline may retain Zhong Jiajia's unrevealed development plan, but the reader view may contain only conclusions revealed at the screening. Run `tracking_commit.py check` after submission to verify that chapter deltas, character snapshots, foreshadowing, and both timeline views agree.
 
 ### Wrong
 ```

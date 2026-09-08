@@ -77,6 +77,22 @@ Standards for outline files.
 ## 本卷反转
 第18章：暗卫首领竟是沈栀失散多年的兄长（身份反转，误导路径：首领屡次针对沈栀）
 ```
+
+#### English guide (non-executable)
+
+- **Volume Outline — Volume One**
+- **Core information:** Chapters 1–30; target length 90,000 Chinese characters; purpose: setup.
+- **Volume contract and endgame reserves:** Shen Zhi rises from oppression and earns entry into the covert guard, while her mysterious origins remain an expectation debt.
+- **Primary progression:** combat strength advances from spiritual-power tier three to tier five.
+- **Results:** she receives an official covert-guard position and establishes trust with her mentor.
+- **Protected endgame material:** the mentor's true identity and the complete ancient mirror must not be revealed.
+- **Plot unit L1-1:** Chapters 1–12; complete its remaining fields from the `story-long-write` plot-unit-card template.
+- **Core conflict:** Shen Zhi must qualify for the covert guard before the family purge.
+- **Emotional arc:** oppression → low point → awakening → eruption → afterglow.
+- **Character arc:** Shen Zhi moves from endurance to active resistance.
+- **Foreshadowing:** the ancient-mirror fragment is planted in Chapter 8 for Volume Two; the mentor's identity is planted in Chapter 12 for Volume Three.
+- **Reversal:** in Chapter 18, the covert-guard leader is revealed as Shen Zhi's long-lost brother.
+
 All required items are present, endgame trump cards have explicit boundaries, and every setup has a clear payoff plan.
 
 ### Wrong — Volume Outline Missing Required Items
@@ -87,4 +103,12 @@ All required items are present, endgame trump cards have explicit boundaries, an
 ## 爽点节奏
 每5章一个大爽点。
 ```
+
+#### English guide (non-executable)
+
+The protected example says only:
+
+- **Volume goal:** Shen Zhi joins the covert guard.
+- **Payoff rhythm:** one major payoff every five chapters.
+
 The volume contract and endgame reserves, plot unit cards, and other required items are absent. Plot unit cards govern gratification pacing; do not impose a fixed “one major gratification beat every N chapters” cycle. Fast-paced platforms retain only the chapter-level minimum that “every chapter must advance a visible event or gratification beat.” For existing projects, a legacy volume outline in this form falls back under Rule 8 without blocking or automatic rewriting.

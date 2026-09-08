@@ -112,6 +112,34 @@
 - {对标书的明显缺陷或不适合当前项目的技法。可选段落，可空。}
 ```
 
+### English guide (non-executable)
+
+The protected template above uses these operational headings and fields:
+
+| Chinese literal | English meaning |
+|---|---|
+| `{书名} 文风` | `{Book Title} Style Profile` |
+| `生成记录` | Generation record |
+| `参考资料` / `抽样章节` / `生成时间` | Reference materials / sampled chapters / generation time |
+| `适用对标书路径` / `文风可用` | Applicable benchmark path / style profile usable |
+| `整体语感` | Overall prose feel |
+| `句长分布` / `标点习惯` / `段落节奏` | Sentence-length distribution / punctuation habits / paragraph rhythm |
+| `对话技法` | Dialogue techniques |
+| `潜台词模式` / `对话标签习惯` / `角色语气区分` | Subtext patterns / dialogue-tag habits / character-voice differentiation |
+| `情绪交替模式` | Emotional-alternation patterns |
+| `章内基调切换` / `跨章基调周期` | Within-chapter tone shifts / cross-chapter tone cycles |
+| `喜剧↔重击的转场手法` | Transition technique from comedy to emotional impact |
+| `可借鉴技巧` | Reusable techniques |
+| `写法技巧 Top 5` / `可借鉴套路 Top 3` | Top five writing techniques / top three reusable patterns |
+| `分层模仿建议` | Tiered imitation guidance |
+| `基础层` / `进阶层` / `适配层` | Foundation / structural / project-adaptation tiers |
+| `原文锚点片段` | Source-text anchor passages |
+| `出处` / `示范点` | Source location / technique demonstrated |
+| `紧张` / `悲伤或压抑` / `轻松或温馨` / `热血或爽点` | Tension / sadness or oppression / lightness or warmth / high-energy payoff |
+| `不可模仿` | Elements that must not be imitated |
+
+Each anchor passage contains 300–500 Chinese characters from the source manuscript. Select four to six passages representing tones that both matter to the current project and have adequate evidence in the benchmark. If the benchmark lacks a tone, record that the sample is insufficient and skip it; never fabricate an example.
+
 ## Semantics of the confidence Field
 
 | Value | Trigger condition | Downstream handling |
