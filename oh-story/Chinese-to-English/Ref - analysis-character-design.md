@@ -50,6 +50,8 @@ From a reader’s perspective, the patterns here are industrial conventions for 
 内核行为：悄悄录音、收集证据、提前转移财产
 ```
 
+**English guide (non-executable):** Identity label: abandoned wife of a wealthy family. Surface behavior: she does not answer insults or resist being expelled. Core behavior: she secretly records conversations, gathers evidence, and moves assets in advance.
+
 ---
 
 ## Advanced Three-Layer Behavioral Contrast

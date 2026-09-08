@@ -57,6 +57,8 @@ If either of two genres can be removed without affecting the main plot, genre ev
 不确定项：{证据不足/待复核}
 ```
 
+**English guide (non-executable):** Primary genre; optional secondary genre; location-specific evidence; which conflict owns the climax and resolution; observed functions matching common patterns without pass/fail grading; how the source departs from or modifies those patterns; and uncertain items requiring more evidence or review.
+
 ## Failure Checks
 
 - Do not treat recommended proportions, a fixed number of sections, or a particular platform template as conditions for a genre to qualify.

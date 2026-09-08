@@ -44,6 +44,8 @@ From a reader’s perspective, the patterns here are industrial conventions for 
 口头禅/标志动作：（让读者秒认的标签）
 ```
 
+**English guide (non-executable):** Name; gender; story function; identity label; three to five memorable appearance traits; three to five contradictory personality keywords; end-of-book objective; emotionally driven core motivation; fatal personality flaw; and a signature phrase or action. The protected examples include “struggling university student,” “former special-forces soldier,” and “fallen prince.”
+
 ### Design Essentials
 
 - Motivation must operate at the emotional level—“avenge their mother” is stronger than “become the strongest.”
@@ -65,6 +67,8 @@ From a reader’s perspective, the patterns here are industrial conventions for 
 标志性特征：（一句话让读者记住）
 退场方式：（何时/如何退出故事）
 ```
+
+**English guide (non-executable):** Name; gender; supporting-character function (mentor, ally, information source, sacrifice, or mirror); relationship to the protagonist; one or two core traits; one memorable identifying feature; and when or how the character exits the story.
 
 ### Design Essentials
 
@@ -162,6 +166,8 @@ Apply these in order; none may be omitted:
 风险（Risk）     → 失败的代价是什么
 ```
 
+**English guide (non-executable):** Cause → what the character experienced; Intent → what the character wants to do; Constraint → what obstructs the character; Risk → the cost of failure.
+
 **Example**:
 ```
 起因：母亲被仇家杀害
@@ -169,6 +175,8 @@ Apply these in order; none may be omitted:
 约束：凶手是当朝权臣，主角只是平民
 风险：复仇失败会被灭门，复仇成功会失去所有现有生活
 ```
+
+**English guide (non-executable):** The character's mother was killed by an enemy; the character intends to find and avenge the killer; the killer is a powerful court official while the protagonist is a commoner; failure would destroy the family, while success would cost the protagonist their existing life.
 
 ### 4.2 Motivation-Chain Design Essentials
 

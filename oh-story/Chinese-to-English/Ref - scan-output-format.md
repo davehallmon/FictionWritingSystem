@@ -37,6 +37,8 @@ Rank | Book title | Author | Genre | Status | Contract status | Payment model | 
 {简介原文}
 ```
 
+**English guide (non-executable):** Qidian ranking name; source URL; collection time; item count; then rank, title, author, genre, publication status, contract status, free or VIP status, length in ten-thousands of Chinese characters, total recommendations, tags, latest update, work URL, and original synopsis.
+
 ### Collection Essentials
 
 The ranking page contains rank/title/author/genre/length/recommendations/contract/free-or-VIP status. The detail page must supply tags/latest update/synopsis. Group Sanjiang results by week.
@@ -85,6 +87,8 @@ Rank | Book title (must be decoded from detail page) | Author (must be decoded f
 {简介原文}
 ```
 
+**English guide (non-executable):** Fanqie channel and ranking name; channel parameters (female or male channel, new-book or reading ranking); collection time; title-parse success count; data quality; per-genre cap; then genre, rank, title, author, status, active-reader count, character count, tags, latest chapter, book ID, work URL, and original synopsis.
+
 > Title/author/genre/tags/synopsis are all optional fields: output them only when obtained from the detail page. If title decoding fails, display `（标题待解析）` as the title, but always retain bookId and the work-page link for manual verification.
 
 ### Collection Essentials
@@ -127,6 +131,8 @@ Rank | Book title | Author | Genre | Classification tags | Status | Length (10,0
 **简介**
 {简介原文}
 ```
+
+**English guide (non-executable):** Qimao male or female channel and ranking name; source, collection time, and item count; then rank, title, author, genre, category tags, status, length, popularity, latest update, work URL, and original synopsis.
 
 ### Collection Essentials
 
@@ -171,6 +177,8 @@ Channel | Rank | Book title | Author | novelid | Favorites (core metric) | Nutri
 *{作者} · 收藏 {X} · 营养液 {Y} · 积分 {Z} · 字数 {W}字 · {状态}*
 [作品页](https://www.jjwxc.net/onebook.php?novelid={id})
 ```
+
+**English guide (non-executable):** Jinjiang ranking name; source URL; collection time; channel and total-item counts; detail-collection success and plan counts; data quality; then each channel's item count and, for every work, rank, title, author, favorites, nutrient-solution count, points, character count, status, and work URL.
 
 ### Collection Essentials
 

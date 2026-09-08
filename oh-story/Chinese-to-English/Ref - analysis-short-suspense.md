@@ -16,6 +16,8 @@ Before analysis, state clearly:
 最终答案：{位置与改变的判断}
 ```
 
+**English guide (non-executable):** Main question—the question the complete story must answer; secondary question—an evidence, relationship, or motive question serving the main question; what the reader knows first; what the character knows first; and the final answer, including where it appears and how it changes the prior judgment.
+
 ## Three Scales of Observation
 
 | Scale | Object of observation | Resolution test |
@@ -89,6 +91,8 @@ If consecutive delays merely declare “there is a greater secret,” report cir
 回收评价：{事实、公平性、行动、情绪、代理权}
 证据不足：{无法从源文确认的项}
 ```
+
+**English guide (non-executable):** Main suspense; secondary suspense and its service to the main question; information gap; evidence-release sequence; provisional answers; what each delay concretely delivers; payoff evaluation across fact, fairness, action, emotion, and agency; and items unsupported by source evidence.
 
 ## Boundaries
 

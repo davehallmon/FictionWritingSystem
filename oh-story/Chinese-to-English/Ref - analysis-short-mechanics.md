@@ -12,6 +12,8 @@ Express it in one sentence:
 当 {触发条件} 出现，角色通过 {关键选择/手段} 获得 {局部结果}，同时承担 {限制/代价}；终局由 {不可逆选择} 结算。
 ```
 
+**English guide (non-executable):** When {trigger condition} occurs, the character obtains {local result} through {key choice or method} while accepting {constraint or cost}; the ending is settled by {irreversible choice}.
+
 ## Mechanism Evidence Matrix
 
 | Dimension | Observational question | Evidence required |
@@ -73,6 +75,8 @@ If a system, ally, antagonist confession, or coincidence supplies every crucial 
 可复用功能：{抽象功能}
 失败条件：{移植时最容易失效的因果}
 ```
+
+**English guide (non-executable):** Core mechanism; ordered evidence of inputs, outputs, and costs; bounded reproduction type; rule consistency; protagonist ownership of acquisition, verification, interpretation, and use; whether the mechanism exits at the ending and human choice takes over; reusable abstract function; and the causal link most likely to fail when transferred.
 
 ## Boundaries
 

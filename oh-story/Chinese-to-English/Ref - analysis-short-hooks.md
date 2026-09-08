@@ -16,6 +16,8 @@ Record each candidate point:
 后续回应：{位置与交付}
 ```
 
+**English guide (non-executable):** Location (paragraph, section, or paywall break); what was known before the boundary; what the boundary adds through action, evidence, relationships, risk, or choice; the reader's new question; and where and how the story later answers it.
+
 ## Functional Types
 
 | Type | Observable change | Common false positive |
@@ -68,6 +70,8 @@ A paywall break is a commercial position; a hook is a narrative function. Neithe
 付费断点：{已知/候选/证据不足}
 弱边界或假钩子：{位置与原因}
 ```
+
+**English guide (non-executable):** Key hook and boundary change; reader's new question; later response and delivery; causal continuity or break in the hook chain; known, candidate, or unsupported paywall break; and weak boundaries or false hooks with their locations and reasons.
 
 ## Boundaries
 

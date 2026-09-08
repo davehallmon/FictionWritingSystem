@@ -51,6 +51,8 @@ Cross-book recall output must include:
 | {书名} | 辅/参考 | 同题材/弱相关 | 设定/大纲/模块 | {n} | {用于补充某类结构，不进入文风/原文锚点} |
 ```
 
+**English guide (non-executable):** Secondary-Benchmark Recall Summary. Columns: book title; reference strength (supporting or reference); relevance (same genre or weakly related); recall stage (setting, outline, or module); recalled-entry count; and use. Use secondary material to supplement a structural function, not as a style or source-text anchor.
+
 When there are many secondary books, output only entries actually recalled during this stage. A secondary book not recalled has not been deleted; it simply did not match within this stage's budget. During the manuscript stage, the table may be passed in as a structural/emotional/setting reference, but the boundary “secondary books do not enter style or source-text anchors” must remain intact.
 
 ## Analysis Fields → Writing References

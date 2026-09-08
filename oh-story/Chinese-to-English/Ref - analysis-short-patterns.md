@@ -35,6 +35,8 @@ First segment the source by actual function, then determine which pattern it mos
 偏离效果：{改善/削弱了哪种期待，附证据}
 ```
 
+**English guide (non-executable):** Actual functional segments from the source without assuming a fixed count; closest pattern; evidence for prerequisites and key turns; action or relationship consequences; functions the source added, removed, or reordered; and evidence showing which expectation the departure strengthened or weakened.
+
 ## Comparing Common Patterns
 
 - Describe structure through actual paragraphs and sections. You may report each source segment's actual percentage of the whole, but do not judge validity against recommended percentages.
