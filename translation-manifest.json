@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T03:29:34.585Z",
+  "generated_at": "2026-09-08T03:57:46.913Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 77,
-    "remaining": 85,
+    "translated": 78,
+    "remaining": 84,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -168,7 +168,7 @@
       "chinese_characters": 2547,
       "latin_characters": 747,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - continuity-delta.md",
