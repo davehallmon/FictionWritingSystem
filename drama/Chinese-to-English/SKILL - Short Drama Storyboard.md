@@ -15,6 +15,8 @@ Use a level-two heading, `## SHOT-...`, for each shot, and place the starting-fr
 用 $short-drama-storyboard 完成 EP001 的正式分镜和每镜冻结关键帧
 ```
 
+**English guide (non-executable):** Use $short-drama-storyboard to complete EP001's production storyboard and frozen keyframe for every shot.
+
 ## Entry Point
 
 The current screenplay plus the required visual facts are enough to begin. Asset image prompts and storyboarding are sibling branches; neither waits for the other. Compare coverage approaches in context only when a key scene genuinely supports multiple viable directing approaches. Design ordinary scenes directly.

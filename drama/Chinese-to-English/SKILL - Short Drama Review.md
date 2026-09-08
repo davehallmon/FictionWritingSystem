@@ -29,6 +29,8 @@ Recommended structure for review Markdown:
 - 规则：SHT-01 · reviewed_invariant
 ```
 
+**English guide (non-executable):** EP001 review. Scope: screenplay, storyboard, and video prompts. Verdict: revise. Review method: independent reviewer or self-review. Blocker REV-001 says on-screen text from screenplay scene EP001-SC002 is not represented by storyboard shot SHOT-EP001-004. The storyboard owner must add the exact text and conditions that make it readable under rule SHT-01.
+
 Citations use only filenames, heading IDs, line numbers, or short quotations. Do not create source declarations, hashes, record IDs, or a second state system.
 
 ## Select the Review Scope
@@ -81,6 +83,8 @@ Every finding includes: location; a necessary short quotation or conflicting fac
 ```text
 剧本事实 -> 视觉设定 -> 镜头职责与边界 -> 冻结关键帧 -> 视频运动 -> 下一状态
 ```
+
+**English guide (non-executable):** Screenplay facts → visual specification → shot responsibility and boundaries → frozen keyframe → video motion → next state.
 
 Prioritize preservation of intent, timing of audience knowledge, and continuity. Do not reward ornate prompts that depart from the source.
 

@@ -41,24 +41,34 @@ Requests require no fixed wording, and skills do not depend on keyword matching.
 写 EP001 的分镜和每镜冻结关键帧。目标视频模型是 MiniMax H3，先把它写进项目档案。
 ```
 
+**English guide (non-executable):** Write EP001's storyboard and frozen keyframe for every shot. The target video model is MiniMax H3; record that in the project profile first.
+
 ```text
 EP001 分镜确认采用，按 MiniMax H3 写视频提示词。人物、场景、道具要跨镜一致，
 所以先在项目里找已有的角色图、场景图、道具图和本镜起始帧并绑成参考；缺哪张就列出来，别改成文生视频。
 ```
+
+**English guide (non-executable):** The EP001 storyboard is accepted. Write MiniMax H3 video prompts while preserving characters, locations, and props across shots. First find and bind the project's existing character, location, prop, and shot-start images; list anything missing instead of silently switching to text-to-video.
 
 ```text
 EP001 的角色图和场景图在 输入/参考图/ 下，本镜起始帧在 剧集/EP001/制作成果/images/ 下，
 请按这些图写 MiniMax H3 的图生视频提示词，逐镜说明送哪一张起始帧、哪些人物/道具/场景图。
 ```
 
+**English guide (non-executable):** EP001's character and location images are under `输入/参考图/`; each shot's start frame is under `剧集/EP001/制作成果/images/`. Write MiniMax H3 image-to-video prompts from those assets and identify the start frame and character, prop, and location references supplied for each shot.
+
 ```text
 参考图我自己在 MiniMax 的界面里出，不进项目。EP001 按 H3 写视频提示词，
 逐镜告诉我要挂哪几张图、按什么顺序挂、每张管什么。
 ```
 
+**English guide (non-executable):** I will create the reference images in MiniMax and will not add them to the project. Write H3 video prompts for EP001 and, for every shot, specify which images I should attach, their order, and what each controls.
+
 ```text
 这一集没有也不打算做参考图，明确走文生视频，静态视觉锚点写足。
 ```
+
+**English guide (non-executable):** This episode has no reference images and none are planned. Explicitly use text-to-video and write complete static visual anchors.
 
 Four facts are worth stating in one request: **which stage of which episode to perform**, **the target video model**, **where reference images are or that they do not yet exist**, and **what to do when no images exist**. If one of the first three is missing, the skill asks or proceeds under the accepted profile. It never assumes the final fact for the creator. That fourth fact has three possible answers: wait for images; have the creator produce them elsewhere and attach them (written as `PLAN-...`); or explicitly use text-to-video. If none is specified, treat the project as still waiting for images.
 

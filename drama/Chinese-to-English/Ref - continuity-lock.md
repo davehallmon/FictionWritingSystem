@@ -61,6 +61,8 @@ Write the lock beneath the corresponding asset entry in `视觉设定.md`, along
 - 连续性锁：LOCK-KNIT《织了一半的毛衣》（镜头：全集；图片提示词项：IMG-PROP-KNIT）· 锁面：pale blue chunky knit wool sweater
 ```
 
+**English guide (non-executable):** Prop: a half-knitted sweater. Identity anchors: pale-blue chunky hand-knit wool, two bamboo needles, and a body knitted only to chest length. From SC002 onward, the body grows by roughly one handspan while color and stitch pattern remain unchanged. Continuity lock `LOCK-KNIT` applies to the full episode and image-prompt item `IMG-PROP-KNIT`; the locked English surface is “pale blue chunky knit wool sweater.”
+
 - Whether the list marker is `-`, `*`, or `+`, and the amount of indentation, does not affect recognition. A line that resembles a lock but is incomplete is reported as a syntax error rather than silently skipped—a lock cannot become inert.
 - `LOCK-...`: the episode's unique stable ID, not interchangeable with `IMG-...`, `REF-...`, or `SHOT-...`.
 - `《中文名》`: the creator-facing name, which must contain Chinese.
@@ -93,5 +95,7 @@ State changes do not enter the lock surface. Put the sweater's increasing length
 ```bash
 python3 <core 技能目录>/scripts/creator_markdown_check.py 剧集/<EP> --project-root .
 ```
+
+**English guide (non-executable):** Replace `<core 技能目录>` with the core skill directory and `剧集/<EP>` with the episode directory before running the check.
 
 The validator checks only syntax, parseable scope, and whether the lock surface truly occurs in every named body. Whether a lock is warranted and whether its surface is accurate remain creative and review judgments.

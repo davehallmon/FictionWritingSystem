@@ -109,6 +109,8 @@ CHAR-A 与 CHAR-B 最易混：两条参考同为中低音区、语速偏慢。
 区分判据：A 句尾收住不拖长；B 句尾常带一段下滑的余音。
 ```
 
+**English guide (non-executable):** CHAR-A and CHAR-B are easiest to confuse because both references use a low-to-mid register and slow pace. Distinguish them by sentence endings: A stops cleanly without prolonging the final sound; B often trails into a downward aftertone.
+
 If this distinction cannot be written, the two references are effectively the same voice—the audience will not know who is speaking.
 Text review cannot expose this problem; it is heard only in the finished production. Return to the creator and replace one reference
 instead of pretending that stacked adjectives create a distinction.

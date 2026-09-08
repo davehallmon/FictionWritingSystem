@@ -151,6 +151,21 @@ End the chapter without revealing the choice.
 ```
 > Three minutes and three seconds later, Jiang Yiyao walked calmly out of the room and straightened her slightly disheveled clothes.
 
+### English guide (non-executable)
+
+The ten protected formulas use these placeholders:
+
+1. **System activation:** at the protagonist's lowest point; a sensory detail; “Ding!”; the named system formally activates.
+2. **Suspenseful foreknowledge:** the protagonist watches the opponent's arrogance calmly or coldly; a short “go on,” “take your time,” or “no hurry”; then a reversal is foreshadowed without revealing details.
+3. **Cutoff:** a small action; a violent reaction; then shock or a question that ends the chapter without an answer.
+4. **Choice:** option one and option two, each with an enticing reward and hidden risk; do not reveal the choice.
+5. **Escalating crisis:** a sudden sound or action; a new threat; the protagonist's fearful or urgent reaction.
+6. **Imminent identity reveal:** an observer notices a clue; a line hints at the protagonist's real identity; others dismiss it while the protagonist becomes privately tense.
+7. **Emotional turn:** a character's expression or attitude changes; an unexpected plea or vulnerable action; a line strikes the protagonist's emotional weak point.
+8. **Information gap:** the protagonist's self-doubt or reflection; an image or metaphor; an unstated suggestion that change is coming.
+9. **Suspenseful dialogue:** the first half of a request; the other person's response; then an unexpected completion.
+10. **Time jump:** a precise or approximate time marker; an unexpected result; one sentence implying the unseen process.
+
 ---
 
 ## Three Quick-Sketch Chapter-Ending Hooks
@@ -175,6 +190,12 @@ End the chapter without revealing the choice.
 {一个准备动作}。
 {暗示即将发生的行动}。不写结果。
 ```
+
+**English guide (non-executable):**
+
+- **Reward preview:** the current action nears completion; imply the coming reward; then suggest that it exceeds expectations.
+- **Approaching antagonist:** state the protagonist's current condition; show an antagonist acting elsewhere or in secret; imply that the action will affect the protagonist.
+- **Action preview:** the protagonist decides; performs a preparation; and signals the coming action without revealing its result.
 
 ---
 
