@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-08T02:18:02.424Z",
+  "generated_at": "2026-09-08T02:20:38.490Z",
   "source_branch": "translation/chinese-to-english",
   "source_commit": "82c7501fe2da2ee1364c9bbdc9220ffbc59493fe",
   "roots": [
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 58,
-    "remaining": 104,
+    "translated": 59,
+    "remaining": 103,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -344,7 +344,7 @@
       "chinese_characters": 1800,
       "latin_characters": 447,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "drama/Ref - reference-roles.md",
