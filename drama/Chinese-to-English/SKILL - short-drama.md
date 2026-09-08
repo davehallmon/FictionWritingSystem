@@ -61,6 +61,8 @@ When project configuration is needed, run:
 python3 {技能目录}/scripts/project_tool.py init ./my-drama --title "示例短剧"
 ```
 
+**English guide (non-executable):** Replace `{技能目录}` with the skill directory. The sample title means “Example Short Drama.”
+
 If the direct input already confirms the creator-facing language, prompt language, aspect ratio, episode count, or target duration per episode, the first `init` should pass the corresponding
 `--language`, `--prompt-language`, `--aspect-ratio`, `--episode-count`, and `--target-seconds` options. Omit only unconfirmed values; do not leave confirmed Brief facts as `null` in configuration. When writing a confirmed production profile, always set its state to
 `accepted`; `unset` means only undecided and does not imply an intermediate state.
@@ -84,6 +86,8 @@ python3 {技能目录}/scripts/project_tool.py set-authority <project> \
   --decision-ref "创作者决策/production-profile.jsonl#CD-H3"
 ```
 
+**English guide (non-executable):** The protected paths use `创作者决策/` for creator decisions and `输入/` for input files; retain them exactly.
+
 The matching model dialect defines each field’s value. The MiniMax H3 and Seedance dialect files in `$short-drama-video-prompts` both contain recommended profiles.
 After writing, use `status` to verify that `video_model_profile` appears.
 
@@ -101,6 +105,8 @@ The link therefore remains available throughout the creative process. The live a
 python3 {技能目录}/scripts/dashboard_server.py --workspace <workspace> --status   # 打印当前链接
 python3 {技能目录}/scripts/dashboard_server.py --workspace <workspace> --stop     # 停止
 ```
+
+**English guide (non-executable):** The comments mean “print the current link” and “stop.”
 
 If a Dashboard is already running for the same workspace, starting it again prints the same link rather than opening a second port. Add `--restart` only when the port or token truly must change. Without `--detach`, behavior is unchanged: it runs in the foreground and Ctrl-C stops it.
 
@@ -131,6 +137,8 @@ When the user asks “how do I export/deliver the completed work?”, use `expor
 ```bash
 python3 {技能目录}/scripts/project_tool.py export <project> --out <项目外目录>
 ```
+
+**English guide (non-executable):** Replace `<项目外目录>` with a directory outside the project.
 
 It copies the five existing creative documents from every episode and `剧集/<EP>/制作成果/` into `--out`, adds `manifest.json` and
 `checksums.sha256`, and excludes `输入/`, `交付/`, and `.short-drama/`. To include only some episodes, repeat

@@ -115,6 +115,8 @@ git rev-parse HEAD                      # 记下来，写进这次实跑的报�
 git worktree add /tmp/eval-run <commit> # 在这份固定副本上跑，不要用正在改的工作区
 ```
 
+**English guide (non-executable):** Record the current `HEAD` in the real-run report, then create `/tmp/eval-run` at that fixed commit. Run the evaluation in the fixed copy, not in the worktree being edited.
+
 Without pinning, the run is not reproducible: while friction is being recorded, the documented version under observation may already have changed,
 making it impossible to identify which version owns the reported issue. This is not theoretical: the v0.5.0 live run crossed
 three HEADs, and one finding had to be withdrawn because the defect was fixed at the same time it was encountered.

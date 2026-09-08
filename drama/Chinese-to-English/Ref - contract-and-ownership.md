@@ -8,6 +8,8 @@
                     \-> 明确确认后的媒体生产
 ```
 
+**English guide (non-executable):** Optional development → screenplay → visual specification → image prompts; then branch to storyboard → video prompts, or to media production only after explicit confirmation.
+
 Work may begin from any existing material. Look Development and review occur when needed. Each owner modifies only its own Markdown, may reference visible upstream facts, and must not silently rewrite them.
 
 ## Output Language

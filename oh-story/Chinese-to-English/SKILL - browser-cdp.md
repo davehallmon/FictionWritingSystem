@@ -33,6 +33,8 @@ CDP_URL=http://127.0.0.1:9222/json/version
 BROWSER=Chrome/148.0.7778.168
 ```
 
+**English guide (non-executable):** `CDP_STATUS=ready` means the browser is ready and the existing session can be reused directly.
+
 Or:
 
 ```
@@ -40,6 +42,8 @@ CDP_STATUS=needs-setup
 CHROME_RUNNING=yes                      # 用户有 Chrome 在跑，启动会杀掉
 CHROME_PID_COUNT=3
 ```
+
+**English guide (non-executable):** `CHROME_RUNNING=yes` means Chrome is already running and the setup action would terminate it.
 
 **Step 2: Branch according to detection results**
 
@@ -104,6 +108,8 @@ links.length;
 EOF
 ```
 
+**English guide (non-executable):** Method 1 wraps the JavaScript in Base64. Method 2 supplies it through a heredoc and `--stdin`.
+
 ### Page Interaction (Use a Snapshot to Obtain Element References)
 
 ```bash
@@ -111,6 +117,8 @@ agent-browser --cdp 9222 snapshot -i        # 仅交互元素
 agent-browser --cdp 9222 click "<CSS or @e1>"
 agent-browser --cdp 9222 type "<sel>" "<text>"
 ```
+
+**English guide (non-executable):** The `snapshot -i` command returns interactive elements only.
 
 ---
 
@@ -141,11 +149,15 @@ else { Receive-Job $job }
 Remove-Job $job -Force
 ```
 
+**English guide (non-executable):** The protected timeout message means: “CDP operation timed out after 30 seconds; retry or interrupt it manually.”
+
 On macOS / Linux, use the `timeout` command:
 
 ```bash
 timeout 30 agent-browser --cdp 9222 eval "window.location.replace('https://www.qidian.com/rank/')" || echo "⏱ CDP 操作超时（30s），请重试或手动打断"
 ```
+
+**English guide (non-executable):** The fallback message means: “CDP operation timed out after 30 seconds; retry or interrupt it manually.”
 
 ### Known Limitations
 

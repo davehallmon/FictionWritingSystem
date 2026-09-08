@@ -19,6 +19,8 @@ python3 {技能目录}/scripts/selftest.py
 python3 {技能目录}/scripts/novel_index.py index <原著.txt> --out <chapter-index.json>
 ```
 
+**English guide (non-executable):** Replace `{技能目录}` with the skill directory and `<原著.txt>` with the source-novel text file.
+
 ## Before Starting
 
 This skill can be installed and run independently. First read the source work explicitly supplied by the user and the direct inputs to this task. If the current directory is a `short-drama` project and the project tools are available, you may read `status` and use its publishing lifecycle, but missing core or any other skill does not block analysis. See the [Stage Contract](references/stage-contract.md) for the full boundaries and rules; no files from other skills need to be read.
@@ -66,6 +68,8 @@ python3 {core 技能目录}/scripts/project_tool.py publish {项目根} \
   --output 项目开发/source-analysis/_index.json=项目开发/source-analysis/_work/_index.next.json \
   --input 输入/{原文文件}
 ```
+
+**English guide (non-executable):** The protected paths mean: source file under `输入/`; temporary and accepted indexes under `项目开发/source-analysis/`; project root at `{项目根}`. The comment marks the `project_tool.py publish` step as optional when the project tool is available.
 
 The script recognizes Arabic and Chinese chapter numbers—including 千 / 两 for serials exceeding a thousand chapters—and recognizes **only one numbering unit**: whichever of 章/回/节 occurs most often. It records the others under `ignored_heading_units`. It treats only **short standalone lines** as headings, records prose paragraphs beginning with chapter numbers in `long_heading_lines_skipped`, removes opening table-of-contents blocks, and validates numbering separately by volume. It **does not make editorial judgments** about which chapter matters or what happens in it; those belong to later stages.
 

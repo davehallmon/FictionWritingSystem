@@ -70,6 +70,8 @@ Extract the story core, structural divisions, character analysis, and other fiel
 - 关系：{他们之间的关系}
 ```
 
+**English guide (non-executable):** Short-Fiction Core Framework. Record the title, actual source length, target platform or `[待补充]` (“to be completed”), and intended reader emotion. Add a one-sentence premise combining protagonist, predicament, reversal, and emotional landing. Record reversal type and content, at least three setup clues, opening/middle/reversal/ending emotions with intensity, and concise sketches of the protagonist, key characters, and their relationships.
+
 > Add the `[待补充]` marker to every uncertain field; do not leave fields blank.
 
 ### Section Two: Continuation Baseline for This Book
@@ -91,6 +93,8 @@ Extract information from `拆文库/{导入书名}/拆文报告.md` and `写作�
 ### 可复用写作手法
 {从写作手法.md 或拆文报告「可复用结构」字段提取，≥3 条}
 ```
+
+**English guide (non-executable):** Continuation Baseline for This Book. Summarize story structure from the decomposition report's functional segments; emotional rhythm and peaks; the core reversal mechanism and setup path; and at least three reusable writing techniques supported by `写作手法.md` or the report's reusable-structure field.
 
 ---
 
@@ -120,6 +124,8 @@ Extract the functional segmentation structure from `情节节点.md` and map it 
 - 章尾钩子：[待补充]
 - 参考字数：{按原文对应段落字数估算}
 ```
+
+**English guide (non-executable):** Opening segment, Section 1. Record the core event extracted from the corresponding plot nodes, target emotion from the emotional curve, opening and closing hooks as `[待补充]`, and an approximate length based on the corresponding source passage.
 
 > Mark hook fields `[待补充]`—they cannot be extracted reliably, so leave them for the user or for continuation writing.
 
@@ -158,6 +164,8 @@ Only when the user explicitly binds an independent external `{对标书名}`, co
 ├── 写作手法.md
 └── _meta.json
 ```
+
+**English guide (non-executable):** Under `{Title}/对标/{Benchmark Title}/`, retain the protected directories and files for source text, decomposition report, plot nodes, writing techniques, and metadata.
 
 This view is optional and must not be created when there is no external benchmark. Before copying, confirm that the source is `拆文库/{对标书名}/`; never use `拆文库/{导入书名}/` or this story's `设定.md` to populate it.
 

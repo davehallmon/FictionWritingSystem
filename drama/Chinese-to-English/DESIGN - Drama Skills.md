@@ -17,6 +17,8 @@ Creators work on one page:
 待办提示与导出提示
 ```
 
+**English guide (non-executable):** Project title and status; content table of contents and current document; pending-action and export guidance.
+
 The product has one page and one always-visible reading area. It does not provide tabs,
 pop-up document viewers, an advanced mode,
 engineering mode, raw-file view, lifecycle panel, or technical report entry.
@@ -47,6 +49,8 @@ navigation.
 ├── 当前正文（始终可见，打开项目后自动载入）
 └── 待办提示 / 导出提示
 ```
+
+**English guide (non-executable):** Short-Drama Workspace: current project and one-line status; content tree for the whole drama and EP001; story and screenplay; characters and scenes; storyboard images; generation copy; always-visible current document; and pending-action or export guidance.
 
 The interface never uses a filesystem tree as navigation. Markdown, structured
 records, images, and video are rendered as creator-facing documents, cards, or
@@ -129,6 +133,8 @@ The target public handoff is:
 │   └── EP001-审查.md
 └── 导出/
 ```
+
+**English guide (non-executable):** Project directory with source materials; per-episode screenplay, visual specification, storyboard, image prompts, and video prompts; episode review output; and exports.
 
 The Dashboard classifies the five Chinese document names into story, cast, storyboard,
 and prompt groups, opens `剧本.md` first, and derives episode progress from visible files.

@@ -79,6 +79,8 @@ After routing, the skill loads its own references. “Out-of-scope boundary” i
 → 题材卡、形态卡与通用叙事手感
 ```
 
+**English guide (non-executable):** Creator-accepted facts, ending promises, and adaptation boundaries → the accepted episode contract, entry and exit states, and setup/payoff obligations → each skill's `stage-contract` rule table → genre cards, format cards, and transferable narrative feel.
+
 Rule IDs use stable prefixes: `STY` development, `SCR` screenplay, `AST` assets, `IMG` image prompts,
 `SHT` storyboard/keyframes, `VID` video prompts, `CON` continuity, and `REV` review. IDs are unique across the suite.
 The skill owning a prefix maintains its rule text; the core no longer duplicates it. `CON` is shared by assets, storyboards, and video prompts,

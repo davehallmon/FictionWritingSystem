@@ -22,6 +22,8 @@ skills/
 scripts/                       # 开发守卫 / 测试 / 代码生成（完整索引见 scripts/README.md）
 ```
 
+**English guide (non-executable):** The `skills/` entries route the toolkit, deploy environments, import projects, write/analyze/scan long and short fiction, remove AI-sounding prose, review stories, generate covers, and control a browser. `scripts/` contains development guards, tests, and code generation; see `scripts/README.md` for the full index.
+
 Each skill consists of a `SKILL.md` entry point and a `references/` knowledge-base directory.
 
 ## Feedback and Requests
@@ -44,6 +46,8 @@ description: "一句话描述。触发方式：/skill-name、触发词1、触发
 metadata: {"openclaw":{"source":"https://github.com/zenstory-ai/oh-story-claudecode"}}
 ---
 ```
+
+**English guide (non-executable):** The description placeholder means: “One-sentence description. Triggers: /skill-name, trigger phrase 1, trigger phrase 2.”
 
 For OpenClaw compatibility, frontmatter must keep one key-value pair per line: `description` must not use a `|`/`>` block, and `metadata` must be a single-line JSON object. Put longer trigger guidance in the body.
 
@@ -142,6 +146,8 @@ bash scripts/test-opencode-cli-e2e.sh
 OPENCLAW_REAL_CHECK=1 bash scripts/check-openclaw-skills.sh
 ```
 
+**English guide (non-executable):** The final group contains optional real-CLI smoke tests and requires each corresponding CLI to be installed.
+
 ## Workflow Numbering Rules
 
 When adding or adjusting workflow steps, use consecutive integers in explicit titles such as `Step 1` and `Step 2`. Do not insert steps by creating `Step 1.5` / `Phase 2.1` / `Stage 0.5`, and do not replace explicit workflow headings in `SKILL.md` with `### 2.1` or `- 2.1`. The `references/` manuals’ own sections and list numbers, such as `3.1`, are unaffected.
@@ -217,6 +223,8 @@ bash scripts/check-opencode-adapter.sh
 bash scripts/test-opencode-cli-e2e.sh  # 可选：需要本机已安装 opencode
 ```
 
+**English guide (non-executable):** `sync-opencode.py --check` validates without modifying files. The end-to-end OpenCode test is optional and requires a local OpenCode installation.
+
 The script:
 
 1. Converts Claude Code agents under `templates/agents/` to OpenCode format and writes them to `opencode/agents/`.
@@ -280,6 +288,8 @@ OpenClaw currently uses a **Phase 1 skills-only** adapter:
 bash scripts/check-openclaw-skills.sh
 OPENCLAW_REAL_CHECK=1 bash scripts/check-openclaw-skills.sh  # 本机安装 openclaw 时可选
 ```
+
+**English guide (non-executable):** The real OpenClaw check is optional when OpenClaw is installed locally.
 
 `OPENCLAW_REAL_CHECK=1` creates an isolated agent using a temporary profile and workspace, verifies that the OpenClaw CLI discovers 13 story skills under the workspace `skills/`, and removes the temporary profile afterward.
 

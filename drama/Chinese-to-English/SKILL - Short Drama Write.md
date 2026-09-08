@@ -76,6 +76,8 @@ python3 "{技能目录}/scripts/screenplay_index.py" "剧集/EP001/剧本.md" --
 python3 "{技能目录}/scripts/duration_estimate.py" "剧集/EP001/剧本.md" --index "粘贴第一条命令输出的完整路径"
 ```
 
+**English guide (non-executable):** Replace `{技能目录}` with the skill directory. The screenplay is `剧集/EP001/剧本.md`. Paste the complete temporary path printed by the first command into `--output` and `--index`; replace “episode character one/two” with the actual speaker names.
+
 The estimate is advisory, not a gate. When speaking rate or action-passage rate is absent, report only countable facts rather than guessing seconds. But when a task supplies a target runtime,
 the writer must still judge capacity through real reading and action review, then directly compress repeated beats; “seconds cannot be estimated precisely” is not a reason to ignore the target.
 
