@@ -1,6 +1,6 @@
 ---
 name: story
-description: "Main entry point for the web-fiction toolkit. Automatically routes user requests to the appropriate skill, manages author preferences, and launches the local Dashboard. Triggers: /story, $story, /story dashboard, /网文, 'I want to write a novel,' 'remember my writing preferences,' 'open the workspace,' and 'check for updates.'"
+description: "Main entry point for the web-fiction toolkit. Automatically routes user requests to the appropriate skill, manages author preferences, and launches the local Dashboard. Triggers: /story, $story, /story dashboard, /网文 ("web fiction"), 'I want to write a novel,' 'remember my writing preferences,' 'open the workspace,' and 'check for updates.'"
 metadata: {"openclaw":{"source":"https://github.com/zenstory-ai/oh-story-claudecode"}}
 ---
 # story: Web-Fiction Toolkit Router
@@ -55,7 +55,7 @@ When the user runs `/story dashboard` (`$story dashboard` in Codex), or explicit
    node "<story-skill-dir>/scripts/dashboard-server.mjs" --root "<workspace>" --open
    ```
 
-4. Wait for output containing “本机地址,” then return the complete URL to the user. Keep the service running when the tool supports background processes or a PTY. Failure to launch a browser automatically is not a service failure; still return the clickable URL.
+4. Wait for output containing “本机地址” ("local address"), then return the complete URL to the user. Keep the service running when the tool supports background processes or a PTY. Failure to launch a browser automatically is not a service failure; still return the clickable URL.
 5. The Dashboard listens only on `127.0.0.1` by default. Do not add `--allow-network` proactively, and do not expose the workspace to a local network or the public internet.
 
 The workspace recognizes the standard `拆文库/{书名}/` structure and remains compatible with the legacy `拆文库-{书名}/` structure. Writing-project detection supports both forms below:

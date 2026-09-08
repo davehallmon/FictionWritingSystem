@@ -28,7 +28,7 @@ Every genre card must answer nine questions: genre core, main-line goal, conflic
 
 ## Do Not Turn These into Hard Rules
 
-The local long-form sample does not support mechanical templates such as a fixed 50–60-character line width, a fixed 50%–60% dialogue share, global replacement of “地/得/很/像/顿号,” random inversion, three amines/eight emotions, or three reversals/four shocks. A genre card states only the scenes and emotional destinations more common to that genre; individual paragraphs still follow the detailed outline, prose style, and current scene.
+The local long-form sample does not support mechanical templates such as a fixed 50–60-character line width, a fixed 50%–60% dialogue share, global replacement of “地/得/很/像/顿号” (the literal particles pronounced *de*, “very,” “like,” and the enumeration-comma label), random inversion, three amines/eight emotions, or three reversals/four shocks. A genre card states only the scenes and emotional destinations more common to that genre; individual paragraphs still follow the detailed outline, prose style, and current scene.
 
 ---
 

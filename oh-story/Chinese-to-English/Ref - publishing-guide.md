@@ -109,6 +109,6 @@ Historical follow-up ranges may be used only as sample annotations. Do not predi
 
 Core structure: protagonist's situation → what the special advantage can do → preview of the first gratification beat. Write an advertisement, not a setting manual. State benefits concretely.
 
-**Common mistakes**: disconnected sentences with no central theme | a creative name for what is actually an ordinary points system | empty clichés such as “watch how the protagonist...” | first-person self-reference such as “俺” that breaks immersion.
+**Common mistakes**: disconnected sentences with no central theme | a creative name for what is actually an ordinary points system | empty clichés such as “watch how the protagonist...” | first-person self-reference such as “俺” (a dialectal or informal “I”) that breaks immersion.
 
 **Extracting synopsis structure**: Consult Sanjiang recommendations (qidian.com/sanjiang/) or bestselling synopses in the same genre. Extract only functional positions: problem, benefit, gratification preview, reassurance, and suspense. Do not reproduce specific plots or phrasing.

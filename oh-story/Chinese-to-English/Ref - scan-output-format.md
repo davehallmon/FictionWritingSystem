@@ -59,7 +59,7 @@ For ranking URL formats and parameter descriptions, see the “Tomato Collection
 
 Rank | Book title (must be decoded from detail page) | Author (must be decoded from detail page) | Genre (detail-page categoryV2) | Status | Current readers (core metric) | Length | Tags (【】 in synopsis) | Latest update | bookId | Work-page link | Synopsis (truncated to 100 Chinese characters)
 
-> Tomato's SSR detail page **does not provide a numeric rating**, so do not output a rating. Take the genre from detail-page `categoryV2` (the first `Name` in escaped JSON, such as “西方奇幻”); take tags from the leading `【tag+tag+...】` in the synopsis (such as “种田、慢热、西幻”). These provide genuine subgenre signals.
+> Tomato's SSR detail page **does not provide a numeric rating**, so do not output a rating. Take the genre from detail-page `categoryV2` (the first `Name` in escaped JSON, such as “西方奇幻,” meaning “Western fantasy”); take tags from the leading `【tag+tag+...】` in the synopsis (such as “种田、慢热、西幻,” meaning “farming, slow-burn, Western fantasy”). These provide genuine subgenre signals.
 
 ### Output Template
 
@@ -182,7 +182,7 @@ Channel | Rank | Book title | Author | novelid | Favorites (core metric) | Nutri
 
 ### Collection Essentials
 
-Two steps: ① obtain channel groups + titles/authors from list-page `topten.php`, taking `novelid` from each title anchor (exclude overlord-ticket records in the form “X向《书名》投了Y”); ② visit the `onebook.php?novelid=` detail page to collect the core metrics.
+Two steps: ① obtain channel groups + titles/authors from list-page `topten.php`, taking `novelid` from each title anchor (exclude overlord-ticket records in the form “X向《书名》投了Y” (“X cast Y overlord tickets for ‘Book Title’”)); ② visit the `onebook.php?novelid=` detail page to collect the core metrics.
 - **Encoding**: Jinjiang uses gb18030. The detail page must be decoded with `fetch+arrayBuffer+TextDecoder('gb18030')` (responseText from synchronous XHR is decoded as UTF-8 and becomes garbled).
 - **Field sources**: detail-page `itemprop` microdata—`collectedCount` (favorites)/`nutritionCount` (nutrient solution)/`scoreCount` (points)/`wordCount` (length)/`updataStatus` (status). These are public metrics and **do not require login**.
 - **Volume control**: retain the complete list, but fetch details only for the first `--top` books in each channel (subject to the overall `--detail-limit`), avoiding individual requests for hundreds of books across the whole site.

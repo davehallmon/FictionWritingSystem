@@ -47,7 +47,7 @@ Two apparent matches are deliberately excluded because they do not actually put 
 
 - **A match attached to another word does not count.** When the lock surface begins or ends with an alphanumeric character, an adjacent alphanumeric character or hyphen invalidates the match: `chipped white enamel mug` is not satisfied by `unchipped white enamel mug`, and `pale blue knit` is not satisfied by `pale blue knitwear-print fleece`. The lock surface must read as a complete phrase.
 - **A match inside a negative prompt does not count.** A lock surface following `no`/`not`/`without`/`avoid` or `不要`/`不能`/`没有`/`避免` means “do not show this,” the opposite of the lock's purpose. `..., no pale blue chunky knit wool
-  sweater` is not evidence that the lock surface is present. The lock surface must occur in the body that describes visible image content. “Attached to another word” applies only to ASCII words; Chinese has no word separators, so `织着浅蓝色粗棒针毛线` is a valid match.
+  sweater` is not evidence that the lock surface is present. The lock surface must occur in the body that describes visible image content. “Attached to another word” applies only to ASCII words; Chinese has no word separators, so `织着浅蓝色粗棒针毛线` (“knitted with pale-blue chunky wool”) is a valid match.
 
 ## Syntax
 

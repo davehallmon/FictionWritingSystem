@@ -233,7 +233,7 @@ Short-form deconstruction outputs `拆文报告 / 情节节点 / 写作手法`; 
 </details>
 
 <details>
-<summary>Import demo — 让你管账号，你高燃混剪炸全网 (long-form continuation project)</summary>
+<summary>Import demo — You Manage the Account—and Your High-Energy Mashup Explodes Across the Internet (让你管账号，你高燃混剪炸全网; long-form continuation project)</summary>
 
 Run `/story-setup` first, then use `/story-import` to reverse-build the author's already-published first 20 chapters (~37k Chinese chars) into a continuation-ready writing project. Continue with `/story-long-write 日更` or `/story-long-write 写第21章`:
 
