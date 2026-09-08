@@ -31,10 +31,6 @@ Follow these consistency rules whenever modifying specification, outline, or tra
 
 ### Correct
 ```
-
-**English guide (non-executable):**
-
-> Append a second F027 directly to `伏笔.md`, then manually edit `作者真相.md`, `读者已知.md`, and `上下文.md`. This creates multiple “current states” for the same foreshadowing item, leaks Zhong Jiajia's unrevealed plan into the reader view, and leaves the checkpoint unable to determine which derived files are stale.
 修订 demo 第 10 章“专业团队拍得还不如他拍得好？”后：
 1. 检查 F027、江晨快照以及第 10 章相关时间线事件
 2. 构造第 10 章 `mode=revision` 事务，保留“专业重拍版缺了灵魂、张耀祖决定继续用手机原版”的正文事实
@@ -51,3 +47,7 @@ Follow these consistency rules whenever modifying specification, outline, or tra
 直接在 `伏笔.md` 末尾追加第二条 F027，并分别手改 `作者真相.md`、`读者已知.md` 和 `上下文.md`。
 结果：同一伏笔出现多个“当前状态”，读者视图泄露钟嘉嘉的未公开安排，检查点却无法知道哪些派生文件已经失效。
 ```
+
+**English guide (non-executable):**
+
+> Append a second F027 directly to `伏笔.md`, then manually edit `作者真相.md`, `读者已知.md`, and `上下文.md`. This creates multiple “current states” for the same foreshadowing item, leaks Zhong Jiajia's unrevealed plan into the reader view, and leaves the checkpoint unable to determine which derived files are stale.
