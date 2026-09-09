@@ -52,7 +52,7 @@ The root of “nothing left to write” is exhausting two kinds of **macro resou
 
 **Two exhaustible macro resources—define at launch and unlock by volume**
 
-- **Endgame trump cards**: Primary nemesis, ultimate truth/origin, ceiling of the special advantage, final identity/status, and final confirmation of the central relationship. These are single-use resources. At launch, list them under “终局底牌与升级台阶” in `设定/题材定位.md` and mark the earliest volume/stage where each may unlock. Work backward from the endgame into volume milestones and unlock only one major milestone per volume.
+- **Endgame trump cards**: Primary nemesis, ultimate truth/origin, ceiling of the special advantage, final identity/status, and final confirmation of the central relationship. These are single-use resources. At launch, list them under “Endgame Trump Cards and Upgrade Steps” in `设定/题材定位.md` and mark the earliest volume/stage where each may unlock. Work backward from the endgame into volume milestones and unlock only one major milestone per volume.
 - **Progression steps**: Remaining tiers of realm, level, map, or faction hierarchy. At launch, perform one staircase check: number of system tiers × length spent at each tier ≥ target book length. Too few steps is a design flaw; fix it during design by extending the system or adding map layers, not by suppressing every chapter. Organize enemies, goals, and maps into **echelons** that unlock gradually. Never leap ahead to instantly defeat the top boss or resolve the ultimate objective.
 
 **Free density within a chapter or plot unit—the source of satisfaction; do not suppress it**
