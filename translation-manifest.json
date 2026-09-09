@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T05:44:06.421Z",
+  "generated_at": "2026-09-09T05:59:10.350Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "69eb0baceeba082bf1d9cc73261510a24c2593b9",
+  "source_commit": "08dc76bc2b8619248852daba36f8c50e9356ebd8",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 97,
-    "remaining": 65,
+    "translated": 98,
+    "remaining": 64,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -707,7 +707,7 @@
       "chinese_characters": 9545,
       "latin_characters": 1068,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - artifact-protocols.md",
