@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T12:14:11.580Z",
+  "generated_at": "2026-09-09T21:01:35.539Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "fa276c8d90b625605c41ecec512a869bb3d452e3",
+  "source_commit": "a9f35b7e4e0dad23b9822e40c0f9cc23543f344a",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 112,
-    "remaining": 50,
+    "translated": 117,
+    "remaining": 45,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -927,7 +927,7 @@
       "chinese_characters": 2922,
       "latin_characters": 109,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - genre-trends.md",
@@ -971,7 +971,7 @@
       "chinese_characters": 2568,
       "latin_characters": 169,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - long-emotional-methods.md",
@@ -1037,7 +1037,7 @@
       "chinese_characters": 4134,
       "latin_characters": 110,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - long-suspense.md",
@@ -1048,7 +1048,7 @@
       "chinese_characters": 4096,
       "latin_characters": 19,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - material-decomposition.md",
@@ -1059,7 +1059,7 @@
       "chinese_characters": 8634,
       "latin_characters": 517,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - opening-design.md",
