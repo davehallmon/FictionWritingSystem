@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T21:01:35.539Z",
+  "generated_at": "2026-09-09T21:17:39.769Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "a9f35b7e4e0dad23b9822e40c0f9cc23543f344a",
+  "source_commit": "55ae910392f9d23173b3f077f267d0a79e2cc8a5",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 117,
-    "remaining": 45,
+    "translated": 122,
+    "remaining": 40,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1070,7 +1070,7 @@
       "chinese_characters": 3263,
       "latin_characters": 36,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - outline-conflict.md",
@@ -1081,7 +1081,7 @@
       "chinese_characters": 4658,
       "latin_characters": 29,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - outline-methods.md",
@@ -1092,7 +1092,7 @@
       "chinese_characters": 2797,
       "latin_characters": 16,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - outline-rhythm.md",
@@ -1103,7 +1103,7 @@
       "chinese_characters": 3256,
       "latin_characters": 20,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - outline-structure-theory.md",
@@ -1114,7 +1114,7 @@
       "chinese_characters": 5856,
       "latin_characters": 110,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - output-contract.md",
