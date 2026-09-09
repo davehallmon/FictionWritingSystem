@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:58:35.162Z",
+  "generated_at": "2026-09-09T12:14:11.580Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "c1a24748a1f94258d28bca7f7318738c468c081f",
+  "source_commit": "fa276c8d90b625605c41ecec512a869bb3d452e3",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 107,
-    "remaining": 55,
+    "translated": 112,
+    "remaining": 50,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -861,7 +861,7 @@
       "chinese_characters": 3023,
       "latin_characters": 24,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - emotional-arc-design.md",
@@ -872,7 +872,7 @@
       "chinese_characters": 4019,
       "latin_characters": 38,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - emotional-methods.md",
@@ -883,7 +883,7 @@
       "chinese_characters": 2603,
       "latin_characters": 48,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - female-audience-writing.md",
@@ -894,7 +894,7 @@
       "chinese_characters": 2931,
       "latin_characters": 178,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - format-and-structure.md",
@@ -905,7 +905,7 @@
       "chinese_characters": 2681,
       "latin_characters": 97,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - genre-prose-cards.md",
