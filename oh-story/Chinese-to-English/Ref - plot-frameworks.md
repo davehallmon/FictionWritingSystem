@@ -684,7 +684,7 @@ After building a framework or writing a plot segment, use this checklist. Check 
 
 - [ ] Conflict has a clear adhesive, so readers believe the protagonist cannot leave at any moment
 - [ ] Every chapter ending gives readers a reason to continue. Use an end hook; a weak hook or stage goal is enough in low-pressure or transition chapters
-- [ ] AntAnticipation > payoff: Setup length is at least as long as release
+- [ ] Anticipation > payoff: Setup length is at least as long as release
 - [ ] When the protagonist suffers a setback, emotion recovers from another angle through deeper logic or an unexpected gain
 
 ### Satisfaction and Pace
