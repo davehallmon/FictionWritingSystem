@@ -151,7 +151,7 @@ Anticipation formula: emotion + plot (characterization + motivation) + informati
 
 ### Urban High-Concept Fiction
 
-Example: *病娇妈妈们找上门*
+Example: *My Yandere Moms Came Knocking* (*病娇妈妈们找上门*)
 
 ```
 {城市名}。
@@ -163,7 +163,7 @@ Example: *病娇妈妈们找上门*
 
 ### Wealthy-CEO Romance
 
-Example A: *禁她入骨*
+Example A: *Forbidden to the Bone* (*禁她入骨*)
 
 ```
 {极端/异国地点}。{季节}。
@@ -173,7 +173,7 @@ Example A: *禁她入骨*
 {一句话揭示谁害了她}。
 ```
 
-Example B: *不愿再让你低头*
+Example B: *I Won’t Let You Bow Your Head Again* (*不愿再让你低头*)
 
 ```
 出了{医院/法院/某场所}，{天气映射心情}。
@@ -186,7 +186,7 @@ Example B: *不愿再让你低头*
 
 ### Ancient Household Intrigue
 
-Example: *十年前他们要我顶替妹妹进青楼*
+Example: *Ten Years Ago, They Made Me Take My Sister’s Place in a Brothel* (*十年前他们要我顶替妹妹进青楼*)
 
 ```
 {N年前，被害/被弃的事件}。
@@ -198,7 +198,7 @@ Example: *十年前他们要我顶替妹妹进青楼*
 
 ### Fantasy Cultivation
 
-Example A: *西游你叫我吗喽*
+Example A: *Journey to the West: You Call Me a Monkey?* (*西游你叫我吗喽*)
 
 ```
 "{一条震惊的新闻/传闻}"
@@ -226,7 +226,7 @@ Example B (anime derivative fiction)
 
 ### Youth and Campus Fiction
 
-Example: *你携盛夏，渡我寒冬*
+Example: *You Brought Midsummer and Carried Me Through Winter* (*你携盛夏，渡我寒冬*)
 
 ```
 最{负面状态}那年，我遇到了{对方}。
@@ -239,7 +239,7 @@ Example: *你携盛夏，渡我寒冬*
 
 ### Realistic Emotional Fiction
 
-Example: *五年恩情，一朝两清*
+Example: *Five Years of Devotion, Settled in a Day* (*五年恩情，一朝两清*)
 
 ```
 {对方}{重要事件}那天，是{我们的重要日子}。
