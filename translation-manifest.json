@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T00:00:09.507Z",
+  "generated_at": "2026-09-09T05:44:06.421Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "c9b42bbcf67d7a903a4aba032fe3383951fd7908",
+  "source_commit": "69eb0baceeba082bf1d9cc73261510a24c2593b9",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 96,
-    "remaining": 66,
+    "translated": 97,
+    "remaining": 65,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -696,7 +696,7 @@
       "chinese_characters": 5681,
       "latin_characters": 125,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - anti-ai-writing.md",
