@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T06:19:42.436Z",
+  "generated_at": "2026-09-09T11:50:14.389Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "8a65e7819e084c062e0d230f6dd059494942244b",
+  "source_commit": "69b2207a13b91de3f7fcbe174472a01d06a5aaf2",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 99,
-    "remaining": 63,
+    "translated": 104,
+    "remaining": 58,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -729,7 +729,7 @@
       "chinese_characters": 1934,
       "latin_characters": 1768,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - banned-words.md",
@@ -740,7 +740,7 @@
       "chinese_characters": 2529,
       "latin_characters": 237,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - character-basics.md",
@@ -806,7 +806,7 @@
       "chinese_characters": 5637,
       "latin_characters": 55,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - cover-styles.md",
@@ -817,7 +817,7 @@
       "chinese_characters": 1291,
       "latin_characters": 2937,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - cross-book-recall.md",
@@ -850,7 +850,7 @@
       "chinese_characters": 2902,
       "latin_characters": 114,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Ref - dialogue-mastery.md",
