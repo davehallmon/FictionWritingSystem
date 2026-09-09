@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T21:17:39.769Z",
+  "generated_at": "2026-09-09T21:18:28.898Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "55ae910392f9d23173b3f077f267d0a79e2cc8a5",
+  "source_commit": "5953bc24dd92f7eab5192ff98f1144cddd29f16f",
   "roots": [
     "oh-story",
     "drama"
