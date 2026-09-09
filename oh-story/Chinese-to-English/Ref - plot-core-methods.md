@@ -284,7 +284,7 @@ Simply naming something, making an empty callback, or mentioning it randomly doe
 | world_painting (expanding the world) | 3 |
 | tension_escalation (increasing pressure) | 2 |
 
-Rule: During its cooldown, an event type cannot serve as the main beat. `conflict_thrill` may run for no more than two consecutive chapters. Every five chapters must include `bond_deepening` or `world_painting`.
+Rule: During its cooldown, an event type cannot serve as the main beat. conflict_thrill may run for no more than two consecutive chapters. Every five chapters must include bond_deepening or world_painting.
 
 ### Managing Transition Chapters
 
