@@ -417,7 +417,7 @@ Reversal type {...} | Emotional-curve shape {...} | Key hooks {...} | Top 3 core
 | Dialogue density | {Y%} | {文本倾向、对白功能与无对白推进方式} |
 | Conflict density | {Z%} | {直接冲突与其他压力来源的关系} |
 
-### `_meta.json.structure_counts` Output Template
+### _meta.json.structure_counts Output Template
 
 > When Stage 6 is complete, write this section’s structural counts to `_meta.json.structure_counts` as the basis for
 > numeric “structure_counts validation.” Write the analytical narrative to the corresponding section in `拆文报告.md`; do not repeat it in JSON.
