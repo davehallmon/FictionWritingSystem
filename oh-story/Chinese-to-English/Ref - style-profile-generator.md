@@ -86,7 +86,7 @@ PYEOF
 
 A real output looks like `sentences=6; short_lt15=66%; mid_15to30=33%; long_gt30=0%; avg_len=12; punct_density=15%`.
 
-Copy the output values for `short_lt15 / mid_15to30 / long_gt30 / avg_len / punct_density` directly into the `{...X% / Y% / Z%}` placeholders on line 40 of the style-profile-protocol.md template—`confidence: high`, because these are deterministic measurements rather than sample-based estimates.
+Copy the output values for `short_lt15 / mid_15to30 / long_gt30 / avg_len / punct_density` directly into the `{...X% / Y% / Z%}` placeholders on line 40 of the `style-profile-protocol.md` template—`confidence: high`, because these are deterministic measurements rather than sample-based estimates.
 
 **Degradation when Bash is unavailable** (only in extreme cases such as a subagent context; never triggered in the main thread):
 
