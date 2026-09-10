@@ -284,9 +284,9 @@ Migrate `拆文库/{导入书名}/` into the long-form project structure under `
 
 Migrate the source into `正文/` and normalize filenames to `第XXX章_章名.md`.
 
-- Recognize chapter separators (`第X章`, `Chapter X`, and so on)
+- Recognize chapter separators (第X章, Chapter X, and so on)
 - Extract chapter titles
-- Zero-pad chapter numbers (`第1章` → `第001章`)
+- Zero-pad chapter numbers (第1章 → 第001章)
 - Preserve body text unchanged
 
 #### Step 3: Migrate Character Files
@@ -427,7 +427,7 @@ If the partial work’s final chapter is unfinished, `last_chapter`, character s
 
 Extract key findings from the decomposition report and generate `设定/题材定位.md` using the “Genre Positioning Generation” template in [structure-mapping-long.md](references/structure-mapping-long.md).
 
-The book’s genre, core hook, emotion, and pacing summary come from `拆文库/{导入书名}/`, but these fields do not register a comp title. Append the “comp-title list + primary comp title” section only if Phase 1 explicitly linked an external comp. There may be at most one primary comp; secondary/reference comps are unlimited. If no comp was linked, omit the entire registration section and never use `{导入书名}` as a placeholder. See “Comp-Title List” under the referenced “Genre Positioning Generation” template.
+The book’s genre, core hook, emotion, and pacing summary in `设定/题材定位.md` come from `拆文库/{导入书名}/`, but these fields do not register a comp title. Append the “comp-title list + primary comp title” section only if Phase 1 explicitly linked an external comp. There may be at most one primary comp; secondary/reference comps are unlimited. If no comp was linked, omit the entire registration section and never use `{导入书名}` as a placeholder. See “Comp-Title List” under the referenced “Genre Positioning Generation” template.
 
 If a quick overview is later needed, a separate “Comp Analysis (Derived Summary)” table may be written. It is not the authoritative registry and does not replace `主对标书` or the complete `对标书列表`. Every registered item must trace back to `拆文库/{对标书名}/`, never to the book root’s `设定/`.
 
@@ -485,7 +485,7 @@ Reverse-engineer `{标题}/设定.md` from `拆文报告.md` and `写作手法.m
 
 #### Step 3: Generate the Section Outline
 
-Reverse-engineer `{标题}/小节大纲.md` from the functional segments in `情节节点.md`, mapping them to opening/setup/escalation/reversal/ending sections. Short-form uses a lightweight blueprint only: for each section, record `structural segment/five-part function`, the main event, one or more real advances, target emotion, character/relationship change, causal/logical chain, and ending handoff/small hook. Related plot points may be fulfilled simultaneously by one action chain or conversation; do not split them into multiple subevents to meet a count. Mark uncertain hooks or relationships `[待补充]`; do not apply the full long-form chapter blueprint.
+Reverse-engineer `{标题}/小节大纲.md` from the functional segments in `情节节点.md`, mapping them to opening/setup/escalation/reversal/ending sections. Short-form uses a lightweight blueprint only: for each section, record `结构段/五段功能`, the main event, one or more real advances, target emotion, character/relationship change, causal/logical chain, and ending handoff/small hook. Related plot points may be fulfilled simultaneously by one action chain or conversation; do not split them into multiple subevents to meet a count. Mark uncertain hooks or relationships `[待补充]`; do not apply the full long-form chapter blueprint.
 
 #### Step 4: External Comp Reference View (Optional)
 
@@ -585,7 +585,7 @@ For works over 200 chapters, **decomposition may be batched, but tracking initia
 
 Load by Phase; do not load everything at once.
 
-All reference files bundled with this skill are under `references/` and should be loaded only for the relevant scenario. When a method/template belongs to another skill, story-import runs its `/command` so that skill loads its own files rather than loading them directly.
+All reference files bundled with this skill are under `references/` and should be loaded only for the relevant scenario. When a method/template belongs to another skill, story-import runs its `/命令` so that skill loads its own files rather than loading them directly.
 
 ### Phase 1: Confirm Import Source
 
