@@ -117,7 +117,7 @@ Quickly scan the user’s text and mark passages with strong AI-writing signals:
 node scripts/check-ai-patterns.js --check --fail-on=blocking <正文文件...>
 ```
 
-- Categories with `severity=blocking` (`not-is-comparison` / `em-dash` / `voice-contrast` / `negation-parade` / `reverse-not-is` / `trailer-ending` / `trailer-summary`) feed into Gate B and are high-priority blocking issues during writing/deslopping.
+- Categories with severity=blocking (`not-is-comparison` / `em-dash` / `voice-contrast` / `negation-parade` / `reverse-not-is` / `trailer-ending` / `trailer-summary`) feed into Gate B and are high-priority blocking issues during writing/deslopping.
 - Other findings—sentence fragments, long paragraphs, micro-actions, formulaic reaction details, action lists, abstract summaries, stock wording, simile density, explanatory chains, bureaucratic tone, over-compression, low connective density, overused quotation-mark emphasis, and overly neat `formulaic-parallelism`—are reading-experience advisories only. See `references/anti-ai-writing.md` for all categories and fixes. The neat-parallelism scan includes dialogue, so you must still evaluate context rather than skipping it because the hook has a low-false-positive dialogue exemption.
 - Fix by deleting the negative setup and stating the latter point directly, or by presenting it through character actions, object details, or bodily reactions.
 - If the user requests detection only, keep the report and do not edit. If removing AI flavor, change only problems that genuinely hurt readability and lack narrative function; retain functional constructions and mark them `[需复核]`.
@@ -215,6 +215,7 @@ Use the allowlist when:
 - The source intentionally uses that rhetorical device
 
 If `.deslop-whitelist` does not exist, do not create it automatically; mention in the report that the user may create it. An empty allowlist is equivalent to none.
+
 
 **Protection priority**: Preserve creative intent and plot function > AI-removal Gates. Gates A–F may change only expression. Gate G removes non-story authorial explanation/narration, not plot. No Gate may delete foreshadowing, hooks, character traits, character memories, emotional continuity, causal anchors, key information, or necessary turns. When rules conflict, rewrite to reduce AI flavor or mark `[需复核]`.
 
@@ -354,7 +355,7 @@ node scripts/normalize-punctuation.js <正文文件...>
 ```
 
 Scope:
-- `check-ai-patterns.js` reports only. Fix `severity=blocking` categories in the body and rescan. Read advisory findings in context and edit them only when they truly create outline-like, explanatory, or formulaic prose; mark functional uses `[需复核]`.
+- `check-ai-patterns.js` reports only. Fix severity=blocking categories in the body and rescan. Read advisory findings in context and edit them only when they truly create outline-like, explanatory, or formulaic prose; mark functional uses `[需复核]`.
 - It provides reading-experience hints only. See `references/anti-ai-writing.md` for full categories, exceptions, and fixes.
 - `check-degeneration.js` reports model degeneration (character-by-character repetition/loops, truncated endings, placeholders, and leaked engineering terms such as `细纲`/`情节点`), with `severity: blocking|advisory` on every item. Blocking findings indicate degeneration that deslopping cannot fix; regenerate that passage, then deslop it again. Advisory findings (tier-2 chapter/ambiguous terms) are informational only.
 - `normalize-punctuation.js` is a mechanical fallback: it removes residual `……`, missed dashes `——`/`—`, double hyphens `--`, and standalone `---` lines. By default it preserves quotation-mark style and does not change functional `？` or a few `！` to periods.
