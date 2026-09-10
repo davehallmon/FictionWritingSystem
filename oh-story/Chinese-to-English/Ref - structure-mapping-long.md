@@ -101,7 +101,7 @@ name: {角色名}
 
 ## Relationship-File Conversion Rules
 
-Deconstruction-library format (`角色关系.md`) → project format (`设定/关系.md`):
+Deconstruction-library format (角色关系.md) → project format (设定/关系.md):
 
 ```
 拆文库格式：
@@ -116,7 +116,7 @@ Conversion rules:
 - Reuse emotional orientation directly: positive/negative/neutral/complex
 - Extract the relationship trajectory into the “change beats” column
 
-### Target-Format Template (`设定/关系.md`)
+### Target-Format Template (设定/关系.md)
 
 ```markdown
 # 角色关系图
@@ -156,7 +156,7 @@ When `力量体系.md`, `地理.md`, or minor-faction material contains fewer th
 
 ## Reverse-Engineering Outline Rules
 
-### `大纲.md` (Volume-Level Structure) and Volume-Division Rules
+### 大纲.md (Volume-Level Structure) and Volume-Division Rules
 
 Reverse-engineer it from `剧情/故事线.md`, `剧情/*.md`, and `快速预览.md`. **Volume divisions must follow these decision rules**:
 
@@ -196,7 +196,7 @@ Do not divide it mechanically. Follow this process:
 
 ### Reverse-Engineering the Volume Outline
 
-#### Target-Format Template (`大纲/卷纲_第X卷.md`)
+#### Target-Format Template (大纲/卷纲_第X卷.md)
 
 A volume outline expands the master outline—the master outline determines direction; the volume outline determines pacing. It contains the complete creative plan for the volume.
 
@@ -328,7 +328,7 @@ Sort by chapter order and, within a chapter, by plot-beat number. When a time ma
 
 Extract the core findings from the deconstruction report to generate `设定/题材定位.md`.
 
-### Target-Format Template (`设定/题材定位.md`)
+### Target-Format Template (设定/题材定位.md)
 
 ```markdown
 # 题材定位
@@ -410,7 +410,7 @@ This section applies only to an external `{对标书名}` explicitly bound by th
 | `拆文库/{对标书名}/剧情/节奏.md` | `{项目}/对标/{对标书名}/剧情/节奏.md` | Required authoritative file for the daily-writing `rhythm_reference`; if absent, do not register this comparable title |
 | `拆文库/{对标书名}/剧情/情绪模块.md` | `{项目}/对标/{对标书名}/剧情/情绪模块.md` | Required authoritative file for the daily-writing `selected_emotion_module`; if absent, do not register this comparable title |
 | `拆文库/{对标书名}/剧情/*.md` | `{项目}/对标/{对标书名}/剧情/*.md` | Plot assets such as plot units, story threads, and scattered events; when they conflict with authoritative pacing/emotion files, the latter prevail |
-| `拆文库/{对标书名}/章节/*.md` (`第N章_摘要.md` + Golden Three Chapters `第1-3章_深度拆解.md`)| `{项目}/对标/{对标书名}/章节/*.md` | Evidence from matching chapters, including “key information and expansion techniques” |
+| `拆文库/{对标书名}/章节/*.md` (第N章_摘要.md + Golden Three Chapters 第1-3章_深度拆解.md)| `{项目}/对标/{对标书名}/章节/*.md` | Evidence from matching chapters, including “key information and expansion techniques” |
 | `拆文库/{对标书名}/角色/*.md` | `{项目}/对标/{对标书名}/角色/*.md` | References for character functions, relationships, and reaction layers |
 | `拆文库/{对标书名}/设定/` | `{项目}/对标/{对标书名}/设定/` | Constraint references for worldbuilding, factions, special advantages, and related elements |
 | `拆文库/{对标书名}/拆文报告.md` | `{项目}/对标/{对标书名}/拆文报告.md` | Human-readable summary projection |
@@ -426,14 +426,14 @@ Run after Phase 3-L migration:
 
 - [ ] Number of manuscript files = number of source chapters
 - [ ] Files exist for major characters (protagonist + central supporting characters)
-- [ ] `关系.md` is not empty
-- [ ] `大纲.md` contains a volume-level structure
+- [ ] 关系.md is not empty
+- [ ] 大纲.md contains a volume-level structure
 - [ ] A detailed outline has been generated for every chapter
 - [ ] `_tracking-state.json.imported_through_chapter` equals the final fully imported chapter
 - [ ] Every ID has no more than one row in `追踪/伏笔.md`, and future designs not yet planted are excluded
 - [ ] `_tracking-state.json.timeline` records key facts and reader understanding, and `读者已知.md` reveals no truth-only information
 - [ ] `追踪/角色状态/{角色名}.md` covers every central character and aligns with `character-state-reverse.md`
-- [ ] The empty `追踪/逐章记录/` directory exists, with no fabricated daily-writing records for imported chapters
+- [ ] The empty 追踪/逐章记录/ directory exists, with no fabricated daily-writing records for imported chapters
 - [ ] `追踪/上下文.md` has exactly seven top-level sections and is ≤12,288 bytes
 - [ ] `tracking_commit.py check` passes, with `_tracking-state.json` consistent with every derived view
 - [ ] Scattered plot events have been merged into the relevant volume outline or the master-outline appendix
