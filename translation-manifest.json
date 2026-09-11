@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T05:11:49.900Z",
+  "generated_at": "2026-09-11T05:23:30.219Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "3aa87a9190b300dda0a8512eb243b268db751a49",
+  "source_commit": "5235471b754c1513580b95bd1840d9b01e6dc54c",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 157,
-    "remaining": 5,
+    "translated": 162,
+    "remaining": 0,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1752,7 +1752,7 @@
       "chinese_characters": 7577,
       "latin_characters": 3356,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - story-architect.md",
@@ -1763,7 +1763,7 @@
       "chinese_characters": 2627,
       "latin_characters": 1855,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - story-explorer.md",
@@ -1774,7 +1774,7 @@
       "chinese_characters": 4176,
       "latin_characters": 3706,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - story-researcher.md",
@@ -1785,7 +1785,7 @@
       "chinese_characters": 2431,
       "latin_characters": 1989,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/UPGRADING - story-setup.md",
@@ -1796,7 +1796,7 @@
       "chinese_characters": 4056,
       "latin_characters": 4148,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     }
   ]
 }
