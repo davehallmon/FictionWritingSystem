@@ -1,0 +1,40 @@
+name: Issue 4 population audit
+
+on:
+  push:
+    branches:
+      - audit/issue-4-markdown-invariants
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  translation-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run translation regression tests
+        run: python -m unittest discover -s tools/translation/tests -v
+      - name: Audit all translation pairs
+        run: python tools/translation/audit_invariants.py --fail --output issue-4-audit.json
+      - name: Print audit summary
+        if: always()
+        run: |
+          if [ -f issue-4-audit.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
+          print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
+          for label, paths in report.get('files_by_error', {}).items():
+              print(f'\n{label}: {len(paths)}')
+              for path in paths:
+                  print(f'- {path}')
+          PY
+          fi
