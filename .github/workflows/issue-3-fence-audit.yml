@@ -1,0 +1,63 @@
+name: Issue 3 fence audit
+
+on:
+  push:
+    branches:
+      - audit/issue-3-fenced-template-policy
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/issue-3-fenced-template-policy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Inventory changed fenced blocks
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import difflib
+          import hashlib
+          import re
+          from pathlib import Path
+
+          files = [
+              "Ref - analysis-writing-techniques.md",
+              "Ref - anti-ai-writing.md",
+              "Ref - artifact-protocols.md",
+              "Ref - character-state-reverse.md",
+              "Ref - long-emotional-methods.md",
+          ]
+          fence_re = re.compile(r"(?ms)^([ \\t]*(`{3,}|~{3,})([^\\n]*)\\n).*?^[ \\t]*\\2[ \\t]*$")
+
+          def blocks(text):
+              out = []
+              for m in fence_re.finditer(text):
+                  raw = m.group(0)
+                  header = m.group(1).strip()
+                  lang = header.lstrip('`~').strip() or "<none>"
+                  out.append((lang, raw))
+              return out
+
+          for name in files:
+              source_path = Path("oh-story") / name
+              target_path = Path("oh-story/Chinese-to-English") / name
+              source = blocks(source_path.read_text(encoding="utf-8"))
+              target = blocks(target_path.read_text(encoding="utf-8"))
+              print(f"\\n=== {name} ===")
+              print(f"source_blocks={len(source)} target_blocks={len(target)}")
+              for i in range(max(len(source), len(target))):
+                  s = source[i] if i < len(source) else None
+                  t = target[i] if i < len(target) else None
+                  if s and t and s[1] == t[1]:
+                      print(f"block {i+1}: SAME lang={s[0]} sha={hashlib.sha256(s[1].encode()).hexdigest()[:12]}")
+                      continue
+                  print(f"block {i+1}: CHANGED source_lang={s[0] if s else '<missing>'} target_lang={t[0] if t else '<missing>'}")
+                  s_lines = s[1].splitlines() if s else []
+                  t_lines = t[1].splitlines() if t else []
+                  for line in difflib.unified_diff(s_lines, t_lines, fromfile="source", tofile="target", lineterm=""):
+                      print(line)
+          PY
