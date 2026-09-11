@@ -67,6 +67,7 @@ Use three levels. Never assign “high” from insufficient samples; a few data 
 ### 选题 3 ...
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 | Protected field | English meaning |
@@ -84,6 +85,7 @@ Use three levels. Never assign “high” from insufficient samples; a few data 
 | `篇幅/平台` | Recommended length and target platform |
 
 Recommend two or three topics, ordered by viability with the highest first.
+<!-- /translation-guide -->
 
 ---
 
