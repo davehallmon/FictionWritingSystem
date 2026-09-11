@@ -31,6 +31,55 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertIn("Changed fenced code blocks", result.errors)
 
+    def test_validator_accepts_marked_text_companion_after_unchanged_fence(self):
+        source = "# 示例\n\n```\n动作 → 对话 → 反应\n```\n"
+        output = (
+            "# Example\n\n```\n动作 → 对话 → 反应\n```\n\n"
+            "<!-- translation-companion: non-executable -->\n"
+            "```text\nAction → dialogue → reaction\n```\n"
+        )
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_rejects_in_place_natural_language_fence_translation(self):
+        source = "# 示例\n\n```\n动作 → 对话 → 反应\n```\n"
+        output = "# Example\n\n```\nAction → dialogue → reaction\n```\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed fenced code blocks", result.errors)
+
+    def test_validator_rejects_unmarked_extra_fence(self):
+        source = "# 示例\n\n```\n中文示例\n```\n"
+        output = "# Example\n\n```\n中文示例\n```\n\n```text\nEnglish example\n```\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed fenced code blocks", result.errors)
+
+    def test_validator_rejects_structured_translation_companion(self):
+        source = '# 示例\n\n```json\n{"name": "角色"}\n```\n'
+        output = (
+            '# Example\n\n```json\n{"name": "角色"}\n```\n\n'
+            '<!-- translation-companion: non-executable -->\n'
+            '```json\n{"name": "Character"}\n```\n'
+        )
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Translation companion must use a non-executable text fence", result.errors)
+
+    def test_validator_rejects_detached_translation_companion(self):
+        source = "# 示例\n\n```\n中文示例\n```\n"
+        output = (
+            "# Example\n\n```\n中文示例\n```\n\n"
+            "English explanation follows.\n\n"
+            "<!-- translation-companion: non-executable -->\n"
+            "```text\nEnglish example\n```\n"
+        )
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn(
+            "Translation companion marker must be the only non-whitespace content between fences",
+            result.errors,
+        )
+
     def test_validator_accepts_localized_same_page_fragment(self):
         source = "# 文档\n\n- [章节](#章节一)\n\n## 章节一\n"
         output = "# Document\n\n- [Section](#section-one)\n\n## Section One\n"
