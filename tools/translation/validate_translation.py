@@ -15,12 +15,15 @@ FENCE_RE = re.compile(r"(?ms)^([ \t]*(`{3,}|~{3,})[^\n]*\n).*?^[ \t]*\2[ \t]*$")
 INLINE_CODE_RE = re.compile(r"(?<!`)`[^`\n]+`(?!`)")
 URL_RE = re.compile(r"https?://[^\s)<>{}\]\[|]+")
 LINK_TARGET_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+IMAGE_TARGET_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
 TOKEN_RE = re.compile(r"\$\{[^}]+\}|\{\{[^}]+\}\}|(?<!\w)--[\w-]+|(?<!\w)\$[\w-]+")
 HEADING_RE = re.compile(r"(?m)^(#{1,6})\s+")
 HEADING_TEXT_RE = re.compile(r"(?m)^#{1,6}\s+(.+?)\s*$")
 LIST_ITEM_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<marker>[-+*]|\d+[.)])\s+(?P<checkbox>\[[ xX]\]\s+)?")
 BLOCKQUOTE_RE = re.compile(r"^[ \t]*(?P<marks>>+)(?:[ \t]+|$)")
 HTML_COMMENT_TOKEN_RE = re.compile(r"<!--|-->")
+HORIZONTAL_RULE_RE = re.compile(r"^[ \t]*(?:\*\s*){3,}$|^[ \t]*(?:-\s*){3,}$|^[ \t]*(?:_\s*){3,}$")
+FENCE_LINE_RE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<info>.*)$")
 ZH_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 MARKDOWN_LINK_TEXT_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HTML_TAG_RE = re.compile(r"<[^>]+>")
@@ -29,6 +32,8 @@ SLUG_PUNCT_RE = re.compile(r"[^\w\s-]", re.UNICODE)
 WHITESPACE_RE = re.compile(r"\s+")
 TRANSLATION_COMPANION_MARKER = "<!-- translation-companion: non-executable -->"
 TRANSLATION_COMPANION_LANGUAGES = {"text", "txt", "plaintext"}
+TRANSLATION_GUIDE_START = "<!-- translation-guide: non-executable -->"
+TRANSLATION_GUIDE_END = "<!-- /translation-guide -->"
 TRAILING_URL_PUNCTUATION = ".,;:!?\"'"
 
 
@@ -103,6 +108,45 @@ def authoritative_fenced_blocks(text: str) -> tuple[list[str], list[str]]:
     return authoritative, errors
 
 
+def strip_translation_guides(text: str) -> tuple[str, list[str]]:
+    """Remove explicitly authorized non-executable guide regions from invariant comparison."""
+    errors: list[str] = []
+    output: list[str] = []
+    cursor = 0
+    while True:
+        start = text.find(TRANSLATION_GUIDE_START, cursor)
+        end = text.find(TRANSLATION_GUIDE_END, cursor)
+        if start < 0:
+            if end >= 0:
+                errors.append("Translation guide end marker has no start marker")
+            output.append(text[cursor:])
+            break
+        if end >= 0 and end < start:
+            errors.append("Translation guide end marker appears before its start marker")
+            output.append(text[cursor:end])
+            cursor = end + len(TRANSLATION_GUIDE_END)
+            continue
+        output.append(text[cursor:start])
+        end = text.find(TRANSLATION_GUIDE_END, start + len(TRANSLATION_GUIDE_START))
+        if end < 0:
+            errors.append("Translation guide start marker is not closed")
+            output.append(text[start:])
+            break
+        body_start = start + len(TRANSLATION_GUIDE_START)
+        body = text[body_start:end]
+        if TRANSLATION_GUIDE_START in body:
+            errors.append("Translation guide regions must not be nested")
+        if fence_records(body):
+            errors.append("Translation guide must not contain fenced blocks")
+        output.append("\n")
+        cursor = end + len(TRANSLATION_GUIDE_END)
+    return "".join(output), errors
+
+
+def comparison_text(text: str) -> tuple[str, list[str]]:
+    return strip_translation_guides(text)
+
+
 def without_fences(text: str) -> str:
     return FENCE_RE.sub("", text)
 
@@ -122,6 +166,42 @@ def protected_tokens(text: str) -> list[str]:
     outside = without_fences(text)
     outside = URL_RE.sub("", outside)
     return TOKEN_RE.findall(outside)
+
+
+def inline_code_literals(text: str) -> list[str]:
+    return INLINE_CODE_RE.findall(without_fences(text))
+
+
+def is_subsequence(required: list[str], actual: list[str]) -> bool:
+    if not required:
+        return True
+    index = 0
+    for value in actual:
+        if value == required[index]:
+            index += 1
+            if index == len(required):
+                return True
+    return False
+
+
+def inline_code_preservation(source: str, output: str) -> tuple[bool, int]:
+    """Require source inline literals in order; added output backticks are formatting-only."""
+    before = inline_code_literals(source)
+    after = inline_code_literals(output)
+    return is_subsequence(before, after), max(0, len(after) - len(before))
+
+
+def protected_token_preservation(source: str, output: str) -> tuple[bool, int]:
+    """Allow repeated source token values, but reject deletion, reordering, or new token values."""
+    before = protected_tokens(source)
+    after = protected_tokens(output)
+    additions = max(0, len(after) - len(before))
+    if not is_subsequence(before, after):
+        return False, additions
+    allowed = set(before)
+    if any(value not in allowed for value in after):
+        return False, additions
+    return True, additions
 
 
 def _pipe_positions(line: str) -> list[int]:
@@ -182,7 +262,6 @@ def table_signatures(text: str) -> list[tuple[int, ...]]:
 
 
 def table_dimensions(text: str) -> list[int]:
-    """Backward-compatible flattened table row dimensions."""
     return [cells for table in table_signatures(text) for cells in table]
 
 
@@ -202,19 +281,71 @@ def list_signature(text: str) -> list[tuple[int, str, bool]]:
 
 
 def blockquote_signature(text: str) -> list[int]:
-    """Compare blockquote line count and nesting depth, not translated contents."""
+    """Compare blockquote blocks by nesting depth, allowing line reflow within a block."""
     signature: list[int] = []
+    in_block = False
+    max_depth = 0
     for line in without_fences(text).splitlines():
         match = BLOCKQUOTE_RE.match(line)
         if match:
-            signature.append(len(match.group("marks")))
+            in_block = True
+            max_depth = max(max_depth, len(match.group("marks")))
+            continue
+        if in_block:
+            signature.append(max_depth)
+            in_block = False
+            max_depth = 0
+    if in_block:
+        signature.append(max_depth)
     return signature
 
 
 def html_comment_framing(text: str) -> list[str]:
-    """Compare comment framing while ignoring the approved translation marker."""
-    outside = without_fences(text).replace(TRANSLATION_COMPANION_MARKER, "")
+    """Compare comment framing while ignoring approved translation markers."""
+    outside = without_fences(text)
+    outside = outside.replace(TRANSLATION_COMPANION_MARKER, "")
+    outside = outside.replace(TRANSLATION_GUIDE_START, "").replace(TRANSLATION_GUIDE_END, "")
     return HTML_COMMENT_TOKEN_RE.findall(outside)
+
+
+def horizontal_rule_signature(text: str) -> int:
+    """Count structural horizontal rules, excluding YAML frontmatter delimiters."""
+    outside = without_fences(text)
+    lines = outside.splitlines()
+    start = 0
+    if len(lines) >= 2 and lines[0].strip() == "---":
+        try:
+            close = next(i for i in range(1, len(lines)) if lines[i].strip() == "---")
+        except StopIteration:
+            close = -1
+        if close > 0:
+            start = close + 1
+    return sum(bool(HORIZONTAL_RULE_RE.match(line)) for line in lines[start:])
+
+
+def fence_balance_errors(text: str) -> list[str]:
+    """Report unclosed Markdown fences without interpreting fence bodies."""
+    errors: list[str] = []
+    opener_char: str | None = None
+    opener_len = 0
+    for line in text.splitlines():
+        match = FENCE_LINE_RE.match(line)
+        if not match:
+            continue
+        marker = match.group("marker")
+        char = marker[0]
+        length = len(marker)
+        info = match.group("info").strip()
+        if opener_char is None:
+            opener_char = char
+            opener_len = length
+            continue
+        if char == opener_char and length >= opener_len and not info:
+            opener_char = None
+            opener_len = 0
+    if opener_char is not None:
+        errors.append("Unclosed fenced block")
+    return errors
 
 
 def frontmatter_keys(text: str) -> list[str]:
@@ -233,6 +364,10 @@ def frontmatter_keys(text: str) -> list[str]:
 
 def link_destinations(text: str) -> list[str]:
     return LINK_TARGET_RE.findall(without_fences(text))
+
+
+def image_destinations(text: str) -> list[str]:
+    return IMAGE_TARGET_RE.findall(without_fences(text))
 
 
 def is_same_page_fragment(destination: str) -> bool:
@@ -287,28 +422,47 @@ def broken_same_page_fragments(text: str) -> list[str]:
 def validate(source: str, output: str) -> ValidationResult:
     errors: list[str] = []
     warnings: list[str] = []
+
     output_authoritative_fences, companion_errors = authoritative_fenced_blocks(output)
     errors.extend(companion_errors)
+    errors.extend(fence_balance_errors(output))
+
+    source_compare, source_guide_errors = comparison_text(source)
+    output_compare, output_guide_errors = comparison_text(output)
+    errors.extend(source_guide_errors)
+    errors.extend(output_guide_errors)
+
+    inline_ok, inline_additions = inline_code_preservation(source_compare, output_compare)
+    if not inline_ok:
+        errors.append("Changed inline literal values")
+    elif inline_additions:
+        warnings.append(f"Output adds {inline_additions} inline-code formatting span(s)")
+
+    tokens_ok, token_additions = protected_token_preservation(source_compare, output_compare)
+    if not tokens_ok:
+        errors.append("Changed protected tokens")
+    elif token_additions:
+        warnings.append(f"Output repeats {token_additions} protected token(s) in explanatory text")
 
     comparisons = {
         "fenced code blocks": (fenced_blocks(source), output_authoritative_fences),
-        "inline code": (INLINE_CODE_RE.findall(without_fences(source)), INLINE_CODE_RE.findall(without_fences(output))),
-        "URLs": (normalized_urls(source), normalized_urls(output)),
-        "protected link destinations": (protected_link_destinations(source), protected_link_destinations(output)),
-        "link structure": (link_kinds(source), link_kinds(output)),
-        "protected tokens": (protected_tokens(source), protected_tokens(output)),
-        "heading levels": (HEADING_RE.findall(without_fences(source)), HEADING_RE.findall(without_fences(output))),
-        "table structure": (table_signatures(source), table_signatures(output)),
-        "list structure": (list_signature(source), list_signature(output)),
-        "blockquote structure": (blockquote_signature(source), blockquote_signature(output)),
-        "HTML comment framing": (html_comment_framing(source), html_comment_framing(output)),
-        "frontmatter keys": (frontmatter_keys(source), frontmatter_keys(output)),
+        "URLs": (normalized_urls(source_compare), normalized_urls(output_compare)),
+        "protected link destinations": (protected_link_destinations(source_compare), protected_link_destinations(output_compare)),
+        "link structure": (link_kinds(source_compare), link_kinds(output_compare)),
+        "image targets": (image_destinations(source_compare), image_destinations(output_compare)),
+        "heading levels": (HEADING_RE.findall(without_fences(source_compare)), HEADING_RE.findall(without_fences(output_compare))),
+        "table structure": (table_signatures(source_compare), table_signatures(output_compare)),
+        "list structure": (list_signature(source_compare), list_signature(output_compare)),
+        "blockquote structure": (blockquote_signature(source_compare), blockquote_signature(output_compare)),
+        "HTML comment framing": (html_comment_framing(source_compare), html_comment_framing(output_compare)),
+        "horizontal-rule structure": (horizontal_rule_signature(source_compare), horizontal_rule_signature(output_compare)),
+        "frontmatter keys": (frontmatter_keys(source_compare), frontmatter_keys(output_compare)),
     }
     for label, (before, after) in comparisons.items():
         if before != after:
             errors.append(f"Changed {label}")
 
-    broken_fragments = broken_same_page_fragments(output)
+    broken_fragments = broken_same_page_fragments(output_compare)
     if broken_fragments:
         errors.append("Unresolved same-page fragments: " + ", ".join(broken_fragments))
 
