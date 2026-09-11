@@ -1,61 +1,67 @@
-name: Issue 3 fence audit
+name: Issue 3 fenced-content repair
 
 on:
   push:
     branches:
       - audit/issue-3-fenced-template-policy
 
+permissions:
+  contents: write
+
 jobs:
-  audit:
+  repair-and-test:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out issue branch
+        uses: actions/checkout@v4
         with:
           ref: audit/issue-3-fenced-template-policy
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Inventory changed fenced blocks
+
+      - name: Repair the five audited files
+        run: python3 -m tools.translation.issue3_repair_fences
+
+      - name: Run translation regression tests
+        run: python3 -m unittest discover -s tools/translation/tests -p 'test_*.py'
+
+      - name: Verify repaired files with validator
         shell: bash
         run: |
-          python3 - <<'PY'
-          import difflib
-          import hashlib
-          from pathlib import Path
-          from tools.translation.validate_translation import fenced_blocks
+          set -euo pipefail
+          for name in \
+            "Ref - analysis-writing-techniques.md" \
+            "Ref - anti-ai-writing.md" \
+            "Ref - artifact-protocols.md" \
+            "Ref - character-state-reverse.md" \
+            "Ref - long-emotional-methods.md"
+          do
+            python3 tools/translation/validate_translation.py \
+              "oh-story/$name" \
+              "oh-story/Chinese-to-English/$name"
+          done
 
-          files = [
-              "Ref - analysis-writing-techniques.md",
-              "Ref - anti-ai-writing.md",
-              "Ref - artifact-protocols.md",
-              "Ref - character-state-reverse.md",
-              "Ref - long-emotional-methods.md",
-          ]
+      - name: Check whitespace errors
+        run: git diff --check
 
-          def blocks(text):
-              out = []
-              for raw in fenced_blocks(text):
-                  first = raw.splitlines()[0].strip()
-                  lang = first.lstrip('`~').strip() or "<none>"
-                  out.append((lang, raw))
-              return out
-
-          for name in files:
-              source_path = Path("oh-story") / name
-              target_path = Path("oh-story/Chinese-to-English") / name
-              source = blocks(source_path.read_text(encoding="utf-8"))
-              target = blocks(target_path.read_text(encoding="utf-8"))
-              print(f"\n=== {name} ===")
-              print(f"source_blocks={len(source)} target_blocks={len(target)}")
-              for i in range(max(len(source), len(target))):
-                  s = source[i] if i < len(source) else None
-                  t = target[i] if i < len(target) else None
-                  if s and t and s[1] == t[1]:
-                      print(f"block {i+1}: SAME lang={s[0]} sha={hashlib.sha256(s[1].encode()).hexdigest()[:12]}")
-                      continue
-                  print(f"block {i+1}: CHANGED source_lang={s[0] if s else '<missing>'} target_lang={t[0] if t else '<missing>'}")
-                  s_lines = s[1].splitlines() if s else []
-                  t_lines = t[1].splitlines() if t else []
-                  for line in difflib.unified_diff(s_lines, t_lines, fromfile="source", tofile="target", lineterm=""):
-                      print(line)
-          PY
+      - name: Commit repaired translations
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No issue #3 translation changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            "oh-story/Chinese-to-English/Ref - analysis-writing-techniques.md" \
+            "oh-story/Chinese-to-English/Ref - anti-ai-writing.md" \
+            "oh-story/Chinese-to-English/Ref - artifact-protocols.md" \
+            "oh-story/Chinese-to-English/Ref - character-state-reverse.md" \
+            "oh-story/Chinese-to-English/Ref - long-emotional-methods.md"
+          git commit -m "Reconcile fenced translation policy in five files (#3)"
+          git push origin HEAD:audit/issue-3-fenced-template-policy
