@@ -54,7 +54,7 @@ jobs:
           fi
       - name: Audit all translation pairs
         run: python -m tools.translation.audit_invariants --output issue-4-audit.json
-      - name: Print audit summary
+      - name: Print audit summary and diagnostics
         if: always()
         run: |
           if [ -f issue-4-audit.json ]; then
@@ -63,10 +63,18 @@ jobs:
           from pathlib import Path
           report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
           print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
-          for label, paths in report.get('files_by_error', {}).items():
-              print(f'\n{label}: {len(paths)}')
-              for path in paths:
-                  print(f'- {path}')
+          print('\nFAILING FILE DIAGNOSTICS')
+          for finding in report.get('findings', []):
+              if not finding.get('errors'):
+                  continue
+              print(f"\n### {finding['destination']}")
+              print('errors:', json.dumps(finding['errors'], ensure_ascii=False))
+              relevant = {
+                  key: value
+                  for key, value in finding.get('details', {}).items()
+                  if key not in {'inline_code_formatting', 'protected_token_formatting'}
+              }
+              print(json.dumps(relevant, ensure_ascii=False, indent=2))
           PY
           fi
       - name: Enforce population gate
