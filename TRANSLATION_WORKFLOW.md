@@ -86,8 +86,8 @@ Guide rules:
 
 Structural preservation is semantic, not cosmetic. The validator distinguishes protected meaning from formatting-only localization:
 
-- **Inline code:** Every inline-code literal present in the source must remain in the same order and with the same value. English prose may add backticks around additional paths, field names, or examples for readability; those additions are warnings, not failures. A changed, deleted, or reordered source inline literal is a failure.
-- **Protected tokens:** Source CLI/template tokens must remain in order and retain their values. Explanatory prose may repeat an already present source token; introducing a new token value, deleting one, or reordering the source sequence is a failure.
+- **Inline code:** Technical source literals—such as filenames, identifiers, field names, commands, code-like values, and structured status markers—must retain their exact values and required multiplicity. English grammar may change the order in which independently named literals are mentioned, and translators may add backticks around extra paths, field names, or examples for readability; those are warnings rather than failures when operational meaning is unchanged. Pure linguistic or punctuation examples may be translated normally. A missing or changed protected technical literal is a failure.
+- **Protected tokens:** Source CLI/template tokens must retain their exact values and required multiplicity. English grammar may reorder independent token mentions, and explanatory prose may repeat an already present source token. Introducing a new token value or dropping a required source token is a failure.
 - **URLs and targets:** Ignore adjacent sentence punctuation when comparing URLs. Same-page fragments may be localized only when they resolve to translated headings. External URLs, non-fragment link destinations, and image targets remain protected.
 - **Headings:** Source heading levels and order remain authoritative outside marked guide regions.
 - **Tables:** Preserve table count, row order, and column structure outside marked guide regions. Pipes escaped in Markdown or contained inside inline code are not structural separators.
@@ -96,7 +96,7 @@ Structural preservation is semantic, not cosmetic. The validator distinguishes p
 - **HTML comments:** Preserve source comment framing. Approved translation-companion and translation-guide markers are excluded from this comparison.
 - **Horizontal rules, YAML/frontmatter keys, and fence closure:** Preserve their structural roles. Unclosed fences fail validation.
 
-No formatting exception permits a requirement, field, command, literal value, or operational instruction to be added, removed, or reordered.
+No formatting exception permits a requirement, field, command, literal value, or operational instruction to be added, removed, or semantically reordered. Mention order may change only when required by translation grammar and no execution or dependency order is encoded by that prose.
 
 ## Acceptance criteria
 
@@ -104,7 +104,7 @@ No formatting exception permits a requirement, field, command, literal value, or
 - Every authoritative source fence is byte-identical and remains in the same order.
 - Any extra fenced block is a valid, explicitly marked, non-executable text companion under the fenced-content policy.
 - Any non-executable English guide is explicitly bounded and removable without changing operational meaning.
-- Every protected source inline literal and technical token retains its value and source order; formatting-only additions are explicitly classified.
+- Every protected source inline literal and technical token retains its exact value and required multiplicity; formatting-only additions and grammar-driven mention-order changes are explicitly classified.
 - Same-page Markdown fragments resolve to translated headings; external URLs, non-fragment path targets, and image targets remain protected.
 - Heading, table, list, blockquote, comment, horizontal-rule, frontmatter, and fence structure satisfy the approved policy.
 - English is natural, complete, and does not add or remove requirements.
