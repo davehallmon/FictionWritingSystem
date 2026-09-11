@@ -6,9 +6,11 @@ from __future__ import annotations
 from pathlib import Path
 
 from tools.translation.validate_translation import (
+    INLINE_CODE_RE,
     TRANSLATION_COMPANION_MARKER,
     fence_records,
     validate,
+    without_fences,
 )
 
 NATURAL_LANGUAGE_FILES = (
@@ -87,6 +89,15 @@ def repair_character_state(source: str, target: str) -> str:
     return target[: first.end] + target[anchor_at:]
 
 
+def validation_failure(name: str, source: str, output: str, errors: list[str]) -> SystemExit:
+    if "Changed inline code" in errors:
+        source_inline = INLINE_CODE_RE.findall(without_fences(source))
+        output_inline = INLINE_CODE_RE.findall(without_fences(output))
+        print(f"{name} source inline code: {source_inline}")
+        print(f"{name} output inline code: {output_inline}")
+    return SystemExit(f"{name} failed validation after repair: {errors}")
+
+
 def main() -> int:
     repo = Path(".").resolve()
     project = repo / "oh-story"
@@ -101,7 +112,7 @@ def main() -> int:
         output = repair_natural_language(source, target)
         result = validate(source, output)
         if not result.valid:
-            raise SystemExit(f"{name} failed validation after repair: {result.errors}")
+            raise validation_failure(name, source, output, result.errors)
         target_path.write_text(output, encoding="utf-8")
         repaired += 1
 
@@ -112,7 +123,7 @@ def main() -> int:
     output = repair_artifact_templates(source, target)
     result = validate(source, output)
     if not result.valid:
-        raise SystemExit(f"{ARTIFACT_TEMPLATE_FILE} failed validation after repair: {result.errors}")
+        raise validation_failure(ARTIFACT_TEMPLATE_FILE, source, output, result.errors)
     target_path.write_text(output, encoding="utf-8")
     repaired += 1
 
@@ -123,7 +134,7 @@ def main() -> int:
     output = repair_character_state(source, target)
     result = validate(source, output)
     if not result.valid:
-        raise SystemExit(f"{CHARACTER_STATE_FILE} failed validation after repair: {result.errors}")
+        raise validation_failure(CHARACTER_STATE_FILE, source, output, result.errors)
     target_path.write_text(output, encoding="utf-8")
     repaired += 1
 
