@@ -21,8 +21,8 @@ jobs:
           python3 - <<'PY'
           import difflib
           import hashlib
-          import re
           from pathlib import Path
+          from tools.translation.validate_translation import fenced_blocks
 
           files = [
               "Ref - analysis-writing-techniques.md",
@@ -31,14 +31,12 @@ jobs:
               "Ref - character-state-reverse.md",
               "Ref - long-emotional-methods.md",
           ]
-          fence_re = re.compile(r"(?ms)^([ \\t]*(`{3,}|~{3,})([^\\n]*)\\n).*?^[ \\t]*\\2[ \\t]*$")
 
           def blocks(text):
               out = []
-              for m in fence_re.finditer(text):
-                  raw = m.group(0)
-                  header = m.group(1).strip()
-                  lang = header.lstrip('`~').strip() or "<none>"
+              for raw in fenced_blocks(text):
+                  first = raw.splitlines()[0].strip()
+                  lang = first.lstrip('`~').strip() or "<none>"
                   out.append((lang, raw))
               return out
 
@@ -47,7 +45,7 @@ jobs:
               target_path = Path("oh-story/Chinese-to-English") / name
               source = blocks(source_path.read_text(encoding="utf-8"))
               target = blocks(target_path.read_text(encoding="utf-8"))
-              print(f"\\n=== {name} ===")
+              print(f"\n=== {name} ===")
               print(f"source_blocks={len(source)} target_blocks={len(target)}")
               for i in range(max(len(source), len(target))):
                   s = source[i] if i < len(source) else None
