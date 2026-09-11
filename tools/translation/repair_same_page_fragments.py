@@ -18,6 +18,16 @@ PROJECTS = ("drama", "oh-story")
 DESTINATION = "Chinese-to-English"
 LINK_RE = re.compile(r"(?<!!)\[([^\]]*)\]\((#[^)]+)\)")
 
+# The audit baseline contains exactly one already-broken source TOC link. Its
+# English counterpart should point to the translated section that actually
+# exists, and the visible TOC label should match that section as well.
+KNOWN_TARGET_REPAIRS = {
+    "drama/Chinese-to-English/Ref - voice-direction.md": {
+        "[Rendering Rules for voice-casting.md](#voice-castingmd-的渲染规则)":
+            "[Writing to `视觉设定.md`](#writing-to-视觉设定md)",
+    },
+}
+
 
 def outside_fence_segments(text: str) -> list[tuple[bool, str]]:
     """Return (is_fence, text) segments while preserving the original bytes."""
@@ -94,18 +104,39 @@ def iter_pairs(repo: Path):
                 yield source, target
 
 
+def apply_known_target_repairs(repo: Path, target_path: Path, target: str) -> tuple[str, int]:
+    key = target_path.relative_to(repo).as_posix()
+    changes = 0
+    for before, after in KNOWN_TARGET_REPAIRS.get(key, {}).items():
+        if before in target:
+            target = target.replace(before, after)
+            changes += 1
+    return target, changes
+
+
 def repair_repo(repo: Path, write: bool) -> tuple[int, list[str]]:
     total_changes = 0
     failures: list[str] = []
 
     for source_path, target_path in iter_pairs(repo):
         source = source_path.read_text(encoding="utf-8")
-        target = target_path.read_text(encoding="utf-8")
-        try:
-            repaired, changes, unresolved = repair_text(source, target)
-        except ValueError as exc:
-            failures.append(f"{target_path}: {exc}")
-            continue
+        original_target = target_path.read_text(encoding="utf-8")
+        target, known_changes = apply_known_target_repairs(repo, target_path, original_target)
+
+        # Heading-count differences are legitimate in some translated files.
+        # They matter here only when the target actually contains a broken
+        # same-page fragment that needs source-to-target mapping.
+        if not broken_same_page_fragments(target):
+            repaired = target
+            changes = known_changes
+            unresolved: list[str] = []
+        else:
+            try:
+                repaired, mapped_changes, unresolved = repair_text(source, target)
+                changes = known_changes + mapped_changes
+            except ValueError as exc:
+                failures.append(f"{target_path}: {exc}")
+                continue
 
         if unresolved:
             failures.append(
@@ -118,7 +149,7 @@ def repair_repo(repo: Path, write: bool) -> tuple[int, list[str]]:
                 f"{target_path}: unresolved after repair {', '.join(sorted(set(broken)))}"
             )
 
-        if write and repaired != target:
+        if write and repaired != original_target:
             target_path.write_text(repaired, encoding="utf-8")
         total_changes += changes
 
