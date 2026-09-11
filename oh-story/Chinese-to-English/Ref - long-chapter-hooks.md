@@ -151,6 +151,7 @@ End the chapter without revealing the choice.
 ```
 > Three minutes and three seconds later, Jiang Yiyao walked calmly out of the room and straightened her slightly disheveled clothes.
 
+<!-- translation-guide: non-executable -->
 ### English guide (non-executable)
 
 The ten protected formulas use these placeholders:
@@ -165,6 +166,7 @@ The ten protected formulas use these placeholders:
 8. **Information gap:** the protagonist's self-doubt or reflection; an image or metaphor; an unstated suggestion that change is coming.
 9. **Suspenseful dialogue:** the first half of a request; the other person's response; then an unexpected completion.
 10. **Time jump:** a precise or approximate time marker; an unexpected result; one sentence implying the unseen process.
+<!-- /translation-guide -->
 
 ---
 
@@ -191,11 +193,13 @@ The ten protected formulas use these placeholders:
 {暗示即将发生的行动}。不写结果。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 - **Reward preview:** the current action nears completion; imply the coming reward; then suggest that it exceeds expectations.
 - **Approaching antagonist:** state the protagonist's current condition; show an antagonist acting elsewhere or in secret; imply that the action will affect the protagonist.
 - **Action preview:** the protagonist decides; performs a preparation; and signals the coming action without revealing its result.
+<!-- /translation-guide -->
 
 ---
 
@@ -244,4 +248,3 @@ After writing a chapter opening or ending, verify:
 - [ ] Hook strength matches the chapter stage (a daily-life chapter does not require a strong hook)
 - [ ] Two consecutive chapters do not use the same hook type
 - [ ] The hook does not repeat explanations merely to fill space, and its landing point aligns with this chapter's function and the next chapter's continuation
-
