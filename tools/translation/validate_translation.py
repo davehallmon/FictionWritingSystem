@@ -67,25 +67,29 @@ def authoritative_fenced_blocks(text: str) -> tuple[list[str], list[str]]:
     """Return source-authoritative fences, excluding valid marked text companions."""
     authoritative: list[str] = []
     errors: list[str] = []
-    last_authoritative: FenceRecord | None = None
+    previous_record: FenceRecord | None = None
+    previous_was_companion = False
     companions = 0
 
     for record in fence_records(text):
-        between = text[last_authoritative.end : record.start] if last_authoritative else text[: record.start]
+        previous_end = previous_record.end if previous_record else 0
+        between = text[previous_end : record.start]
         marker_present = TRANSLATION_COMPANION_MARKER in between
 
         if marker_present:
             companions += 1
-            if last_authoritative is None:
+            if previous_record is None or previous_was_companion:
                 errors.append("Translation companion has no preceding authoritative fenced block")
             if between.strip() != TRANSLATION_COMPANION_MARKER:
                 errors.append("Translation companion marker must be the only non-whitespace content between fences")
             if companion_language(record.info) not in TRANSLATION_COMPANION_LANGUAGES:
                 errors.append("Translation companion must use a non-executable text fence")
-            continue
+            previous_was_companion = True
+        else:
+            authoritative.append(record.raw)
+            previous_was_companion = False
 
-        authoritative.append(record.raw)
-        last_authoritative = record
+        previous_record = record
 
     outside_fences = without_fences(text)
     marker_count = outside_fences.count(TRANSLATION_COMPANION_MARKER)
