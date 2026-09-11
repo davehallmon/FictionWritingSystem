@@ -53,7 +53,7 @@ jobs:
             git push
           fi
       - name: Audit all translation pairs
-        run: python tools/translation/audit_invariants.py --output issue-4-audit.json
+        run: python -m tools.translation.audit_invariants --output issue-4-audit.json
       - name: Print audit summary
         if: always()
         run: |
