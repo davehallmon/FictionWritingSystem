@@ -112,6 +112,7 @@
 - {对标书的明显缺陷或不适合当前项目的技法。可选段落，可空。}
 ```
 
+<!-- translation-guide: non-executable -->
 ### English guide (non-executable)
 
 The protected template above uses these operational headings and fields:
@@ -139,6 +140,7 @@ The protected template above uses these operational headings and fields:
 | `不可模仿` | Elements that must not be imitated |
 
 Each anchor passage contains 300–500 Chinese characters from the source manuscript. Select four to six passages representing tones that both matter to the current project and have adequate evidence in the benchmark. If the benchmark lacks a tone, record that the sample is insufficient and skip it; never fabricate an example.
+<!-- /translation-guide -->
 
 ## Semantics of the confidence Field
 
