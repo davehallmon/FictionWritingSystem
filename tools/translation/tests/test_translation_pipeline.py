@@ -80,6 +80,33 @@ class TranslationPipelineTests(unittest.TestCase):
             result.errors,
         )
 
+    def test_validator_accepts_marked_non_executable_guide_region(self):
+        source = "# 文档\n\n## 模板\n\n| 字段 | 值 |\n|---|---|\n| A | B |\n\n## 后续\n"
+        output = (
+            "# Document\n\n## Template\n\n| Field | Value |\n|---|---|\n| A | B |\n\n"
+            "<!-- translation-guide: non-executable -->\n"
+            "### English guide\n\n- Readable note\n\n| Literal | Meaning |\n|---|---|\n| `A` | Alpha |\n"
+            "<!-- /translation-guide -->\n\n## Next\n"
+        )
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_rejects_unclosed_translation_guide(self):
+        source = "# 文档\n"
+        output = "# Document\n\n<!-- translation-guide: non-executable -->\nGuide\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Translation guide start marker is not closed", result.errors)
+
+    def test_validator_rejects_fence_inside_translation_guide(self):
+        source = "# 文档\n"
+        output = (
+            "# Document\n\n<!-- translation-guide: non-executable -->\n"
+            "```text\nGuide\n```\n<!-- /translation-guide -->\n"
+        )
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Translation guide must not contain fenced blocks", result.errors)
+
     def test_validator_accepts_localized_same_page_fragment(self):
         source = "# 文档\n\n- [章节](#章节一)\n\n## 章节一\n"
         output = "# Document\n\n- [Section](#section-one)\n\n## Section One\n"
@@ -124,6 +151,34 @@ class TranslationPipelineTests(unittest.TestCase):
         output = "# Document\n\nVisit https://example.com/a--b.\n"
         self.assertTrue(validate(source, output).valid)
 
+    def test_validator_allows_added_inline_code_formatting(self):
+        source = "# 文档\n\nUse path.md and field_name.\n"
+        output = "# Document\n\nUse `path.md` and `field_name`.\n"
+        result = validate(source, output)
+        self.assertTrue(result.valid)
+        self.assertTrue(any("inline-code formatting" in warning for warning in result.warnings))
+
+    def test_validator_rejects_changed_source_inline_literal(self):
+        source = "# 文档\n\nRun `tool --flag`.\n"
+        output = "# Document\n\nRun `tool --other`.\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed inline literal values", result.errors)
+
+    def test_validator_allows_repeated_existing_protected_token(self):
+        source = "# 文档\n\nRun --flag.\n"
+        output = "# Document\n\nRun --flag. The same --flag is shown again.\n"
+        result = validate(source, output)
+        self.assertTrue(result.valid)
+        self.assertTrue(any("repeats 1 protected token" in warning for warning in result.warnings))
+
+    def test_validator_rejects_new_protected_token_value(self):
+        source = "# 文档\n\nRun --flag.\n"
+        output = "# Document\n\nRun --flag and --new.\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed protected tokens", result.errors)
+
     def test_validator_accepts_unordered_bullet_glyph_change(self):
         source = "# 文档\n\n- 一\n- 二\n"
         output = "# Document\n\n* One\n* Two\n"
@@ -155,6 +210,11 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertIn("Changed heading levels", result.errors)
 
+    def test_validator_allows_blockquote_line_reflow(self):
+        source = "# 文档\n\n> 第一行\n> 第二行\n"
+        output = "# Document\n\n> First and second line merged.\n"
+        self.assertTrue(validate(source, output).valid)
+
     def test_validator_rejects_blockquote_depth_change(self):
         source = "# 文档\n\n> 引用\n>> 深层引用\n"
         output = "# Document\n\n> Quote\n> Nested quote\n"
@@ -169,23 +229,45 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertFalse(result.valid)
         self.assertIn("Changed HTML comment framing", result.errors)
 
-    def test_translation_companion_marker_is_not_comment_drift(self):
+    def test_translation_markers_are_not_comment_drift(self):
         source = "# 示例\n\n```\n中文\n```\n"
         output = (
             "# Example\n\n```\n中文\n```\n\n"
             "<!-- translation-companion: non-executable -->\n"
-            "```text\nEnglish\n```\n"
+            "```text\nEnglish\n```\n\n"
+            "<!-- translation-guide: non-executable -->\nGuide\n<!-- /translation-guide -->\n"
         )
         result = validate(source, output)
         self.assertTrue(result.valid)
         self.assertNotIn("Changed HTML comment framing", result.errors)
+
+    def test_validator_preserves_image_targets(self):
+        source = "# 文档\n\n![图](images/a.png)\n"
+        output = "# Document\n\n![Image](images/b.png)\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed image targets", result.errors)
+
+    def test_validator_preserves_horizontal_rule_structure(self):
+        source = "# 文档\n\n---\n\nText\n"
+        output = "# Document\n\nText\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed horizontal-rule structure", result.errors)
+
+    def test_validator_rejects_unclosed_fence(self):
+        source = "# 文档\n"
+        output = "# Document\n\n```text\nunclosed\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Unclosed fenced block", result.errors)
 
     def test_validator_rejects_changed_cli_flag(self):
         source = "# 文档\n\n运行 `tool --source input.md`。\n"
         output = "# Document\n\nRun `tool --input input.md`.\n"
         result = validate(source, output)
         self.assertFalse(result.valid)
-        self.assertIn("Changed inline code", result.errors)
+        self.assertIn("Changed inline literal values", result.errors)
         self.assertIn("Changed protected tokens", result.errors)
 
 
