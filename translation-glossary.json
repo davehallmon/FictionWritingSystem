@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "terms": {
+    "网文": {
+      "preferred_english": "web fiction",
+      "alternatives": ["online fiction"],
+      "context": "Fiction written for serialized online publishing platforms",
+      "preserve_chinese": false
+    },
+    "拆文": {
+      "preferred_english": "story decomposition",
+      "alternatives": ["structural story analysis"],
+      "context": "Systematic reverse analysis of a completed work",
+      "preserve_chinese": false
+    },
+    "扫榜": {
+      "preferred_english": "rankings scan",
+      "alternatives": ["market-ranking scan"],
+      "context": "Reviewing platform rankings to identify market patterns",
+      "preserve_chinese": false
+    },
+    "去 AI 味": {
+      "preferred_english": "remove AI writing traces",
+      "alternatives": ["remove recognizable AI-writing patterns"],
+      "context": "Editing prose to remove formulaic patterns associated with generated writing",
+      "preserve_chinese": false
+    },
+    "卷纲": {
+      "preferred_english": "volume outline",
+      "alternatives": [],
+      "context": "Outline governing one volume of a serialized novel",
+      "preserve_chinese": false
+    },
+    "细纲": {
+      "preferred_english": "detailed chapter outline",
+      "alternatives": ["chapter blueprint"],
+      "context": "Execution-level outline for an individual chapter",
+      "preserve_chinese": false
+    },
+    "剧情单元": {
+      "preferred_english": "story unit",
+      "alternatives": ["plot unit"],
+      "context": "A bounded group of chapters organized around one dramatic movement",
+      "preserve_chinese": false
+    },
+    "爽点": {
+      "preferred_english": "payoff beat",
+      "alternatives": ["reader-gratification beat"],
+      "context": "A moment that delivers anticipated satisfaction, vindication, or emotional reward",
+      "preserve_chinese": false
+    },
+    "对标": {
+      "preferred_english": "benchmark",
+      "alternatives": ["comparison title"],
+      "context": "A reference work used for structured comparison",
+      "preserve_chinese": false
+    },
+    "伏笔": {
+      "preferred_english": "foreshadowing",
+      "alternatives": ["setup"],
+      "context": "Planted information intended for later narrative resolution",
+      "preserve_chinese": false
+    },
+    "黄金三章": {
+      "preferred_english": "opening three chapters",
+      "alternatives": ["golden three chapters"],
+      "context": "Chinese web-fiction convention emphasizing the first three chapters' acquisition and retention work",
+      "preserve_chinese": false
+    },
+    "断点": {
+      "preferred_english": "checkpoint",
+      "alternatives": ["resume point"],
+      "context": "Persisted pipeline position used for recovery",
+      "preserve_chinese": false
+    }
+  }
+}
