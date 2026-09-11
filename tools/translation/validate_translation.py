@@ -35,7 +35,7 @@ TRANSLATION_COMPANION_MARKER = "<!-- translation-companion: non-executable -->"
 TRANSLATION_COMPANION_LANGUAGES = {"text", "txt", "plaintext"}
 TRANSLATION_GUIDE_START = "<!-- translation-guide: non-executable -->"
 TRANSLATION_GUIDE_END = "<!-- /translation-guide -->"
-TRAILING_URL_PUNCTUATION = ".,;:!?\"'"
+TRAILING_URL_PUNCTUATION = ".,;:!?\"'。，、；：！？"
 
 
 @dataclass
