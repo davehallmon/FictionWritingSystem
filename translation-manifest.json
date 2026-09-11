@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T19:39:24.449Z",
+  "generated_at": "2026-09-11T05:00:44.589Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "b30b90ad691f0afbd0f54ecae9ef41f4c90ed605",
+  "source_commit": "ce0978b42b8fe34d01af42aecb6e3844816fa60f",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 147,
-    "remaining": 15,
+    "translated": 152,
+    "remaining": 10,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1587,7 +1587,7 @@
       "chinese_characters": 6380,
       "latin_characters": 3696,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-long-scan.md",
@@ -1598,7 +1598,7 @@
       "chinese_characters": 3433,
       "latin_characters": 2124,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-long-write.md",
@@ -1609,7 +1609,7 @@
       "chinese_characters": 5630,
       "latin_characters": 5162,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-review.md",
@@ -1620,7 +1620,7 @@
       "chinese_characters": 7894,
       "latin_characters": 7744,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-setup.md",
@@ -1631,7 +1631,7 @@
       "chinese_characters": 8183,
       "latin_characters": 23150,
       "language_class": "mixed",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-short-analyze.md",
