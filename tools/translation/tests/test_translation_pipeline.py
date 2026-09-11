@@ -114,6 +114,80 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("Changed URLs", result.errors)
         self.assertIn("Changed protected link destinations", result.errors)
 
+    def test_validator_ignores_sentence_and_table_punctuation_adjacent_to_url(self):
+        source = "# 文档\n\n访问 https://example.com/docs。\n"
+        output = "# Document\n\nVisit https://example.com/docs.\n"
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_does_not_treat_url_double_dash_as_cli_token(self):
+        source = "# 文档\n\n访问 https://example.com/a--b。\n"
+        output = "# Document\n\nVisit https://example.com/a--b.\n"
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_accepts_unordered_bullet_glyph_change(self):
+        source = "# 文档\n\n- 一\n- 二\n"
+        output = "# Document\n\n* One\n* Two\n"
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_rejects_list_type_or_nesting_change(self):
+        source = "# 文档\n\n- 一\n  - 二\n"
+        output = "# Document\n\n1. One\n- Two\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed list structure", result.errors)
+
+    def test_validator_rejects_table_row_or_column_change(self):
+        source = "# 文档\n\n| A | B |\n|---|---|\n| 一 | 二 |\n"
+        output = "# Document\n\n| A | B |\n|---|---|\n| One | Two |\n| Three | Four |\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed table structure", result.errors)
+
+    def test_validator_ignores_pipe_inside_inline_code_in_table(self):
+        source = "# 文档\n\n| 值 | 说明 |\n|---|---|\n| `a|b` | 文本 |\n"
+        output = "# Document\n\n| Value | Description |\n|---|---|\n| `a|b` | Text |\n"
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_rejects_heading_level_change(self):
+        source = "# 文档\n\n## 章节\n"
+        output = "# Document\n\n### Section\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed heading levels", result.errors)
+
+    def test_validator_rejects_blockquote_depth_change(self):
+        source = "# 文档\n\n> 引用\n>> 深层引用\n"
+        output = "# Document\n\n> Quote\n> Nested quote\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed blockquote structure", result.errors)
+
+    def test_validator_rejects_html_comment_framing_change(self):
+        source = "# 文档\n\n<!-- 保留 -->\n"
+        output = "# Document\n\nVisible text\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed HTML comment framing", result.errors)
+
+    def test_translation_companion_marker_is_not_comment_drift(self):
+        source = "# 示例\n\n```\n中文\n```\n"
+        output = (
+            "# Example\n\n```\n中文\n```\n\n"
+            "<!-- translation-companion: non-executable -->\n"
+            "```text\nEnglish\n```\n"
+        )
+        result = validate(source, output)
+        self.assertTrue(result.valid)
+        self.assertNotIn("Changed HTML comment framing", result.errors)
+
+    def test_validator_rejects_changed_cli_flag(self):
+        source = "# 文档\n\n运行 `tool --source input.md`。\n"
+        output = "# Document\n\nRun `tool --input input.md`.\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed inline code", result.errors)
+        self.assertIn("Changed protected tokens", result.errors)
+
 
 if __name__ == "__main__":
     unittest.main()
