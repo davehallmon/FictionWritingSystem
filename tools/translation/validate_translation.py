@@ -24,6 +24,8 @@ HTML_TAG_RE = re.compile(r"<[^>]+>")
 MARKDOWN_PUNCT_RE = re.compile(r"[*_~]")
 SLUG_PUNCT_RE = re.compile(r"[^\w\s-]", re.UNICODE)
 WHITESPACE_RE = re.compile(r"\s+")
+TRANSLATION_COMPANION_MARKER = "<!-- translation-companion: non-executable -->"
+TRANSLATION_COMPANION_LANGUAGES = {"text", "txt", "plaintext"}
 
 
 @dataclass
@@ -35,8 +37,62 @@ class ValidationResult:
     output_chinese_characters: int
 
 
+@dataclass(frozen=True)
+class FenceRecord:
+    raw: str
+    info: str
+    start: int
+    end: int
+
+
+def fence_records(text: str) -> list[FenceRecord]:
+    records: list[FenceRecord] = []
+    for match in FENCE_RE.finditer(text):
+        opening = match.group(1).strip()
+        opener = re.match(r"(`{3,}|~{3,})(.*)$", opening)
+        info = opener.group(2).strip() if opener else ""
+        records.append(FenceRecord(match.group(0), info, match.start(), match.end()))
+    return records
+
+
 def fenced_blocks(text: str) -> list[str]:
-    return [match.group(0) for match in FENCE_RE.finditer(text)]
+    return [record.raw for record in fence_records(text)]
+
+
+def companion_language(info: str) -> str:
+    return info.split()[0].lower() if info else ""
+
+
+def authoritative_fenced_blocks(text: str) -> tuple[list[str], list[str]]:
+    """Return source-authoritative fences, excluding valid marked text companions."""
+    authoritative: list[str] = []
+    errors: list[str] = []
+    last_authoritative: FenceRecord | None = None
+    companions = 0
+
+    for record in fence_records(text):
+        between = text[last_authoritative.end : record.start] if last_authoritative else text[: record.start]
+        marker_present = TRANSLATION_COMPANION_MARKER in between
+
+        if marker_present:
+            companions += 1
+            if last_authoritative is None:
+                errors.append("Translation companion has no preceding authoritative fenced block")
+            if between.strip() != TRANSLATION_COMPANION_MARKER:
+                errors.append("Translation companion marker must be the only non-whitespace content between fences")
+            if companion_language(record.info) not in TRANSLATION_COMPANION_LANGUAGES:
+                errors.append("Translation companion must use a non-executable text fence")
+            continue
+
+        authoritative.append(record.raw)
+        last_authoritative = record
+
+    outside_fences = without_fences(text)
+    marker_count = outside_fences.count(TRANSLATION_COMPANION_MARKER)
+    if marker_count != companions:
+        errors.append("Translation companion marker is not attached to exactly one fenced companion")
+
+    return authoritative, errors
 
 
 def without_fences(text: str) -> str:
@@ -122,8 +178,11 @@ def broken_same_page_fragments(text: str) -> list[str]:
 def validate(source: str, output: str) -> ValidationResult:
     errors: list[str] = []
     warnings: list[str] = []
+    output_authoritative_fences, companion_errors = authoritative_fenced_blocks(output)
+    errors.extend(companion_errors)
+
     comparisons = {
-        "fenced code blocks": (fenced_blocks(source), fenced_blocks(output)),
+        "fenced code blocks": (fenced_blocks(source), output_authoritative_fences),
         "inline code": (INLINE_CODE_RE.findall(without_fences(source)), INLINE_CODE_RE.findall(without_fences(output))),
         "URLs": (URL_RE.findall(source), URL_RE.findall(output)),
         "protected link destinations": (protected_link_destinations(source), protected_link_destinations(output)),
