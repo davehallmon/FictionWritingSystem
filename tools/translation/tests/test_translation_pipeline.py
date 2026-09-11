@@ -158,12 +158,24 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertTrue(result.valid)
         self.assertTrue(any("inline-code formatting" in warning for warning in result.warnings))
 
+    def test_validator_allows_translation_grammar_to_reorder_protected_inline_literals(self):
+        source = "# 文档\n\n`check.js` 的 `rule-id` 提示。\n"
+        output = "# Document\n\nThe `rule-id` rule in `check.js` raises a warning.\n"
+        result = validate(source, output)
+        self.assertTrue(result.valid)
+        self.assertTrue(any("reordered by translation grammar" in warning for warning in result.warnings))
+
+    def test_validator_allows_localized_punctuation_examples_in_inline_code(self):
+        source = "# 文档\n\n不要堆砌 `？` / `！` / `……`。\n"
+        output = "# Document\n\nDo not overuse question marks, exclamation points, or ellipses.\n"
+        self.assertTrue(validate(source, output).valid)
+
     def test_validator_rejects_changed_source_inline_literal(self):
         source = "# 文档\n\nRun `tool --flag`.\n"
         output = "# Document\n\nRun `tool --other`.\n"
         result = validate(source, output)
         self.assertFalse(result.valid)
-        self.assertIn("Changed inline literal values", result.errors)
+        self.assertIn("Changed protected inline literal values", result.errors)
 
     def test_validator_allows_repeated_existing_protected_token(self):
         source = "# 文档\n\nRun --flag.\n"
@@ -171,6 +183,13 @@ class TranslationPipelineTests(unittest.TestCase):
         result = validate(source, output)
         self.assertTrue(result.valid)
         self.assertTrue(any("repeats 1 protected token" in warning for warning in result.warnings))
+
+    def test_validator_allows_translation_grammar_to_reorder_protected_tokens(self):
+        source = "# 文档\n\n先 --source 再 --output。\n"
+        output = "# Document\n\nUse --output after selecting --source.\n"
+        result = validate(source, output)
+        self.assertTrue(result.valid)
+        self.assertTrue(any("Protected tokens are reordered" in warning for warning in result.warnings))
 
     def test_validator_rejects_new_protected_token_value(self):
         source = "# 文档\n\nRun --flag.\n"
@@ -267,7 +286,7 @@ class TranslationPipelineTests(unittest.TestCase):
         output = "# Document\n\nRun `tool --input input.md`.\n"
         result = validate(source, output)
         self.assertFalse(result.valid)
-        self.assertIn("Changed inline literal values", result.errors)
+        self.assertIn("Changed protected inline literal values", result.errors)
         self.assertIn("Changed protected tokens", result.errors)
 
 
