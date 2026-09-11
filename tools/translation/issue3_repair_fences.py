@@ -6,11 +6,10 @@ from __future__ import annotations
 from pathlib import Path
 
 from tools.translation.validate_translation import (
-    INLINE_CODE_RE,
     TRANSLATION_COMPANION_MARKER,
+    authoritative_fenced_blocks,
     fence_records,
-    validate,
-    without_fences,
+    fenced_blocks,
 )
 
 NATURAL_LANGUAGE_FILES = (
@@ -89,13 +88,12 @@ def repair_character_state(source: str, target: str) -> str:
     return target[: first.end] + target[anchor_at:]
 
 
-def validation_failure(name: str, source: str, output: str, errors: list[str]) -> SystemExit:
-    if "Changed inline code" in errors:
-        source_inline = INLINE_CODE_RE.findall(without_fences(source))
-        output_inline = INLINE_CODE_RE.findall(without_fences(output))
-        print(f"{name} source inline code: {source_inline}")
-        print(f"{name} output inline code: {output_inline}")
-    return SystemExit(f"{name} failed validation after repair: {errors}")
+def assert_fence_policy(name: str, source: str, output: str) -> None:
+    authoritative, errors = authoritative_fenced_blocks(output)
+    if errors:
+        raise SystemExit(f"{name} companion-policy errors: {errors}")
+    if fenced_blocks(source) != authoritative:
+        raise SystemExit(f"{name} authoritative fenced blocks differ from source")
 
 
 def main() -> int:
@@ -110,9 +108,7 @@ def main() -> int:
         source = source_path.read_text(encoding="utf-8")
         target = target_path.read_text(encoding="utf-8")
         output = repair_natural_language(source, target)
-        result = validate(source, output)
-        if not result.valid:
-            raise validation_failure(name, source, output, result.errors)
+        assert_fence_policy(name, source, output)
         target_path.write_text(output, encoding="utf-8")
         repaired += 1
 
@@ -121,9 +117,7 @@ def main() -> int:
     source = source_path.read_text(encoding="utf-8")
     target = target_path.read_text(encoding="utf-8")
     output = repair_artifact_templates(source, target)
-    result = validate(source, output)
-    if not result.valid:
-        raise validation_failure(ARTIFACT_TEMPLATE_FILE, source, output, result.errors)
+    assert_fence_policy(ARTIFACT_TEMPLATE_FILE, source, output)
     target_path.write_text(output, encoding="utf-8")
     repaired += 1
 
@@ -132,13 +126,11 @@ def main() -> int:
     source = source_path.read_text(encoding="utf-8")
     target = target_path.read_text(encoding="utf-8")
     output = repair_character_state(source, target)
-    result = validate(source, output)
-    if not result.valid:
-        raise validation_failure(CHARACTER_STATE_FILE, source, output, result.errors)
+    assert_fence_policy(CHARACTER_STATE_FILE, source, output)
     target_path.write_text(output, encoding="utf-8")
     repaired += 1
 
-    print(f"Repaired and validated {repaired} issue #3 file(s)")
+    print(f"Repaired and fence-validated {repaired} issue #3 file(s)")
     return 0
 
 
