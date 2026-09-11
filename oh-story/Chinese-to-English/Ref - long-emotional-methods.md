@@ -119,6 +119,11 @@ Collective or thematic elevation is also optional. Expand an individual payoff i
 
 ### Basic Rhythm Curve
 
+```
+温暖 → 残忍 → 善意 → 真相 → 原谅 → 来不及 → 释然 → 细节暴击
+```
+
+<!-- translation-companion: non-executable -->
 ```text
 Warmth → Cruelty → Kindness → Truth → Forgiveness → Too Late → Acceptance → Devastating Detail
 ```

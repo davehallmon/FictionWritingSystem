@@ -302,6 +302,14 @@ Treat dialogue share only as descriptive data for the text and comparable sample
 ### Three Turns and Four Shocks
 
 ```
+翻1：主角宣布选择→众人反应
+翻2：具体选择内容（出人意料）→众人再反应
+翻3：追问原因/更深反转→更大反应
+震终：权威角色最高评价→落选者黯然退场（压一压情绪）
+```
+
+<!-- translation-companion: non-executable -->
+```text
 Turn 1: Protagonist announces a choice → everyone reacts
 Turn 2: Specific, unexpected choice revealed → everyone reacts again
 Turn 3: Question about the reason / deeper reversal → stronger reaction
@@ -334,6 +342,11 @@ Before writing a competition or confrontation, disclose:
 ## Four-Stage Romance Progression
 
 ```
+熟悉阶段→试探阶段→暧昧阶段→确认关系
+```
+
+<!-- translation-companion: non-executable -->
+```text
 Familiarity → Testing → Ambiguity → Commitment
 ```
 

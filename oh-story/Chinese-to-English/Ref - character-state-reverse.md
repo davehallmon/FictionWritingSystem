@@ -65,38 +65,6 @@ The example below comes from Chapter 10 of the demo *You Manage the Account—an
 }
 ```
 
-**English guide (non-executable):**
-
-```json
-{
-  "Jiang Chen": {
-    "identity": "Military art-troupe publicity soldier and creator of viral military-publicity work",
-    "location": "Senior screening meeting at the military art troupe",
-    "goal": "Complete the five-day, one-million-followers task and continue producing effective military-publicity content",
-    "state": "The professional remake has confirmed the phone-shot original's value, and military recognition continues to rise",
-    "abilities_resources": [
-      "Prior-life MCN viral-content operations experience",
-      "Accompaniment track for Chinese Military Spirit",
-      "Master-level directing ability"
-    ],
-    "relationships": [
-      "Zhong Jiajia continues providing military-newspaper resources",
-      "Zhou Bosen and Zhang Yaozu have explicitly recognized his creative ability"
-    ],
-    "knowledge": [
-      "The military-newspaper interview draft has been approved",
-      "Leadership will continue using the phone-shot original of Gentlemen, Hear the Dragon's Roar"
-    ],
-    "open_threads": [
-      "The five-day, one-million-followers task is not settled",
-      "Zhong Jiajia's statement that he guessed only half correctly remains unexplained"
-    ]
-  }
-}
-```
-
-The translated object explains the sample values only. The canonical JSON retains the protected Chinese character name and text.
-
 The generated file always contains: through chapter, identity, location, current objective, physical and emotional state, abilities and resources, key relationships, known information, and unresolved matters. The model must not create a second Markdown template.
 
 ## V. Incomplete Drafts and Batch Imports

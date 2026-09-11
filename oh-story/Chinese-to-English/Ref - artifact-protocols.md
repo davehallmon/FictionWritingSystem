@@ -40,26 +40,26 @@ This file is produced by the `story-long-analyze` analysis pipeline as either a 
 If a simplified comparable-title summary must be created manually because the analyze skill was not used:
 
 ```markdown
-# {对标书名} Comparable-Title Summary
+# {对标书名} 对标摘要
 
-## Basic Information
-- Title: {}
-- Author: {}
-- Genre/Type: {}
-- Target Platform: {}
-- Performance: {Average Subscriptions/Active Readers/Popularity}
+## 基本信息
+- 书名：{}
+- 作者：{}
+- 题材/类型：{}
+- 目标平台：{}
+- 成绩：{均订/在读/热度}
 
-## Core Findings
-- Opening Hook: {Type + Technique}
-- Payoff Density: {Approximately Once per N Chinese Characters}
-- Rhythm Pattern: {Description}
-- Reusable Patterns:
+## 核心发现
+- 开篇钩子：{类型 + 手法}
+- 爽点密度：{约 N 字/次}
+- 节奏模式：{描述}
+- 可借鉴套路：
   1. {}
   2. {}
   3. {}
 
-## Not Recommended for Imitation (Do Not Copy)
-- {} (Learn the structure only; do not copy the plot beat)
+## 不建议模仿（禁止照搬）
+- {}（只学结构，不抄桥段）
 ```
 
 Creation reference: `plot-special-topics.md` (comparable-title selection rules)
@@ -71,13 +71,13 @@ Creation reference: `plot-special-topics.md` (comparable-title selection rules)
 The original chapter from the comparable title, placed manually by the user or imported through the analysis pipeline.
 
 ```markdown
-# Chapter {N}: {章名}
+# 第{N}章 {章名}
 
-{Complete Original Chapter Text}
+{本章完整原文内容}
 
 ---
-> Source: {Manual Input / Imported by story-long-analyze}
-> Original Length: {Approximately N Chinese Characters}
+> 来源：{手动输入 / story-long-analyze 导入}
+> 原始字数：{约N字}
 ```
 
 ---
@@ -85,24 +85,24 @@ The original chapter from the comparable title, placed manually by the user or i
 ## `设定/关系.md`
 
 ```markdown
-# Character-Relationship Map
+# 角色关系图
 
-## Relationship Overview
+## 关系总览
 
-| Character A | Character B | Relationship Type {Family/Romance/Friendship/Hostile/Mentor-Student/Master-Servant/Interest-Based} | Emotional Direction {Positive/Negative/Neutral/Complex} | Current Status | Starting Chapter | Change Point |
+| 角色 A | 角色 B | 关系类型{亲情/爱情/友情/敌对/师生/主从/利益} | 情感倾向{正面/负面/中性/复杂} | 当前状态 | 起始章节 | 变化节点 |
 |--------|--------|---------------------------------------------|-----------------------------|---------|---------|---------|
-| {名} | {名} | {类型} | {倾向} | {描述} | Chapter {N} | {事件} |
+| {名} | {名} | {类型} | {倾向} | {描述} | 第{N}章 | {事件} |
 
-## Relationship Evolution
+## 关系演变
 
-{角色A}<->{角色B}:
-- Starting Point: {初始关系}
-- Turning Point: {章节·事件·变化}
-- Current: {现状}
+{角色A}<->{角色B}：
+- 起点：{初始关系}
+- 转折：{章节·事件·变化}
+- 当前：{现状}
 
-## Core Conflict Relationships
+## 核心冲突关系
 
-{List Two or Three Core Adversarial or Cooperative Relationships Driving the Plot}
+{列出推动剧情的2-3对核心对立/合作关系}
 ```
 
 Creation reference: `character-relations.md` (relationship types and relationship-map creation)
@@ -112,49 +112,49 @@ Creation reference: `character-relations.md` (relationship types and relationshi
 ## `设定/题材定位.md`
 
 ```markdown
-# Genre Positioning
+# 题材定位
 
-## Basic Information
-- Genre Type: {Fantasy/Urban/System/...}
-- Target Platform: {Qidian/Tomato Novel/Jinjiang/Other; story-review selects the platform rubric from this field}
-- Central Hook: {One-Sentence Selling Point}
-- Incremental Innovations: {Differences from Similar Works}
+## 基本信息
+- 题材类型：{玄幻/都市/系统/...}
+- 目标平台：{起点/番茄/晋江/其他；story-review 据此选平台 rubric}
+- 核心梗：{一句话卖点}
+- 微创新点：{与同类题材的差异}
 
-## Reader Contract (see `reader-contract-and-progression.md`)
-- Core Reader Promise: {The payoff/emotion/relationship/career experience readers follow}
-- Protagonist Agency Promise: {The protagonist’s irreplaceable judgment, critical choice, or contribution}
-- Interest Safety Line: {Boundary preventing core assets/selling points from being confiscated, transferred, or exposed without exchange}
-- Expectation Debt: {Promises established in the opening/current volume, when and how they will be repaid}
-- Genre Boundary: {Individual rise/ensemble/mentor/institutional cooperation, etc.; verify before introducing high-level institutions}
+## 读者契约（参 `reader-contract-and-progression.md`）
+- 核心读者承诺：{读者来追什么爽感/情绪/关系/事业}
+- 主角代理权承诺：{主角不可替代的判断、关键选择或贡献}
+- 利益安全线：{核心资产/卖点不得被没收、转赠、无交换暴露的边界}
+- 期待债：{开篇/本卷已承诺，何时以什么形式偿还}
+- 题材边界：{个人逆袭/群像/导师/制度合作等；高层级机构出现时先核对}
 
-## Endgame Trump Cards and Progression Ladder (prevents exhausting the story; fill once at project creation and consult during daily writing. See “Endgame Reserves and Progression Rhythm” in `reader-contract-and-progression.md`)
-- Endgame Trump Cards (one-time resources; mark earliest unlock volume): Primary Archenemy={}·Volume {X}; Ultimate Truth/Origin={}·Volume {X}; Special-Advantage Limit={}·Volume {X}; Final Identity/Status={}·Volume {X}; Core Romantic Commitment={Delete if no main romance}·Volume {X}
-- Progression Ladder: Main System {Realm/Level/Map/Faction Tier} has {N} tiers × approximately {W} ten-thousand Chinese characters per tier and should equal or exceed the whole-book target. If insufficient, lengthen the system or add maps. Unlock enemies/objectives in ascending tiers; never skip directly to the highest tier.
-- Depletion Red Lines: ① Using an endgame trump card before its unlock volume ② A progression line approaches its ceiling with no later step available
+## 终局底牌与升级台阶（防写无可写；开书填一次，日更只查。参 `reader-contract-and-progression.md`「终局储备与推进节奏」）
+- 终局底牌（一次性资源，标最早解锁卷）：头号宿敌={}·第{X}卷；终极真相/身世={}·第{X}卷；金手指上限={}·第{X}卷；身份/地位终点={}·第{X}卷；核心情感确定={无感情主线可删}·第{X}卷
+- 升级台阶：主体系{境界/等级/地图/势力层级}共{N}档 × 每档约{W}万字 应 ≥ 全书目标字数（不足则拉长体系/加地图层）；敌人/目标成梯队逐级解锁，禁止越级秒顶级
+- 透支红线：① 未到解锁卷就动用终局底牌 ② 某条升级线逼近天花板、后面没台阶接
 
-## Three-Part Central Hook
-- Surface Selling Point: {Immediate Attraction Readers See}
-- Deep Payoff: {Emotional Driver of Continued Reading}
-- Long-Term Hook: {Suspense/Objective Supporting the Whole Book}
+## 核心梗三分法
+- 表层卖点：{读者一眼看到的吸引力}
+- 深层爽点：{持续追读的情绪驱动力}
+- 长线钩子：{支撑全书的悬念/目标}
 
-## Comparable-Title Analysis (Summary)
-> See the `对标/` directory for complete data. This table is only a quick overview.
+## 对标分析（概要）
+> 完整对标数据见 `对标/` 目录。此表仅做快速概览。
 
-| Comparable Title | Similarities | Differences | Reusable Elements |
+| 对标书 | 相似点 | 差异点 | 可借鉴 |
 |--------|-------|-------|-------|
 | {书名} | {点} | {点} | {点} |
 
-## Comparable-Title Registration (required for multiple titles; cross-book-recall uses this for sorting and budget)
-- Primary Comparable Title: {书名; optional for one title, required for multiple titles}
-- Comparable-Title List:
+## 对标登记（多对标时必填；cross-book-recall 跨书召回按此排序与预算）
+- 主对标书：{书名；单对标可省，多对标必填}
+- 对标书列表：
 
-| Title | Genre Type | Reference Strength {Secondary/Reference} | Purpose |
+| 书名 | 题材类型 | 引用强度{辅/参考} | 用途 |
 |------|---------|-----------------|------|
-| {书名} | {类型} | {辅/参考} | {Primary Style Comparable/Structural Reference/...} |
+| {书名} | {类型} | {辅/参考} | {文风主对标/结构参考/…} |
 
-## Genre Framework
-- Eight-Node Position: {Current Node}
-- Critical Turning Points: {List}
+## 题材框架
+- 八节点位置：{当前处于哪个节点}
+- 关键转折节点：{列出}
 ```
 
 Creation reference: `long-genre-mechanics.md` (central-hook analysis/application and incremental innovation/differentiation)
@@ -166,15 +166,15 @@ Creation reference: `long-genre-mechanics.md` (central-hook analysis/application
 Whole-book overview. Begin with “Total Book Length and Stage Overview”—total chapters, target length, whole-book emotional curve, stage divisions, each stage’s rhythm formula, critical nodes, and hook chain, structured according to [Phase 3: Outline Construction](workflow-setup.md#phase-3大纲搭建). Follow it with one-paragraph volume summaries:
 
 ```markdown
-# Outline
+# 大纲
 
-## Total Book Length and Stage Overview
-{Complete According to the “Total Book Length and Stage Overview” Structure in Phase 3}
+## 全书体量与阶段总览
+{按 Phase 3「全书体量与阶段总览」结构填写}
 
-## Volume-Level Outline
-### Volume One: {卷名} (Approximately {X} Ten-Thousand Chinese Characters, {Y} Chapters)
-- Function / Stage / Volume Contract / Endgame Reserves / Stage Boundary / Core Events / Starting State → Ending State
-(One-paragraph summary; expand in each `卷纲_第X卷.md`)
+## 卷级大纲
+### 第一卷：{卷名}（约 {X} 万字，{Y} 章）
+- 功能 / 所属阶段 / 卷契约 / 终局储备 / 阶段边界 / 核心事件 / 起始状态 → 结束状态
+（一段式汇总；展开见各卷 卷纲_第X卷.md）
 ```
 
 ---
@@ -184,81 +184,81 @@ Whole-book overview. Begin with “Total Book Length and Stage Overview”—tot
 The volume outline expands the main outline: The main outline determines direction; the volume outline determines rhythm. It contains all creative planning for the volume.
 
 ```markdown
-# {卷名} Volume Outline
+# {卷名} 卷纲
 
-## Core Information
-- Chapter Range: Chapters {X}–{Y}
-- Target Length: {W} Ten-Thousand Chinese Characters
-- Volume Position: {Setup/Development/Climax/Turn/Conclusion}
+## 核心信息
+- 章节范围：第{X}-{Y}章
+- 字数目标：{W}万字
+- 本卷定位：{铺垫/发展/高潮/转折/收尾}
 
-## Volume Contract and Endgame Reserves (see `reader-contract-and-progression.md`)
+## 卷契约与终局储备（参 `reader-contract-and-progression.md`）
 
-> Allow flexibility at the chapter level while protecting endgame reserves at the macro level. Lines other than the primary progression line may receive natural results; one victory may produce several gains. The true constraint is that this volume must not spend endgame trump cards that should remain locked.
-- Volume Contract: {Reader expectations, protagonist highlights, and primary expectation debts for this volume}
-- Primary Progression Line: {One line carrying the volume’s largest climax: combat/resources/identity/relationships/information/map/institution/faction/career/romantic certainty}
-- Volume Gains: {Results delivered by other lines, from a light touch to a major increase; multiple gains from one victory are allowed}
-- Endgame Milestone Unlocked in This Volume: {Which major milestone from “Endgame Trump Cards and Progression Ladder” in `设定/题材定位.md` advances or unlocks here}
-- Endgame Trump Cards Prohibited in This Volume: {Archenemy/truth/identity/special-advantage ceiling not yet unlocked}
-- Contract Risk: {Contract Safe / Needs Reinforcement / Contract Violation; specify reinforcement when needed}
+> 单章放开密度、宏观管住终局储备。主推线之外的线按剧情自然给战果，一战多得允许；真正要守的是本卷别动用还不该解锁的终局底牌。
+- 卷契约：{本卷读者期待、主角高光、主要期待债}
+- 本卷主推线：{1条承担本卷最大高潮的升级线：战力线/资源线/身份线/关系线/信息线/地图线/制度线/势力线/事业线/情感确定性}
+- 本卷战果：{其余顺带兑现的线，轻触到大涨皆可；一战多得是好设计}
+- 本卷解锁的终局里程碑：{参 `设定/题材定位.md`「终局底牌与升级台阶」小节，本卷推进或解锁哪一个大里程碑}
+- 本卷禁碰的终局底牌：{尚未到解锁卷、本卷不得动用的宿敌/真相/身份/金手指上限}
+- 契约风险：{契约安全 / 需补强 / 契约破坏；需补强时写清补强方式}
 
-## Story-Unit Cards (15,000–30,000 Chinese characters is an adjustable rule of thumb; store inside the volume outline rather than separate files)
+## 剧情单元卡（1–3 万字为可调经验值；存于卷纲内；不另建单独文件）
 
-> A story unit is the first-level structural unit in the volume outline; see “Comparable-Title Rhythm Migration” in outline-structure-theory.md. It and the “Comparable-Title Structural Coordinates” below are different views of the same unit, not duplicate plans. Adjust unit length to the book’s genre, established payoff rhythm, and comparable titles; it is not a hard threshold. When planning critical nodes, apply the authoritative file’s Four Questions for Critical Nodes and expectation ownership. The protagonist need not personally perform every action. After a climax/payoff, a brief low-pressure period may use a small visible gain or reward to bridge into the next pressure cycle. Before introducing a new map, institution, ability, enemy, or mystery, check the book-change debt; novelty cannot evade old promises.
+> 剧情单元 = 卷纲里的一级结构单元（见 outline-structure-theory.md「对标节奏迁移」），与下方「对标结构坐标」是同一单元的不同视角，不重复编排。单元长度按本书题材、既有兑现节奏与对标调整，不是硬门槛。规划各关键节点时消费权威文件的“关键节点四问”和期待所有权；无需主角亲自执行每个动作。高潮/兑现后可留短暂低压，以小而可见的收益/奖励承接下一轮压力。引入新地图/机构/能力/敌人/谜团时先检查换书债，不得借新鲜感逃避旧承诺。
 
-### Story Unit {L卷号-序号}
-- Unit ID: {L卷号-序号}
-- Chapter Range: {Chapters A–B}
-- Comparable Plot Reference: {{书名} “Plot Title” (Type/Beat Tags; Borrowed Element: Structural Distribution/Plot-Point Index/Payoff Method); may list 2–3; write “None” without a comparable}
-- Unit Beats/Chapter-Function Distribution: {Establish expectation → attempt → pressure/turn → decisive action → payoff → aftermath; mark chapter ranges and adapt by genre. When creating the card, derive shared beats from the referenced comparable story units; see “Creating Detailed Outlines by Plot” in outline-structure-theory.md}
-- Unit Promise: {Emotional premise/expectation established for readers and the expectation debt to repay}
-- Unit Emotion Engine: {Core emotional premise → carrier/emotional gap → reason it is blocked or persists → current trigger → protagonist’s irreplaceable ignition/transformation action → change in meaning or visible payoff → genre/contract payoff. Carrier may be a character, relationship, objective, rule, or scene. Write None/Immediate for inapplicable steps while closing the causal chain. Select mechanisms by genre; misunderstandings, objects, and reversals are not mandatory}
-- Volume-Level Contribution: {How the unit supports the volume contract, stage rhythm, or volume objective}
-- Protagonist’s Local Objective and Core Interest: {What the protagonist must preserve, obtain, or prove}
-- Causal Entry: {Natural entry from the preceding unit or an established event}
-- Core Obstacle: {Primary hostility, limitation, mistaken belief, or resource gap}
-- Critical Choice and Decisive Action: {The protagonist’s irreplaceable judgment, choice, and action}
-- Payoff Method and Ownership: {How the core payoff occurs, who receives the benefit, and how it becomes visible}
-- Unit Primary Progression Line/Gains: {Use the volume contract’s division: one primary line carries the climax; other lines receive gains; one victory may deliver several}
-- Endgame Trump-Card Boundary: {Locked archenemy/truth/identity/special-advantage ceiling prohibited in this unit; if approached, revise using the authoritative file’s two depletion questions}
-- Prohibited Early Release: {Content this unit cannot resolve, reveal, or upgrade early}
-- Next-Unit Causal Hook: {Question, cost, clue, or new objective that naturally enters the next unit}
-- Risk Level: {Contract Safe / Needs Reinforcement / Contract Violation; specify reinforcement when needed}
+### 剧情单元 {L卷号-序号}
+- 单元ID：{L卷号-序号}
+- 章节范围：{第A-B章}
+- 对标剧情参照：{{书名}《剧情标题》（类型/桥段标签；借什么：结构分布/情节点索引/兑现方式）；可列 2-3 条，无对标写「无」}
+- 单元节拍/章功能分配：{建立期待→尝试→加压/转向→决定性行动→兑现→余波；标对应章范围，可按题材删改；建卡时可按「对标剧情参照」剧情单元提炼的共性节拍填写，见 outline-structure-theory.md「按剧情批出细纲」}
+- 单元承诺：{本单元向读者建立的情绪命题/期待，以及要偿还的期待债}
+- 单元情绪引擎：{核心情绪命题→承载对象/情绪缺口→受阻或缺口维持原因→本轮触发→主角不可替代的点火/转化动作→意义变化或可见兑现→题材/契约兑现；承载对象可为人物/关系/目标/规则/场景；不适用环节可写无/即时，但须保持因果闭合；机制按题材选，不强制误解/物件/反转}
+- 卷级贡献：{它如何服务本卷契约、阶段节奏或卷级目标}
+- 主角局部目标与核心利益：{主角本单元要保住/拿到/证明什么}
+- 因果入口：{由上一单元或既有事件自然引出的入口}
+- 核心阻碍：{主要敌意、限制、误判或资源缺口}
+- 关键选择与决定性行动：{主角不可替代的判断、选择和行动}
+- 兑现方式与归属：{核心兑现如何发生，收益归谁、如何可见}
+- 本单元主推线/战果：{沿用卷契约划分——主推线1条承担高潮，其余线给战果，一战多得允许}
+- 终局底牌边界：{本单元不得动用的未解锁宿敌/真相/身份/金手指上限；碰到就按权威文件透支两问改纲}
+- 禁止提前释放：{本单元不能提前解决/揭露/升级的内容}
+- 下一单元因果钩子：{自然推入下一单元的问题、代价、线索或新目标}
+- 风险等级：{契约安全 / 需补强 / 契约破坏；需补强时写清补强方式}
 
-## Core Conflict
-{One Sentence: What Problem Must This Volume Solve or What Goal Must It Reach?}
+## 核心矛盾
+{一句话：本卷要解决什么问题或达到什么目标}
 
-## Comparable-Title Structural Coordinates
-{Complete when comparable titles exist; otherwise write “No comparable; arrange according to eight-node proportions.” See “Comparable-Title Rhythm Migration” in outline-structure-theory.md for migration steps. Prefer critical plot points from the referenced story unit’s “Plot-Point Index.”}
-- Primary Comparable Volume Segment: {对标书} Chapters {A}–{B} (Core-Conflict Correspondence: {One Sentence})
+## 对标结构坐标
+{有对标书时填；无则写"无对标，按八节点占比自排"。迁移步骤见 outline-structure-theory.md「对标节奏迁移」；对标关键情节优先取自被参照剧情单元的「情节点索引」}
+- 主对标卷段：{对标书}第{A}-{B}章（核心矛盾对应：{一句话}）
 
-| Normalized Position | This Volume’s Chapter Range | Comparable Critical Plot Point | This Volume’s Equivalent (New Material) | Type {Reversal/Turn/Incitement} |
+| 归一化位置 | 本卷章区间 | 对标关键情节 | 本卷对应（换素材） | 类型{逆转/转折/激励} |
 |-----------|-----------|-------------|-------------------|---------------------|
-| 1/4 | Chapter {N} | {对标事件} | {本卷事件} | {类型} |
-| Midpoint | Chapter {N} | {对标事件} | {本卷事件} | {类型} |
-| 3/4 | Chapter {N} | {对标事件} | {本卷事件} | {类型} |
+| 1/4 | 第{N}章 | {对标事件} | {本卷事件} | {类型} |
+| 中点 | 第{N}章 | {对标事件} | {本卷事件} | {类型} |
+| 3/4 | 第{N}章 | {对标事件} | {本卷事件} | {类型} |
 
-## Emotional Arc
-- Pattern: {V/Inverted V/W/Progressive/Delayed Gratification/Sharp Turn}
-- Selection Rationale: {Based on Genre and This Volume’s Position}
+## 情绪弧线
+- 模板：{V形/倒V形/W形/渐进形/延迟满足形/急转弯形}
+- 选择理由：{结合题材和本卷定位}
 
-| Chapter | Chapter Position {May Be Blank} | Emotional Tone {Tense/Relaxed/Sad/Passionate/Warm/Shocked} | Emotional Intensity {1–10} | Triggering Event |
+| 章节 | 章节定位{可留空} | 情绪基调{紧张/轻松/悲伤/热血/温馨/震惊} | 情绪强度{1-10} | 触发事件 |
 |------|------------|-----------------------------------------|--------------|---------|
-| Chapter {N} | {High Pressure/Progression/Training Trial and Error/Relationship Payoff/Low-Pressure Life/Information Organization} | {基调} | {N} | {事件} |
+| 第{N}章 | {高压/推进/修炼试错/关系回收/低压生活/信息整理} | {基调} | {N} | {事件} |
 
-> Chapter position may be blank; a blank entry defaults to an ordinary progression chapter. Emotional intensity measures emotional force, not the chapter position’s explosive pressure. A relationship or tearjerker chapter may be low pressure but emotionally intense. A volume needs high and low levels. Low-pressure plus restrained transition chapters should total no more than roughly 15%; see outline-structure-theory.md for genre tiers. Review adjacent rows so the same emotional motif does not continue for more than two or three chapters. See “Chapter Positioning and Variation” in outline-structure-theory.md for positions and minimum requirements.
+> 章节定位可留空，留空按普通推进章处理（即退化为现状）。情绪强度是情感烈度，和章节定位的爆发压力是两回事——关系/泪目章可低压力但高情绪强度。一卷要有高低层次，低压 + 过场克制（合计不超约 15%，题材分档见 outline-structure-theory.md），别全程同一力度；逐行看相邻章情绪基调，别同一母题连超 2-3 章。章节定位与底线见 outline-structure-theory.md「章节定位与张弛」。
 
-## Character Arcs
-| Character | Starting State in This Volume | Ending State in This Volume | Critical Change |
+## 人物弧线
+| 角色 | 本卷起点 | 本卷终点 | 关键转变 |
 |------|---------|---------|---------|
 | {名} | {状态} | {状态} | {事件} |
 
-## Reversals in This Volume (If Any)
-| Type {Identity/Motive/Alignment/Information/Fate} | Characters | Misdirection Path | Reveal Chapter | Scope |
+## 本卷反转（如有）
+| 类型{身份/动机/阵营/信息/命运} | 涉及角色 | 误导路径 | 揭示章节 | 影响范围 |
 |------|---------|---------|---------|---------|
-| {类型} | {名} | {How Readers Are Misdirected} | Chapter {N} | {Affected Lines} |
+| {类型} | {名} | {如何误导读者} | 第{N}章 | {影响哪些线} |
 
-## Foreshadowing in This Volume
-| Foreshadowing | Planting Chapter | Planned Payoff | Type {Short-/Medium-/Long-Term} |
+## 本卷伏笔
+| 伏笔 | 埋设章节 | 预计回收 | 类型{短期/中期/长期} |
 |------|---------|---------|---------------------|
 ```
 
