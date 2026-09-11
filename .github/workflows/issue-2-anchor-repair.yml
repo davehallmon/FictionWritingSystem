@@ -23,13 +23,13 @@ jobs:
           python-version: "3.12"
 
       - name: Repair same-page fragments
-        run: python3 tools/translation/repair_same_page_fragments.py --write
+        run: python3 -m tools.translation.repair_same_page_fragments --write
 
       - name: Run translation unit tests
         run: python3 -m unittest discover -s tools/translation/tests -p 'test_*.py'
 
       - name: Verify every translated fragment resolves
-        run: python3 tools/translation/repair_same_page_fragments.py
+        run: python3 -m tools.translation.repair_same_page_fragments
 
       - name: Commit repaired fragments
         shell: bash
