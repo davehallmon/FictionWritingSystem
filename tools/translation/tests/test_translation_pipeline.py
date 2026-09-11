@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from tools.translation.build_manifest import build_manifest
-from tools.translation.validate_translation import validate
+from tools.translation.validate_translation import heading_slugs, validate
 
 
 class TranslationPipelineTests(unittest.TestCase):
@@ -30,6 +30,40 @@ class TranslationPipelineTests(unittest.TestCase):
         result = validate(source, output)
         self.assertFalse(result.valid)
         self.assertIn("Changed fenced code blocks", result.errors)
+
+    def test_validator_accepts_localized_same_page_fragment(self):
+        source = "# 文档\n\n- [章节](#章节一)\n\n## 章节一\n"
+        output = "# Document\n\n- [Section](#section-one)\n\n## Section One\n"
+        self.assertTrue(validate(source, output).valid)
+
+    def test_validator_rejects_unresolved_same_page_fragment(self):
+        source = "# 文档\n\n- [章节](#章节一)\n\n## 章节一\n"
+        output = "# Document\n\n- [Section](#章节一)\n\n## Section One\n"
+        result = validate(source, output)
+        self.assertFalse(result.valid)
+        self.assertIn("Unresolved same-page fragments: #章节一", result.errors)
+
+    def test_heading_slugs_handle_duplicates(self):
+        text = "# Document\n\n## Item\n\n## Item\n"
+        self.assertEqual(heading_slugs(text), ["document", "item", "item-1"])
+
+    def test_heading_slugs_handle_punctuation(self):
+        text = "# What's New? v2.0\n"
+        self.assertEqual(heading_slugs(text), ["whats-new-v20"])
+
+    def test_heading_slugs_handle_mixed_chinese_and_english(self):
+        text = "# API 接口: v2\n"
+        self.assertEqual(heading_slugs(text), ["api-接口-v2"])
+
+    def test_validator_preserves_external_urls_and_file_paths(self):
+        source = "# 文档\n\n[External](https://example.com/a)\n[File](guide.md#section)\n"
+        unchanged = "# Document\n\n[External](https://example.com/a)\n[File](guide.md#section)\n"
+        changed = "# Document\n\n[External](https://example.com/b)\n[File](guide.md#other)\n"
+        self.assertTrue(validate(source, unchanged).valid)
+        result = validate(source, changed)
+        self.assertFalse(result.valid)
+        self.assertIn("Changed URLs", result.errors)
+        self.assertIn("Changed protected link destinations", result.errors)
 
 
 if __name__ == "__main__":

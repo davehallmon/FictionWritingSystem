@@ -8,12 +8,12 @@ what form changes in prompt composition, and what each stage carries forward.
 
 ## Table of Contents
 
-- [Rule Level of Form Cards](#形态卡的规则等级)
-- [Production-Form Card](#先写一张-production-form-card)
-- [Environmental Physics and Identity Form](#先锁环境物理与身份形态)
-- [Executable Vocabulary and Form Cards](#按形态选择可执行词汇)
-- [Form Differences in Prompt Composition](#提示词构成怎样随形态改变)
-- [Cross-Stage Transmission](#跨阶段传递同一意图)
+- [Rule Level of Form Cards](#rule-level-of-form-cards)
+- [Production-Form Card](#first-write-a-production-form-card)
+- [Environmental Physics and Identity Form](#first-lock-environmental-physics-and-identity-form)
+- [Executable Vocabulary and Form Cards](#select-executable-vocabulary-by-form)
+- [Form Differences in Prompt Composition](#how-prompt-composition-changes-with-form)
+- [Cross-Stage Transmission](#transmitting-the-same-intent-across-stages)
 
 ## Rule Level of Form Cards
 

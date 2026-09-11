@@ -9,16 +9,16 @@
 
 | What Are You Doing? | Method to Use | Go To |
 |-----------|-----------|--------|
-| Building a brief/detailed outline | Four-step brief-outline method | [Four-Step Brief-Outline Method](#小纲四步法) |
-| Designing a climax | Climax formula + reverse-engineering | [Reverse-Engineering the Climax and AB Rough Outline](#高潮逆推法与ab粗纲) → [Climax Formula](#高潮构建公式) |
-| Stuck on the story | Writer’s-block responses + loop design | [Writer’s-Block Responses and Plot-Loop Design](#卡文对策与剧情循环设计) |
-| Managing continuity | Continuity tracking + pacing management | [Continuity Tracking and Pacing Management](#连续性追踪与节奏管理) |
-| Designing transitions | Plot transitions + scene-change techniques | [Plot Transitions and Connections](#剧情过渡与衔接) → [Scene-Change Techniques](#场景转换技巧) |
-| Starting a book / designing a gimmick | Gimmick categories and opening process | [Gimmick Categories and Opening Process](#噱头分类与开篇流程) |
-| Extending the plot | Set thresholds | [Set Thresholds—the Core Technique for Extending Plot](#设门槛拉长剧情的核心技巧) |
-| Managing anticipation | Large-Plot Anticipation Method | [Large-Plot Anticipation Method](#大剧情拉期待法) |
-| Writing slice-of-life fiction | Slice-of-life outline framework | [Slice-of-Life Outline Framework](#日常文大纲框架法) |
-| Checking for self-indulgence | Self-indulgence test | [Self-Indulgence Test](#自嗨判定法) |
+| Building a brief/detailed outline | Four-step brief-outline method | [Four-Step Brief-Outline Method](#four-step-brief-outline-method) |
+| Designing a climax | Climax formula + reverse-engineering | [Reverse-Engineering the Climax and AB Rough Outline](#reverse-engineering-the-climax-and-ab-rough-outline) → [Climax Formula](#climax-formula) |
+| Stuck on the story | Writer’s-block responses + loop design | [Writer’s-Block Responses and Plot-Loop Design](#writers-block-responses-and-plot-loop-design) |
+| Managing continuity | Continuity tracking + pacing management | [Continuity Tracking and Pacing Management](#continuity-tracking-and-pacing-management) |
+| Designing transitions | Plot transitions + scene-change techniques | [Plot Transitions and Connections](#plot-transitions-and-connections) → [Scene-Change Techniques](#scene-change-techniques) |
+| Starting a book / designing a gimmick | Gimmick categories and opening process | [Gimmick Categories and Opening Process](#gimmick-categories-and-opening-process) |
+| Extending the plot | Set thresholds | [Set Thresholds—the Core Technique for Extending Plot](#set-thresholdsthe-core-technique-for-extending-plot) |
+| Managing anticipation | Large-Plot Anticipation Method | [Large-Plot Anticipation Method](#large-plot-anticipation-method) |
+| Writing slice-of-life fiction | Slice-of-life outline framework | [Slice-of-Life Outline Framework](#slice-of-life-outline-framework) |
+| Checking for self-indulgence | Self-indulgence test | [Self-Indulgence Test](#self-indulgence-test) |
 
 ---
 

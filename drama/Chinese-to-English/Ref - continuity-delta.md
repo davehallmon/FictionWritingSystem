@@ -2,15 +2,15 @@
 
 ## Table of Contents
 
-- [Boundary Matching](#边界匹配-con-01)
-- [State Tables vs. Change Logs](#状态表与变化记录的区别)
-- [Responsibilities by Stage](#各环节负责什么)
-- [States to Track](#需要追踪的五组状态)
-- [Logging Procedure](#写变化记录的步骤)
-- [State-Chain Example](#合成状态链)
-- [Nonlinear Time](#非线性时间与有意断裂)
-- [Revision Impact](#修订影响)
-- [Handoff Checklist](#交接检查)
+- [Boundary Matching](#boundary-matching-con-01)
+- [State Tables vs. Change Logs](#difference-between-state-tables-and-change-logs)
+- [Responsibilities by Stage](#responsibilities-by-stage)
+- [States to Track](#five-groups-of-states-to-track)
+- [Logging Procedure](#steps-for-writing-a-change-log)
+- [State-Chain Example](#composite-state-chain)
+- [Nonlinear Time](#nonlinear-time-and-intentional-discontinuities)
+- [Revision Impact](#revision-impact)
+- [Handoff Checklist](#handoff-checklist)
 
 ## Boundary Matching (`CON-01`)
 
