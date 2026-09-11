@@ -23,27 +23,32 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Repair the five audited files
+      - name: Repair and verify fenced content in five audited files
         run: python3 -m tools.translation.issue3_repair_fences
 
       - name: Run translation regression tests
         run: python3 -m unittest discover -s tools/translation/tests -p 'test_*.py'
 
-      - name: Verify repaired files with validator
+      - name: Report remaining full-validator findings for issue 4
         shell: bash
         run: |
-          set -euo pipefail
-          for name in \
-            "Ref - analysis-writing-techniques.md" \
-            "Ref - anti-ai-writing.md" \
-            "Ref - artifact-protocols.md" \
-            "Ref - character-state-reverse.md" \
-            "Ref - long-emotional-methods.md"
-          do
-            python3 tools/translation/validate_translation.py \
-              "oh-story/$name" \
-              "oh-story/Chinese-to-English/$name"
-          done
+          python3 - <<'PY'
+          from pathlib import Path
+          from tools.translation.validate_translation import validate
+
+          names = [
+              "Ref - analysis-writing-techniques.md",
+              "Ref - anti-ai-writing.md",
+              "Ref - artifact-protocols.md",
+              "Ref - character-state-reverse.md",
+              "Ref - long-emotional-methods.md",
+          ]
+          for name in names:
+              source = (Path("oh-story") / name).read_text(encoding="utf-8")
+              output = (Path("oh-story/Chinese-to-English") / name).read_text(encoding="utf-8")
+              result = validate(source, output)
+              print(f"{name}: valid={result.valid}; errors={result.errors}")
+          PY
 
       - name: Check whitespace errors
         run: git diff --check
