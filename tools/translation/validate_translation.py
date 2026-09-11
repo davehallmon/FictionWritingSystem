@@ -7,6 +7,7 @@ import argparse
 import html
 import json
 import re
+from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from urllib.parse import unquote
@@ -172,36 +173,55 @@ def inline_code_literals(text: str) -> list[str]:
     return INLINE_CODE_RE.findall(without_fences(text))
 
 
-def is_subsequence(required: list[str], actual: list[str]) -> bool:
-    if not required:
+def is_protected_inline_literal(literal: str) -> bool:
+    """Distinguish technical literals from localized linguistic examples in backticks."""
+    value = literal[1:-1] if literal.startswith("`") and literal.endswith("`") else literal
+    if re.search(r"[A-Za-z0-9_$]", value):
         return True
-    index = 0
-    for value in actual:
-        if value == required[index]:
-            index += 1
-            if index == len(required):
-                return True
+    if re.fullmatch(r"\[[^\]]+\]", value):
+        return True
+    if any(char in value for char in ("{", "}", "<", ">", "\\")):
+        return True
+    if value.startswith(("/", "./", "../")):
+        return True
     return False
 
 
-def inline_code_preservation(source: str, output: str) -> tuple[bool, int]:
-    """Require source inline literals in order; added output backticks are formatting-only."""
-    before = inline_code_literals(source)
-    after = inline_code_literals(output)
-    return is_subsequence(before, after), max(0, len(after) - len(before))
+def protected_inline_literals(text: str) -> list[str]:
+    return [literal for literal in inline_code_literals(text) if is_protected_inline_literal(literal)]
 
 
-def protected_token_preservation(source: str, output: str) -> tuple[bool, int]:
-    """Allow repeated source token values, but reject deletion, reordering, or new token values."""
+def counter_contains(required: Counter[str], actual: Counter[str]) -> bool:
+    return all(actual[value] >= count for value, count in required.items())
+
+
+def inline_code_preservation(source: str, output: str) -> tuple[bool, int, bool]:
+    """Protect technical inline literal values; localized/additional backticks are formatting-only."""
+    before_all = inline_code_literals(source)
+    after_all = inline_code_literals(output)
+    before = protected_inline_literals(source)
+    after = protected_inline_literals(output)
+    required = Counter(before)
+    actual = Counter(after)
+    preserved = counter_contains(required, actual)
+    additions = max(0, len(after_all) - len(before_all))
+    reordered = preserved and before != [value for value in after if value in required][: len(before)]
+    return preserved, additions, reordered
+
+
+def protected_token_preservation(source: str, output: str) -> tuple[bool, int, bool]:
+    """Protect token values and multiplicity while allowing explanatory repeats and grammar reordering."""
     before = protected_tokens(source)
     after = protected_tokens(output)
+    required = Counter(before)
+    actual = Counter(after)
     additions = max(0, len(after) - len(before))
-    if not is_subsequence(before, after):
-        return False, additions
+    if not counter_contains(required, actual):
+        return False, additions, False
     allowed = set(before)
     if any(value not in allowed for value in after):
-        return False, additions
-    return True, additions
+        return False, additions, False
+    return True, additions, before != after[: len(before)]
 
 
 def _pipe_positions(line: str) -> list[int]:
@@ -432,17 +452,23 @@ def validate(source: str, output: str) -> ValidationResult:
     errors.extend(source_guide_errors)
     errors.extend(output_guide_errors)
 
-    inline_ok, inline_additions = inline_code_preservation(source_compare, output_compare)
+    inline_ok, inline_additions, inline_reordered = inline_code_preservation(source_compare, output_compare)
     if not inline_ok:
-        errors.append("Changed inline literal values")
-    elif inline_additions:
-        warnings.append(f"Output adds {inline_additions} inline-code formatting span(s)")
+        errors.append("Changed protected inline literal values")
+    else:
+        if inline_additions:
+            warnings.append(f"Output adds {inline_additions} inline-code formatting span(s)")
+        if inline_reordered:
+            warnings.append("Protected inline literals are reordered by translation grammar; values and multiplicity are preserved")
 
-    tokens_ok, token_additions = protected_token_preservation(source_compare, output_compare)
+    tokens_ok, token_additions, token_reordered = protected_token_preservation(source_compare, output_compare)
     if not tokens_ok:
         errors.append("Changed protected tokens")
-    elif token_additions:
-        warnings.append(f"Output repeats {token_additions} protected token(s) in explanatory text")
+    else:
+        if token_additions:
+            warnings.append(f"Output repeats {token_additions} protected token(s) in explanatory text")
+        if token_reordered:
+            warnings.append("Protected tokens are reordered by translation grammar; values and multiplicity are preserved")
 
     comparisons = {
         "fenced code blocks": (fenced_blocks(source), output_authoritative_fences),
