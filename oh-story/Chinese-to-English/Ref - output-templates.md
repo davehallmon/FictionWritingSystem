@@ -24,15 +24,15 @@
 
 ## Contents
 
-1. [Stage 2 Full-Story Structure](#stage-2-全篇结构)
-2. [Stage 2B Plot-Point Extraction](#stage-2b-情节节点提取)
-3. [Stage 3 Emotional Arc + Explosive Moments](#stage-3-情感线爆点)
-4. [Stage 4 Reversals + Writing Techniques](#stage-4-反转写作手法)
-5. [Stage 5 Characters + Opening and Ending](#stage-5-人物开头结尾)
-6. [Stage 6 Comprehensive Evaluation](#stage-6-综合评估)
-7. [Detailed Pacing Analysis](#详细节奏分析)
-8. [Short-Story Structure Quick-Reference Library](#短篇结构速查库)
-9. [Required Quality-Check Fields](#质量检查必填字段)
+1. [Stage 2 Full-Story Structure](#stage-2-full-story-structure)
+2. [Stage 2B Plot-Point Extraction](#stage-2b-plot-point-extraction)
+3. [Stage 3 Emotional Arc + Explosive Moments](#stage-3-emotional-arc-explosive-moments)
+4. [Stage 4 Reversals + Writing Techniques](#stage-4-reversals-writing-techniques)
+5. [Stage 5 Characters + Opening and Ending](#stage-5-characters-opening-and-ending)
+6. [Stage 6 Comprehensive Evaluation](#stage-6-comprehensive-evaluation)
+7. [Detailed Pacing Analysis](#detailed-pacing-analysis)
+8. [Short-Story Structure Quick-Reference Library](#short-story-structure-quick-reference-library)
+9. [Required Quality-Check Fields](#required-quality-check-fields)
 
 ---
 

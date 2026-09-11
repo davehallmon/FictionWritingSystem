@@ -2,10 +2,10 @@
 
 ## Contents
 
-1. [Platform Selection and Positioning](#平台选择与定位)
-2. [Recommendation Mechanisms](#推荐机制)
-3. [Interpreting Data Metrics](#数据指标解读)
-4. [Writing the Synopsis](#简介写法)
+1. [Platform Selection and Positioning](#platform-selection-and-positioning)
+2. [Recommendation Mechanisms](#recommendation-mechanisms)
+3. [Interpreting Data Metrics](#interpreting-data-metrics)
+4. [Writing the Synopsis](#writing-the-synopsis)
 
 ---
 

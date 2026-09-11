@@ -2,12 +2,12 @@
 
 ## Contents
 
-- [Props and State](#道具不是名词表)
-- [Individuals and Collections](#个体同款与集合)
-- [Text Policy](#可读文字政策)
-- [Contents and Character Knowledge](#内容物与知识是两条连续性)
-- [Complete Process for Key Props](#有明确用途的关键道具)
-- [Example and Checks](#合成例铁皮匣)
+- [Props and State](#props-are-not-a-noun-list)
+- [Individuals and Collections](#individuals-identical-items-and-collections)
+- [Text Policy](#readable-text-policy)
+- [Contents and Character Knowledge](#contents-and-knowledge-are-separate-continuity-lines)
+- [Complete Process for Key Props](#key-props-with-explicit-functions)
+- [Example and Checks](#synthetic-example-sheet-metal-box)
 
 ## Props Are Not a Noun List
 

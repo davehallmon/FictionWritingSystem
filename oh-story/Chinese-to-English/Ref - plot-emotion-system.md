@@ -10,15 +10,15 @@ For a specific writing situation, use this table to locate the appropriate metho
 
 | What Are You Writing? | Method to Use |
 |------------|-----------|
-| Protagonist–opponent confrontation | [Escalating Confrontation](#主角与对手的递进对抗写法) + levels of showing off |
-| Payoff design | [Payoff Design System](#爽点设计体系) + density guidance |
-| Emotional escalation | [Core Techniques for Emotional Escalation and Contrast](#情绪升级与对比的核心技巧) |
-| Push-pull / misunderstandings | [Creating Push-Pull Through Misunderstanding](#误会制造拉扯法) |
-| Driving plot with a hook | [Building Plot Around a Hook](#以梗构建剧情法) |
-| Combining emotional modules | [Emotional-Module and Dramatic-Unit Categories](#情绪模块与戏剧单元分类) |
-| Controlling pace and climaxes | [Pacing and Climax-Control Techniques](#节奏与高潮控制技巧) |
-| Driving the desire to continue reading | [Four-Step Formula for Driving Reader Desire](#驱动读者欲望的四步公式) |
-| Choosing a driving method | [Emotion-Driven and Event-Driven Narratives](#情绪驱动与事件驱动) |
+| Protagonist–opponent confrontation | [Escalating Confrontation](#escalating-confrontation-between-protagonist-and-opponent) + levels of showing off |
+| Payoff design | [Payoff Design System](#payoff-design-system) + density guidance |
+| Emotional escalation | [Core Techniques for Emotional Escalation and Contrast](#core-techniques-for-emotional-escalation-and-contrast) |
+| Push-pull / misunderstandings | [Creating Push-Pull Through Misunderstanding](#creating-push-pull-through-misunderstanding) |
+| Driving plot with a hook | [Building Plot Around a Hook](#building-plot-around-a-hook) |
+| Combining emotional modules | [Emotional-Module and Dramatic-Unit Categories](#emotional-module-and-dramatic-unit-categories) |
+| Controlling pace and climaxes | [Pacing and Climax-Control Techniques](#pacing-and-climax-control-techniques) |
+| Driving the desire to continue reading | [Four-Step Formula for Driving Reader Desire](#four-step-formula-for-driving-reader-desire) |
+| Choosing a driving method | [Emotion-Driven and Event-Driven Narratives](#emotion-driven-and-event-driven-narratives) |
 
 ---
 

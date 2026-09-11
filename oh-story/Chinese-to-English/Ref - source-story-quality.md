@@ -12,9 +12,9 @@
 
 ## Table of Contents
 
-- [I. General Checks](#一通用检查)
-- [II. General Five-Dimension Evaluation](#二通用五维评估)
-- [III. Short-Fiction Checks](#三短篇专项)
+- [I. General Checks](#i-general-checks)
+- [II. General Five-Dimension Evaluation](#ii-general-five-dimension-evaluation)
+- [III. Short-Fiction Checks](#iii-short-fiction-checks)
 
 ## I. General Checks
 

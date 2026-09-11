@@ -2,13 +2,13 @@
 
 ## Contents
 
-- [Purpose](#目的保存证据不抢先下结论)
-- [Check Segment by Segment](#逐段检查而不是只找名词)
-- [Fact Layers](#事实分层)
-- [References](#称谓代词和匿名对象)
-- [Asset Judgment](#出现不等于视觉资产)
-- [State](#状态摘取要点)
-- [Completeness](#完整性检查)
+- [Purpose](#purpose-preserve-evidence-without-reaching-conclusions-prematurely)
+- [Check Segment by Segment](#check-segment-by-segment-not-merely-for-nouns)
+- [Fact Layers](#fact-layers)
+- [References](#forms-of-address-pronouns-and-anonymous-objects)
+- [Asset Judgment](#an-occurrence-is-not-necessarily-a-visual-asset)
+- [State](#key-points-for-state-extraction)
+- [Completeness](#completeness-checks)
 
 ## Purpose: Preserve Evidence Without Reaching Conclusions Prematurely
 
