@@ -13,11 +13,14 @@ from urllib.parse import unquote
 
 FENCE_RE = re.compile(r"(?ms)^([ \t]*(`{3,}|~{3,})[^\n]*\n).*?^[ \t]*\2[ \t]*$")
 INLINE_CODE_RE = re.compile(r"(?<!`)`[^`\n]+`(?!`)")
-URL_RE = re.compile(r"https?://[^\s)>\]]+")
+URL_RE = re.compile(r"https?://[^\s)<>{}\]\[|]+")
 LINK_TARGET_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 TOKEN_RE = re.compile(r"\$\{[^}]+\}|\{\{[^}]+\}\}|(?<!\w)--[\w-]+|(?<!\w)\$[\w-]+")
 HEADING_RE = re.compile(r"(?m)^(#{1,6})\s+")
 HEADING_TEXT_RE = re.compile(r"(?m)^#{1,6}\s+(.+?)\s*$")
+LIST_ITEM_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<marker>[-+*]|\d+[.)])\s+(?P<checkbox>\[[ xX]\]\s+)?")
+BLOCKQUOTE_RE = re.compile(r"^[ \t]*(?P<marks>>+)(?:[ \t]+|$)")
+HTML_COMMENT_TOKEN_RE = re.compile(r"<!--|-->")
 ZH_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 MARKDOWN_LINK_TEXT_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HTML_TAG_RE = re.compile(r"<[^>]+>")
@@ -26,6 +29,7 @@ SLUG_PUNCT_RE = re.compile(r"[^\w\s-]", re.UNICODE)
 WHITESPACE_RE = re.compile(r"\s+")
 TRANSLATION_COMPANION_MARKER = "<!-- translation-companion: non-executable -->"
 TRANSLATION_COMPANION_LANGUAGES = {"text", "txt", "plaintext"}
+TRAILING_URL_PUNCTUATION = ".,;:!?\"'"
 
 
 @dataclass
@@ -103,13 +107,114 @@ def without_fences(text: str) -> str:
     return FENCE_RE.sub("", text)
 
 
-def table_dimensions(text: str) -> list[int]:
-    dimensions: list[int] = []
+def normalized_urls(text: str) -> list[str]:
+    """Extract URLs while ignoring adjacent prose/table punctuation."""
+    urls: list[str] = []
+    for match in URL_RE.finditer(text):
+        value = match.group(0).rstrip(TRAILING_URL_PUNCTUATION)
+        if value:
+            urls.append(value)
+    return urls
+
+
+def protected_tokens(text: str) -> list[str]:
+    """Extract protected CLI/template tokens without treating URL text as tokens."""
+    outside = without_fences(text)
+    outside = URL_RE.sub("", outside)
+    return TOKEN_RE.findall(outside)
+
+
+def _pipe_positions(line: str) -> list[int]:
+    """Return structural pipe positions, ignoring escaped pipes and inline-code pipes."""
+    positions: list[int] = []
+    code_delimiter: int | None = None
+    index = 0
+    while index < len(line):
+        char = line[index]
+        if char == "`":
+            end = index
+            while end < len(line) and line[end] == "`":
+                end += 1
+            run = end - index
+            if code_delimiter is None:
+                code_delimiter = run
+            elif code_delimiter == run:
+                code_delimiter = None
+            index = end
+            continue
+        if char == "|" and code_delimiter is None:
+            backslashes = 0
+            scan = index - 1
+            while scan >= 0 and line[scan] == "\\":
+                backslashes += 1
+                scan -= 1
+            if backslashes % 2 == 0:
+                positions.append(index)
+        index += 1
+    return positions
+
+
+def table_row_cells(line: str) -> int | None:
+    stripped = line.strip()
+    if not (stripped.startswith("|") and stripped.endswith("|")):
+        return None
+    positions = _pipe_positions(stripped)
+    if len(positions) < 2 or positions[0] != 0 or positions[-1] != len(stripped) - 1:
+        return None
+    return len(positions) - 1
+
+
+def table_signatures(text: str) -> list[tuple[int, ...]]:
+    """Return one cell-count tuple per contiguous Markdown table."""
+    tables: list[tuple[int, ...]] = []
+    current: list[int] = []
     for line in without_fences(text).splitlines():
-        stripped = line.strip()
-        if stripped.startswith("|") and stripped.endswith("|"):
-            dimensions.append(len(stripped.split("|")) - 2)
-    return dimensions
+        cells = table_row_cells(line)
+        if cells is None:
+            if current:
+                tables.append(tuple(current))
+                current = []
+            continue
+        current.append(cells)
+    if current:
+        tables.append(tuple(current))
+    return tables
+
+
+def table_dimensions(text: str) -> list[int]:
+    """Backward-compatible flattened table row dimensions."""
+    return [cells for table in table_signatures(text) for cells in table]
+
+
+def list_signature(text: str) -> list[tuple[int, str, bool]]:
+    """Compare list nesting/type while allowing bullet glyph/ordinal renumbering."""
+    signature: list[tuple[int, str, bool]] = []
+    for line in without_fences(text).splitlines():
+        match = LIST_ITEM_RE.match(line)
+        if not match:
+            continue
+        indent = len(match.group("indent").expandtabs(4))
+        marker = match.group("marker")
+        kind = "ordered" if marker[0].isdigit() else "unordered"
+        checkbox = bool(match.group("checkbox"))
+        signature.append((indent, kind, checkbox))
+    return signature
+
+
+def blockquote_signature(text: str) -> list[int]:
+    """Compare blockquote line count and nesting depth, not translated contents."""
+    signature: list[int] = []
+    for line in without_fences(text).splitlines():
+        match = BLOCKQUOTE_RE.match(line)
+        if match:
+            signature.append(len(match.group("marks")))
+    return signature
+
+
+def html_comment_framing(text: str) -> list[str]:
+    """Compare comment framing while ignoring the approved translation marker."""
+    outside = without_fences(text).replace(TRANSLATION_COMPANION_MARKER, "")
+    return HTML_COMMENT_TOKEN_RE.findall(outside)
 
 
 def frontmatter_keys(text: str) -> list[str]:
@@ -188,12 +293,15 @@ def validate(source: str, output: str) -> ValidationResult:
     comparisons = {
         "fenced code blocks": (fenced_blocks(source), output_authoritative_fences),
         "inline code": (INLINE_CODE_RE.findall(without_fences(source)), INLINE_CODE_RE.findall(without_fences(output))),
-        "URLs": (URL_RE.findall(source), URL_RE.findall(output)),
+        "URLs": (normalized_urls(source), normalized_urls(output)),
         "protected link destinations": (protected_link_destinations(source), protected_link_destinations(output)),
         "link structure": (link_kinds(source), link_kinds(output)),
-        "literal tokens": (TOKEN_RE.findall(without_fences(source)), TOKEN_RE.findall(without_fences(output))),
+        "protected tokens": (protected_tokens(source), protected_tokens(output)),
         "heading levels": (HEADING_RE.findall(without_fences(source)), HEADING_RE.findall(without_fences(output))),
-        "table dimensions": (table_dimensions(source), table_dimensions(output)),
+        "table structure": (table_signatures(source), table_signatures(output)),
+        "list structure": (list_signature(source), list_signature(output)),
+        "blockquote structure": (blockquote_signature(source), blockquote_signature(output)),
+        "HTML comment framing": (html_comment_framing(source), html_comment_framing(output)),
         "frontmatter keys": (frontmatter_keys(source), frontmatter_keys(output)),
     }
     for label, (before, after) in comparisons.items():
