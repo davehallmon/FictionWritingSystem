@@ -1,0 +1,45 @@
+name: Issue 2 anchor repair
+
+on:
+  push:
+    branches:
+      - audit/issue-2-anchor-repair
+
+permissions:
+  contents: write
+
+jobs:
+  repair-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/issue-2-anchor-repair
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Repair same-page fragments
+        run: python3 tools/translation/repair_same_page_fragments.py --write
+
+      - name: Run translation unit tests
+        run: python3 -m unittest discover -s tools/translation/tests -p 'test_*.py'
+
+      - name: Verify every translated fragment resolves
+        run: python3 tools/translation/repair_same_page_fragments.py
+
+      - name: Commit repaired fragments
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No anchor changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add drama/Chinese-to-English oh-story/Chinese-to-English
+          git commit -m "Repair translated same-page anchors (#2)"
+          git push origin HEAD:audit/issue-2-anchor-repair
