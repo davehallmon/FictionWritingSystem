@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T05:00:44.589Z",
+  "generated_at": "2026-09-11T05:11:49.900Z",
   "source_branch": "translation/chinese-to-english",
-  "source_commit": "ce0978b42b8fe34d01af42aecb6e3844816fa60f",
+  "source_commit": "3aa87a9190b300dda0a8512eb243b268db751a49",
   "roots": [
     "oh-story",
     "drama"
@@ -10,8 +10,8 @@
   "destination_directory": "Chinese-to-English",
   "summary": {
     "targets": 162,
-    "translated": 152,
-    "remaining": 10,
+    "translated": 157,
+    "remaining": 5,
     "duplicate_groups": 0
   },
   "duplicate_groups": [],
@@ -1642,7 +1642,7 @@
       "chinese_characters": 3293,
       "latin_characters": 3102,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story-short-scan.md",
@@ -1653,7 +1653,7 @@
       "chinese_characters": 1970,
       "latin_characters": 797,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/SKILL - story.md",
@@ -1719,7 +1719,7 @@
       "chinese_characters": 4784,
       "latin_characters": 890,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - character-designer.md",
@@ -1730,7 +1730,7 @@
       "chinese_characters": 2054,
       "latin_characters": 1371,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - consistency-checker.md",
@@ -1741,7 +1741,7 @@
       "chinese_characters": 2802,
       "latin_characters": 850,
       "language_class": "chinese-dominant",
-      "status": "discovered"
+      "status": "translated"
     },
     {
       "source": "oh-story/Templates - narrative-writer.md",
