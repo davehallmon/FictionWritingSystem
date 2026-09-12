@@ -10,7 +10,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from tools.translation.build_manifest import DEFAULT_ROOTS, build_manifest
-from tools.translation.validate_translation import INLINE_CODE_RE, ZH_RE, fence_records
+from tools.translation.validate_translation import ZH_RE, fence_records
 
 HAN_SPAN_RE = re.compile(
     r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+"
@@ -33,15 +33,39 @@ def mask_range(chars: list[str], start: int, end: int) -> None:
             chars[index] = " "
 
 
+def mask_inline_code_spans(chars: list[str]) -> None:
+    """Mask CommonMark-style backtick spans, including spans that cross line breaks."""
+    text = "".join(chars)
+    opener_start: int | None = None
+    opener_len = 0
+    index = 0
+    while index < len(text):
+        if text[index] != "`":
+            index += 1
+            continue
+        end = index
+        while end < len(text) and text[end] == "`":
+            end += 1
+        run_len = end - index
+        if run_len >= 3:
+            index = end
+            continue
+        if opener_start is None:
+            opener_start = index
+            opener_len = run_len
+        elif run_len == opener_len:
+            mask_range(chars, opener_start, end)
+            opener_start = None
+            opener_len = 0
+        index = end
+
+
 def mask_governed_regions(text: str) -> str:
     """Mask authoritative fences and inline code while preserving line numbers."""
     chars = list(text)
-    fenced_ranges = [(record.start, record.end) for record in fence_records(text)]
-    for start, end in fenced_ranges:
-        mask_range(chars, start, end)
-    outside = "".join(chars)
-    for match in INLINE_CODE_RE.finditer(outside):
-        mask_range(chars, match.start(), match.end())
+    for record in fence_records(text):
+        mask_range(chars, record.start, record.end)
+    mask_inline_code_spans(chars)
     return "".join(chars)
 
 
@@ -178,12 +202,10 @@ def terminology_occurrences(path: str, text: str, glossary: dict) -> list[dict]:
                     }
                 )
         for alternative in data.get("alternatives", []):
-            if isinstance(alternative, str):
-                value = alternative
-                usage = "Legacy glossary alternative; review context"
-            else:
-                value = alternative.get("value", "")
-                usage = alternative.get("usage", "")
+            if not isinstance(alternative, dict) or alternative.get("review_required") is not True:
+                continue
+            value = alternative.get("value", "")
+            usage = alternative.get("usage", "")
             if not value:
                 continue
             for match in re.finditer(re.escape(value), masked, flags=re.IGNORECASE):
