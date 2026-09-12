@@ -145,9 +145,15 @@ Extract:
 | Aftershock | Do reactions continue across several characters? |
 | Impression | What remains in memory afterward? |
 
-**Stacked detonations**: a surface detonation such as death or separation may erupt first, followed in its aftermath by a deeper truth or perceptual overturn. Record whether stacking exists, each detonation, and where their combination creates more than additive force.
+**Stacked detonations**: a surface detonation such as death or separation may erupt first, followed in its aftermath by a deeper truth or perceptual overturn. Record:
+- Whether stacking exists.
+- What the surface and deep detonations are.
+- Where their combination creates more than additive force.
 
-**Chained detonations**: wealthy-family revenge and public-opinion reversal may contain several independent but related explosions. Record the number and nature of each, whether they escalate or satisfy in parallel dimensions, and whether spacing avoids emotional rupture or fatigue.
+**Chained detonations**: wealthy-family revenge and public-opinion reversal may contain several independent but related explosions. Record:
+- The number and nature of each.
+- Whether they escalate or satisfy in parallel dimensions.
+- Whether spacing avoids emotional rupture or fatigue.
 
 #### C. Anticipation Analysis
 
@@ -174,7 +180,10 @@ When a reversal exists, analyze:
 - Percentage position
 - Setup-to-release ratio
 
-**Reversal chain**: list each consecutive reversal in order with type, trigger, and changed reader perception; describe causality between reversals and the chain's overall escalation, stacking, or surprise.
+**Reversal chain**: list each consecutive reversal in order:
+- Each reversal: type + trigger + changed reader perception.
+- Causality between reversals, including how an earlier reversal prepares a later one.
+- Overall effect of the chain: escalation, stacking, or surprise.
 
 **Nested-reversal test**: Reversal A must explain or deepen Reversal B. Remove any layer; if the others remain fully intact, the layers lack causality and are merely stacked.
 
@@ -260,7 +269,9 @@ Extract relationships and evolution from plot nodes:
 | Evolution | Section N: State A → Section M: State B, with trigger |
 | Emotional contribution | Contribution to the emotional arc |
 
-Extract only pairs with direct interaction or explicit emotional description. Keep the final state and record history in evolution. Identify exact turn locations and causes.
+- Extract only pairs with direct interaction or explicit emotional description.
+- Keep the final state and record history in evolution.
+- Identify exact turn locations and causes.
 
 #### B. Opening Analysis
 
@@ -382,9 +393,11 @@ Synthesize all stages:
 | Second person | Extreme immersion | Experimental, psychological horror |
 | Nonhuman | Novelty and defamiliarization | System/ghost/animal viewpoint |
 
-Analyze benefits, costs, information control such as unreliable narration, and timing/effect of switches.
-
-**Proxy problem**: when the POV character cannot act directly, such as a watching spirit or unconscious observer, a living proxy must perform actions. The proxy's entrance and agency determine credibility.
+Analyze:
+- Benefits and costs of the selected POV.
+- Information control within the POV, such as unreliable narration.
+- Timing and effect of POV switches, when present.
+- **Proxy problem**: when the POV character cannot act directly, such as a watching spirit or unconscious observer, a living proxy must perform actions. The proxy's entrance and agency determine credibility.
 
 ### Dialogue Techniques
 
@@ -395,9 +408,12 @@ Analyze benefits, costs, information control such as unreliable narration, and t
 | Interrogation dialogue | Count of protagonist question → opponent self-exposure | Record whether questions force choices, expose contradictions, or change relationships; no minimum |
 | Information-gap dialogue | Reader knows what character does not | Central in tragic/reversal fiction |
 
-Patterns: interrogation, suppression, information gap, and push-pull.
-
-Track changes in forms of address, such as `阿虎` vs. `林川`, because they reveal relationship and identity changes. Record the trigger.
+**Dialogue-pattern identification**:
+- Interrogation: the protagonist asks questions → the other side is forced to expose itself.
+- Suppression: short, forceful lines press relentlessly → the other side becomes hysterical.
+- Information gap: the two sides have asymmetric information, with the reader in between.
+- Push-pull: characters move closer and then pull away in a repeated cycle.
+- Track changes in forms of address, such as `阿虎` vs. `林川`, because they reveal relationship and identity changes. Record the trigger.
 
 ### Time Control
 
@@ -527,7 +543,7 @@ Extract every named or narratively functional character.
 
 ### Classification
 
-Use the two dimensions from Stage 5: narrative {protagonist/major support/function} + action {active/passive/transforming}.
+> Use the two dimensions from Stage 5: narrative {protagonist/major support/function} + action {active/passive/transforming}.
 
 ### Inner Conflict
 
@@ -569,11 +585,19 @@ Rate each as extreme / strong / medium / weak / none. A short story has spread p
 
 ### Explosive-Beat Potential
 
-Assess the central explosive beat, adequacy of setup and release, and shareability.
+Assess:
+- What is the central explosive beat?
+- Is its setup sufficient?
+- Is its release fully delivered?
+- Is it shareable?
 
 ### Discussion Potential
 
-Ask what readers will discuss, what is controversial, whether it prompts self-reflection, and whether it creates “What would I do?” conversation.
+Assess:
+- What will readers discuss after finishing?
+- Is there a controversial point?
+- Does it prompt self-reflection through identification?
+- Does it create room for “What would I do?” discussion?
 
 ---
 
