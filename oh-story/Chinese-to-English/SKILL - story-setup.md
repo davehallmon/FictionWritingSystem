@@ -430,7 +430,7 @@ The generic path supports NarraFork, Web AI, custom Agents, and other environmen
     - Seven `.opencode/agents/` definitions exist with `mode: subagent` and `permission` frontmatter
     - `.opencode/plugins/story-hooks.ts` exists
     - `.opencode/plugins/lib/story_hook_core.js` exists and passes `node --check`; imported by story-hooks.ts and byte-identical to `.zcode` copy. Its `lib/` location prevents OpenCode’s single-level `.opencode/plugins/*.js` autodiscovery
-    - Thirteen command files exist under `.opencode/commands/`
+     - Thirteen command files exist under `.opencode/commands/`
     - `skills/story-setup/references/agent-references/` is complete and count matches source
     - `opencode.json` `plugin` includes story-hooks
     - `.git/hooks/pre-commit` exists and is executable (skip executable check on Windows)
