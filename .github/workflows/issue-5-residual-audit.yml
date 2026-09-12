@@ -1,0 +1,79 @@
+name: Issue 5 residual population audit
+
+on:
+  push:
+    branches:
+      - audit/issue-5-residual-terminology
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  residual-audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run translation regression tests
+        run: python -m unittest discover -s tools/translation/tests -v
+      - name: Run residual and terminology audit
+        run: python -m tools.translation.audit_residuals --output issue-5-residual-audit.json
+      - name: Build review report
+        run: |
+          python - <<'PY'
+          import json
+          from collections import defaultdict
+          from pathlib import Path
+
+          report = json.loads(Path('issue-5-residual-audit.json').read_text(encoding='utf-8'))
+          lines = ['# Issue #5 Residual Review', '', '## Summary', '', '```json', json.dumps(report['summary'], ensure_ascii=False, indent=2), '```', '']
+
+          lines += ['## Errors', '']
+          if report['errors']:
+              lines += [f'- {error}' for error in report['errors']]
+          else:
+              lines += ['- None']
+          lines += ['']
+
+          deprecated = [x for x in report['terminology'] if x['status'] == 'deprecated']
+          alternatives = [x for x in report['terminology'] if x['status'] == 'review_alternative']
+          lines += ['## Deprecated terminology', '']
+          for item in deprecated:
+              lines.append(f"- `{item['path']}:{item['line']}` — `{item['phrase']}` → `{item['preferred']}` — {item['context']}")
+          if not deprecated:
+              lines.append('- None')
+          lines += ['', '## Context-limited terminology for review', '']
+          for item in alternatives:
+              lines.append(f"- `{item['path']}:{item['line']}` — `{item['phrase']}` → preferred `{item['preferred']}` — {item.get('usage','')} — {item['context']}")
+          if not alternatives:
+              lines.append('- None')
+          lines += ['']
+
+          by_path = defaultdict(list)
+          for item in report['residuals']:
+              by_path[item['path']].append(item)
+          lines += ['## Residual Chinese by file', '']
+          for path in sorted(by_path):
+              items = by_path[path]
+              lines += [f'### `{path}`', '', f'Occurrences: {len(items)}', '']
+              for item in items:
+                  lines.append(
+                      f"- L{item['line']} — `{item['literal']}` — **{item['classification']}** — {item['context']}"
+                  )
+              lines += ['']
+
+          Path('issue-5-residual-review.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+      - name: Commit temporary audit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add issue-5-residual-audit.json issue-5-residual-review.md
+          git commit -m "Record temporary issue #5 residual audit"
+          git push
