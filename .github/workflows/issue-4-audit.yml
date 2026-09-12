@@ -21,7 +21,7 @@ jobs:
           python-version: '3.12'
       - name: Run translation regression tests
         run: python -m unittest discover -s tools/translation/tests -v
-      - name: Apply verified Oh Story repairs
+      - name: Apply verified follow-up repairs
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -40,130 +40,137 @@ jobs:
                   return
               raise SystemExit(f'{path}: expected one occurrence, found {count}: {old[:100]}')
 
-          def wrap_guides(path: Path) -> None:
+          # Source keeps this resolution as an unordered child item.
+          replace_once(
+              Path('oh-story/Chinese-to-English/Ref - commercial-core-methods.md'),
+              '1. Repeated payoffs → reader fatigue\n2. No long-range anticipation\n\nSolution: decide the ending during outlining, then design mid-to-late explosive beats around it.',
+              '1. Repeated payoffs → reader fatigue\n2. No long-range anticipation\n- Solution: decide the ending during outlining, then design mid-to-late explosive beats around it.',
+          )
+
+          def narrow_guide_regions(path: Path) -> None:
               text = path.read_text(encoding='utf-8')
-              if GUIDE_START in text:
-                  # These files have no previously approved guide regions; reruns are idempotent.
-                  return
-              starts = []
               cursor = 0
+              rebuilt = []
+              changed = False
               while True:
-                  pos = text.find(GUIDE_LABEL, cursor)
-                  if pos < 0:
+                  start = text.find(GUIDE_START, cursor)
+                  if start < 0:
+                      rebuilt.append(text[cursor:])
                       break
-                  starts.append(pos)
-                  cursor = pos + len(GUIDE_LABEL)
-              if not starts:
-                  raise SystemExit(f'{path}: no English guide labels found')
-              for pos in reversed(starts):
-                  next_h3 = text.find('\n### ', pos)
-                  next_h2 = text.find('\n## ', pos)
-                  candidates = [value for value in (next_h3, next_h2) if value >= 0]
-                  end = min(candidates) if candidates else len(text)
-                  region = text[pos:end].rstrip()
-                  if '```' in region:
-                      raise SystemExit(f'{path}: guide region unexpectedly contains a fenced block')
-                  wrapped = f'{GUIDE_START}\n{region}\n{GUIDE_END}\n'
-                  text = text[:pos] + wrapped + text[end:]
-              path.write_text(text, encoding='utf-8')
+                  end = text.find(GUIDE_END, start)
+                  if end < 0:
+                      raise SystemExit(f'{path}: unclosed guide region')
+                  rebuilt.append(text[cursor:start])
+                  body_start = start + len(GUIDE_START)
+                  body = text[body_start:end].strip('\n')
+                  lines = body.splitlines()
+                  if not lines or not lines[0].startswith(GUIDE_LABEL):
+                      rebuilt.append(text[start:end + len(GUIDE_END)])
+                      cursor = end + len(GUIDE_END)
+                      continue
 
-          readme = Path('oh-story/Chinese-to-English/README.md')
-          text = readme.read_text(encoding='utf-8')
-          text = text.replace('<!-- Last synced with README.md: 2026-08-30 -->\n\n', '', 1)
-          old = ('Natural language also triggers: “帮我开书” ("help me start writing") → `story-long-write`, '
-                 '“这篇太AI了” ("this is too AI-ish") → `story-deslop`, “把我的书导进来” ("import my book") → `story-import`, '
-                 '“打开工作台” ("open the dashboard") → `story dashboard`, “记住我的写作习惯” ("remember my writing habits") → `story` author memory, '
-                 'and “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → the `story-explorer` agent.')
-          new = ('Natural language also triggers:\n'
-                 '- “帮我开书” ("help me start writing") → `story-long-write`\n'
-                 '- “这篇太 AI 了” ("this is too AI-ish") → `story-deslop`\n'
-                 '- “把我的书导进来” ("import my book") → `story-import`\n'
-                 '- “打开工作台” ("open the dashboard") → `story dashboard`\n'
-                 '- “记住我的写作习惯” ("remember my writing habits") → `story` author memory\n'
-                 '- “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → automatically spawn the `story-explorer` agent')
-          if old in text:
-              text = text.replace(old, new, 1)
-          elif new not in text:
-              raise SystemExit('README: expected natural-language routing paragraph not found')
-          readme.write_text(text, encoding='utf-8')
-
-          replace_once(
-              Path('oh-story/Chinese-to-English/Ref - anti-ai-writing.md'),
-              '- “It is not difficult to see”\n- “This shows that”\n- “In fact”\n- “In conclusion”',
-              '- “It is not difficult to see” / “This shows that” / “In fact” / “In conclusion”',
-          )
-
-          replace_once(
-              Path('oh-story/Chinese-to-English/Ref - genre-readers.md'),
-              '### Effective Ranking Scan\n\n1. Run the current scan/analyze workflow for recent target-platform samples.\n2. Exclude leaders with built-in fan bases.\n3. Analyze common opening structures in reproducible samples.\n\nEstablish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.',
-              '### Effective Ranking Scan\n\nRanking-scan rules: (1) run the current scan/analyze workflow for recent target-platform samples; (2) exclude leaders with built-in fan bases; and (3) analyze common opening structures in reproducible samples. Establish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.',
-          )
-
-          replace_once(
-              Path('oh-story/Chinese-to-English/Ref - long-genre-mechanics.md'),
-              'Every chapter must contain at least one of three elements:\n\n1. An anticipation point related to the central hook.\n2. A cathartic payoff related to the central hook.\n3. Movement between an anticipation point and its payoff.',
-              'Every chapter must contain at least one of three elements: (1) an anticipation point related to the central hook; (2) a cathartic payoff related to the central hook; or (3) movement between an anticipation point and its payoff.',
-          )
-
-          setup = Path('oh-story/Chinese-to-English/SKILL - story-setup.md')
-          setup_text = setup.read_text(encoding='utf-8')
-          old_indent = '    - Thirteen command files exist under `.opencode/commands/`'
-          new_indent = '     - Thirteen command files exist under `.opencode/commands/`'
-          if old_indent in setup_text:
-              setup_text = setup_text.replace(old_indent, new_indent, 1)
-          elif new_indent not in setup_text:
-              raise SystemExit('story-setup: expected command-files list item not found')
-          setup.write_text(setup_text, encoding='utf-8')
-
-          replace_once(
-              Path('oh-story/Chinese-to-English/Ref - workflow-revision.md'),
-              '**English guide (non-executable):**\n\n> After revising Chapter {X}, the following chapters may require synchronized changes:  \n> Chapter {X+1}: {reason} (review recommended)  \n> Chapter {X+3}: {reason} (review recommended)\n\n8. **Manuscript metadata scan**',
-              '<!-- translation-guide: non-executable -->\n**English guide (non-executable):**\n\n> After revising Chapter {X}, the following chapters may require synchronized changes:  \n> Chapter {X+1}: {reason} (review recommended)  \n> Chapter {X+3}: {reason} (review recommended)\n<!-- /translation-guide -->\n\n8. **Manuscript metadata scan**',
-          )
+                  # Keep only the added companion rendering inside the guide.
+                  keep = [lines[0]]
+                  i = 1
+                  while i < len(lines) and not lines[i].strip():
+                      keep.append(lines[i])
+                      i += 1
+                  if i < len(lines) and lines[i].lstrip().startswith('>'):
+                      while i < len(lines) and lines[i].lstrip().startswith('>'):
+                          keep.append(lines[i])
+                          i += 1
+                  # A one-line guide has its explanation on the label line itself.
+                  while keep and not keep[-1].strip():
+                      keep.pop()
+                  remainder = '\n'.join(lines[i:]).strip('\n')
+                  rebuilt.append(GUIDE_START + '\n' + '\n'.join(keep) + '\n' + GUIDE_END)
+                  if remainder:
+                      rebuilt.append('\n\n' + remainder)
+                  cursor = end + len(GUIDE_END)
+                  changed = changed or bool(remainder)
+              result = ''.join(rebuilt)
+              if result != text:
+                  path.write_text(result, encoding='utf-8')
 
           for filename in (
               'Template - story-consistency.md',
               'Template - story-format.md',
               'Template - story-narrative.md',
           ):
-              wrap_guides(Path('oh-story/Chinese-to-English') / filename)
+              narrow_guide_regions(Path('oh-story/Chinese-to-English') / filename)
           PY
-      - name: Commit verified Oh Story repairs
+      - name: Commit verified follow-up repairs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git diff --quiet; then
-            echo "Verified Oh Story repairs are already present."
+            echo "Verified follow-up repairs are already present."
           else
             git add \
-              "oh-story/Chinese-to-English/README.md" \
-              "oh-story/Chinese-to-English/Ref - anti-ai-writing.md" \
-              "oh-story/Chinese-to-English/Ref - genre-readers.md" \
-              "oh-story/Chinese-to-English/Ref - long-genre-mechanics.md" \
-              "oh-story/Chinese-to-English/Ref - workflow-revision.md" \
-              "oh-story/Chinese-to-English/SKILL - story-setup.md" \
+              "oh-story/Chinese-to-English/Ref - commercial-core-methods.md" \
               "oh-story/Chinese-to-English/Template - story-consistency.md" \
               "oh-story/Chinese-to-English/Template - story-format.md" \
               "oh-story/Chinese-to-English/Template - story-narrative.md"
-            git commit -m "Repair verified Oh Story structural invariants (#4)"
+            git commit -m "Refine translation guide boundaries (#4)"
             git push
           fi
       - name: Audit all translation pairs
         run: python -m tools.translation.audit_invariants --output issue-4-audit.json
-      - name: Print audit summary and remaining failures
+      - name: Print exact diagnostics for remaining failures
         if: always()
         run: |
           if [ -f issue-4-audit.json ]; then
             python - <<'PY'
           import json
           from pathlib import Path
+          from tools.translation.validate_translation import LIST_ITEM_RE, BLOCKQUOTE_RE, comparison_text, without_fences
+
           report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
           print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
+
+          def lines(path):
+              raw = Path(path).read_text(encoding='utf-8')
+              compared, _ = comparison_text(raw)
+              return without_fences(compared).splitlines()
+
+          def list_entries(path):
+              out = []
+              for n, line in enumerate(lines(path), 1):
+                  m = LIST_ITEM_RE.match(line)
+                  if m:
+                      marker = m.group('marker')
+                      kind = 'ordered' if marker[0].isdigit() else 'unordered'
+                      out.append((n, len(m.group('indent').expandtabs(4)), kind, bool(m.group('checkbox')), line.strip()))
+              return out
+
+          def quotes(path):
+              out = []
+              for n, line in enumerate(lines(path), 1):
+                  m = BLOCKQUOTE_RE.match(line)
+                  if m:
+                      out.append((n, len(m.group('marks')), line.strip()))
+              return out
+
           for finding in report.get('findings', []):
-              if finding.get('errors'):
-                  print('\n###', finding['destination'])
-                  print(json.dumps(finding['errors'], ensure_ascii=False))
-                  print(json.dumps({k:v for k,v in finding.get('details', {}).items() if k not in {'inline_code_formatting','protected_token_formatting'}}, ensure_ascii=False, indent=2))
+              if not finding.get('errors'):
+                  continue
+              print('\n###', finding['destination'])
+              print('errors:', finding['errors'])
+              details = finding.get('details', {})
+              if 'list_structure' in details:
+                  idx = details['list_structure'].get('first_difference_index', 0)
+                  for label, path in [('SOURCE', finding['source']), ('OUTPUT', finding['destination'])]:
+                      entries = list_entries(path)
+                      lo = max(0, idx - 12)
+                      hi = min(len(entries), idx + 14)
+                      print(f'{label} list entries {lo}:{hi}')
+                      for i in range(lo, hi):
+                          print(i, entries[i])
+              if 'blockquote_structure' in details:
+                  print('SOURCE blockquotes:', quotes(finding['source']))
+                  print('OUTPUT blockquotes:', quotes(finding['destination']))
+              if 'protected_inline_literals' in details:
+                  print(json.dumps(details['protected_inline_literals'], ensure_ascii=False, indent=2))
           PY
           fi
       - name: Enforce population gate
