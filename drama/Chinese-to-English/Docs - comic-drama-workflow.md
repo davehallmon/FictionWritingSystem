@@ -51,7 +51,7 @@ When project-level language, aspect ratio, duration, or production configuration
 用 $short-drama 初始化一个都市逆袭竖屏漫剧项目，9:16
 ```
 
-**English guide (non-executable):** Use $short-drama to initialize a 9:16 vertical motion-comic project about an urban underdog's rise.
+**English guide (non-executable):** Initialize a 9:16 vertical motion-comic project about an urban underdog's rise.
 
 Initialization does not generate story content. Decide the production format, visual direction, or Look Development only when it genuinely constrains multiple stages.
 Look Development is an optional branch, not a prerequisite for writing prompts or storyboarding.
@@ -62,7 +62,7 @@ Look Development is an optional branch, not a prerequisite for writing prompts o
 用 $short-drama-write 写完 EP001：外卖员在高档餐厅被经理羞辱，亮出集团董事身份
 ```
 
-**English guide (non-executable):** Use $short-drama-write to complete EP001: a delivery worker is humiliated by a manager at an upscale restaurant, then reveals that he is a group-company director.
+**English guide (non-executable):** Complete EP001: a delivery worker is humiliated by a manager at an upscale restaurant, then reveals that he is a group-company director.
 
 Complete an entire episode in one request when the request covers the whole episode. Arrange causal beats in context first, then write scenes, actions, dialogue, voice-over, and necessary sound facts into
 the single screenplay. Do not create a separate episode card, beats, block index, or recording sheet. The screenplay must be performable and producible; every scene changes
@@ -74,7 +74,7 @@ information, power, relationship, emotion, physical state, or risk.
 用 $short-drama-assets 从 EP001 拆完人物、造型、地点、道具和本集状态
 ```
 
-**English guide (non-executable):** Use $short-drama-assets to extract EP001's characters, looks, locations, props, and episode state.
+**English guide (non-executable):** Extract EP001's characters, looks, locations, props, and episode state.
 
 Save only visual facts that downstream generation must preserve. First determine whether identity is the same, then decide whether to reuse, create, or create a variant. Clothing, injuries,
 weather, lighting state, open/closed state, and possession are usually variants; pose, gaze, and blocking are usually transient storyboard facts. Do not turn every appearance, decision process,
@@ -86,7 +86,7 @@ and continuity check into separate ledgers.
 用 $short-drama-image-prompts 为 EP001 的角色、地点和关键道具写可直接复制的图片提示词
 ```
 
-**English guide (non-executable):** Use $short-drama-image-prompts to write copy-ready image prompts for EP001's characters, locations, and key props.
+**English guide (non-executable):** Write copy-ready image prompts for EP001's characters, locations, and key props.
 
 For each item, state its purpose, stable anchors, current variant, composition/viewpoint, lighting and color/material, reference boundaries, and prohibitions, followed by copy-ready
 prompt text. Image prompts and storyboards are sibling branches; either can begin once visual facts exist, without waiting for the other.
@@ -97,7 +97,7 @@ prompt text. Image prompts and storyboards are sibling branches; either can begi
 用 $short-drama-storyboard 完成 EP001 的正式分镜和每镜冻结关键帧
 ```
 
-**English guide (non-executable):** Use $short-drama-storyboard to complete EP001's production storyboard and frozen keyframe for every shot.
+**English guide (non-executable):** Complete EP001's production storyboard and frozen keyframe for every shot.
 
 First confirm how the source text is realized in shots. Then, for every shot, record its responsibility, source scene, shot size/camera position, duration, spatial and asset bindings,
 `起点 → 唯一动作 → 终点`, and sound responsibility. By default, include one frozen-keyframe prompt in the same entry.
@@ -114,7 +114,7 @@ available in the project and labels each with `用途`.
 用 $short-drama-video-prompts 把 EP001 的分镜逐镜写成可直接复制的视频提示词
 ```
 
-**English guide (non-executable):** Use $short-drama-video-prompts to turn each EP001 storyboard shot into a copy-ready video prompt.
+**English guide (non-executable):** Turn each EP001 storyboard shot into a copy-ready video prompt.
 
 Starting from the confirmed initial frame, each entry implements the storyboard's `起点 → 唯一动作 → 终点` item by item: trigger, contact, landing point, secondary reaction,
 camera movement, sound, and verifiable endpoint. Do not repeat appearance already locked by the still frame or cross into the next shot. When continuing a sequential segment from the preceding segment's generated
@@ -128,7 +128,7 @@ this step may be skipped; storyboard keyframes and image prompts proceed directl
 用 $short-drama-produce 预览 EP001 的这批图片/视频任务；等我确认后再执行
 ```
 
-**English guide (non-executable):** Use $short-drama-produce to preview this batch of EP001 image and video jobs; wait for my confirmation before executing them.
+**English guide (non-executable):** Preview this batch of EP001 image and video jobs; wait for my confirmation before executing them.
 
 Every production job must follow this sequence:
 

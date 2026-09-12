@@ -78,6 +78,7 @@ Standards for outline files.
 第18章：暗卫首领竟是沈栀失散多年的兄长（身份反转，误导路径：首领屡次针对沈栀）
 ```
 
+<!-- translation-guide: non-executable -->
 #### English guide (non-executable)
 
 - **Volume Outline — Volume One**
@@ -94,6 +95,7 @@ Standards for outline files.
 - **Reversal:** in Chapter 18, the covert-guard leader is revealed as Shen Zhi's long-lost brother.
 
 All required items are present, endgame trump cards have explicit boundaries, and every setup has a clear payoff plan.
+<!-- /translation-guide -->
 
 ### Wrong — Volume Outline Missing Required Items
 ```
@@ -104,6 +106,7 @@ All required items are present, endgame trump cards have explicit boundaries, an
 每5章一个大爽点。
 ```
 
+<!-- translation-guide: non-executable -->
 #### English guide (non-executable)
 
 The protected example says only:
@@ -112,3 +115,4 @@ The protected example says only:
 - **Payoff rhythm:** one major payoff every five chapters.
 
 The volume contract and endgame reserves, plot unit cards, and other required items are absent. Plot unit cards govern gratification pacing; do not impose a fixed “one major gratification beat every N chapters” cycle. Fast-paced platforms retain only the chapter-level minimum that “every chapter must advance a visible event or gratification beat.” For existing projects, a legacy volume outline in this form falls back under Rule 8 without blocking or automatic rewriting.
+<!-- /translation-guide -->

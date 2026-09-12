@@ -33,11 +33,13 @@ Formatting rules for manuscript files. Load automatically when the user edits a 
 她咬紧牙关加大输出，整条手臂开始发颤。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > Shen Zhi raised her hand, and spiritual power surged from her fingertips.  
 > A crack appeared in the barrier before her, spreading like a spiderweb.  
 > She gritted her teeth and increased the output; her entire arm began to tremble.
+<!-- /translation-guide -->
 
 Each paragraph carries one action or informational change. Paragraphs advance naturally by dramatic unit, with only one `\n` between them.
 
@@ -46,9 +48,11 @@ Each paragraph carries one action or informational change. Paragraphs advance na
 沈栀抬手灵力从指尖涌出面前的结界出现一道裂缝碎纹像蛛网般蔓延开她咬紧牙关加大输出整条手臂开始发颤最后结界轰然碎裂碎片向四周飞溅。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > Shen Zhi raised her hand and spiritual power surged from her fingertips; a crack appeared in the barrier before her and spread like a spiderweb; she gritted her teeth and increased the output until her entire arm trembled; finally, the barrier shattered and fragments flew in every direction.
+<!-- /translation-guide -->
 
 This paragraph combines multiple actions, clues, and outcomes, preventing the reader from pausing at critical changes.
 
@@ -59,11 +63,13 @@ This paragraph combines multiple actions, clues, and outcomes, preventing the re
 陆衍没接话，只是看着窗外。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > Shen Zhi set the teacup down sharply.  
 > “What exactly are you trying to say?”  
 > Lu Yan did not answer. He only looked out the window.
+<!-- /translation-guide -->
 
 Action and context introduce the dialogue without frequent formulaic tags.
 
@@ -74,11 +80,13 @@ Action and context introduce the dialogue without frequent formulaic tags.
 陆衍没接话，他轻轻叹道只是看着窗外。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > Shen Zhi set the teacup down sharply.  
 > She said, “What exactly are you trying to say?”  
 > Lu Yan did not answer; he sighed softly and only looked out the window.
+<!-- /translation-guide -->
 
 Using the formulaic tags “said” and “sighed” together in one paragraph creates clutter; replace them with actions.
 
@@ -90,11 +98,13 @@ Using the formulaic tags “said” and “sighed” together in one paragraph c
 沈栀坐在最里面的角落，手里捏着一张纸条。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > **Chapter 2: Undercurrents**  
 > Lu Yan opened the door. Three people were already seated inside.  
 > Shen Zhi sat in the innermost corner, holding a slip of paper.
+<!-- /translation-guide -->
 
 There is only one blank line between the chapter-title `##` and manuscript text, as required for Markdown rendering. There are no blank lines between manuscript paragraphs.
 
@@ -109,6 +119,8 @@ There is only one blank line between the chapter-title `##` and manuscript text,
 沈栀坐在最里面的角落，手里捏着一张纸条。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):** The protected example repeats the same chapter title and two sentences but inserts multiple blank lines before and between the manuscript paragraphs.
+<!-- /translation-guide -->
 
 Extra blank lines between paragraphs—consecutive newlines, `\n\n`—break the compact rhythm.

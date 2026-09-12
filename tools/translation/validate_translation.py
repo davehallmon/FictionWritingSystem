@@ -7,17 +7,24 @@ import argparse
 import html
 import json
 import re
+from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from urllib.parse import unquote
 
 FENCE_RE = re.compile(r"(?ms)^([ \t]*(`{3,}|~{3,})[^\n]*\n).*?^[ \t]*\2[ \t]*$")
 INLINE_CODE_RE = re.compile(r"(?<!`)`[^`\n]+`(?!`)")
-URL_RE = re.compile(r"https?://[^\s)>\]]+")
+URL_RE = re.compile(r"https?://[^\s)<>{}\]\[|]+")
 LINK_TARGET_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
-TOKEN_RE = re.compile(r"\$\{[^}]+\}|\{\{[^}]+\}\}|(?<!\w)--[\w-]+|(?<!\w)\$[\w-]+")
+IMAGE_TARGET_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
+TOKEN_RE = re.compile(r"\$\{[^}]+\}|\{\{[^}]+\}\}|(?<!\w)--[A-Za-z0-9_][A-Za-z0-9_-]*|(?<!\w)\$[A-Za-z0-9_][A-Za-z0-9_-]*")
 HEADING_RE = re.compile(r"(?m)^(#{1,6})\s+")
 HEADING_TEXT_RE = re.compile(r"(?m)^#{1,6}\s+(.+?)\s*$")
+LIST_ITEM_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<marker>[-+*]|\d+[.)])\s+(?P<checkbox>\[[ xX]\]\s+)?")
+BLOCKQUOTE_RE = re.compile(r"^[ \t]*(?P<marks>>+)(?:[ \t]+|$)")
+HTML_COMMENT_TOKEN_RE = re.compile(r"<!--|-->")
+HORIZONTAL_RULE_RE = re.compile(r"^[ \t]*(?:\*\s*){3,}$|^[ \t]*(?:-\s*){3,}$|^[ \t]*(?:_\s*){3,}$")
+FENCE_LINE_RE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<info>.*)$")
 ZH_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 MARKDOWN_LINK_TEXT_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HTML_TAG_RE = re.compile(r"<[^>]+>")
@@ -26,6 +33,9 @@ SLUG_PUNCT_RE = re.compile(r"[^\w\s-]", re.UNICODE)
 WHITESPACE_RE = re.compile(r"\s+")
 TRANSLATION_COMPANION_MARKER = "<!-- translation-companion: non-executable -->"
 TRANSLATION_COMPANION_LANGUAGES = {"text", "txt", "plaintext"}
+TRANSLATION_GUIDE_START = "<!-- translation-guide: non-executable -->"
+TRANSLATION_GUIDE_END = "<!-- /translation-guide -->"
+TRAILING_URL_PUNCTUATION = ".,;:!?\"'。，、；：！？"
 
 
 @dataclass
@@ -99,17 +109,263 @@ def authoritative_fenced_blocks(text: str) -> tuple[list[str], list[str]]:
     return authoritative, errors
 
 
+def strip_translation_guides(text: str) -> tuple[str, list[str]]:
+    """Remove explicitly authorized non-executable guide regions from invariant comparison."""
+    errors: list[str] = []
+    output: list[str] = []
+    cursor = 0
+    while True:
+        start = text.find(TRANSLATION_GUIDE_START, cursor)
+        end = text.find(TRANSLATION_GUIDE_END, cursor)
+        if start < 0:
+            if end >= 0:
+                errors.append("Translation guide end marker has no start marker")
+            output.append(text[cursor:])
+            break
+        if end >= 0 and end < start:
+            errors.append("Translation guide end marker appears before its start marker")
+            output.append(text[cursor:end])
+            cursor = end + len(TRANSLATION_GUIDE_END)
+            continue
+        output.append(text[cursor:start])
+        end = text.find(TRANSLATION_GUIDE_END, start + len(TRANSLATION_GUIDE_START))
+        if end < 0:
+            errors.append("Translation guide start marker is not closed")
+            output.append(text[start:])
+            break
+        body_start = start + len(TRANSLATION_GUIDE_START)
+        body = text[body_start:end]
+        if TRANSLATION_GUIDE_START in body:
+            errors.append("Translation guide regions must not be nested")
+        if fence_records(body):
+            errors.append("Translation guide must not contain fenced blocks")
+        output.append("\n")
+        cursor = end + len(TRANSLATION_GUIDE_END)
+    return "".join(output), errors
+
+
+def comparison_text(text: str) -> tuple[str, list[str]]:
+    return strip_translation_guides(text)
+
+
 def without_fences(text: str) -> str:
     return FENCE_RE.sub("", text)
 
 
-def table_dimensions(text: str) -> list[int]:
-    dimensions: list[int] = []
+def normalized_urls(text: str) -> list[str]:
+    """Extract URLs while ignoring adjacent prose/table punctuation."""
+    urls: list[str] = []
+    for match in URL_RE.finditer(text):
+        value = match.group(0).rstrip(TRAILING_URL_PUNCTUATION)
+        if value:
+            urls.append(value)
+    return urls
+
+
+def protected_tokens(text: str) -> list[str]:
+    """Extract protected CLI/template tokens without treating URL text as tokens."""
+    outside = without_fences(text)
+    outside = URL_RE.sub("", outside)
+    return TOKEN_RE.findall(outside)
+
+
+def inline_code_literals(text: str) -> list[str]:
+    return INLINE_CODE_RE.findall(without_fences(text))
+
+
+def is_protected_inline_literal(literal: str) -> bool:
+    """Distinguish technical literals from localized linguistic examples in backticks."""
+    value = literal[1:-1] if literal.startswith("`") and literal.endswith("`") else literal
+    if re.search(r"[A-Za-z0-9_$]", value):
+        return True
+    if re.fullmatch(r"\[[^\]]+\]", value):
+        return True
+    if any(char in value for char in ("{", "}", "<", ">", "\\")):
+        return True
+    if value.startswith(("/", "./", "../")):
+        return True
+    return False
+
+
+def protected_inline_literals(text: str) -> list[str]:
+    return [literal for literal in inline_code_literals(text) if is_protected_inline_literal(literal)]
+
+
+def counter_contains(required: Counter[str], actual: Counter[str]) -> bool:
+    return all(actual[value] >= count for value, count in required.items())
+
+
+def inline_code_preservation(source: str, output: str) -> tuple[bool, int, bool]:
+    """Protect technical inline literal values; localized/additional backticks are formatting-only."""
+    before_all = inline_code_literals(source)
+    after_all = inline_code_literals(output)
+    before = protected_inline_literals(source)
+    after = protected_inline_literals(output)
+    required = Counter(before)
+    actual = Counter(after)
+    preserved = counter_contains(required, actual)
+    additions = max(0, len(after_all) - len(before_all))
+    reordered = preserved and before != [value for value in after if value in required][: len(before)]
+    return preserved, additions, reordered
+
+
+def protected_token_preservation(source: str, output: str) -> tuple[bool, int, bool]:
+    """Protect token values and multiplicity while allowing explanatory repeats and grammar reordering."""
+    before = protected_tokens(source)
+    after = protected_tokens(output)
+    required = Counter(before)
+    actual = Counter(after)
+    additions = max(0, len(after) - len(before))
+    if not counter_contains(required, actual):
+        return False, additions, False
+    allowed = set(before)
+    if any(value not in allowed for value in after):
+        return False, additions, False
+    return True, additions, before != after[: len(before)]
+
+
+def _pipe_positions(line: str) -> list[int]:
+    """Return structural pipe positions, ignoring escaped pipes and inline-code pipes."""
+    positions: list[int] = []
+    code_delimiter: int | None = None
+    index = 0
+    while index < len(line):
+        char = line[index]
+        if char == "`":
+            end = index
+            while end < len(line) and line[end] == "`":
+                end += 1
+            run = end - index
+            if code_delimiter is None:
+                code_delimiter = run
+            elif code_delimiter == run:
+                code_delimiter = None
+            index = end
+            continue
+        if char == "|" and code_delimiter is None:
+            backslashes = 0
+            scan = index - 1
+            while scan >= 0 and line[scan] == "\\":
+                backslashes += 1
+                scan -= 1
+            if backslashes % 2 == 0:
+                positions.append(index)
+        index += 1
+    return positions
+
+
+def table_row_cells(line: str) -> int | None:
+    stripped = line.strip()
+    if not (stripped.startswith("|") and stripped.endswith("|")):
+        return None
+    positions = _pipe_positions(stripped)
+    if len(positions) < 2 or positions[0] != 0 or positions[-1] != len(stripped) - 1:
+        return None
+    return len(positions) - 1
+
+
+def table_signatures(text: str) -> list[tuple[int, ...]]:
+    """Return one cell-count tuple per contiguous Markdown table."""
+    tables: list[tuple[int, ...]] = []
+    current: list[int] = []
     for line in without_fences(text).splitlines():
-        stripped = line.strip()
-        if stripped.startswith("|") and stripped.endswith("|"):
-            dimensions.append(len(stripped.split("|")) - 2)
-    return dimensions
+        cells = table_row_cells(line)
+        if cells is None:
+            if current:
+                tables.append(tuple(current))
+                current = []
+            continue
+        current.append(cells)
+    if current:
+        tables.append(tuple(current))
+    return tables
+
+
+def table_dimensions(text: str) -> list[int]:
+    return [cells for table in table_signatures(text) for cells in table]
+
+
+def list_signature(text: str) -> list[tuple[int, str, bool]]:
+    """Compare list nesting/type while allowing bullet glyph/ordinal renumbering."""
+    signature: list[tuple[int, str, bool]] = []
+    for line in without_fences(text).splitlines():
+        match = LIST_ITEM_RE.match(line)
+        if not match:
+            continue
+        indent = len(match.group("indent").expandtabs(4))
+        marker = match.group("marker")
+        kind = "ordered" if marker[0].isdigit() else "unordered"
+        checkbox = bool(match.group("checkbox"))
+        signature.append((indent, kind, checkbox))
+    return signature
+
+
+def blockquote_signature(text: str) -> list[int]:
+    """Compare blockquote blocks by nesting depth, allowing line reflow within a block."""
+    signature: list[int] = []
+    in_block = False
+    max_depth = 0
+    for line in without_fences(text).splitlines():
+        match = BLOCKQUOTE_RE.match(line)
+        if match:
+            in_block = True
+            max_depth = max(max_depth, len(match.group("marks")))
+            continue
+        if in_block:
+            signature.append(max_depth)
+            in_block = False
+            max_depth = 0
+    if in_block:
+        signature.append(max_depth)
+    return signature
+
+
+def html_comment_framing(text: str) -> list[str]:
+    """Compare comment framing while ignoring approved translation markers."""
+    outside = without_fences(text)
+    outside = outside.replace(TRANSLATION_COMPANION_MARKER, "")
+    outside = outside.replace(TRANSLATION_GUIDE_START, "").replace(TRANSLATION_GUIDE_END, "")
+    return HTML_COMMENT_TOKEN_RE.findall(outside)
+
+
+def horizontal_rule_signature(text: str) -> int:
+    """Count structural horizontal rules, excluding YAML frontmatter delimiters."""
+    outside = without_fences(text)
+    lines = outside.splitlines()
+    start = 0
+    if len(lines) >= 2 and lines[0].strip() == "---":
+        try:
+            close = next(i for i in range(1, len(lines)) if lines[i].strip() == "---")
+        except StopIteration:
+            close = -1
+        if close > 0:
+            start = close + 1
+    return sum(bool(HORIZONTAL_RULE_RE.match(line)) for line in lines[start:])
+
+
+def fence_balance_errors(text: str) -> list[str]:
+    """Report unclosed Markdown fences without interpreting fence bodies."""
+    errors: list[str] = []
+    opener_char: str | None = None
+    opener_len = 0
+    for line in text.splitlines():
+        match = FENCE_LINE_RE.match(line)
+        if not match:
+            continue
+        marker = match.group("marker")
+        char = marker[0]
+        length = len(marker)
+        info = match.group("info").strip()
+        if opener_char is None:
+            opener_char = char
+            opener_len = length
+            continue
+        if char == opener_char and length >= opener_len and not info:
+            opener_char = None
+            opener_len = 0
+    if opener_char is not None:
+        errors.append("Unclosed fenced block")
+    return errors
 
 
 def frontmatter_keys(text: str) -> list[str]:
@@ -128,6 +384,10 @@ def frontmatter_keys(text: str) -> list[str]:
 
 def link_destinations(text: str) -> list[str]:
     return LINK_TARGET_RE.findall(without_fences(text))
+
+
+def image_destinations(text: str) -> list[str]:
+    return IMAGE_TARGET_RE.findall(without_fences(text))
 
 
 def is_same_page_fragment(destination: str) -> bool:
@@ -182,25 +442,53 @@ def broken_same_page_fragments(text: str) -> list[str]:
 def validate(source: str, output: str) -> ValidationResult:
     errors: list[str] = []
     warnings: list[str] = []
+
     output_authoritative_fences, companion_errors = authoritative_fenced_blocks(output)
     errors.extend(companion_errors)
+    errors.extend(fence_balance_errors(output))
+
+    source_compare, source_guide_errors = comparison_text(source)
+    output_compare, output_guide_errors = comparison_text(output)
+    errors.extend(source_guide_errors)
+    errors.extend(output_guide_errors)
+
+    inline_ok, inline_additions, inline_reordered = inline_code_preservation(source_compare, output_compare)
+    if not inline_ok:
+        errors.append("Changed protected inline literal values")
+    else:
+        if inline_additions:
+            warnings.append(f"Output adds {inline_additions} inline-code formatting span(s)")
+        if inline_reordered:
+            warnings.append("Protected inline literals are reordered by translation grammar; values and multiplicity are preserved")
+
+    tokens_ok, token_additions, token_reordered = protected_token_preservation(source_compare, output_compare)
+    if not tokens_ok:
+        errors.append("Changed protected tokens")
+    else:
+        if token_additions:
+            warnings.append(f"Output repeats {token_additions} protected token(s) in explanatory text")
+        if token_reordered:
+            warnings.append("Protected tokens are reordered by translation grammar; values and multiplicity are preserved")
 
     comparisons = {
         "fenced code blocks": (fenced_blocks(source), output_authoritative_fences),
-        "inline code": (INLINE_CODE_RE.findall(without_fences(source)), INLINE_CODE_RE.findall(without_fences(output))),
-        "URLs": (URL_RE.findall(source), URL_RE.findall(output)),
-        "protected link destinations": (protected_link_destinations(source), protected_link_destinations(output)),
-        "link structure": (link_kinds(source), link_kinds(output)),
-        "literal tokens": (TOKEN_RE.findall(without_fences(source)), TOKEN_RE.findall(without_fences(output))),
-        "heading levels": (HEADING_RE.findall(without_fences(source)), HEADING_RE.findall(without_fences(output))),
-        "table dimensions": (table_dimensions(source), table_dimensions(output)),
-        "frontmatter keys": (frontmatter_keys(source), frontmatter_keys(output)),
+        "URLs": (normalized_urls(source_compare), normalized_urls(output_compare)),
+        "protected link destinations": (protected_link_destinations(source_compare), protected_link_destinations(output_compare)),
+        "link structure": (link_kinds(source_compare), link_kinds(output_compare)),
+        "image targets": (image_destinations(source_compare), image_destinations(output_compare)),
+        "heading levels": (HEADING_RE.findall(without_fences(source_compare)), HEADING_RE.findall(without_fences(output_compare))),
+        "table structure": (table_signatures(source_compare), table_signatures(output_compare)),
+        "list structure": (list_signature(source_compare), list_signature(output_compare)),
+        "blockquote structure": (blockquote_signature(source_compare), blockquote_signature(output_compare)),
+        "HTML comment framing": (html_comment_framing(source_compare), html_comment_framing(output_compare)),
+        "horizontal-rule structure": (horizontal_rule_signature(source_compare), horizontal_rule_signature(output_compare)),
+        "frontmatter keys": (frontmatter_keys(source_compare), frontmatter_keys(output_compare)),
     }
     for label, (before, after) in comparisons.items():
         if before != after:
             errors.append(f"Changed {label}")
 
-    broken_fragments = broken_same_page_fragments(output)
+    broken_fragments = broken_same_page_fragments(output_compare)
     if broken_fragments:
         errors.append("Unresolved same-page fragments: " + ", ".join(broken_fragments))
 

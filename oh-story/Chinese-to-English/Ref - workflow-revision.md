@@ -71,11 +71,13 @@ After revision, use one `mode=revision` tracking transaction to complete cascadi
 - 第{X+3}章：{原因}（建议检查）
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > After revising Chapter {X}, the following chapters may require synchronized changes:  
 > Chapter {X+1}: {reason} (review recommended)  
 > Chapter {X+3}: {reason} (review recommended)
+<!-- /translation-guide -->
 
 8. **Manuscript metadata scan**: Outside the title line, check for writing-engineering terms such as `第[一二三四五六七八九十百千万两0-9]+章|上一章|上章|前一章|本章|这一章|前文|后文|伏笔|细纲|读者`. Replace a match with an event anchor or relative time perceptible to the character at that moment. Exempt genuine in-story reading/discussion of “Chapter X” or a genuine reader-identity context.
 9. **Banned-word scan**: Check the revised content against `references/banned-words.md`, then run `tracking_commit.py check` to verify agreement between state and all derived views.

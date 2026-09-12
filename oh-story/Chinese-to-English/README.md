@@ -1,5 +1,3 @@
-<!-- Last synced with README.md: 2026-08-30 -->
-
 [English](README_EN.md) | **Chinese source**
 
 # oh-story-claudecode
@@ -156,7 +154,13 @@ After updating, if a project has already run `/story-setup`, re-run `/story-setu
 
 > `story-deslop` uses local prose linting: blocking applies only to deterministic style/punctuation issues, while other findings require read-through judgment; external detectors such as Zhuque are self-check references, not replacements for human review.
 
-Natural language also triggers: “帮我开书” ("help me start writing") → `story-long-write`, “这篇太AI了” ("this is too AI-ish") → `story-deslop`, “把我的书导进来” ("import my book") → `story-import`, “打开工作台” ("open the dashboard") → `story dashboard`, “记住我的写作习惯” ("remember my writing habits") → `story` author memory, and “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → the `story-explorer` agent.
+Natural language also triggers:
+- “帮我开书” ("help me start writing") → `story-long-write`
+- “这篇太 AI 了” ("this is too AI-ish") → `story-deslop`
+- “把我的书导进来” ("import my book") → `story-import`
+- “打开工作台” ("open the dashboard") → `story dashboard`
+- “记住我的写作习惯” ("remember my writing habits") → `story` author memory
+- “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → automatically spawn the `story-explorer` agent
 
 ### Story Dashboard
 

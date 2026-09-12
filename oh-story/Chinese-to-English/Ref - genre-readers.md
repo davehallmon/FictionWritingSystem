@@ -157,11 +157,7 @@ The worldbuilding is already solid and initial identification is high. Exception
 
 ### Effective Ranking Scan
 
-1. Run the current scan/analyze workflow for recent target-platform samples.
-2. Exclude leaders with built-in fan bases.
-3. Analyze common opening structures in reproducible samples.
-
-Establish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.
+Ranking-scan rules: (1) run the current scan/analyze workflow for recent target-platform samples; (2) exclude leaders with built-in fan bases; and (3) analyze common opening structures in reproducible samples. Establish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.
 
 ### Commercial Awareness
 

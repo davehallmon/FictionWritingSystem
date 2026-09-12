@@ -300,10 +300,7 @@ Threshold: More than three per 1,000 Chinese characters is an AI signature. Clos
 
 These openings in fiction indicate AI intrusion:
 
-- “It is not difficult to see”
-- “This shows that”
-- “In fact”
-- “In conclusion”
+- “It is not difficult to see” / “This shows that” / “In fact” / “In conclusion”
 
 ### Pattern 6: Excessive Formal Conjunctions
 

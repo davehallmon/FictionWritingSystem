@@ -38,9 +38,11 @@ Follow these consistency rules whenever modifying specification, outline, or tra
 4. 提交后运行 `tracking_commit.py check`，确认逐章增量、角色快照、伏笔与双时间线视图一致
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > After revising Chapter 10 of the demo, inspect F027, Jiang Chen's snapshot, and the Chapter 10 timeline events. Submit a Chapter 10 `mode=revision` transaction that preserves the manuscript facts: the professional remake lacked the original's spirit, and Zhang Yaozu chose to continue using the phone-shot version. The author timeline may retain Zhong Jiajia's unrevealed development plan, but the reader view may contain only conclusions revealed at the screening. Run `tracking_commit.py check` after submission to verify that chapter deltas, character snapshots, foreshadowing, and both timeline views agree.
+<!-- /translation-guide -->
 
 ### Wrong
 ```
@@ -48,6 +50,8 @@ Follow these consistency rules whenever modifying specification, outline, or tra
 结果：同一伏笔出现多个“当前状态”，读者视图泄露钟嘉嘉的未公开安排，检查点却无法知道哪些派生文件已经失效。
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 > Append a second F027 directly to `伏笔.md`, then manually edit `作者真相.md`, `读者已知.md`, and `上下文.md`. This creates multiple “current states” for the same foreshadowing item, leaks Zhong Jiajia's unrevealed plan into the reader view, and leaves the checkpoint unable to determine which derived files are stale.
+<!-- /translation-guide -->

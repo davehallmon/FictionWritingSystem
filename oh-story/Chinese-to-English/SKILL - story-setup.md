@@ -430,7 +430,7 @@ The generic path supports NarraFork, Web AI, custom Agents, and other environmen
     - Seven `.opencode/agents/` definitions exist with `mode: subagent` and `permission` frontmatter
     - `.opencode/plugins/story-hooks.ts` exists
     - `.opencode/plugins/lib/story_hook_core.js` exists and passes `node --check`; imported by story-hooks.ts and byte-identical to `.zcode` copy. Its `lib/` location prevents OpenCode’s single-level `.opencode/plugins/*.js` autodiscovery
-    - Thirteen command files exist under `.opencode/commands/`
+     - Thirteen command files exist under `.opencode/commands/`
     - `skills/story-setup/references/agent-references/` is complete and count matches source
     - `opencode.json` `plugin` includes story-hooks
     - `.git/hooks/pre-commit` exists and is executable (skip executable check on Windows)
@@ -439,7 +439,7 @@ The generic path supports NarraFork, Web AI, custom Agents, and other environmen
     - `AGENTS.md` contains Codex story routing
     - Seven `.codex/agents/*.toml` definitions exist and parse
     - `.codex/hooks.json` exists and is valid JSON; Unix `command` starts only `run-story-hook.sh`, Windows `commandWindows` only `run-story-hook.cmd`; no direct `story_codex_hook.py` registration
-    - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd
+   - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd
     - `.codex/skills/story-setup/references/agent-references/` is complete and count matches source
     - Report: Codex must trust project `.codex/`, review/trust unmanaged hooks in `/hooks`, and start a new session for custom Agents. If runtime still returns `unknown agent_type`, use each Skill’s solo/direct fallback.
 9. Validate Antigravity deployment when targeted:
