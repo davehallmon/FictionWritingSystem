@@ -1,27 +1,53 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "policy": {
+    "default": "Use preferred_english in translated prose unless an alternative has an explicit usage rule.",
+    "source_literals": "Do not rewrite protected source literals, filenames, paths, code, commands, schemas, or quoted source text solely to satisfy terminology normalization.",
+    "named_artifacts": "An established artifact title may retain a documented alternative when changing it would break a named interface or cross-reference. General explanatory prose still uses the preferred term."
+  },
   "terms": {
     "网文": {
       "preferred_english": "web fiction",
-      "alternatives": ["online fiction"],
+      "alternatives": [
+        {
+          "value": "online fiction",
+          "usage": "Allowed in general explanatory prose when needed to avoid repetition; do not alternate within the same local section."
+        }
+      ],
       "context": "Fiction written for serialized online publishing platforms",
       "preserve_chinese": false
     },
     "拆文": {
       "preferred_english": "story decomposition",
-      "alternatives": ["structural story analysis"],
+      "alternatives": [
+        {
+          "value": "structural story analysis",
+          "usage": "Allowed only when describing the analytical method rather than naming the repository workflow/artifact."
+        }
+      ],
       "context": "Systematic reverse analysis of a completed work",
       "preserve_chinese": false
     },
     "扫榜": {
       "preferred_english": "rankings scan",
-      "alternatives": ["market-ranking scan"],
+      "alternatives": [
+        {
+          "value": "market-ranking scan",
+          "usage": "Allowed when the market context must be explicit."
+        }
+      ],
+      "deprecated_english": ["ranking scan"],
       "context": "Reviewing platform rankings to identify market patterns",
       "preserve_chinese": false
     },
     "去 AI 味": {
       "preferred_english": "remove AI writing traces",
-      "alternatives": ["remove recognizable AI-writing patterns"],
+      "alternatives": [
+        {
+          "value": "remove recognizable AI-writing patterns",
+          "usage": "Allowed in explanatory prose; keep the preferred term for workflow labels."
+        }
+      ],
       "context": "Editing prose to remove formulaic patterns associated with generated writing",
       "preserve_chinese": false
     },
@@ -33,43 +59,82 @@
     },
     "细纲": {
       "preferred_english": "detailed chapter outline",
-      "alternatives": ["chapter blueprint"],
+      "alternatives": [
+        {
+          "value": "chapter blueprint",
+          "usage": "Allowed when naming the execution-level field bundle defined by the writing workflow."
+        }
+      ],
       "context": "Execution-level outline for an individual chapter",
       "preserve_chinese": false
     },
     "剧情单元": {
       "preferred_english": "story unit",
-      "alternatives": ["plot unit"],
+      "alternatives": [
+        {
+          "value": "plot unit",
+          "usage": "Allowed only when quoting a legacy label, protected field, or named template that has not yet been migrated. General prose and current planning terminology use story unit."
+        }
+      ],
       "context": "A bounded group of chapters organized around one dramatic movement",
       "preserve_chinese": false
     },
     "爽点": {
       "preferred_english": "payoff beat",
-      "alternatives": ["reader-gratification beat"],
+      "alternatives": [
+        {
+          "value": "reader-gratification beat",
+          "usage": "Allowed when explaining the reader-response function; workflow labels use payoff beat."
+        }
+      ],
       "context": "A moment that delivers anticipated satisfaction, vindication, or emotional reward",
       "preserve_chinese": false
     },
     "对标": {
       "preferred_english": "benchmark",
-      "alternatives": ["comparison title"],
+      "alternatives": [
+        {
+          "value": "comparison title",
+          "usage": "Allowed only when the referent is specifically a comparable book/title rather than the broader benchmark process or artifact."
+        }
+      ],
       "context": "A reference work used for structured comparison",
       "preserve_chinese": false
     },
     "伏笔": {
       "preferred_english": "foreshadowing",
-      "alternatives": ["setup"],
+      "alternatives": [
+        {
+          "value": "setup",
+          "usage": "Allowed only when describing the narrative function generically; tracked artifacts and fields use foreshadowing."
+        }
+      ],
       "context": "Planted information intended for later narrative resolution",
       "preserve_chinese": false
     },
     "黄金三章": {
       "preferred_english": "opening three chapters",
-      "alternatives": ["golden three chapters"],
+      "alternatives": [
+        {
+          "value": "golden three chapters",
+          "usage": "Allowed only for an established named artifact, quoted label, or explicit explanation of the Chinese web-fiction convention. General prose uses opening three chapters."
+        },
+        {
+          "value": "Golden First 3 Chapters",
+          "usage": "Allowed only when preserving an established named report/section label that already uses this capitalization."
+        }
+      ],
       "context": "Chinese web-fiction convention emphasizing the first three chapters' acquisition and retention work",
       "preserve_chinese": false
     },
     "断点": {
       "preferred_english": "checkpoint",
-      "alternatives": ["resume point"],
+      "alternatives": [
+        {
+          "value": "resume point",
+          "usage": "Allowed when describing the location from which processing resumes; persisted pipeline fields use checkpoint."
+        }
+      ],
       "context": "Persisted pipeline position used for recovery",
       "preserve_chinese": false
     }
