@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "scan_pending",
+  "baseline": {
+    "audit_date": "2026-09-11",
+    "affected_files": 74,
+    "han_characters_outside_stripped_fences_and_inline_code": 5675,
+    "note": "Baseline from the full translation audit. Counts must be regenerated after anchor, fenced-content, Markdown-invariant, and terminology repairs before this ledger can be marked complete."
+  },
+  "scope": {
+    "roots": [
+      "drama/Chinese-to-English",
+      "oh-story/Chinese-to-English"
+    ],
+    "scan_unit": "Every Han-character occurrence outside approved fenced blocks and inline-code spans",
+    "acceptance": "Every current residual occurrence must match exactly one reviewed ledger entry or be classified by a deterministic rule with an auditable reason. Zero unexplained_prose and zero unresolved_anchor entries are permitted at final acceptance."
+  },
+  "categories": {
+    "protected_literal": {
+      "description": "Chinese text whose exact value is operationally protected, such as an input trigger, enumerated output value, field value, identifier-like literal, or user-facing literal consumed by a workflow.",
+      "final_acceptance": "allowed_when_reviewed",
+      "requires_operational_safety_review": true
+    },
+    "operational_chinese_output": {
+      "description": "Chinese text intentionally emitted by a workflow because the downstream fiction artifact, report, prompt, or user-visible output is defined to be Chinese.",
+      "final_acceptance": "allowed_when_reviewed",
+      "requires_operational_safety_review": true
+    },
+    "proper_name_or_title": {
+      "description": "A proper name, work title, platform/product name, character name, or culturally specific label intentionally retained in Chinese.",
+      "final_acceptance": "allowed_when_reviewed",
+      "requires_operational_safety_review": false
+    },
+    "intentional_bilingual_example": {
+      "description": "Chinese retained beside or within an English explanation to demonstrate source-language wording, usage, dialogue, terminology, or a translation distinction.",
+      "final_acceptance": "allowed_when_reviewed",
+      "requires_operational_safety_review": false
+    },
+    "unresolved_anchor": {
+      "description": "Chinese retained only because a Markdown fragment or heading reference was not localized correctly.",
+      "final_acceptance": "must_be_zero",
+      "requires_operational_safety_review": false
+    },
+    "unexplained_prose": {
+      "description": "Residual Chinese prose without a documented functional, linguistic, naming, or operational reason to remain in an English translation.",
+      "final_acceptance": "must_be_zero",
+      "requires_operational_safety_review": false
+    }
+  },
+  "entry_schema": {
+    "required_fields": [
+      "path",
+      "line",
+      "literal",
+      "classification",
+      "reason",
+      "expected_count",
+      "review"
+    ],
+    "review_fields": [
+      "status",
+      "operationally_safe",
+      "review_note"
+    ],
+    "line_semantics": "Line number in the current translated file at the source commit recorded by the future manifest/audit run. Regenerate line numbers after content changes rather than treating them as permanent identifiers.",
+    "matching_semantics": "Entries must identify the path and exact literal. expected_count prevents an approved literal from silently multiplying. When the same literal has different meanings in one file, create separate entries with line-specific reasons."
+  },
+  "deterministic_rules": [
+    {
+      "id": "approved-fenced-source",
+      "classification": "protected_literal",
+      "scope": "Authoritative source fenced blocks already governed by TRANSLATION_WORKFLOW.md",
+      "ledger_entry_required": false,
+      "reason": "Fenced-content policy already requires byte-identical preservation and separately marks any English companion. The residual-language scan should report these counts separately, not duplicate every fenced occurrence in this ledger."
+    },
+    {
+      "id": "approved-inline-technical-literal",
+      "classification": "protected_literal",
+      "scope": "Technical inline-code literals already verified by the translation invariant validator",
+      "ledger_entry_required": false,
+      "reason": "Inline-code preservation is enforced by the Markdown/literal validator. Residual-language reporting should count these separately from prose residue."
+    }
+  ],
+  "entries": [],
+  "completion_requirements": {
+    "status_value": "complete",
+    "all_current_occurrences_classified": true,
+    "unexplained_prose_count": 0,
+    "unresolved_anchor_count": 0,
+    "preferred_or_documented_glossary_terms_enforced": true,
+    "operational_literals_reviewed": true,
+    "report_fields": [
+      "path",
+      "line",
+      "literal",
+      "classification",
+      "reason"
+    ]
+  }
+}
