@@ -19,196 +19,151 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply narrow parser repairs
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-
-          path = Path('tools/translation/validate_translation.py')
-          text = path.read_text(encoding='utf-8')
-
-          text, url_count = re.subn(
-              r'^TRAILING_URL_PUNCTUATION = .*$',
-              lambda _: 'TRAILING_URL_PUNCTUATION = ".,;:!?\\\"\'。，、；：！？"',
-              text,
-              count=1,
-              flags=re.MULTILINE,
-          )
-          if url_count != 1:
-              raise SystemExit(f'Expected one URL punctuation constant; found {url_count}')
-
-          token_line = 'TOKEN_RE = re.compile(r"\\$\\{[^}]+\\}|\\{\\{[^}]+\\}\\}|(?<!\\w)--[A-Za-z0-9_][A-Za-z0-9_-]*|(?<!\\w)\\$[A-Za-z0-9_][A-Za-z0-9_-]*")'
-          text, token_count = re.subn(
-              r'^TOKEN_RE = re\.compile\(.*\)$',
-              lambda _: token_line,
-              text,
-              count=1,
-              flags=re.MULTILINE,
-          )
-          if token_count != 1:
-              raise SystemExit(f'Expected one TOKEN_RE definition; found {token_count}')
-
-          path.write_text(text, encoding='utf-8')
-          PY
       - name: Run translation regression tests
         run: python -m unittest discover -s tools/translation/tests -v
-      - name: Commit tested validator repair
-        run: |
-          if git diff --quiet -- tools/translation/validate_translation.py; then
-            echo "Validator already contains the tested parser repairs."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add tools/translation/validate_translation.py
-            git commit -m "Tighten CLI token parsing in validator (#4)"
-            git push
-          fi
-      - name: Apply verified drama content repairs
+      - name: Apply verified Oh Story repairs
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          replacements = {
-              Path('drama/Chinese-to-English/Docs - comic-drama-workflow.md'): [
-                  ('**English guide (non-executable):** Use $short-drama to initialize a 9:16 vertical motion-comic project about an urban underdog\'s rise.',
-                   '**English guide (non-executable):** Initialize a 9:16 vertical motion-comic project about an urban underdog\'s rise.'),
-                  ('**English guide (non-executable):** Use $short-drama-write to complete EP001: a delivery worker is humiliated by a manager at an upscale restaurant, then reveals that he is a group-company director.',
-                   '**English guide (non-executable):** Complete EP001: a delivery worker is humiliated by a manager at an upscale restaurant, then reveals that he is a group-company director.'),
-                  ('**English guide (non-executable):** Use $short-drama-assets to extract EP001\'s characters, looks, locations, props, and episode state.',
-                   '**English guide (non-executable):** Extract EP001\'s characters, looks, locations, props, and episode state.'),
-                  ('**English guide (non-executable):** Use $short-drama-image-prompts to write copy-ready image prompts for EP001\'s characters, locations, and key props.',
-                   '**English guide (non-executable):** Write copy-ready image prompts for EP001\'s characters, locations, and key props.'),
-                  ('**English guide (non-executable):** Use $short-drama-storyboard to complete EP001\'s production storyboard and frozen keyframe for every shot.',
-                   '**English guide (non-executable):** Complete EP001\'s production storyboard and frozen keyframe for every shot.'),
-                  ('**English guide (non-executable):** Use $short-drama-video-prompts to turn each EP001 storyboard shot into a copy-ready video prompt.',
-                   '**English guide (non-executable):** Turn each EP001 storyboard shot into a copy-ready video prompt.'),
-                  ('**English guide (non-executable):** Use $short-drama-produce to preview this batch of EP001 image and video jobs; wait for my confirmation before executing them.',
-                   '**English guide (non-executable):** Preview this batch of EP001 image and video jobs; wait for my confirmation before executing them.'),
-              ],
-              Path('drama/Chinese-to-English/SKILL - Short Drama Storyboard.md'): [
-                  ('**English guide (non-executable):** Use $short-drama-storyboard to complete EP001\'s production storyboard and frozen keyframe for every shot.',
-                   '**English guide (non-executable):** Complete EP001\'s production storyboard and frozen keyframe for every shot.'),
-              ],
-              Path('drama/Chinese-to-English/SKILL - Short Drama Write.md'): [
-                  ('**English guide (non-executable):** Replace `{技能目录}` with the skill directory. The screenplay is `剧集/EP001/剧本.md`. Paste the complete temporary path printed by the first command into `--output` and `--index`; replace “episode character one/two” with the actual speaker names.',
-                   '**English guide (non-executable):** Replace `{技能目录}` with the skill directory. The screenplay is `剧集/EP001/剧本.md`. Paste the complete temporary path printed by the first command into the output-path and index-path arguments; replace “episode character one/two” with the actual speaker names.'),
-              ],
-              Path('drama/Chinese-to-English/README - DRAMA SKILLS'): [
-                  ('**Chinese** | [English](README%20-%20Drama%20Skills%20-%20English.md)',
-                   '**Chinese** | [English](README_EN.md)'),
-                  ('> **English companion:** The exact Chinese prompts below are retained for source fidelity. Their line-by-line English equivalents appear in the [English Quick Start](README%20-%20Drama%20Skills%20-%20English.md#quick-start).\n\n',
-                   ''),
-              ],
-          }
+          GUIDE_START = '<!-- translation-guide: non-executable -->'
+          GUIDE_END = '<!-- /translation-guide -->'
+          GUIDE_LABEL = '**English guide (non-executable):**'
 
-          for path, pairs in replacements.items():
+          def replace_once(path: Path, old: str, new: str) -> None:
               text = path.read_text(encoding='utf-8')
-              changed = False
-              for old, new in pairs:
-                  count = text.count(old)
-                  if count == 1:
-                      text = text.replace(old, new, 1)
-                      changed = True
-                  elif count == 0 and new in text:
-                      continue
-                  else:
-                      raise SystemExit(f'{path}: expected one occurrence, found {count}: {old[:80]}')
-              if changed:
-                  path.write_text(text, encoding='utf-8')
-          PY
-      - name: Commit verified drama content repairs
-        run: |
-          paths=(
-            "drama/Chinese-to-English/Docs - comic-drama-workflow.md"
-            "drama/Chinese-to-English/README - DRAMA SKILLS"
-            "drama/Chinese-to-English/SKILL - Short Drama Storyboard.md"
-            "drama/Chinese-to-English/SKILL - Short Drama Write.md"
+              count = text.count(old)
+              if count == 1:
+                  path.write_text(text.replace(old, new, 1), encoding='utf-8')
+                  return
+              if count == 0 and new in text:
+                  return
+              raise SystemExit(f'{path}: expected one occurrence, found {count}: {old[:100]}')
+
+          def wrap_guides(path: Path) -> None:
+              text = path.read_text(encoding='utf-8')
+              if GUIDE_START in text:
+                  # These files have no previously approved guide regions; reruns are idempotent.
+                  return
+              starts = []
+              cursor = 0
+              while True:
+                  pos = text.find(GUIDE_LABEL, cursor)
+                  if pos < 0:
+                      break
+                  starts.append(pos)
+                  cursor = pos + len(GUIDE_LABEL)
+              if not starts:
+                  raise SystemExit(f'{path}: no English guide labels found')
+              for pos in reversed(starts):
+                  next_h3 = text.find('\n### ', pos)
+                  next_h2 = text.find('\n## ', pos)
+                  candidates = [value for value in (next_h3, next_h2) if value >= 0]
+                  end = min(candidates) if candidates else len(text)
+                  region = text[pos:end].rstrip()
+                  if '```' in region:
+                      raise SystemExit(f'{path}: guide region unexpectedly contains a fenced block')
+                  wrapped = f'{GUIDE_START}\n{region}\n{GUIDE_END}\n'
+                  text = text[:pos] + wrapped + text[end:]
+              path.write_text(text, encoding='utf-8')
+
+          readme = Path('oh-story/Chinese-to-English/README.md')
+          text = readme.read_text(encoding='utf-8')
+          text = text.replace('<!-- Last synced with README.md: 2026-08-30 -->\n\n', '', 1)
+          old = ('Natural language also triggers: “帮我开书” ("help me start writing") → `story-long-write`, '
+                 '“这篇太AI了” ("this is too AI-ish") → `story-deslop`, “把我的书导进来” ("import my book") → `story-import`, '
+                 '“打开工作台” ("open the dashboard") → `story dashboard`, “记住我的写作习惯” ("remember my writing habits") → `story` author memory, '
+                 'and “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → the `story-explorer` agent.')
+          new = ('Natural language also triggers:\n'
+                 '- “帮我开书” ("help me start writing") → `story-long-write`\n'
+                 '- “这篇太 AI 了” ("this is too AI-ish") → `story-deslop`\n'
+                 '- “把我的书导进来” ("import my book") → `story-import`\n'
+                 '- “打开工作台” ("open the dashboard") → `story dashboard`\n'
+                 '- “记住我的写作习惯” ("remember my writing habits") → `story` author memory\n'
+                 '- “沈栀现在什么状态” ("what is Shen Zhi’s current status?") → automatically spawn the `story-explorer` agent')
+          if old in text:
+              text = text.replace(old, new, 1)
+          elif new not in text:
+              raise SystemExit('README: expected natural-language routing paragraph not found')
+          readme.write_text(text, encoding='utf-8')
+
+          replace_once(
+              Path('oh-story/Chinese-to-English/Ref - anti-ai-writing.md'),
+              '- “It is not difficult to see”\n- “This shows that”\n- “In fact”\n- “In conclusion”',
+              '- “It is not difficult to see” / “This shows that” / “In fact” / “In conclusion”',
           )
-          if git diff --quiet -- "${paths[@]}"; then
-            echo "Verified drama repairs are already present."
+
+          replace_once(
+              Path('oh-story/Chinese-to-English/Ref - genre-readers.md'),
+              '### Effective Ranking Scan\n\n1. Run the current scan/analyze workflow for recent target-platform samples.\n2. Exclude leaders with built-in fan bases.\n3. Analyze common opening structures in reproducible samples.\n\nEstablish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.',
+              '### Effective Ranking Scan\n\nRanking-scan rules: (1) run the current scan/analyze workflow for recent target-platform samples; (2) exclude leaders with built-in fan bases; and (3) analyze common opening structures in reproducible samples. Establish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.',
+          )
+
+          replace_once(
+              Path('oh-story/Chinese-to-English/Ref - long-genre-mechanics.md'),
+              'Every chapter must contain at least one of three elements:\n\n1. An anticipation point related to the central hook.\n2. A cathartic payoff related to the central hook.\n3. Movement between an anticipation point and its payoff.',
+              'Every chapter must contain at least one of three elements: (1) an anticipation point related to the central hook; (2) a cathartic payoff related to the central hook; or (3) movement between an anticipation point and its payoff.',
+          )
+
+          setup = Path('oh-story/Chinese-to-English/SKILL - story-setup.md')
+          setup_text = setup.read_text(encoding='utf-8')
+          old_indent = '    - Thirteen command files exist under `.opencode/commands/`'
+          new_indent = '     - Thirteen command files exist under `.opencode/commands/`'
+          if old_indent in setup_text:
+              setup_text = setup_text.replace(old_indent, new_indent, 1)
+          elif new_indent not in setup_text:
+              raise SystemExit('story-setup: expected command-files list item not found')
+          setup.write_text(setup_text, encoding='utf-8')
+
+          replace_once(
+              Path('oh-story/Chinese-to-English/Ref - workflow-revision.md'),
+              '**English guide (non-executable):**\n\n> After revising Chapter {X}, the following chapters may require synchronized changes:  \n> Chapter {X+1}: {reason} (review recommended)  \n> Chapter {X+3}: {reason} (review recommended)\n\n8. **Manuscript metadata scan**',
+              '<!-- translation-guide: non-executable -->\n**English guide (non-executable):**\n\n> After revising Chapter {X}, the following chapters may require synchronized changes:  \n> Chapter {X+1}: {reason} (review recommended)  \n> Chapter {X+3}: {reason} (review recommended)\n<!-- /translation-guide -->\n\n8. **Manuscript metadata scan**',
+          )
+
+          for filename in (
+              'Template - story-consistency.md',
+              'Template - story-format.md',
+              'Template - story-narrative.md',
+          ):
+              wrap_guides(Path('oh-story/Chinese-to-English') / filename)
+          PY
+      - name: Commit verified Oh Story repairs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "Verified Oh Story repairs are already present."
           else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -- "${paths[@]}"
-            git commit -m "Repair drama translation invariant mutations (#4)"
+            git add \
+              "oh-story/Chinese-to-English/README.md" \
+              "oh-story/Chinese-to-English/Ref - anti-ai-writing.md" \
+              "oh-story/Chinese-to-English/Ref - genre-readers.md" \
+              "oh-story/Chinese-to-English/Ref - long-genre-mechanics.md" \
+              "oh-story/Chinese-to-English/Ref - workflow-revision.md" \
+              "oh-story/Chinese-to-English/SKILL - story-setup.md" \
+              "oh-story/Chinese-to-English/Template - story-consistency.md" \
+              "oh-story/Chinese-to-English/Template - story-format.md" \
+              "oh-story/Chinese-to-English/Template - story-narrative.md"
+            git commit -m "Repair verified Oh Story structural invariants (#4)"
             git push
           fi
       - name: Audit all translation pairs
         run: python -m tools.translation.audit_invariants --output issue-4-audit.json
-      - name: Print line-level diagnostics
+      - name: Print audit summary and remaining failures
         if: always()
         run: |
           if [ -f issue-4-audit.json ]; then
             python - <<'PY'
           import json
           from pathlib import Path
-          from tools.translation.validate_translation import (
-              BLOCKQUOTE_RE,
-              HTML_COMMENT_TOKEN_RE,
-              LIST_ITEM_RE,
-              comparison_text,
-              without_fences,
-          )
-
           report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
           print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
-
-          def comparable_lines(path):
-              text = Path(path).read_text(encoding='utf-8')
-              compared, _ = comparison_text(text)
-              return without_fences(compared).splitlines()
-
-          def list_entries(path):
-              entries = []
-              for line_no, line in enumerate(comparable_lines(path), 1):
-                  match = LIST_ITEM_RE.match(line)
-                  if match:
-                      marker = match.group('marker')
-                      kind = 'ordered' if marker[0].isdigit() else 'unordered'
-                      indent = len(match.group('indent').expandtabs(4))
-                      entries.append((line_no, indent, kind, bool(match.group('checkbox')), line.strip()))
-              return entries
-
-          def quote_entries(path):
-              entries = []
-              for line_no, line in enumerate(comparable_lines(path), 1):
-                  match = BLOCKQUOTE_RE.match(line)
-                  if match:
-                      entries.append((line_no, len(match.group('marks')), line.strip()))
-              return entries
-
-          def comment_entries(path):
-              entries = []
-              for line_no, line in enumerate(comparable_lines(path), 1):
-                  if HTML_COMMENT_TOKEN_RE.search(line):
-                      entries.append((line_no, line.strip()))
-              return entries
-
-          print('\nLINE-LEVEL FAILING DIAGNOSTICS')
           for finding in report.get('findings', []):
-              if not finding.get('errors'):
-                  continue
-              source = finding['source']
-              output = finding['destination']
-              print(f'\n### {output}')
-              print('errors:', finding['errors'])
-              details = finding.get('details', {})
-              if 'list_structure' in details:
-                  index = details['list_structure'].get('first_difference_index', 0)
-                  for label, path in [('SOURCE', source), ('OUTPUT', output)]:
-                      entries = list_entries(path)
-                      lo = max(0, index - 5)
-                      hi = min(len(entries), index + 8)
-                      print(f'{label} list entries {lo}:{hi}')
-                      for i in range(lo, hi):
-                          print(i, entries[i])
-              if 'blockquote_structure' in details:
-                  print('SOURCE blockquotes:', quote_entries(source))
-                  print('OUTPUT blockquotes:', quote_entries(output))
-              if 'html_comment_framing' in details:
-                  print('SOURCE comments:', comment_entries(source))
-                  print('OUTPUT comments:', comment_entries(output))
+              if finding.get('errors'):
+                  print('\n###', finding['destination'])
+                  print(json.dumps(finding['errors'], ensure_ascii=False))
+                  print(json.dumps({k:v for k,v in finding.get('details', {}).items() if k not in {'inline_code_formatting','protected_token_formatting'}}, ensure_ascii=False, indent=2))
           PY
           fi
       - name: Enforce population gate
