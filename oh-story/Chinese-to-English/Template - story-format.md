@@ -39,9 +39,9 @@ Formatting rules for manuscript files. Load automatically when the user edits a 
 > Shen Zhi raised her hand, and spiritual power surged from her fingertips.  
 > A crack appeared in the barrier before her, spreading like a spiderweb.  
 > She gritted her teeth and increased the output; her entire arm began to tremble.
+<!-- /translation-guide -->
 
 Each paragraph carries one action or informational change. Paragraphs advance naturally by dramatic unit, with only one `\n` between them.
-<!-- /translation-guide -->
 
 ### Wrong — Multiple Beats Compressed Into One Paragraph
 ```
@@ -52,9 +52,9 @@ Each paragraph carries one action or informational change. Paragraphs advance na
 **English guide (non-executable):**
 
 > Shen Zhi raised her hand and spiritual power surged from her fingertips; a crack appeared in the barrier before her and spread like a spiderweb; she gritted her teeth and increased the output until her entire arm trembled; finally, the barrier shattered and fragments flew in every direction.
+<!-- /translation-guide -->
 
 This paragraph combines multiple actions, clues, and outcomes, preventing the reader from pausing at critical changes.
-<!-- /translation-guide -->
 
 ### Correct — Action Introduces Dialogue Without “He Said”
 ```
@@ -69,9 +69,9 @@ This paragraph combines multiple actions, clues, and outcomes, preventing the re
 > Shen Zhi set the teacup down sharply.  
 > “What exactly are you trying to say?”  
 > Lu Yan did not answer. He only looked out the window.
+<!-- /translation-guide -->
 
 Action and context introduce the dialogue without frequent formulaic tags.
-<!-- /translation-guide -->
 
 ### Wrong — Dialogue Tags
 ```
@@ -86,9 +86,9 @@ Action and context introduce the dialogue without frequent formulaic tags.
 > Shen Zhi set the teacup down sharply.  
 > She said, “What exactly are you trying to say?”  
 > Lu Yan did not answer; he sighed softly and only looked out the window.
+<!-- /translation-guide -->
 
 Using the formulaic tags “said” and “sighed” together in one paragraph creates clutter; replace them with actions.
-<!-- /translation-guide -->
 
 ### Correct — No Extra Blank Line After a Chapter Title
 ```
@@ -104,9 +104,9 @@ Using the formulaic tags “said” and “sighed” together in one paragraph c
 > **Chapter 2: Undercurrents**  
 > Lu Yan opened the door. Three people were already seated inside.  
 > Shen Zhi sat in the innermost corner, holding a slip of paper.
+<!-- /translation-guide -->
 
 There is only one blank line between the chapter-title `##` and manuscript text, as required for Markdown rendering. There are no blank lines between manuscript paragraphs.
-<!-- /translation-guide -->
 
 ### Wrong — Extra Blank Lines Between Paragraphs
 ```
@@ -121,6 +121,6 @@ There is only one blank line between the chapter-title `##` and manuscript text,
 
 <!-- translation-guide: non-executable -->
 **English guide (non-executable):** The protected example repeats the same chapter title and two sentences but inserts multiple blank lines before and between the manuscript paragraphs.
+<!-- /translation-guide -->
 
 Extra blank lines between paragraphs—consecutive newlines, `\n\n`—break the compact rhythm.
-<!-- /translation-guide -->

@@ -39,9 +39,9 @@ Narrative rules for story decomposition, benchmark analysis, and specification f
 
 > New rule: spiritual power has nine tiers; the ninth and highest is the “Breakthrough Realm.”  
 > Actions: search every file in `设定/` for another description of the power system; search `追踪/伏笔.md` for “spiritual power” to confirm that no foreshadowing conflicts; then record the ruling in the chapter transaction's `delta.constraints` and complete `context.long_term_constraints`. Let `tracking_commit.py` generate the chapter record and continuation context instead of editing those files manually.
+<!-- /translation-guide -->
 
 Before adding a specification, proactively search existing specifications and foreshadowing records to prevent contradictions.
-<!-- /translation-guide -->
 
 ### Wrong — Specification Added Without a Cross-Check
 ```
@@ -54,9 +54,9 @@ Before adding a specification, proactively search existing specifications and fo
 **English guide (non-executable):**
 
 > Add “spiritual power has ten tiers” directly to `设定/世界规则.md`. The existing specification already says that nine is the highest tier, creating a contradiction. A foreshadowing record in `追踪/伏笔.md` also depends on the nine-tier rule.
+<!-- /translation-guide -->
 
 Adding new material without checking existing specifications creates contradictory worldbuilding.
-<!-- /translation-guide -->
 
 ### Correct — A Mystery Has a Documented True Answer
 ```
@@ -70,9 +70,9 @@ Adding new material without checking existing specifications creates contradicto
 **English guide (non-executable):**
 
 > Chapter 15 shows an ancient mirror reflecting a stranger's face. Register foreshadowing item F012, planted in Chapter 15 and planned for payoff in Chapter 38. Store the author-side truth—“the image is a residual projection of Shen Zhi's past-life memory”—in `timeline_events.objective_fact`, or store a durable rule under `设定/`. Do not manually edit the tool-rendered current-state view.
+<!-- /translation-guide -->
 
 Every mystery has a clear true answer and planned resolution point in the tracking files.
-<!-- /translation-guide -->
 
 ### Wrong — A Mystery Has No Documentation
 ```
@@ -85,6 +85,6 @@ Every mystery has a clear true answer and planned resolution point in the tracki
 **English guide (non-executable):**
 
 > Chapter 15 shows the ancient mirror reflecting a stranger's face, but no tracking record is created. By Chapter 40, the manuscript may forget the mystery or resolve it in a way that contradicts established tracking data.
+<!-- /translation-guide -->
 
 An undocumented mystery is easily forgotten or resolved inconsistently.
-<!-- /translation-guide -->
