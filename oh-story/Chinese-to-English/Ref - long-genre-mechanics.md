@@ -205,13 +205,7 @@ When combining elements from multiple genres, place them inside a “larger circ
 
 ### Awareness of Information Control
 
-Continually ask:
-
-1. What do readers know before opening the book?
-2. What do they know after reading the premise?
-3. What do they know after reading the plot?
-
-Controlling what readers know is the primary method for solving plot-design problems.
+Continually ask: (1) What do readers know before opening the book? (2) What do they know after reading the premise? (3) What do they know after reading the plot? Controlling what readers know is the primary method for solving plot-design problems.
 
 ### Matching the Special Advantage to the World
 

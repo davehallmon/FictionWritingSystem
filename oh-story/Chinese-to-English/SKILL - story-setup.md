@@ -439,7 +439,7 @@ The generic path supports NarraFork, Web AI, custom Agents, and other environmen
     - `AGENTS.md` contains Codex story routing
     - Seven `.codex/agents/*.toml` definitions exist and parse
     - `.codex/hooks.json` exists and is valid JSON; Unix `command` starts only `run-story-hook.sh`, Windows `commandWindows` only `run-story-hook.cmd`; no direct `story_codex_hook.py` registration
-    - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd
+   - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd
     - `.codex/skills/story-setup/references/agent-references/` is complete and count matches source
     - Report: Codex must trust project `.codex/`, review/trust unmanaged hooks in `/hooks`, and start a new session for custom Agents. If runtime still returns `unknown agent_type`, use each Skill’s solo/direct fallback.
 9. Validate Antigravity deployment when targeted:
