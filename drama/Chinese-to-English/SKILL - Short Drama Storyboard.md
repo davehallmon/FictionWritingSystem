@@ -15,7 +15,7 @@ Use a level-two heading, `## SHOT-...`, for each shot, and place the starting-fr
 用 $short-drama-storyboard 完成 EP001 的正式分镜和每镜冻结关键帧
 ```
 
-**English guide (non-executable):** Use $short-drama-storyboard to complete EP001's production storyboard and frozen keyframe for every shot.
+**English guide (non-executable):** Complete EP001's production storyboard and frozen keyframe for every shot.
 
 ## Entry Point
 
