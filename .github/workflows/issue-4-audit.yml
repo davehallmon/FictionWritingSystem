@@ -21,14 +21,10 @@ jobs:
           python-version: '3.12'
       - name: Run translation regression tests
         run: python -m unittest discover -s tools/translation/tests -v
-      - name: Apply verified follow-up repairs
+      - name: Apply final simple structural repairs
         run: |
           python - <<'PY'
           from pathlib import Path
-
-          GUIDE_START = '<!-- translation-guide: non-executable -->'
-          GUIDE_END = '<!-- /translation-guide -->'
-          GUIDE_LABEL = '**English guide (non-executable):**'
 
           def replace_once(path: Path, old: str, new: str) -> None:
               text = path.read_text(encoding='utf-8')
@@ -40,83 +36,34 @@ jobs:
                   return
               raise SystemExit(f'{path}: expected one occurrence, found {count}: {old[:100]}')
 
-          # Source keeps this resolution as an unordered child item.
           replace_once(
-              Path('oh-story/Chinese-to-English/Ref - commercial-core-methods.md'),
-              '1. Repeated payoffs → reader fatigue\n2. No long-range anticipation\n\nSolution: decide the ending during outlining, then design mid-to-late explosive beats around it.',
-              '1. Repeated payoffs → reader fatigue\n2. No long-range anticipation\n- Solution: decide the ending during outlining, then design mid-to-late explosive beats around it.',
+              Path('oh-story/Chinese-to-English/Ref - long-genre-mechanics.md'),
+              '### Awareness of Information Control\n\nContinually ask:\n\n1. What do readers know before opening the book?\n2. What do they know after reading the premise?\n3. What do they know after reading the plot?\n\nControlling what readers know is the primary method for solving plot-design problems.',
+              '### Awareness of Information Control\n\nContinually ask: (1) What do readers know before opening the book? (2) What do they know after reading the premise? (3) What do they know after reading the plot? Controlling what readers know is the primary method for solving plot-design problems.',
           )
 
-          def narrow_guide_regions(path: Path) -> None:
-              text = path.read_text(encoding='utf-8')
-              cursor = 0
-              rebuilt = []
-              changed = False
-              while True:
-                  start = text.find(GUIDE_START, cursor)
-                  if start < 0:
-                      rebuilt.append(text[cursor:])
-                      break
-                  end = text.find(GUIDE_END, start)
-                  if end < 0:
-                      raise SystemExit(f'{path}: unclosed guide region')
-                  rebuilt.append(text[cursor:start])
-                  body_start = start + len(GUIDE_START)
-                  body = text[body_start:end].strip('\n')
-                  lines = body.splitlines()
-                  if not lines or not lines[0].startswith(GUIDE_LABEL):
-                      rebuilt.append(text[start:end + len(GUIDE_END)])
-                      cursor = end + len(GUIDE_END)
-                      continue
-
-                  # Keep only the added companion rendering inside the guide.
-                  keep = [lines[0]]
-                  i = 1
-                  while i < len(lines) and not lines[i].strip():
-                      keep.append(lines[i])
-                      i += 1
-                  if i < len(lines) and lines[i].lstrip().startswith('>'):
-                      while i < len(lines) and lines[i].lstrip().startswith('>'):
-                          keep.append(lines[i])
-                          i += 1
-                  # A one-line guide has its explanation on the label line itself.
-                  while keep and not keep[-1].strip():
-                      keep.pop()
-                  remainder = '\n'.join(lines[i:]).strip('\n')
-                  rebuilt.append(GUIDE_START + '\n' + '\n'.join(keep) + '\n' + GUIDE_END)
-                  if remainder:
-                      rebuilt.append('\n\n' + remainder)
-                  cursor = end + len(GUIDE_END)
-                  changed = changed or bool(remainder)
-              result = ''.join(rebuilt)
-              if result != text:
-                  path.write_text(result, encoding='utf-8')
-
-          for filename in (
-              'Template - story-consistency.md',
-              'Template - story-format.md',
-              'Template - story-narrative.md',
-          ):
-              narrow_guide_regions(Path('oh-story/Chinese-to-English') / filename)
+          replace_once(
+              Path('oh-story/Chinese-to-English/SKILL - story-setup.md'),
+              '    - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd',
+              '   - `.codex/hooks/story_codex_hook.py`, `run-story-hook.sh`, `run-story-hook.cmd` exist; Python syntax is valid and POSIX/Windows launchers locate project root from nested cwd',
+          )
           PY
-      - name: Commit verified follow-up repairs
+      - name: Commit final simple repairs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git diff --quiet; then
-            echo "Verified follow-up repairs are already present."
+            echo "Simple repairs already present."
           else
             git add \
-              "oh-story/Chinese-to-English/Ref - commercial-core-methods.md" \
-              "oh-story/Chinese-to-English/Template - story-consistency.md" \
-              "oh-story/Chinese-to-English/Template - story-format.md" \
-              "oh-story/Chinese-to-English/Template - story-narrative.md"
-            git commit -m "Refine translation guide boundaries (#4)"
+              "oh-story/Chinese-to-English/Ref - long-genre-mechanics.md" \
+              "oh-story/Chinese-to-English/SKILL - story-setup.md"
+            git commit -m "Repair final simple translation list invariants (#4)"
             git push
           fi
       - name: Audit all translation pairs
         run: python -m tools.translation.audit_invariants --output issue-4-audit.json
-      - name: Print exact diagnostics for remaining failures
+      - name: Print material-decomposition diagnostics
         if: always()
         run: |
           if [ -f issue-4-audit.json ]; then
@@ -128,14 +75,14 @@ jobs:
           report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
           print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
 
-          def lines(path):
+          def comparable_lines(path):
               raw = Path(path).read_text(encoding='utf-8')
               compared, _ = comparison_text(raw)
               return without_fences(compared).splitlines()
 
           def list_entries(path):
               out = []
-              for n, line in enumerate(lines(path), 1):
+              for n, line in enumerate(comparable_lines(path), 1):
                   m = LIST_ITEM_RE.match(line)
                   if m:
                       marker = m.group('marker')
@@ -145,7 +92,7 @@ jobs:
 
           def quotes(path):
               out = []
-              for n, line in enumerate(lines(path), 1):
+              for n, line in enumerate(comparable_lines(path), 1):
                   m = BLOCKQUOTE_RE.match(line)
                   if m:
                       out.append((n, len(m.group('marks')), line.strip()))
@@ -156,21 +103,15 @@ jobs:
                   continue
               print('\n###', finding['destination'])
               print('errors:', finding['errors'])
-              details = finding.get('details', {})
-              if 'list_structure' in details:
-                  idx = details['list_structure'].get('first_difference_index', 0)
-                  for label, path in [('SOURCE', finding['source']), ('OUTPUT', finding['destination'])]:
-                      entries = list_entries(path)
-                      lo = max(0, idx - 12)
-                      hi = min(len(entries), idx + 14)
-                      print(f'{label} list entries {lo}:{hi}')
-                      for i in range(lo, hi):
-                          print(i, entries[i])
-              if 'blockquote_structure' in details:
-                  print('SOURCE blockquotes:', quotes(finding['source']))
-                  print('OUTPUT blockquotes:', quotes(finding['destination']))
-              if 'protected_inline_literals' in details:
-                  print(json.dumps(details['protected_inline_literals'], ensure_ascii=False, indent=2))
+              if finding['destination'].endswith('Ref - material-decomposition.md'):
+                  print('\nSOURCE LIST ENTRIES')
+                  for i, item in enumerate(list_entries(finding['source'])):
+                      print(i, item)
+                  print('\nOUTPUT LIST ENTRIES')
+                  for i, item in enumerate(list_entries(finding['destination'])):
+                      print(i, item)
+                  print('\nSOURCE BLOCKQUOTES', quotes(finding['source']))
+                  print('\nOUTPUT BLOCKQUOTES', quotes(finding['destination']))
           PY
           fi
       - name: Enforce population gate
