@@ -136,27 +136,79 @@ jobs:
           fi
       - name: Audit all translation pairs
         run: python -m tools.translation.audit_invariants --output issue-4-audit.json
-      - name: Print audit summary and diagnostics
+      - name: Print line-level diagnostics
         if: always()
         run: |
           if [ -f issue-4-audit.json ]; then
             python - <<'PY'
           import json
           from pathlib import Path
+          from tools.translation.validate_translation import (
+              BLOCKQUOTE_RE,
+              HTML_COMMENT_TOKEN_RE,
+              LIST_ITEM_RE,
+              comparison_text,
+              without_fences,
+          )
+
           report = json.loads(Path('issue-4-audit.json').read_text(encoding='utf-8'))
           print(json.dumps(report['summary'], ensure_ascii=False, indent=2))
-          print('\nFAILING FILE DIAGNOSTICS')
+
+          def comparable_lines(path):
+              text = Path(path).read_text(encoding='utf-8')
+              compared, _ = comparison_text(text)
+              return without_fences(compared).splitlines()
+
+          def list_entries(path):
+              entries = []
+              for line_no, line in enumerate(comparable_lines(path), 1):
+                  match = LIST_ITEM_RE.match(line)
+                  if match:
+                      marker = match.group('marker')
+                      kind = 'ordered' if marker[0].isdigit() else 'unordered'
+                      indent = len(match.group('indent').expandtabs(4))
+                      entries.append((line_no, indent, kind, bool(match.group('checkbox')), line.strip()))
+              return entries
+
+          def quote_entries(path):
+              entries = []
+              for line_no, line in enumerate(comparable_lines(path), 1):
+                  match = BLOCKQUOTE_RE.match(line)
+                  if match:
+                      entries.append((line_no, len(match.group('marks')), line.strip()))
+              return entries
+
+          def comment_entries(path):
+              entries = []
+              for line_no, line in enumerate(comparable_lines(path), 1):
+                  if HTML_COMMENT_TOKEN_RE.search(line):
+                      entries.append((line_no, line.strip()))
+              return entries
+
+          print('\nLINE-LEVEL FAILING DIAGNOSTICS')
           for finding in report.get('findings', []):
               if not finding.get('errors'):
                   continue
-              print(f"\n### {finding['destination']}")
-              print('errors:', json.dumps(finding['errors'], ensure_ascii=False))
-              relevant = {
-                  key: value
-                  for key, value in finding.get('details', {}).items()
-                  if key not in {'inline_code_formatting', 'protected_token_formatting'}
-              }
-              print(json.dumps(relevant, ensure_ascii=False, indent=2))
+              source = finding['source']
+              output = finding['destination']
+              print(f'\n### {output}')
+              print('errors:', finding['errors'])
+              details = finding.get('details', {})
+              if 'list_structure' in details:
+                  index = details['list_structure'].get('first_difference_index', 0)
+                  for label, path in [('SOURCE', source), ('OUTPUT', output)]:
+                      entries = list_entries(path)
+                      lo = max(0, index - 5)
+                      hi = min(len(entries), index + 8)
+                      print(f'{label} list entries {lo}:{hi}')
+                      for i in range(lo, hi):
+                          print(i, entries[i])
+              if 'blockquote_structure' in details:
+                  print('SOURCE blockquotes:', quote_entries(source))
+                  print('OUTPUT blockquotes:', quote_entries(output))
+              if 'html_comment_framing' in details:
+                  print('SOURCE comments:', comment_entries(source))
+                  print('OUTPUT comments:', comment_entries(output))
           PY
           fi
       - name: Enforce population gate
