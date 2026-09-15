@@ -21,7 +21,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from validate_translation import validate
+try:  # Package import in tests and tooling.
+    from .validate_translation import validate
+except ImportError:  # Direct CLI execution from tools/translation/.
+    from validate_translation import validate
 
 ZH_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 LATIN_RE = re.compile(r"[A-Za-z]")
@@ -86,12 +89,7 @@ def discover_sources(repo: Path, roots: tuple[str, ...]) -> list[Path]:
 
 
 def git_source_commit(repo: Path, sources: list[Path]) -> str:
-    """Return the latest commit that changed any current source document.
-
-    Translation-only, manifest-only, test-only, and audit-only commits therefore
-    do not change this provenance value. Per-file SHA-256 hashes plus the source
-    snapshot hash fully describe the actual source content at this provenance.
-    """
+    """Return the latest commit that changed any current source document."""
     if not sources:
         return "none"
     relpaths = [p.relative_to(repo).as_posix() for p in sources]
@@ -124,17 +122,26 @@ def residual_index(ledger: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
     return by_path
 
 
-def residual_state(destination: str, ledger: dict[str, Any], by_path: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
+def residual_state(
+    destination: str,
+    destination_text: str,
+    ledger: dict[str, Any],
+    by_path: dict[str, list[dict[str, Any]]],
+) -> dict[str, Any]:
     entries = by_path.get(destination, [])
     classifications = Counter(e.get("classification", "unknown") for e in entries)
     approved = sum(e.get("review_status") == "approved" for e in entries)
     rejected = len(entries) - approved
+    contains_chinese = bool(ZH_RE.search(destination_text))
     ledger_complete = ledger.get("summary", {}).get("accepted") is True
-    status = "pass" if ledger_complete and rejected == 0 else "fail"
+    # A wholly English output needs no residual-language exception ledger. Any
+    # retained Chinese requires the complete approved ledger produced by #5.
+    status = "pass" if rejected == 0 and (ledger_complete or not contains_chinese) else "fail"
     return {
         "status": status,
         "approved_exceptions": approved,
         "rejected_exceptions": rejected,
+        "contains_chinese": contains_chinese,
         "classifications": dict(sorted(classifications.items())),
     }
 
@@ -144,13 +151,7 @@ def stale_state(
     destination_hash: str | None,
     previous: dict[str, Any] | None,
 ) -> bool:
-    """Detect a source change whose destination content was not updated.
-
-    The first canonical v2 manifest establishes the baseline. Subsequent builds
-    compare current hashes with the previous v2 entry. The detection *basis* is
-    deliberately not serialized, because doing so would make the first baseline
-    differ from its immediate deterministic regeneration.
-    """
+    """Detect a source change whose destination content was not updated."""
     if not previous:
         return False
     previous_source = previous.get("integrity", {}).get("source_sha256")
@@ -179,7 +180,7 @@ def derived_status(
         return "residual_review_failed"
     if stale:
         return "stale"
-    return "validated"
+    return "translated"
 
 
 def derive_summary(records: list[dict[str, Any]], duplicate_groups: list[list[str]]) -> dict[str, int]:
@@ -248,13 +249,10 @@ def build_manifest(
             validator_errors = ["Destination is missing"]
             validator_warnings = []
 
+        source_rel = source.relative_to(repo).as_posix()
         destination_rel = destination.relative_to(repo).as_posix()
-        residual = residual_state(destination_rel, residual_ledger, residuals)
-        stale = stale_state(
-            source_hash,
-            destination_hash,
-            old_entries.get(source.relative_to(repo).as_posix()),
-        )
+        residual = residual_state(destination_rel, destination_text, residual_ledger, residuals)
+        stale = stale_state(source_hash, destination_hash, old_entries.get(source_rel))
         status = derived_status(
             destination_present,
             translation_complete,
@@ -262,12 +260,15 @@ def build_manifest(
             residual["status"],
             stale,
         )
-        translated = status == "validated"
+        translated = status == "translated"
 
         record = {
-            "source": source.relative_to(repo).as_posix(),
+            "source": source_rel,
             "destination": destination_rel,
             "category": category(source),
+            # Compatibility field retained from schema v1, but its meaning is
+            # now quality-derived rather than destination-exists.
+            "status": status,
             "integrity": {
                 "source_sha256": source_hash,
                 "destination_sha256": destination_hash,
