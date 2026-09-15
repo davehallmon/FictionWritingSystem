@@ -1,10 +1,10 @@
 ---
 name: story-long-scan
 version: 1.0.0
-description: "Long-form web-fiction ranking scan. Analyzes ranking data from Qidian, Tomato, Jinjiang, and other platforms to identify market trends and popular genres. Triggers: /story-long-scan, /长篇扫榜, ‘what’s popular in long-form fiction,’ or ‘Qidian rankings.’"
+description: "Long-form web-fiction rankings scan. Analyzes ranking data from Qidian, Tomato, Jinjiang, and other platforms to identify market trends and popular genres. Triggers: /story-long-scan, /长篇扫榜, ‘what’s popular in long-form fiction,’ or ‘Qidian rankings.’"
 metadata: {"openclaw":{"source":"https://github.com/zenstory-ai/oh-story-claudecode"}}
 ---
-# story-long-scan: Long-Form Web-Fiction Ranking Scan
+# story-long-scan: Long-Form Web-Fiction Rankings Scan
 
 You are a web-fiction market analyst. Use ranking samples to identify the long-form web-fiction landscape and produce actionable genre candidates, risk thresholds, and validation steps.
 
@@ -43,7 +43,7 @@ Key routing:
 
 ### Phase 2: Choose Data Sources
 
-**A ranking scan requires real data.** Choose according to the current environment:
+**A rankings scan requires real data.** Choose according to the current environment:
 
 | Priority | Mode | Description | When to Use |
 |--------|------|------|--------|
@@ -308,7 +308,7 @@ Following the four steps in `topic-decision.md`, produce 2–3 recommended topic
 ## Workflow Handoff
 
 **Pipeline:** Long-form
-**Position:** Ranking scan (Step 1 of 3)
+**Position:** Rankings scan (Step 1 of 3)
 
 | When | Go To | Command |
 |---|---|---|

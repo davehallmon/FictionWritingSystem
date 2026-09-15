@@ -1,6 +1,6 @@
 # Special-Genre Practical Guide
 
-> Special-advantage design, derivative vs. original fiction, urban high-martial-arts templates, genre boundaries, ranking scans, high-concept frameworks, comparable-title selection, romance arcs, identity-driven behavior, faction plots, and three-step adaptation.
+> Special-advantage design, derivative vs. original fiction, urban high-martial-arts templates, genre boundaries, rankings scans, high-concept frameworks, comparable-title selection, romance arcs, identity-driven behavior, faction plots, and three-step adaptation.
 >
 > This guide uses instructions: Read the relevant section and follow it. Use the decision guide to locate the section you need, then execute the corresponding actions.
 
@@ -16,7 +16,7 @@
 | Making the special advantage more interesting through mismatch, subversion, or extreme-martial-arts fiction | [Advanced Special-Advantage Design](#advanced-special-advantage-design) |
 | You have a high-concept idea but do not know how to build a complete story | [Complete Framework for High-Concept Fiction](#complete-framework-for-high-concept-fiction) |
 | Unsure of genre boundaries / worried about drifting | [Genre Boundaries](#genre-boundaries) |
-| Need market research / competitor deconstruction | [Ranking Scans and Book Deconstruction](#ranking-scans-and-book-deconstruction) |
+| Need market research / competitor deconstruction | [Rankings Scans and Book Deconstruction](#rankings-scans-and-book-deconstruction) |
 | Need a comparable title but do not know how to choose one | [Comparable-Title Selection Rules](#comparable-title-selection-rules) |
 | Writing derivative or original fiction and struggling with pacing differences | [Pacing Differences and Core Frameworks: Derivative vs. Original Fiction](#pacing-differences-and-core-frameworks-derivative-vs-original-fiction) |
 | Writing urban high-martial-arts fiction and need plot material | [Urban High-Martial-Arts Plot Templates](#urban-high-martial-arts-plot-templates) |
@@ -194,7 +194,7 @@ Specific material can change flexibly while the core function remains constant.
 
 ---
 
-## Ranking Scans and Book Deconstruction
+## Rankings Scans and Book Deconstruction
 
 ### Ranking-Scan Principles
 
@@ -216,7 +216,7 @@ Specific material can change flexibly while the core function remains constant.
 
 ### Extracting Material from Deconstruction
 
-- During ranking scans, extract functional positions: trending elements, conflict structures, emotional chains, pacing arrangements
+- During rankings scans, extract functional positions: trending elements, conflict structures, emotional chains, pacing arrangements
 - Label notes by specific dimension rather than vague reading impressions
 - Targeted deconstruction is more valuable than general reading
 - Never deconstruct outside the genre context
