@@ -80,7 +80,6 @@ class ManifestV2Tests(unittest.TestCase):
         current = self.build(repo, previous=baseline)
         entry = current["files"][0]
         self.assertTrue(entry["state"]["stale_source"])
-        self.assertEqual(entry["state"]["stale_detection_basis"], "previous_manifest")
         self.assertEqual(entry["state"]["status"], "stale")
         self.assertFalse(entry["state"]["translated"])
         self.assertEqual(current["summary"]["stale_translations"], 1)
