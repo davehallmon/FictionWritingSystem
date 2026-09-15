@@ -23,10 +23,9 @@
 
 ## Terminology normalization
 
-Files changed by deprecated-term normalization in this run: 3
+Files changed by deprecated-term normalization in this run: 2
 - `drama/Chinese-to-English/README - DRAMA SKILLS`
 - `drama/Chinese-to-English/README - Drama Skills - English.md`
-- `oh-story/Chinese-to-English/Ref - plot-special-topics.md`
 
 ## Classification totals
 
