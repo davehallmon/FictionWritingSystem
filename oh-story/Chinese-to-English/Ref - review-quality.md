@@ -3,9 +3,9 @@
 
 ## Contents
 
-- [I. General Checks](#一通用检查)
-- [II. Long-Form Checks](#二长篇专项)
-- [III. Short-Form Checks](#三短篇专项)
+- [I. General Checks](#i-general-checks)
+- [II. Long-Form Checks](#ii-long-form-checks)
+- [III. Short-Form Checks](#iii-short-form-checks)
 
 ## I. General Checks
 

@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-- [Three Questions](#三个问题)
-- [Identity and State](#持续身份与可变状态)
-- [Decision Procedure](#判断步骤)
-- [Common Misclassifications](#容易误判的情况)
-- [Composite Example](#合成判断例)
-- [Decision Records](#决定记录要说明理由)
-- [Production Examples](#制作案例说明)
+- [Three Questions](#three-questions)
+- [Identity and State](#persistent-identity-and-variable-state)
+- [Decision Procedure](#decision-procedure)
+- [Common Misclassifications](#common-misclassifications)
+- [Composite Example](#composite-decision-example)
+- [Decision Records](#decision-records-must-explain-the-reason)
+- [Production Examples](#production-example-notes)
 
 ## Three Questions
 

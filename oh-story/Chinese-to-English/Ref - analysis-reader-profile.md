@@ -161,7 +161,7 @@ Immortal fantasy that feels un-immortal, martial fiction without chivalry, or a 
 
 Its world is already solid and initial identification is high. Exception: comedy and meme fiction prioritize amusement, make gratification secondary, use an observer viewpoint, and need less identification.
 
-### Effective Ranking Scan
+### Effective Rankings Scan
 
 Rules: 1) run the current scan/analyze workflow for recent target-platform samples; 2) exclude top works with built-in fandom; 3) analyze reusable commonalities in opening structure. Establish the core conflict within 300 Chinese characters; quality separates decisively by 10,000.
 

@@ -133,6 +133,7 @@ Phase 1 问用户：「长篇还是短篇？」
                             └─ < 30000 但章节数 ≥ 5 ─► 提示用户裁定
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 1. In Phase 1, ask whether the work is long-form or short-form. If the user answers clearly, lock that type.
@@ -146,3 +147,4 @@ Phase 1 问用户：「长篇还是短篇？」
    - At least 30,000 characters → long-form.
    - At least five chapters → long-form.
    - Fewer than 30,000 characters but at least five chapters → ask the user to decide.
+<!-- /translation-guide -->

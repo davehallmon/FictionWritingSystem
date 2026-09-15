@@ -149,8 +149,7 @@ Before writing each chapter, read the state summary in `追踪/上下文.md` and
 
 1. Repeated payoffs → reader fatigue
 2. No long-range anticipation
-
-Solution: decide the ending during outlining, then design mid-to-late explosive beats around it.
+- Solution: decide the ending during outlining, then design mid-to-late explosive beats around it.
 
 ### Foreshadowing vs. Deliberate Obscurity
 

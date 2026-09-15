@@ -67,6 +67,7 @@ Use three levels. Never assign “high” from insufficient samples; a few data 
 ### 选题 3 ...
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 | Protected field | English meaning |
@@ -84,11 +85,12 @@ Use three levels. Never assign “high” from insufficient samples; a few data 
 | `篇幅/平台` | Recommended length and target platform |
 
 Recommend two or three topics, ordered by viability with the highest first.
+<!-- /translation-guide -->
 
 ---
 
 ## Delivery
 
-1. Write the result to the output directory of the current ranking scan, beside the ranking file: `{outdir}/选题决策.md`. Ranking scans often run before a novel project exists, so save the artifact here rather than directly in a project.
+1. Write the result to the output directory of the current rankings scan, beside the ranking file: `{outdir}/选题决策.md`. Rankings scans often run before a novel project exists, so save the artifact here rather than directly in a project.
 2. Tell the user the path and explain the next step: “If the novel project is created in this directory or beside it under the same parent, `/story-long-write` will find this file automatically and ask for confirmation. If it is farther away, copy `选题决策.md` to the novel-project root or provide its path when starting the book. To validate ‘why it can become a hit,’ first run `/story-long-analyze` on benchmark books; decomposition will fill in the validation.”
 3. Describe, but do not execute, the later handoff: after producing the aggregate report, story decomposition fills in validation for the corresponding topic's “why it can become a hit”; writing Phase 1 reads `选题决策.md` as the starting point for a new book.

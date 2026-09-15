@@ -32,6 +32,7 @@ Operations documentation for the story-long-analyze decomposition pipeline: the 
 - 最后处理：第{N}章 | 当前阶段 | 下一操作
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 | Protected heading or field | English meaning |
@@ -48,6 +49,7 @@ Operations documentation for the story-long-analyze decomposition pipeline: the 
 | `质量检查` | Quality checks |
 | `角色合并` | Character merges |
 | `断点` / `最后处理` / `下一操作` | Checkpoint / last processed / next action |
+<!-- /translation-guide -->
 
 **About schema_version:**
 

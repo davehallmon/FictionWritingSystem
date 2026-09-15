@@ -74,11 +74,7 @@ The central hook is the most important way the special advantage is used plus th
 
 ### Per-Chapter Cycle Check
 
-Every chapter must contain at least one of three elements:
-
-1. An anticipation point related to the central hook.
-2. A cathartic payoff related to the central hook.
-3. Movement between an anticipation point and its payoff.
+Every chapter must contain at least one of three elements: (1) an anticipation point related to the central hook; (2) a cathartic payoff related to the central hook; or (3) movement between an anticipation point and its payoff.
 
 **How to identify a broken expectation chain**: A chapter contains neither anticipation nor payoff, the previous payoff has concluded, and the current chapter establishes no new expectation. Readers feel that the book has lost its “soul” and begin to leave.
 
@@ -209,13 +205,7 @@ When combining elements from multiple genres, place them inside a “larger circ
 
 ### Awareness of Information Control
 
-Continually ask:
-
-1. What do readers know before opening the book?
-2. What do they know after reading the premise?
-3. What do they know after reading the plot?
-
-Controlling what readers know is the primary method for solving plot-design problems.
+Continually ask: (1) What do readers know before opening the book? (2) What do they know after reading the premise? (3) What do they know after reading the plot? Controlling what readers know is the primary method for solving plot-design problems.
 
 ### Matching the Special Advantage to the World
 

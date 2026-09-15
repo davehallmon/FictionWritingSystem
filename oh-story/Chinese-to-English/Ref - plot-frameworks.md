@@ -10,22 +10,22 @@ Use your current writing situation to locate the relevant section. Do not read f
 
 | Your Situation | Action | Go To |
 |---------|------|--------|
-| You selected a genre/type and need the large structure | First identify the genre’s loop pattern, then choose the corresponding framework | [Genre→Framework Routing](#题材框架路由) |
-| Progression/system/fantasy fiction: design level loops and reward pacing | Read RPG Structure and Reward Design + Fantasy Framework Deconstruction + Formula-Template Repetition | [RPG Structure and Reward Design](#rpg结构与奖励设计) / [Fantasy Framework Deconstruction](#玄幻框架拆解) |
-| Wish-fulfillment/showing-off fiction: design humiliation and display pacing | Read Faction-Hand Method + Formula-Template Repetition + Five-Step Showing-Off Method | [Framework and Faction-Hand Method](#框架与阵营手牌法) / [Formula-Template Repetition](#套路模板重复法) |
-| Romance/regretful-partner/tragic fiction: design push-pull pacing | Read Dual Tracks and Information Gaps + Relationship Between Structure and Character + Suspense Techniques | [Dual Tracks and Information Gaps](#双线法与信息差) / [Relationship Between Structure and Character](#结构与人物的关系) |
-| Starting a new book or volume: design the opening and volume structure | Read Opening Design Essentials + Large-Structure Design + Popular-Book Framework Deconstruction | [Opening Design Essentials](#开头设计的要点) / [Large-Structure Design](#大结构的设计) |
-| Multiple parallel tracks: manage main plot + subplots + daily life | Read Framework and Faction-Hand Method + multi-track interweaving in Popular-Book Framework Deconstruction | [Framework and Faction-Hand Method](#框架与阵营手牌法) |
-| Stuck or unsure what happens next | Read Stepwise Progression and Buffer Zones + No-Exit Principle + Deepening Suspense and Conflict | [Stepwise Progression and Buffer Zones](#分步骤与缓冲区) |
-| A formula feels stale and needs variation | Read Story Configurations and Formula Use + Core Hooks and Refinement | [Story Configurations and Formula Use](#故事构型与套路运用) / [Core Hooks and Refinement](#核心梗与细化法) |
-| Need chapter-level structure | Read Structured Book Deconstruction (four-chapter sequence structure) | [Structured Book Deconstruction](#结构化拆书法) |
-| Global control: determine whether the book will collapse | Read Plot-Driven Fiction Standards (five safeguards) + Essence of Story and Six-Act Structure | [Plot-Driven Fiction Standards and Advantages](#剧情流判断标准与优势) |
-| Need conflict and suspense | Read Conflict Structure + Stakes and Adhesives + Five Conflict Types + Suspense Techniques | [Conflict Structure and the No-Exit Principle](#冲突的结构与有进无出原则) |
-| Prose lacks imagery or feels dry | Read Storyboarding and Imagery | [Storyboarding and Imagery](#分镜与画面感) |
-| Designing alternating dual tracks / reality + instance | Read Alternating Dual-Track Framework | [Alternating Dual-Track Framework](#双线交替框架拆解) |
-| Designing mortal stakes and adhesives | Read Mortal Stakes and Adhesive Design | [Mortal Stakes and Adhesive Design](#冲突的死亡赌注与黏结剂设计) |
-| Choosing a contradiction to drive plot | Read Five Contradiction-Driven Plot Types | [Five Contradiction-Driven Plot Types](#利用矛盾推动剧情的五种类型) |
-| Adding emotional activation or plot techniques | Read Supplemental Structural and Plot Techniques | [Supplemental Structural and Plot Techniques](#补充结构与剧情技巧) |
+| You selected a genre/type and need the large structure | First identify the genre’s loop pattern, then choose the corresponding framework | [Genre→Framework Routing](#genreframework-routing) |
+| Progression/system/fantasy fiction: design level loops and reward pacing | Read RPG Structure and Reward Design + Fantasy Framework Deconstruction + Formula-Template Repetition | [RPG Structure and Reward Design](#rpg-structure-and-reward-design) / [Fantasy Framework Deconstruction](#fantasy-framework-deconstruction) |
+| Wish-fulfillment/showing-off fiction: design humiliation and display pacing | Read Faction-Hand Method + Formula-Template Repetition + Five-Step Showing-Off Method | [Framework and Faction-Hand Method](#framework-and-faction-hand-method) / [Formula-Template Repetition](#formula-template-repetition) |
+| Romance/regretful-partner/tragic fiction: design push-pull pacing | Read Dual Tracks and Information Gaps + Relationship Between Structure and Character + Suspense Techniques | [Dual Tracks and Information Gaps](#dual-tracks-and-information-gaps) / [Relationship Between Structure and Character](#relationship-between-structure-and-character) |
+| Starting a new book or volume: design the opening and volume structure | Read Opening Design Essentials + Large-Structure Design + Popular-Book Framework Deconstruction | [Opening Design Essentials](#opening-design-essentials) / [Large-Structure Design](#large-structure-design) |
+| Multiple parallel tracks: manage main plot + subplots + daily life | Read Framework and Faction-Hand Method + multi-track interweaving in Popular-Book Framework Deconstruction | [Framework and Faction-Hand Method](#framework-and-faction-hand-method) |
+| Stuck or unsure what happens next | Read Stepwise Progression and Buffer Zones + No-Exit Principle + Deepening Suspense and Conflict | [Stepwise Progression and Buffer Zones](#stepwise-progression-and-buffer-zones) |
+| A formula feels stale and needs variation | Read Story Configurations and Formula Use + Core Hooks and Refinement | [Story Configurations and Formula Use](#story-configurations-and-formula-use) / [Core Hooks and Refinement](#core-hooks-and-refinement) |
+| Need chapter-level structure | Read Structured Book Deconstruction (four-chapter sequence structure) | [Structured Book Deconstruction](#structured-book-deconstruction) |
+| Global control: determine whether the book will collapse | Read Plot-Driven Fiction Standards (five safeguards) + Essence of Story and Six-Act Structure | [Plot-Driven Fiction Standards and Advantages](#plot-driven-fiction-standards-and-advantages) |
+| Need conflict and suspense | Read Conflict Structure + Stakes and Adhesives + Five Conflict Types + Suspense Techniques | [Conflict Structure and the No-Exit Principle](#conflict-structure-and-the-no-exit-principle) |
+| Prose lacks imagery or feels dry | Read Storyboarding and Imagery | [Storyboarding and Imagery](#storyboarding-and-imagery) |
+| Designing alternating dual tracks / reality + instance | Read Alternating Dual-Track Framework | [Alternating Dual-Track Framework](#alternating-dual-track-framework) |
+| Designing mortal stakes and adhesives | Read Mortal Stakes and Adhesive Design | [Mortal Stakes and Adhesive Design](#mortal-stakes-and-adhesive-design) |
+| Choosing a contradiction to drive plot | Read Five Contradiction-Driven Plot Types | [Five Contradiction-Driven Plot Types](#five-contradiction-driven-plot-types) |
+| Adding emotional activation or plot techniques | Read Supplemental Structural and Plot Techniques | [Supplemental Structural and Plot Techniques](#supplemental-structural-and-plot-techniques) |
 
 ### Genre→Framework Routing
 

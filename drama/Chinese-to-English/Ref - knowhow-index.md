@@ -6,9 +6,9 @@ own `references/stage-contract.md`. The core does not decide which reference a c
 
 ## Table of Contents
 
-- [Topic-Authority Routing](#主题权威路由)
-- [Rule Levels](#规则分级)
-- [Conflict Priority](#冲突优先级)
+- [Topic-Authority Routing](#topic-authority-routing)
+- [Rule Levels](#rule-levels)
+- [Conflict Priority](#conflict-priority)
 
 ## Topic-Authority Routing
 

@@ -44,6 +44,7 @@ After filtering, output a concise “Current-Section Brief”:
 {约束1}：{与本章相关的规则/设定}
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 | Protected heading or field | English meaning |
@@ -55,6 +56,7 @@ After filtering, output a concise “Current-Section Brief”:
 | `{埋设章节}` / `回收` / `推进` | Planting chapter / pay off / advance |
 | `世界约束` | World constraints |
 | `{与本章相关的规则/设定}` | Rule or setting relevant to the current chapter |
+<!-- /translation-guide -->
 
 **Example (Chapter 10 of the demo *You Manage the Account—and Your High-Energy Mashup Explodes Across the Internet*):**
 ```
@@ -73,7 +75,9 @@ After filtering, output a concise “Current-Section Brief”:
 军宣作品采用要经过组织决策；江晨可以靠作品效果赢得认可，不能跳过军内流程直接拍板
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):** In Chapter 10, Jiang Chen is moving from newcomer to recognized military-publicity creator after *Gentlemen, Hear the Dragon's Roar* becomes popular. Reporter Zhong Jiajia has shifted from interviewer to reliable collaborator, and deputy troupe leader Zhou Bosen now trusts Jiang Chen's creative ability. The unresolved five-day, one-million-followers task should advance but not conclude until Chapter 11. A professional remake that “lacks the original's spirit” reinforces the phone-shot version's value. Organizational approval remains mandatory; success cannot bypass the military decision process.
+<!-- /translation-guide -->
 
 ---
 
@@ -112,6 +116,7 @@ Split dynamic state into `追踪/角色状态/{角色名}.md` files for core cha
 - 钟嘉嘉所谓“只猜对一半”仍未解释
 ```
 
+<!-- translation-guide: non-executable -->
 **English guide (non-executable):**
 
 | Protected field | English meaning |
@@ -125,6 +130,7 @@ Split dynamic state into `追踪/角色状态/{角色名}.md` files for core cha
 | `未结事项` | Unresolved matters |
 
 The sample records Jiang Chen's current status through Chapter 10: military-publicity soldier and emerging hit creator, located at a senior screening meeting, pursuing the five-day follower target, equipped with prior-life MCN experience and directing ability, supported by key collaborators, and still awaiting resolution of the follower task and Zhong Jiajia's unexplained remark.
+<!-- /translation-guide -->
 
 ### Update Rules
 

@@ -2,13 +2,13 @@
 
 ## Contents
 
-- [Why Recognition Anchors Are Not Enough](#为什么识别锚点还不够)
-- [What Deserves a Lock](#什么值得上一把锁)
-- [How to Write the Lock Surface](#锁面怎么写)
-- [Syntax](#语法)
-- [Who Carries the Lock Surface Forward](#谁负责把锁面带走)
-- [Counterexamples](#反例)
-- [Validation](#校验)
+- [Why Recognition Anchors Are Not Enough](#why-recognition-anchors-are-not-enough)
+- [What Deserves a Lock](#what-deserves-a-lock)
+- [How to Write the Lock Surface](#how-to-write-the-lock-surface)
+- [Syntax](#syntax)
+- [Who Carries the Lock Surface Forward](#who-carries-the-lock-surface-forward)
+- [Counterexamples](#counterexamples)
+- [Validation](#validation)
 
 ## Why Recognition Anchors Are Not Enough
 

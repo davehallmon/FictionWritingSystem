@@ -1,6 +1,6 @@
 # Special-Genre Practical Guide
 
-> Special-advantage design, derivative vs. original fiction, urban high-martial-arts templates, genre boundaries, ranking scans, high-concept frameworks, comparable-title selection, romance arcs, identity-driven behavior, faction plots, and three-step adaptation.
+> Special-advantage design, derivative vs. original fiction, urban high-martial-arts templates, genre boundaries, rankings scans, high-concept frameworks, comparable-title selection, romance arcs, identity-driven behavior, faction plots, and three-step adaptation.
 >
 > This guide uses instructions: Read the relevant section and follow it. Use the decision guide to locate the section you need, then execute the corresponding actions.
 
@@ -12,23 +12,23 @@
 
 | Your Situation | Go To |
 |----------|--------|
-| Designing a special advantage / worried about power-system collapse | [Deconstructing Special Advantages and Preventing Power Collapse](#金手指拆分理解与战力防崩) |
-| Making the special advantage more interesting through mismatch, subversion, or extreme-martial-arts fiction | [Advanced Special-Advantage Design](#金手指进阶设计) |
-| You have a high-concept idea but do not know how to build a complete story | [Complete Framework for High-Concept Fiction](#脑洞文完整写作框架) |
-| Unsure of genre boundaries / worried about drifting | [Genre Boundaries](#题材边界感) |
-| Need market research / competitor deconstruction | [Ranking Scans and Book Deconstruction](#扫榜与拆书方法) |
-| Need a comparable title but do not know how to choose one | [Comparable-Title Selection Rules](#对标书选择法则) |
-| Writing derivative or original fiction and struggling with pacing differences | [Pacing Differences and Core Frameworks: Derivative vs. Original Fiction](#同人vs原创的节奏差异与核心框架) |
-| Writing urban high-martial-arts fiction and need plot material | [Urban High-Martial-Arts Plot Templates](#都市高武情节模板) |
-| Unsure how genres differ / protagonist behavior feels out of character | [Genre-Specific Approaches and Identity-Driven Behavior](#不同题材不同写法与身份行为论) |
-| Writing a romance arc / harem fiction | [Romance-Arc Distillation Strategy](#爱情线提纯策略) |
-| Unsure whether to deepen characterization or plot | [Deepening Characterization vs. Deepening Story](#向人设深化vs向故事深化) |
-| Adapting an existing plot for your own use | [Three-Step Plot Adaptation](#剧情改编三步法) |
-| Designing the 30,000-character publication turning point / middle and late stages | [Working Backward from the 30,000-Character Turning Point and Writing Later Stages](#三万字卡点倒推法与中后期写法) |
-| Designing faction conflict / strengthening motivation | [Faction Plotting and Motivation Development](#阵营剧情安排与动机完善法) |
-| Using card-game logic for main-plot pacing | [Faction-Hand Method—Designing the Main Plot with Card-Game Logic](#阵营手牌法用卡牌思维设计主线剧情) |
-| Diagnosing common writing problems | [Four Common Problem Diagnoses](#四类常见问题诊断) |
-| Combining several books into a new story | [Combining Three Books into a New Story](#三本书融合为新故事) |
+| Designing a special advantage / worried about power-system collapse | [Deconstructing Special Advantages and Preventing Power Collapse](#deconstructing-special-advantages-and-preventing-power-collapse) |
+| Making the special advantage more interesting through mismatch, subversion, or extreme-martial-arts fiction | [Advanced Special-Advantage Design](#advanced-special-advantage-design) |
+| You have a high-concept idea but do not know how to build a complete story | [Complete Framework for High-Concept Fiction](#complete-framework-for-high-concept-fiction) |
+| Unsure of genre boundaries / worried about drifting | [Genre Boundaries](#genre-boundaries) |
+| Need market research / competitor deconstruction | [Rankings Scans and Book Deconstruction](#rankings-scans-and-book-deconstruction) |
+| Need a comparable title but do not know how to choose one | [Comparable-Title Selection Rules](#comparable-title-selection-rules) |
+| Writing derivative or original fiction and struggling with pacing differences | [Pacing Differences and Core Frameworks: Derivative vs. Original Fiction](#pacing-differences-and-core-frameworks-derivative-vs-original-fiction) |
+| Writing urban high-martial-arts fiction and need plot material | [Urban High-Martial-Arts Plot Templates](#urban-high-martial-arts-plot-templates) |
+| Unsure how genres differ / protagonist behavior feels out of character | [Genre-Specific Approaches and Identity-Driven Behavior](#genre-specific-approaches-and-identity-driven-behavior) |
+| Writing a romance arc / harem fiction | [Romance-Arc Distillation Strategy](#romance-arc-distillation-strategy) |
+| Unsure whether to deepen characterization or plot | [Deepening Characterization vs. Deepening Story](#deepening-characterization-vs-deepening-story) |
+| Adapting an existing plot for your own use | [Three-Step Plot Adaptation](#three-step-plot-adaptation) |
+| Designing the 30,000-character publication turning point / middle and late stages | [Working Backward from the 30,000-Character Turning Point and Writing Later Stages](#working-backward-from-the-30000-character-turning-point-and-writing-later-stages) |
+| Designing faction conflict / strengthening motivation | [Faction Plotting and Motivation Development](#faction-plotting-and-motivation-development) |
+| Using card-game logic for main-plot pacing | [Faction-Hand Method—Designing the Main Plot with Card-Game Logic](#faction-hand-methoddesigning-the-main-plot-with-card-game-logic) |
+| Diagnosing common writing problems | [Four Common Problem Diagnoses](#four-common-problem-diagnoses) |
+| Combining several books into a new story | [Combining Three Books into a New Story](#combining-three-books-into-a-new-story) |
 
 ---
 
@@ -194,7 +194,7 @@ Specific material can change flexibly while the core function remains constant.
 
 ---
 
-## Ranking Scans and Book Deconstruction
+## Rankings Scans and Book Deconstruction
 
 ### Ranking-Scan Principles
 
@@ -216,7 +216,7 @@ Specific material can change flexibly while the core function remains constant.
 
 ### Extracting Material from Deconstruction
 
-- During ranking scans, extract functional positions: trending elements, conflict structures, emotional chains, pacing arrangements
+- During rankings scans, extract functional positions: trending elements, conflict structures, emotional chains, pacing arrangements
 - Label notes by specific dimension rather than vague reading impressions
 - Targeted deconstruction is more valuable than general reading
 - Never deconstruct outside the genre context

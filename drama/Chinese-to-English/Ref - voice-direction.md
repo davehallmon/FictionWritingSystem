@@ -2,15 +2,15 @@
 
 ## Table of Contents
 
-- [Reference Audio Is the Carrier](#参考音频是载体)
-- [The Boundary Between Identity and Performance](#身份与表演的界线)
-- [What One Reference Recording Can Determine](#一段参考音频可以决定什么)
-- [Binding Does Not Mean Listening](#绑定不等于听过)
-- [Selection Criteria](#选型判据)
-- [Creating Distinction](#写出区分度)
-- [Proper-Noun Pronunciation](#专名发音)
-- [Variants: Disguise, Age, and Changes Across Segments](#变体伪装年龄与跨段变化)
-- [Rendering Rules for voice-casting.md](#voice-castingmd-的渲染规则)
+- [Reference Audio Is the Carrier](#reference-audio-is-the-carrier)
+- [The Boundary Between Identity and Performance](#the-boundary-between-identity-and-performance)
+- [What One Reference Recording Can Determine](#what-one-reference-recording-can-determine)
+- [Binding Does Not Mean Listening](#binding-does-not-mean-listening)
+- [Selection Criteria](#selection-criteria)
+- [Creating Distinction](#creating-distinction)
+- [Proper-Noun Pronunciation](#proper-noun-pronunciation)
+- [Variants: Disguise, Age, and Changes Across Segments](#variants-disguise-age-and-changes-across-segments)
+- [Writing to `视觉设定.md`](#writing-to-视觉设定md)
 
 `voice_direction` is part of the Character record (`AST-07`) and remains stable across episodes. How the character speaks in a particular scene is performance,
 determined line by line by the voice script from `$short-drama-write`.

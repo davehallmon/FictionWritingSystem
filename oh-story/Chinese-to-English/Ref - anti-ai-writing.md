@@ -99,6 +99,15 @@ Paragraph length has no fixed virtue. The key question is whether reading aloud 
 - If consecutive short paragraphs resemble an outline, combine adjacent sentences from the same shot so the image remains continuous.
 
 ```
+过密：他看着窗外的雨，心中涌起一股说不清的感觉，这些年走过的路和很多已经忘记的事都在这一刻涌上心头。
+
+更自然：他盯着窗外的雨，雨从下午下到天黑。
+"你还在想她？"老刘问。
+他没说话。
+```
+
+<!-- translation-companion: non-executable -->
+```text
 Too dense: He watched the rain outside the window, overwhelmed by a feeling he could not name, as the roads he had traveled over the years and many things he had already forgotten all returned to him at that moment.
 
 More natural: He watched the rain outside the window. It had been falling since afternoon and was still falling after dark.
@@ -111,6 +120,11 @@ He said nothing.
 Cycle among the three elements to advance the scene. Do not write more than two paragraphs of uninterrupted internal thought:
 
 ```
+动作 -> 对话 -> 情绪反应 -> 动作 -> 对话 -> ……
+```
+
+<!-- translation-companion: non-executable -->
+```text
 Action → dialogue → emotional reaction → action → dialogue → ...
 ```
 
@@ -208,6 +222,16 @@ Narration should default to **long sentences linked by commas**: connect two to 
 ## Quick Self-Check Mnemonic
 
 ```
+一事一段，镜头自然断。
+对话要像人说话。
+心情不写心里话。
+结尾不搞大升华。
+打斗不写流水账。
+日常要埋伏笔桩。
+```
+
+<!-- translation-companion: non-executable -->
+```text
 One event per paragraph; break naturally with the shot.
 Dialogue should sound human.
 Do not explain every feeling.
@@ -276,10 +300,7 @@ Threshold: More than three per 1,000 Chinese characters is an AI signature. Clos
 
 These openings in fiction indicate AI intrusion:
 
-- “It is not difficult to see”
-- “This shows that”
-- “In fact”
-- “In conclusion”
+- “It is not difficult to see” / “This shows that” / “In fact” / “In conclusion”
 
 ### Pattern 6: Excessive Formal Conjunctions
 
@@ -393,6 +414,18 @@ If the reading still feels unstable after clearing `overcompressed-prose-tic` an
 Example:
 
 ```
+过度压缩：
+林遥抬头。
+雨棚外的街灯灭了。
+风也停了。
+柜台上的纸杯晃了两下。
+
+读顺后：
+林遥抬头时，雨棚外的街灯正一盏盏熄下去。风忽然停了，柜台上的纸杯还在原地轻轻打转。
+```
+
+<!-- translation-companion: non-executable -->
+```text
 Overcompressed:
 Lin Yao looked up.
 The streetlight beyond the awning went out.
