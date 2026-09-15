@@ -25,17 +25,8 @@
 
 ## Terminology normalization
 
-Files changed by deprecated-term normalization in this run: 10
+Files changed by deprecated-term normalization in this run: 1
 - `drama/Chinese-to-English/README - DRAMA SKILLS`
-- `oh-story/Chinese-to-English/Ref - analysis-reader-profile.md`
-- `oh-story/Chinese-to-English/Ref - genre-prose-cards.md`
-- `oh-story/Chinese-to-English/Ref - genre-readers.md`
-- `oh-story/Chinese-to-English/Ref - genre-trends.md`
-- `oh-story/Chinese-to-English/Ref - plot-special-topics.md`
-- `oh-story/Chinese-to-English/Ref - topic-decision.md`
-- `oh-story/Chinese-to-English/Ref - workflow-setup.md`
-- `oh-story/Chinese-to-English/SKILL - story-long-scan.md`
-- `oh-story/Chinese-to-English/SKILL - story-setup.md`
 
 ## Classification totals
 
