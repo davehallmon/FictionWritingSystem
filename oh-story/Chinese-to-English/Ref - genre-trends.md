@@ -1,5 +1,5 @@
 # Web-Fiction Genre Trends and Subgenre Reference
-A quick-reference guide to genre selection, subgenre writing, and ranking scans.
+A quick-reference guide to genre selection, subgenre writing, and rankings scans.
 
 ---
 
@@ -52,7 +52,7 @@ Use 85% familiarity + 15% surprise. Choose a field with adequate data and room t
 
 ---
 
-## Ranking Scans
+## Rankings Scans
 
 ### Three-Level Classification
 

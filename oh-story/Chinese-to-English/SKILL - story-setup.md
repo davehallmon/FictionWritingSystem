@@ -534,6 +534,6 @@ When AGENTS.md exists:
 |---|---|---|
 | Deployment complete; start writing | story-long-write / story-short-write | `/story-long-write` or `/story-short-write` |
 | Import an existing novel for decomposition | story-import | `/story-import` |
-| Need authenticated browser state for ranking scan/source retrieval | browser-cdp | `/browser-cdp`; generic requires platform permission for local scripts/browser control |
+| Need authenticated browser state for rankings scan/source retrieval | browser-cdp | `/browser-cdp`; generic requires platform permission for local scripts/browser control |
 
 Invocation syntax: Claude `/名`; Codex/ZCode `$名`; Antigravity browse via `/skills` or name directly; OpenClaw `/skill 名`; Reasonix / generic name the skill directly.

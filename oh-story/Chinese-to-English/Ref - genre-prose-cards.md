@@ -76,7 +76,7 @@ The local long-form sample does not support mechanical templates such as a fixed
 
 ## Low-Confidence Genre Cards
 
-There are currently no individual low-confidence cards. A newly added low-confidence card may serve only as a draft direction. Before writing, prioritize the same-genre benchmark book, user definitions, and latest ranking scan.
+There are currently no individual low-confidence cards. A newly added low-confidence card may serve only as a draft direction. Before writing, prioritize the same-genre benchmark book, user definitions, and latest rankings scan.
 
 ---
 

@@ -155,7 +155,7 @@ Xianxia that does not feel immortal, wuxia that lacks chivalry, or clashing aest
 
 The worldbuilding is already solid and initial identification is high. Exception: comedy and meme fiction prioritizes entertainment over satisfaction, uses an observer stance, and does not require strong identification.
 
-### Effective Ranking Scan
+### Effective Rankings Scan
 
 Ranking-scan rules: (1) run the current scan/analyze workflow for recent target-platform samples; (2) exclude leaders with built-in fan bases; and (3) analyze common opening structures in reproducible samples. Establish the core conflict within the first 300 Chinese characters; the first 10,000 determine competitiveness.
 
