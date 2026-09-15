@@ -1,0 +1,44 @@
+name: Issue 5 Residual Audit
+
+on:
+  push:
+    branches:
+      - translation/issue-5-residual-terminology
+
+permissions:
+  contents: write
+
+jobs:
+  residual-audit:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: translation/issue-5-residual-terminology
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Normalize deprecated terminology and generate residual ledger
+        run: python tools/translation/audit_residuals.py --fix-terminology --write --allow-incomplete
+
+      - name: Run translation regression tests
+        run: python -m unittest discover -s tools/translation/tests -v
+
+      - name: Commit deterministic issue 5 evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translation-glossary.json translation-residual-exceptions.json translation-residual-review.md \
+            drama/Chinese-to-English oh-story/Chinese-to-English
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate issue #5 residual classifications [skip ci]"
+            git push origin HEAD:translation/issue-5-residual-terminology
+          fi
+
+      - name: Enforce issue 5 acceptance gate
+        run: python tools/translation/audit_residuals.py --write
