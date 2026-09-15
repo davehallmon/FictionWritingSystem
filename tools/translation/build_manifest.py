@@ -143,16 +143,23 @@ def stale_state(
     source_hash: str,
     destination_hash: str | None,
     previous: dict[str, Any] | None,
-) -> tuple[bool, str]:
+) -> bool:
+    """Detect a source change whose destination content was not updated.
+
+    The first canonical v2 manifest establishes the baseline. Subsequent builds
+    compare current hashes with the previous v2 entry. The detection *basis* is
+    deliberately not serialized, because doing so would make the first baseline
+    differ from its immediate deterministic regeneration.
+    """
     if not previous:
-        return False, "baseline"
+        return False
     previous_source = previous.get("integrity", {}).get("source_sha256")
     previous_destination = previous.get("integrity", {}).get("destination_sha256")
     if not previous_source:
-        return False, "baseline"
+        return False
     source_changed = previous_source != source_hash
     destination_unchanged = previous_destination == destination_hash
-    return bool(source_changed and destination_unchanged), "previous_manifest"
+    return bool(source_changed and destination_unchanged)
 
 
 def derived_status(
@@ -194,10 +201,7 @@ def derive_summary(records: list[dict[str, Any]], duplicate_groups: list[list[st
 
 
 def snapshot_hash(records: list[dict[str, Any]], key: str) -> str:
-    material = [
-        [record["source"], record["integrity"].get(key)]
-        for record in records
-    ]
+    material = [[record["source"], record["integrity"].get(key)] for record in records]
     return digest_json(material)
 
 
@@ -246,7 +250,7 @@ def build_manifest(
 
         destination_rel = destination.relative_to(repo).as_posix()
         residual = residual_state(destination_rel, residual_ledger, residuals)
-        stale, stale_basis = stale_state(
+        stale = stale_state(
             source_hash,
             destination_hash,
             old_entries.get(source.relative_to(repo).as_posix()),
@@ -291,7 +295,6 @@ def build_manifest(
                 "residual_review": residual["status"],
                 "reviewer": "not_recorded",
                 "stale_source": stale,
-                "stale_detection_basis": stale_basis,
                 "translated": translated,
                 "status": status,
             },
@@ -305,7 +308,7 @@ def build_manifest(
     )
     summary = derive_summary(records, duplicate_groups)
 
-    manifest = {
+    return {
         "schema_version": SCHEMA_VERSION,
         "roots": list(roots),
         "destination_directory": DESTINATION,
@@ -330,7 +333,6 @@ def build_manifest(
         "duplicate_groups": duplicate_groups,
         "files": records,
     }
-    return manifest
 
 
 def main() -> int:
