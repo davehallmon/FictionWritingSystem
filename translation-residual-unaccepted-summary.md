@@ -1,3 +1,0 @@
-# Unaccepted Residual Summary
-
-None.
