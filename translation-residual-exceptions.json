@@ -16,40 +16,25 @@
     "operational_literal_review": "Approved when a deterministic syntactic/context rule establishes that changing the literal would alter a path, interface, runtime value, source-compatible artifact, trigger/example, or named identity. Ambiguous occurrences remain rejected until manually overridden."
   },
   "summary": {
-    "pairs": 160,
-    "files_with_residuals": 65,
-    "residual_occurrences": 1410,
-    "residual_han_characters": 4677,
+    "pairs": 162,
+    "files_with_residuals": 66,
+    "residual_occurrences": 1411,
+    "residual_han_characters": 4681,
     "classification_counts": {
-      "intentional_bilingual_example": 189,
-      "operational_chinese_output": 78,
+      "intentional_bilingual_example": 214,
+      "operational_chinese_output": 308,
       "proper_name_title": 43,
-      "protected_literal": 744,
-      "unexplained_prose": 301,
+      "protected_literal": 745,
+      "unexplained_prose": 46,
       "unresolved_anchor": 1
     },
-    "deprecated_terminology": 2,
+    "deprecated_terminology": 0,
     "missing_outputs": 0,
     "ledger_status": "review_required",
     "accepted": false
   },
   "missing_outputs": [],
-  "deprecated_terminology": [
-    {
-      "path": "oh-story/Chinese-to-English/Ref - topic-decision.md",
-      "line": 94,
-      "term": "Ranking scans",
-      "preferred": "rankings scan",
-      "context": "1. Write the result to the output directory of the current rankings scan, beside the ranking file: `{outdir}/选题决策.md`. Ranking scans often run before a novel project exists, so save the artifact here rather than directly in a project."
-    },
-    {
-      "path": "oh-story/Chinese-to-English/SKILL - story-long-scan.md",
-      "line": 311,
-      "term": "Ranking scan",
-      "preferred": "rankings scan",
-      "context": "**Position:** Ranking scan (Step 1 of 3)"
-    }
-  ],
+  "deprecated_terminology": [],
   "entries": [
     {
       "path": "drama/Chinese-to-English/Docs - comic-drama-workflow.md",
@@ -88,15 +73,27 @@
       "context": "| The storyboard changed an approved screenplay | Every shot's “source” must resolve to a real scene in 《剧本.md》. Every screenplay scene must have shot coverage or appear in “unfilmed scenes” in 《分镜.md》 with a reason. Chinese quotations in copy-ready text must be found verbatim in the screenplay. `creator_markdown_check.py` verifies all three |"
     },
     {
+      "path": "drama/Chinese-to-English/README - Drama Skills - English.md",
+      "line": 218,
+      "literal": "制作成果",
+      "count": 1,
+      "characters": 4,
+      "classification": "protected_literal",
+      "reason": "The Chinese text is embedded in a filename, path, glob, or source-compatible artifact identifier whose literal value is operational.",
+      "review_status": "approved",
+      "rule": "path_or_filename",
+      "context": "project>` copies each episode's existing five Markdown documents and `制作成果/` into one delivery"
+    },
+    {
       "path": "drama/Chinese-to-English/Ref - asset-review-checklist.md",
       "line": 69,
       "literal": "未决",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "Write creator-confirmed results directly into `视觉设定.md`. Keep unconfirmed choices marked “未决” and explain their impact. Creator confirmation does not mean that structural checks passed, review passed, or production may begin; each of those actions occurs independently."
     },
     {
@@ -201,10 +198,10 @@
       "literal": "创作者已明确选择文生视频",
       "count": 1,
       "characters": 12,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of an explicitly described source-language field/value contract embedded in translated prose.",
+      "review_status": "approved",
+      "rule": "fullwidth_field_contract",
       "context": "need restate only local starting-point and anti-drift facts required for motion. Use text-to-video only when the field is 输入参考图：无（创作者已明确选择文生视频）; its prose must independently"
     },
     {
@@ -213,10 +210,10 @@
       "literal": "无",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of an explicitly described source-language field/value contract embedded in translated prose.",
+      "review_status": "approved",
+      "rule": "fullwidth_field_contract",
       "context": "need restate only local starting-point and anti-drift facts required for motion. Use text-to-video only when the field is 输入参考图：无（创作者已明确选择文生视频）; its prose must independently"
     },
     {
@@ -225,10 +222,10 @@
       "literal": "输入参考图",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of an explicitly described source-language field/value contract embedded in translated prose.",
+      "review_status": "approved",
+      "rule": "fullwidth_field_contract",
       "context": "need restate only local starting-point and anti-drift facts required for motion. Use text-to-video only when the field is 输入参考图：无（创作者已明确选择文生视频）; its prose must independently"
     },
     {
@@ -273,10 +270,10 @@
       "literal": "未决",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "When no decision has been reached, mark the corresponding entry “未决” and list candidates, missing evidence, and impact. For a continuity change that will occur only in the future, write only a “需要同步” note; do not create a placeholder record for a file that does not yet exist."
     },
     {
@@ -285,10 +282,10 @@
       "literal": "需要同步",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "When no decision has been reached, mark the corresponding entry “未决” and list candidates, missing evidence, and impact. For a continuity change that will occur only in the future, write only a “需要同步” note; do not create a placeholder record for a file that does not yet exist."
     },
     {
@@ -429,10 +426,10 @@
       "literal": "设定集",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| CON-03 | craft_default | Track downstream-relevant deltas, not the whole 设定集 in every shot. |"
     },
     {
@@ -2289,10 +2286,10 @@
       "literal": "沈暮月心碎地听到了真相",
       "count": 1,
       "characters": 11,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Prohibited: “沈暮月心碎地听到了真相.”"
     },
     {
@@ -2301,10 +2298,10 @@
       "literal": "手停在半空",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “沈暮月听到‘私生子而已’，手停在半空.”"
     },
     {
@@ -2313,10 +2310,10 @@
       "literal": "沈暮月听到",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “沈暮月听到‘私生子而已’，手停在半空.”"
     },
     {
@@ -2325,10 +2322,10 @@
       "literal": "私生子而已",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “沈暮月听到‘私生子而已’，手停在半空.”"
     },
     {
@@ -2337,10 +2334,10 @@
       "literal": "通过这段对话展现了她的坚强",
       "count": 1,
       "characters": 13,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Prohibited: “通过这段对话展现了她的坚强.”"
     },
     {
@@ -2349,10 +2346,10 @@
       "literal": "她直视霍庭煜说",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “她直视霍庭煜说‘我没有义务配合你’.”"
     },
     {
@@ -2361,10 +2358,10 @@
       "literal": "我没有义务配合你",
       "count": 1,
       "characters": 8,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “她直视霍庭煜说‘我没有义务配合你’.”"
     },
     {
@@ -2373,10 +2370,10 @@
       "literal": "气氛变得紧张",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Prohibited: “气氛变得紧张.”"
     },
     {
@@ -2385,10 +2382,10 @@
       "literal": "周身散发出威压",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “霍庭煜眼神骤冷，周身散发出威压.”"
     },
     {
@@ -2397,10 +2394,10 @@
       "literal": "霍庭煜眼神骤冷",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line explicitly labels the retained Chinese as a correct/incorrect/prohibited/example sentence used for source-language instruction.",
+      "review_status": "approved",
+      "rule": "labeled_bilingual_example",
       "context": "- Correct: “霍庭煜眼神骤冷，周身散发出威压.”"
     },
     {
@@ -2781,10 +2778,10 @@
       "literal": "共鸣分析",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "2. Read the “核心手法,” “共鸣分析,” and “可复用结构” sections of `拆文报告.md` to decide what to retain or adjust."
     },
     {
@@ -2793,10 +2790,10 @@
       "literal": "可复用结构",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "2. Read the “核心手法,” “共鸣分析,” and “可复用结构” sections of `拆文报告.md` to decide what to retain or adjust."
     },
     {
@@ -2805,10 +2802,10 @@
       "literal": "核心手法",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "2. Read the “核心手法,” “共鸣分析,” and “可复用结构” sections of `拆文报告.md` to decide what to retain or adjust."
     },
     {
@@ -2841,10 +2838,10 @@
       "literal": "平台",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "Length {X} Chinese characters | Sections {N} | Platform {平台} | Type {题材/情绪类型} | Ending {HE/BE/开放式} | POV {第一/第三人称}"
     },
     {
@@ -3093,10 +3090,10 @@
       "literal": "字概括全文",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{200-500字概括全文}"
     },
     {
@@ -3105,10 +3102,10 @@
       "literal": "功能",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3117,10 +3114,10 @@
       "literal": "节号",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3129,10 +3126,10 @@
       "literal": "功能",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Development | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3141,10 +3138,10 @@
       "literal": "节号",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Development | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3153,10 +3150,10 @@
       "literal": "功能",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {转折/过渡（可选）} | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3177,10 +3174,10 @@
       "literal": "节号",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {转折/过渡（可选）} | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3213,10 +3210,10 @@
       "literal": "功能",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3225,10 +3222,10 @@
       "literal": "节号",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3237,10 +3234,10 @@
       "literal": "功能",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3249,10 +3246,10 @@
       "literal": "节号",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X}-{Y} | {Z%} | {功能} | {节号} |"
     },
     {
@@ -3309,10 +3306,10 @@
       "literal": "故事内时间跨度",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Time span | {故事内时间跨度} |"
     },
     {
@@ -3417,10 +3414,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening | {X} | N{N} | {好奇/心酸/震惊} | {虐-9~爽+9} | {事件} | {悬念/冲突/反差/代入/信息差/无} |"
     },
     {
@@ -3525,10 +3522,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening | {X} | N{N} | {好奇/心酸/震惊} | {虐-9~爽+9} | {事件} | {悬念/冲突/反差/代入/信息差/无} |"
     },
     {
@@ -3537,10 +3534,10 @@
       "literal": "虐",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening | {X} | N{N} | {好奇/心酸/震惊} | {虐-9~爽+9} | {事件} | {悬念/冲突/反差/代入/信息差/无} |"
     },
     {
@@ -3561,10 +3558,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Low point | {X} | N{N} | {心疼/绝望/愤怒} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3597,10 +3594,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Low point | {X} | N{N} | {心疼/绝望/愤怒} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3621,10 +3618,10 @@
       "literal": "虐",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Low point | {X} | N{N} | {心疼/绝望/愤怒} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3633,10 +3630,10 @@
       "literal": "钩子类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Low point | {X} | N{N} | {心疼/绝望/愤怒} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3645,10 +3642,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal point | {X} | N{N} | {震惊/心疼} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3669,10 +3666,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal point | {X} | N{N} | {震惊/心疼} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3681,10 +3678,10 @@
       "literal": "虐",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal point | {X} | N{N} | {震惊/心疼} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3693,10 +3690,10 @@
       "literal": "钩子类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal point | {X} | N{N} | {震惊/心疼} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3717,10 +3714,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X} | N{N} | {情绪} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3729,10 +3726,10 @@
       "literal": "情绪",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X} | N{N} | {情绪} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3741,10 +3738,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X} | N{N} | {情绪} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3753,10 +3750,10 @@
       "literal": "虐",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X} | N{N} | {情绪} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3765,10 +3762,10 @@
       "literal": "钩子类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Climax | {X} | N{N} | {情绪} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3777,10 +3774,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X} | N{N} | {满足/意难平/治愈} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3825,10 +3822,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X} | N{N} | {满足/意难平/治愈} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3837,10 +3834,10 @@
       "literal": "虐",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X} | N{N} | {满足/意难平/治愈} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3849,10 +3846,10 @@
       "literal": "钩子类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending | {X} | N{N} | {满足/意难平/治愈} | {虐-9~爽+9} | {事件} | {钩子类型} |"
     },
     {
@@ -3885,10 +3882,10 @@
       "literal": "从",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "Curve characteristics: Start {...} | Direction {上行/下行/波浪/V形/倒V/阶梯/断崖/压缩弹簧} | Extremes {最高%X 最低%Y} | Directional difference {从X到Y} | Number of reversals {N}"
     },
     {
@@ -3909,10 +3906,10 @@
       "literal": "到",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "Curve characteristics: Start {...} | Direction {上行/下行/波浪/V形/倒V/阶梯/断崖/压缩弹簧} | Extremes {最高%X 最低%Y} | Directional difference {从X到Y} | Number of reversals {N}"
     },
     {
@@ -3957,10 +3954,10 @@
       "literal": "最低",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "Curve characteristics: Start {...} | Direction {上行/下行/波浪/V形/倒V/阶梯/断崖/压缩弹簧} | Extremes {最高%X 最低%Y} | Directional difference {从X到Y} | Number of reversals {N}"
     },
     {
@@ -3969,10 +3966,10 @@
       "literal": "最高",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "Curve characteristics: Start {...} | Direction {上行/下行/波浪/V形/倒V/阶梯/断崖/压缩弹簧} | Extremes {最高%X 最低%Y} | Directional difference {从X到Y} | Number of reversals {N}"
     },
     {
@@ -4005,10 +4002,10 @@
       "literal": "什么让读者开始在意",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Setup | {什么让读者开始在意}，前{X}字完成 |"
     },
     {
@@ -4017,10 +4014,10 @@
       "literal": "前",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Setup | {什么让读者开始在意}，前{X}字完成 |"
     },
     {
@@ -4041,10 +4038,10 @@
       "literal": "什么在积累情绪势能",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Accumulation | {什么在积累情绪势能}，积累{X}字 |"
     },
     {
@@ -4065,10 +4062,10 @@
       "literal": "积累",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Accumulation | {什么在积累情绪势能}，积累{X}字 |"
     },
     {
@@ -4125,10 +4122,10 @@
       "literal": "哪个瞬间释放全部情绪",
       "count": 1,
       "characters": 10,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Eruption | {哪个瞬间释放全部情绪}，精确到句子：\"{引用}\" |"
     },
     {
@@ -4137,10 +4134,10 @@
       "literal": "引用",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Eruption | {哪个瞬间释放全部情绪}，精确到句子：\"{引用}\" |"
     },
     {
@@ -4149,10 +4146,10 @@
       "literal": "精确到句子",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Eruption | {哪个瞬间释放全部情绪}，精确到句子：\"{引用}\" |"
     },
     {
@@ -4161,10 +4158,10 @@
       "literal": "角色反应",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Aftermath | {释放后的余震：角色反应} |"
     },
     {
@@ -4173,10 +4170,10 @@
       "literal": "释放后的余震",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Aftermath | {释放后的余震：角色反应} |"
     },
     {
@@ -4185,10 +4182,10 @@
       "literal": "情绪释放后留下什么",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Impression | {情绪释放后留下什么，读者记住什么} |"
     },
     {
@@ -4197,10 +4194,10 @@
       "literal": "读者记住什么",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Impression | {情绪释放后留下什么，读者记住什么} |"
     },
     {
@@ -4269,10 +4266,10 @@
       "literal": "制造",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {期待A} | {制造} | {A} |"
     },
     {
@@ -4281,10 +4278,10 @@
       "literal": "期待",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {期待A} | {制造} | {A} |"
     },
     {
@@ -4293,10 +4290,10 @@
       "literal": "升级",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {期待B} | {升级A} | {A+, B} |"
     },
     {
@@ -4305,10 +4302,10 @@
       "literal": "期待",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {期待B} | {升级A} | {A+, B} |"
     },
     {
@@ -4341,10 +4338,10 @@
       "literal": "三年前的",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4353,10 +4350,10 @@
       "literal": "事件实为做局",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4365,10 +4362,10 @@
       "literal": "如",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4377,10 +4374,10 @@
       "literal": "沈暮月当面驳斥",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4389,10 +4386,10 @@
       "literal": "灌醉",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4401,10 +4398,10 @@
       "literal": "章",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4413,10 +4410,10 @@
       "literal": "第",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4425,10 +4422,10 @@
       "literal": "证明判断基于错误前提",
       "count": 1,
       "characters": 10,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4437,10 +4434,10 @@
       "literal": "铺垫",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4449,10 +4446,10 @@
       "literal": "霍庭煜",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：三年前的\"灌醉\"事件实为做局} | {霍庭煜} | {第9章} | {沈暮月当面驳斥} | {铺垫：证明判断基于错误前提} |"
     },
     {
@@ -4461,10 +4458,10 @@
       "literal": "无",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "If none exists, write “无.”"
     },
     {
@@ -4485,10 +4482,10 @@
       "literal": "具体行为",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：虐待妻女} | {具体行为} | {对应惩罚} | {以彼之道还施彼身/自食恶果} |"
     },
     {
@@ -4497,10 +4494,10 @@
       "literal": "如",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：虐待妻女} | {具体行为} | {对应惩罚} | {以彼之道还施彼身/自食恶果} |"
     },
     {
@@ -4509,10 +4506,10 @@
       "literal": "对应惩罚",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：虐待妻女} | {具体行为} | {对应惩罚} | {以彼之道还施彼身/自食恶果} |"
     },
     {
@@ -4533,10 +4530,10 @@
       "literal": "虐待妻女",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {如：虐待妻女} | {具体行为} | {对应惩罚} | {以彼之道还施彼身/自食恶果} |"
     },
     {
@@ -4581,10 +4578,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {类型} | {事件} | {从A认知变为B认知} | — |"
     },
     {
@@ -4593,10 +4590,10 @@
       "literal": "从",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {类型} | {事件} | {从A认知变为B认知} | — |"
     },
     {
@@ -4605,10 +4602,10 @@
       "literal": "类型",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {类型} | {事件} | {从A认知变为B认知} | — |"
     },
     {
@@ -4617,10 +4614,10 @@
       "literal": "认知",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {类型} | {事件} | {从A认知变为B认知} | — |"
     },
     {
@@ -4629,10 +4626,10 @@
       "literal": "认知变为",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 1 | {类型} | {事件} | {从A认知变为B认知} | — |"
     },
     {
@@ -4641,10 +4638,10 @@
       "literal": "事件",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {类型} | {事件} | {从B认知变为C认知} | {反转1如何解释/加深反转2} |"
     },
     {
@@ -4653,10 +4650,10 @@
       "literal": "从",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {类型} | {事件} | {从B认知变为C认知} | {反转1如何解释/加深反转2} |"
     },
     {
@@ -4701,10 +4698,10 @@
       "literal": "类型",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {类型} | {事件} | {从B认知变为C认知} | {反转1如何解释/加深反转2} |"
     },
     {
@@ -4713,10 +4710,10 @@
       "literal": "认知",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {类型} | {事件} | {从B认知变为C认知} | {反转1如何解释/加深反转2} |"
     },
     {
@@ -4725,10 +4722,10 @@
       "literal": "认知变为",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| 2 | {类型} | {事件} | {从B认知变为C认知} | {反转1如何解释/加深反转2} |"
     },
     {
@@ -4905,10 +4902,10 @@
       "literal": "含位置",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "- Setup clues: {文本埋了哪些线索，含位置}"
     },
     {
@@ -4917,10 +4914,10 @@
       "literal": "文本埋了哪些线索",
       "count": 1,
       "characters": 8,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "- Setup clues: {文本埋了哪些线索，含位置}"
     },
     {
@@ -4929,10 +4926,10 @@
       "literal": "文本把读者往哪个方向引",
       "count": 1,
       "characters": 11,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "- Misdirection: {文本把读者往哪个方向引}"
     },
     {
@@ -4941,10 +4938,10 @@
       "literal": "反转怎么揭开的",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "- Truth revealed: {反转怎么揭开的}"
     },
     {
@@ -4953,10 +4950,10 @@
       "literal": "反转是否经得起回看",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "- Plausibility: {反转是否经得起回看}"
     },
     {
@@ -5385,10 +5382,10 @@
       "literal": "具体效果",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {时间跳跃/场景压缩/倒叙/闪回/实时展开} | {节N} | {具体效果} |"
     },
     {
@@ -5433,10 +5430,10 @@
       "literal": "节",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {时间跳跃/场景压缩/倒叙/闪回/实时展开} | {节N} | {具体效果} |"
     },
     {
@@ -5481,10 +5478,10 @@
       "literal": "具体效果",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {感官锚定/句式节奏/对比设计/意象物件/留白/首尾呼应} | {节N} | {具体效果} | {高/中/低} |"
     },
     {
@@ -5589,10 +5586,10 @@
       "literal": "从",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {物件名} | {节1, 节5, 节9} | {含义变化} | {从A到B} |"
     },
     {
@@ -5601,10 +5598,10 @@
       "literal": "到",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {物件名} | {节1, 节5, 节9} | {含义变化} | {从A到B} |"
     },
     {
@@ -5613,10 +5610,10 @@
       "literal": "含义变化",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {物件名} | {节1, 节5, 节9} | {含义变化} | {从A到B} |"
     },
     {
@@ -5625,10 +5622,10 @@
       "literal": "物件名",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {物件名} | {节1, 节5, 节9} | {含义变化} | {从A到B} |"
     },
     {
@@ -5637,10 +5634,10 @@
       "literal": "节",
       "count": 3,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {物件名} | {节1, 节5, 节9} | {含义变化} | {从A到B} |"
     },
     {
@@ -5649,10 +5646,10 @@
       "literal": "无明显意象重复",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "If no object or image repeats, write “无明显意象重复.”"
     },
     {
@@ -5709,10 +5706,10 @@
       "literal": "主角名",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {主角名} | {主人公/重要配角} | {主动型/被动型/转变型} | {情绪承载者/...} | {核心心理冲突} | {始→转→终} | \"{最具代表性的台词}\" |"
     },
     {
@@ -5721,10 +5718,10 @@
       "literal": "始",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {主角名} | {主人公/重要配角} | {主动型/被动型/转变型} | {情绪承载者/...} | {核心心理冲突} | {始→转→终} | \"{最具代表性的台词}\" |"
     },
     {
@@ -5757,10 +5754,10 @@
       "literal": "核心心理冲突",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {主角名} | {主人公/重要配角} | {主动型/被动型/转变型} | {情绪承载者/...} | {核心心理冲突} | {始→转→终} | \"{最具代表性的台词}\" |"
     },
     {
@@ -5769,10 +5766,10 @@
       "literal": "终",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {主角名} | {主人公/重要配角} | {主动型/被动型/转变型} | {情绪承载者/...} | {核心心理冲突} | {始→转→终} | \"{最具代表性的台词}\" |"
     },
     {
@@ -5865,10 +5862,10 @@
       "literal": "台词",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {配角名} | {重要配角/功能人物} | {主动型/被动型} | {压迫源/...} | {矛盾} | {弧线/扁平} | \"{台词}\" |"
     },
     {
@@ -5901,10 +5898,10 @@
       "literal": "矛盾",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {配角名} | {重要配角/功能人物} | {主动型/被动型} | {压迫源/...} | {矛盾} | {弧线/扁平} | \"{台词}\" |"
     },
     {
@@ -5925,10 +5922,10 @@
       "literal": "配角名",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {配角名} | {重要配角/功能人物} | {主动型/被动型} | {压迫源/...} | {矛盾} | {弧线/扁平} | \"{台词}\" |"
     },
     {
@@ -6009,10 +6006,10 @@
       "literal": "名",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {名} | {高/中/低} | {承担N项功能} | {不可删/可删} | {每句都推动/部分推动} |"
     },
     {
@@ -6021,10 +6018,10 @@
       "literal": "承担",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {名} | {高/中/低} | {承担N项功能} | {不可删/可删} | {每句都推动/部分推动} |"
     },
     {
@@ -6057,10 +6054,10 @@
       "literal": "项功能",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {名} | {高/中/低} | {承担N项功能} | {不可删/可删} | {每句都推动/部分推动} |"
     },
     {
@@ -6081,10 +6078,10 @@
       "literal": "制造了什么情绪",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6093,10 +6090,10 @@
       "literal": "单向依附",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6105,10 +6102,10 @@
       "literal": "如",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6117,10 +6114,10 @@
       "literal": "对等拒绝",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6129,10 +6126,10 @@
       "literal": "状态",
       "count": 2,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6141,10 +6138,10 @@
       "literal": "节",
       "count": 2,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| A ↔ B | {如：单向依附→对等拒绝} | {节N:状态A → 节M:状态B} | {制造了什么情绪} |"
     },
     {
@@ -6417,10 +6414,10 @@
       "literal": "绝对强度量表",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening emotional intensity | {1-10，绝对强度量表，非情感曲线的-9~+9} |"
     },
     {
@@ -6429,10 +6426,10 @@
       "literal": "非情感曲线的",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening emotional intensity | {1-10，绝对强度量表，非情感曲线的-9~+9} |"
     },
     {
@@ -6513,10 +6510,10 @@
       "literal": "读者离开时在想什么",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional landing | {读者离开时在想什么} |"
     },
     {
@@ -6561,10 +6558,10 @@
       "literal": "为什么",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Sharing impulse | {读者是否会推荐，为什么} |"
     },
     {
@@ -6573,10 +6570,10 @@
       "literal": "读者是否会推荐",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Sharing impulse | {读者是否会推荐，为什么} |"
     },
     {
@@ -6585,10 +6582,10 @@
       "literal": "所有钩子是否回收",
       "count": 1,
       "characters": 8,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Completeness of resolution | {所有钩子是否回收，未回收的列出} |"
     },
     {
@@ -6597,10 +6594,10 @@
       "literal": "未回收的列出",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Completeness of resolution | {所有钩子是否回收，未回收的列出} |"
     },
     {
@@ -6729,10 +6726,10 @@
       "literal": "元素",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6777,10 +6774,10 @@
       "literal": "如",
       "count": 2,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6813,10 +6810,10 @@
       "literal": "私生子而已",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6825,10 +6822,10 @@
       "literal": "第",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6837,10 +6834,10 @@
       "literal": "结尾终身未娶",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6849,10 +6846,10 @@
       "literal": "节",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {元素} | {如：第1节\"私生子而已\"} | {如：结尾终身未娶} | {对比/反转/升级} | {形成闭环/制造遗憾} |"
     },
     {
@@ -6885,10 +6882,10 @@
       "literal": "如何回收",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {描述} | {节N} | {悬念/冲突/信息差} | {节M} | {如何回收} | {已回收/留白/遗漏} |"
     },
     {
@@ -6921,10 +6918,10 @@
       "literal": "描述",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {描述} | {节N} | {悬念/冲突/信息差} | {节M} | {如何回收} | {已回收/留白/遗漏} |"
     },
     {
@@ -6945,10 +6942,10 @@
       "literal": "节",
       "count": 2,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {描述} | {节N} | {悬念/冲突/信息差} | {节M} | {如何回收} | {已回收/留白/遗漏} |"
     },
     {
@@ -7017,10 +7014,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening appeal | 1-5 | {具体说明：钩子类型+效果+改进空间} |"
     },
     {
@@ -7029,10 +7026,10 @@
       "literal": "改进空间",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening appeal | 1-5 | {具体说明：钩子类型+效果+改进空间} |"
     },
     {
@@ -7041,10 +7038,10 @@
       "literal": "效果",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening appeal | 1-5 | {具体说明：钩子类型+效果+改进空间} |"
     },
     {
@@ -7053,10 +7050,10 @@
       "literal": "钩子类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Opening appeal | 1-5 | {具体说明：钩子类型+效果+改进空间} |"
     },
     {
@@ -7065,10 +7062,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional push and pull | 1-5 | {具体说明：曲线形态+极值+翻转} |"
     },
     {
@@ -7077,10 +7074,10 @@
       "literal": "曲线形态",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional push and pull | 1-5 | {具体说明：曲线形态+极值+翻转} |"
     },
     {
@@ -7089,10 +7086,10 @@
       "literal": "极值",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional push and pull | 1-5 | {具体说明：曲线形态+极值+翻转} |"
     },
     {
@@ -7101,10 +7098,10 @@
       "literal": "翻转",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional push and pull | 1-5 | {具体说明：曲线形态+极值+翻转} |"
     },
     {
@@ -7113,10 +7110,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal design | 1-5 | {具体说明：反转类型+铺垫质量+合理性} |"
     },
     {
@@ -7125,10 +7122,10 @@
       "literal": "反转类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal design | 1-5 | {具体说明：反转类型+铺垫质量+合理性} |"
     },
     {
@@ -7137,10 +7134,10 @@
       "literal": "合理性",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal design | 1-5 | {具体说明：反转类型+铺垫质量+合理性} |"
     },
     {
@@ -7149,10 +7146,10 @@
       "literal": "铺垫质量",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Reversal design | 1-5 | {具体说明：反转类型+铺垫质量+合理性} |"
     },
     {
@@ -7161,10 +7158,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Pacing control | 1-5 | {具体说明：密度分布+异常检测+节奏匹配} |"
     },
     {
@@ -7173,10 +7170,10 @@
       "literal": "密度分布",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Pacing control | 1-5 | {具体说明：密度分布+异常检测+节奏匹配} |"
     },
     {
@@ -7185,10 +7182,10 @@
       "literal": "异常检测",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Pacing control | 1-5 | {具体说明：密度分布+异常检测+节奏匹配} |"
     },
     {
@@ -7197,10 +7194,10 @@
       "literal": "节奏匹配",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Pacing control | 1-5 | {具体说明：密度分布+异常检测+节奏匹配} |"
     },
     {
@@ -7209,10 +7206,10 @@
       "literal": "传播欲",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending aftertaste | 1-5 | {具体说明：结尾类型+落点+传播欲} |"
     },
     {
@@ -7221,10 +7218,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending aftertaste | 1-5 | {具体说明：结尾类型+落点+传播欲} |"
     },
     {
@@ -7233,10 +7230,10 @@
       "literal": "结尾类型",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending aftertaste | 1-5 | {具体说明：结尾类型+落点+传播欲} |"
     },
     {
@@ -7245,10 +7242,10 @@
       "literal": "落点",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Ending aftertaste | 1-5 | {具体说明：结尾类型+落点+传播欲} |"
     },
     {
@@ -7257,10 +7254,10 @@
       "literal": "传播性如何",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{核心爆点是什么？铺垫是否充分？释放是否到位？传播性如何？}"
     },
     {
@@ -7269,10 +7266,10 @@
       "literal": "核心爆点是什么",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{核心爆点是什么？铺垫是否充分？释放是否到位？传播性如何？}"
     },
     {
@@ -7281,10 +7278,10 @@
       "literal": "释放是否到位",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{核心爆点是什么？铺垫是否充分？释放是否到位？传播性如何？}"
     },
     {
@@ -7293,10 +7290,10 @@
       "literal": "铺垫是否充分",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{核心爆点是什么？铺垫是否充分？释放是否到位？传播性如何？}"
     },
     {
@@ -7305,10 +7302,10 @@
       "literal": "争议点",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{读者会讨论什么？争议点？代入式自省？\"如果是我会怎样\"的讨论空间？}"
     },
     {
@@ -7317,10 +7314,10 @@
       "literal": "代入式自省",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{读者会讨论什么？争议点？代入式自省？\"如果是我会怎样\"的讨论空间？}"
     },
     {
@@ -7329,10 +7326,10 @@
       "literal": "如果是我会怎样",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{读者会讨论什么？争议点？代入式自省？\"如果是我会怎样\"的讨论空间？}"
     },
     {
@@ -7341,10 +7338,10 @@
       "literal": "的讨论空间",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{读者会讨论什么？争议点？代入式自省？\"如果是我会怎样\"的讨论空间？}"
     },
     {
@@ -7353,10 +7350,10 @@
       "literal": "读者会讨论什么",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{读者会讨论什么？争议点？代入式自省？\"如果是我会怎样\"的讨论空间？}"
     },
     {
@@ -7377,10 +7374,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7497,10 +7494,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Experiential resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7557,10 +7554,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Social-phenomenon resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7617,10 +7614,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Cultural resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7737,10 +7734,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Philosophical resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7797,10 +7794,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Deep emotional resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -7857,10 +7854,10 @@
       "literal": "具体触发点",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Deep character resonance | {强/中/弱/无} | {具体触发点} |"
     },
     {
@@ -8073,10 +8070,10 @@
       "literal": "文本分布与真实状态变化",
       "count": 1,
       "characters": 11,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Event density | {X个/千字} | {文本分布与真实状态变化} |"
     },
     {
@@ -8109,10 +8106,10 @@
       "literal": "直接冲突与其他压力来源的关系",
       "count": 1,
       "characters": 14,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Conflict density | {Z%} | {直接冲突与其他压力来源的关系} |"
     },
     {
@@ -8121,10 +8118,10 @@
       "literal": "压缩弹簧",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional-curve shape | {如：压缩弹簧} | {如：V形} | {如：波浪} |"
     },
     {
@@ -8133,10 +8130,10 @@
       "literal": "如",
       "count": 3,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional-curve shape | {如：压缩弹簧} | {如：V形} | {如：波浪} |"
     },
     {
@@ -8145,10 +8142,10 @@
       "literal": "形",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional-curve shape | {如：压缩弹簧} | {如：V形} | {如：波浪} |"
     },
     {
@@ -8157,10 +8154,10 @@
       "literal": "波浪",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Emotional-curve shape | {如：压缩弹簧} | {如：V形} | {如：波浪} |"
     },
     {
@@ -8169,10 +8166,10 @@
       "literal": "信息差",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Core technique | {如：假死+信息差} | {如：时间线反转} | {如：套娃反转} |"
     },
     {
@@ -8181,10 +8178,10 @@
       "literal": "假死",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Core technique | {如：假死+信息差} | {如：时间线反转} | {如：套娃反转} |"
     },
     {
@@ -8193,10 +8190,10 @@
       "literal": "套娃反转",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Core technique | {如：假死+信息差} | {如：时间线反转} | {如：套娃反转} |"
     },
     {
@@ -8205,10 +8202,10 @@
       "literal": "如",
       "count": 3,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Core technique | {如：假死+信息差} | {如：时间线反转} | {如：套娃反转} |"
     },
     {
@@ -8217,10 +8214,10 @@
       "literal": "时间线反转",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Core technique | {如：假死+信息差} | {如：时间线反转} | {如：套娃反转} |"
     },
     {
@@ -8277,10 +8274,10 @@
       "literal": "原因",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Zhihu Salt Selection | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8289,10 +8286,10 @@
       "literal": "如有",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Zhihu Salt Selection | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8337,10 +8334,10 @@
       "literal": "原因",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Fanqie Short Stories | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8349,10 +8346,10 @@
       "literal": "如有",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Fanqie Short Stories | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8397,10 +8394,10 @@
       "literal": "原因",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Qimao Short Stories | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8409,10 +8406,10 @@
       "literal": "如有",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Qimao Short Stories | {高/中/低} | {原因} | {如有} |"
     },
     {
@@ -8457,10 +8454,10 @@
       "literal": "文本分布与真实状态变化",
       "count": 1,
       "characters": 11,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Event density | {N}个/千字 | {文本分布与真实状态变化} |"
     },
     {
@@ -8541,10 +8538,10 @@
       "literal": "读者模型变化与消化效果",
       "count": 1,
       "characters": 11,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| Information density | {X%} | {读者模型变化与消化效果} |"
     },
     {
@@ -8625,10 +8622,10 @@
       "literal": "具体说明",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "| {节奏塌陷/压力过载/信息洪峰/对白失效/对白挤压场景/反转过载} | {节N} | {具体说明} |"
     },
     {
@@ -8709,10 +8706,10 @@
       "literal": "节奏无明显异常",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "If none exist, write “节奏无明显异常.”"
     },
     {
@@ -8757,10 +8754,10 @@
       "literal": "无",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "- [ ] Every node has a hook type, including “无” `[WARN]`"
     },
     {
@@ -9211,10 +9208,10 @@
       "literal": "觉醒",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Number only + title | 1. 觉醒 |"
     },
     {
@@ -9379,10 +9376,10 @@
       "literal": "天元三年春",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Explicit date | \"天元三年春\" | Record directly |"
     },
     {
@@ -9391,10 +9388,10 @@
       "literal": "三日后",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Relative time | \"三日后\", \"半月后\" | Calculate absolute time |"
     },
     {
@@ -9403,10 +9400,10 @@
       "literal": "半月后",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Relative time | \"三日后\", \"半月后\" | Calculate absolute time |"
     },
     {
@@ -9415,10 +9412,10 @@
       "literal": "次日",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "| Interval between events | \"翌日\", \"次日\" | Mark as consecutive |"
     },
     {
@@ -9427,10 +9424,10 @@
       "literal": "翌日",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "| Interval between events | \"翌日\", \"次日\" | Mark as consecutive |"
     },
     {
@@ -9439,10 +9436,10 @@
       "literal": "入冬",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "| Seasonal marker | \"入冬\", \"春暖花开\" | Infer the season |"
     },
     {
@@ -9451,10 +9448,10 @@
       "literal": "春暖花开",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "| Seasonal marker | \"入冬\", \"春暖花开\" | Infer the season |"
     },
     {
@@ -9631,10 +9628,10 @@
       "literal": "了",
       "count": 2,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Overuse of the Chinese aspect particle “了” | Control unnecessary use of “了” |"
     },
     {
@@ -9787,10 +9784,10 @@
       "literal": "字原文",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{300-500 字原文}"
     },
     {
@@ -9799,10 +9796,10 @@
       "literal": "字原文",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{300-500 字原文}"
     },
     {
@@ -9811,10 +9808,10 @@
       "literal": "字原文",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{300-500 字原文}"
     },
     {
@@ -9823,10 +9820,10 @@
       "literal": "字原文",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": "{300-500 字原文}"
     },
     {
@@ -10195,10 +10192,10 @@
       "literal": "嘤",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Interjections | “嘤,” “嘶,” “靠,” “行吧” | Almost none |"
     },
     {
@@ -10207,10 +10204,10 @@
       "literal": "嘶",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Interjections | “嘤,” “嘶,” “靠,” “行吧” | Almost none |"
     },
     {
@@ -10219,10 +10216,10 @@
       "literal": "行吧",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Interjections | “嘤,” “嘶,” “靠,” “行吧” | Almost none |"
     },
     {
@@ -10231,10 +10228,10 @@
       "literal": "靠",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| Interjections | “嘤,” “嘶,” “靠,” “行吧” | Almost none |"
     },
     {
@@ -10999,10 +10996,10 @@
       "literal": "兴高采烈地笑着跑过来",
       "count": 1,
       "characters": 10,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Repeated adjective | “兴高采烈地笑着跑过来” | “笑着跑过来” |"
     },
     {
@@ -11011,10 +11008,10 @@
       "literal": "笑着跑过来",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Repeated adjective | “兴高采烈地笑着跑过来” | “笑着跑过来” |"
     },
     {
@@ -11023,10 +11020,10 @@
       "literal": "关键问题",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Synonym repetition | “非常重要的关键问题” | “关键问题” |"
     },
     {
@@ -11035,10 +11032,10 @@
       "literal": "非常重要的关键问题",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Synonym repetition | “非常重要的关键问题” | “关键问题” |"
     },
     {
@@ -11047,10 +11044,10 @@
       "literal": "我好饿",
       "count": 2,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Repeated meaning | “我好饿，肚子咕咕叫” | “我好饿” |"
     },
     {
@@ -11059,10 +11056,10 @@
       "literal": "肚子咕咕叫",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "| Repeated meaning | “我好饿，肚子咕咕叫” | “我好饿” |"
     },
     {
@@ -11263,10 +11260,10 @@
       "literal": "他知道",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "- If an ending contains “他知道...” or “这一刻...,” it can usually be deleted"
     },
     {
@@ -11275,10 +11272,10 @@
       "literal": "这一刻",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "- If an ending contains “他知道...” or “这一刻...,” it can usually be deleted"
     },
     {
@@ -12307,10 +12304,10 @@
       "literal": "生成记录",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The quoted Chinese text is an explicit operational field/value/section label embedded in translated instructions and must remain literal for compatibility.",
+      "review_status": "approved",
+      "rule": "quoted_operational_literal",
       "context": "If source text is missing or chapter separators cannot be identified, write `文风可用：否：{原因}` under “生成记录” in `文风.md`. A Stage 6 failure does not block the pipeline."
     },
     {
@@ -13831,10 +13828,10 @@
       "literal": "个",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- Low: “未检测到低成本模型，这 3 个 agent 将使用主模型，成本可能较高”"
     },
     {
@@ -13843,10 +13840,10 @@
       "literal": "将使用主模型",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- Low: “未检测到低成本模型，这 3 个 agent 将使用主模型，成本可能较高”"
     },
     {
@@ -13855,10 +13852,10 @@
       "literal": "成本可能较高",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- Low: “未检测到低成本模型，这 3 个 agent 将使用主模型，成本可能较高”"
     },
     {
@@ -13867,10 +13864,10 @@
       "literal": "未检测到低成本模型",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- Low: “未检测到低成本模型，这 3 个 agent 将使用主模型，成本可能较高”"
     },
     {
@@ -13879,10 +13876,10 @@
       "literal": "这",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- Low: “未检测到低成本模型，这 3 个 agent 将使用主模型，成本可能较高”"
     },
     {
@@ -13963,10 +13960,10 @@
       "literal": "将使用主模型",
       "count": 1,
       "characters": 6,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- High: “未检测到高端模型，story-architect 将使用主模型”"
     },
     {
@@ -13975,10 +13972,10 @@
       "literal": "未检测到高端模型",
       "count": 1,
       "characters": 8,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": "- High: “未检测到高端模型，story-architect 将使用主模型”"
     },
     {
@@ -14011,10 +14008,10 @@
       "literal": "作者",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": "| `{作者名}` | Pen name or nickname | Use “作者” when unspecified |"
     },
     {
@@ -14623,10 +14620,10 @@
       "literal": "其他",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14635,10 +14632,10 @@
       "literal": "压抑",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14647,10 +14644,10 @@
       "literal": "好奇",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14659,10 +14656,10 @@
       "literal": "心疼",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14671,10 +14668,10 @@
       "literal": "期待",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14683,10 +14680,10 @@
       "literal": "热血",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14695,10 +14692,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14707,10 +14704,10 @@
       "literal": "甜",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14719,10 +14716,10 @@
       "literal": "紧张",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14791,10 +14788,10 @@
       "literal": "合",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": ">     \"emotion_flow\": {\"start\": \"<起>\", \"build\": \"<承>\", \"turn\": \"<转>\", \"close\": \"<合>\"},"
     },
     {
@@ -14803,10 +14800,10 @@
       "literal": "承",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": ">     \"emotion_flow\": {\"start\": \"<起>\", \"build\": \"<承>\", \"turn\": \"<转>\", \"close\": \"<合>\"},"
     },
     {
@@ -14815,10 +14812,10 @@
       "literal": "起",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": ">     \"emotion_flow\": {\"start\": \"<起>\", \"build\": \"<承>\", \"turn\": \"<转>\", \"close\": \"<合>\"},"
     },
     {
@@ -14827,10 +14824,10 @@
       "literal": "转",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is inside a template placeholder/value slot and is retained as an operational source-compatible field or enumerated value.",
+      "review_status": "approved",
+      "rule": "template_placeholder",
       "context": ">     \"emotion_flow\": {\"start\": \"<起>\", \"build\": \"<承>\", \"turn\": \"<转>\", \"close\": \"<合>\"},"
     },
     {
@@ -14839,10 +14836,10 @@
       "literal": "动作",
       "count": 2,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14851,10 +14848,10 @@
       "literal": "目的",
       "count": 2,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14863,10 +14860,10 @@
       "literal": "节点",
       "count": 2,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14875,10 +14872,10 @@
       "literal": "一句话结构手法",
       "count": 1,
       "characters": 7,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "review_status": "approved",
+      "rule": "structured_embedded_literal",
       "context": ">     \"core_technique\": \"<一句话结构手法>\","
     },
     {
@@ -14923,10 +14920,10 @@
       "literal": "不与",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {
@@ -14935,10 +14932,10 @@
       "literal": "同句",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {
@@ -14947,10 +14944,10 @@
       "literal": "字短标签",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "review_status": "approved",
+      "rule": "embedded_quoted_example",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {

@@ -308,7 +308,7 @@ Following the four steps in `topic-decision.md`, produce 2–3 recommended topic
 ## Workflow Handoff
 
 **Pipeline:** Long-form
-**Position:** Ranking scan (Step 1 of 3)
+**Position:** Rankings scan (Step 1 of 3)
 
 | When | Go To | Command |
 |---|---|---|
