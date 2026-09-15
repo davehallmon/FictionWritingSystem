@@ -29,6 +29,8 @@ The `Translation Gate / release-review-gate` job enforces governance for transla
 - PRs into `translation/chinese-to-english` require traceability but do not require independent approval at this intermediate integration layer.
 - A translation-related PR into `main` requires at least one independent GitHub review with state `APPROVED`.
 
+GitHub may display these jobs in the PR UI with the workflow name prefixed, but the actual required-check contexts emitted by GitHub Actions are the job names `translation-acceptance` and `release-review-gate`.
+
 ## Required `main` branch rules
 
 Repository administration must configure `main` so the CI controls cannot be bypassed by a normal merge:
@@ -40,9 +42,9 @@ Repository administration must configure `main` so the CI controls cannot be byp
 - Require conversation resolution before merging.
 - Require status checks to pass before merging.
 - Require branches to be up to date before merging.
-- Required checks:
-  - `Translation Gate / translation-acceptance`
-  - `Translation Gate / release-review-gate`
+- Required check contexts:
+  - `translation-acceptance`
+  - `release-review-gate`
 - Block force pushes and branch deletion.
 - Do not allow bypass for ordinary contributors.
 
@@ -74,8 +76,8 @@ The release PR may be merged only when all of the following are true:
 - Residual ledger drift is zero.
 - Duplicate source groups are zero.
 - The manifest regenerates with no diff.
-- `Translation Gate / translation-acceptance` is green on the release PR head.
-- `Translation Gate / release-review-gate` is green on the release PR head.
+- `translation-acceptance` is green on the release PR head.
+- `release-review-gate` is green on the release PR head.
 - At least one independent GitHub reviewer has approved the release PR.
 - The release PR links the remediation issues and records the final audit evidence.
 
@@ -91,8 +93,8 @@ The repository ruleset `Protect main — Translation Release` was activated afte
 
 That verification PR is intentionally subject to the governed translation surface because it modifies this file. It is considered successful only when:
 
-1. `Translation Gate / translation-acceptance` passes.
-2. `Translation Gate / release-review-gate` passes.
+1. `translation-acceptance` passes.
+2. `release-review-gate` passes.
 3. At least one independent GitHub reviewer submits an `APPROVED` review.
 4. The active `main` ruleset prevents merge until the required review and status checks are satisfied.
 5. The PR merges through the protected branch workflow without bypass.
