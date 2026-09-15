@@ -34,9 +34,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add translation-glossary.json translation-residual-exceptions.json translation-residual-review.md \
-            translation-residual-unaccepted.json drama/Chinese-to-English oh-story/Chinese-to-English
+            translation-residual-unaccepted.json translation-residual-unaccepted-summary.md \
+            drama/Chinese-to-English oh-story/Chinese-to-English
           if ! git diff --cached --quiet; then
-            git commit -m "Refine issue #5 residual classifications [skip ci]"
+            git commit -m "Finalize issue #5 residual classifications [skip ci]"
             git push origin HEAD:translation/issue-5-residual-terminology
           fi
 
