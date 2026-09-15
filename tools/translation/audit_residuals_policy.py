@@ -45,6 +45,25 @@ def english_word_count(line: str) -> int:
     return len(re.findall(r"[A-Za-z][A-Za-z'-]+", line))
 
 
+def protected_segments_v2(line: str):
+    """Return merged protected spans so nested Markdown links cannot duplicate text.
+
+    A badge such as `[![CI](image-url)](target-url)` creates overlapping image and
+    link destination spans. The original replacement helper assumed disjoint spans;
+    merging them prevents a replacement pass from re-emitting overlapping content.
+    """
+    spans = sorted(base.inline_spans(line) + base.markdown_destination_spans(line))
+    if not spans:
+        return []
+    merged = [list(spans[0])]
+    for start, end in spans[1:]:
+        if start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+    return [tuple(span) for span in merged]
+
+
 def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, overrides):
     classification, reason, rule = ORIGINAL_CLASSIFY(
         path, line_no, line, literal, start, end, frontmatter_lines, overrides
@@ -57,8 +76,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
     words = english_word_count(line)
     stripped = line.lstrip()
 
-    # Template placeholders and source-compatible field/value slots are
-    # operational vocabulary, not untranslated narrative prose.
     if inside_braces(line, start, end):
         return (
             "operational_chinese_output",
@@ -66,7 +83,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "template_placeholder",
         )
 
-    # Explicit positive/negative source-language writing examples.
     if "❌" in line or "✅" in line:
         return (
             "intentional_bilingual_example",
@@ -85,8 +101,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "labeled_bilingual_example",
         )
 
-    # JSON-like/blockquoted enum contracts in the reusable Templates files use
-    # literal Chinese values consumed by downstream analysis/output workflows.
     if "/Templates - " in path and stripped.startswith(">") and ("|" in line or "\"" in line or ":" in line):
         return (
             "operational_chinese_output",
@@ -94,8 +108,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "template_enum_contract",
         )
 
-    # The output-templates reference intentionally documents Chinese output
-    # slots/phrasing. Structured rows must remain source-compatible.
     if path.endswith("Ref - output-templates.md") and base.line_is_structured(line):
         return (
             "operational_chinese_output",
@@ -103,8 +115,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "output_template_contract",
         )
 
-    # A quoted Chinese token embedded in otherwise translated operational prose
-    # is a literal value or source-language example, not untranslated narration.
     if base.quoted_occurrence(line, start, end) and words >= 3:
         if any(h in lower for h in base.OPERATION_HINTS) or any(
             h in lower for h in ("mark", "marked", "choice", "choices", "section", "heading", "read", "write", "field")
@@ -120,9 +130,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "embedded_quoted_example",
         )
 
-    # Chinese full-width field syntax such as `输入参考图：无（...）` is often
-    # intentionally un-backticked in prose. Preserve when English context states
-    # the field/value contract.
     if "：" in line and words >= 3 and any(
         h in lower for h in ("field", "value", "use", "only when", "mark", "write", "output", "status", "state")
     ):
@@ -132,9 +139,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "fullwidth_field_contract",
         )
 
-    # Tables/lists with English labels and short Chinese literals are structured
-    # operational contracts or bilingual examples. Wholly untranslated Chinese
-    # prose still does not qualify.
     if base.line_is_structured(line) and words >= 2 and han_chars <= 120:
         if any(h in lower for h in ("example", "demo", "sample", "prohibited", "correct", "dialogue")):
             return (
@@ -148,8 +152,6 @@ def classify_v2(path, line_no, line, literal, start, end, frontmatter_lines, ove
             "structured_embedded_literal",
         )
 
-    # Short Chinese tokens embedded in a clearly English sentence are retained
-    # literals. Long or predominantly Chinese sentences remain rejected.
     if words >= 6 and han_chars <= 40:
         return (
             "operational_chinese_output",
@@ -177,8 +179,6 @@ def deprecated_replacements_v2(glossary):
 
 def fix_terminology_v2(glossary):
     changed = ORIGINAL_FIX(glossary)
-    # Terminology normalization changes the heading from `Ranking Scans...` to
-    # `Rankings Scans...`; update the protected fragment destination with it.
     path = ROOT / "oh-story/Chinese-to-English/Ref - plot-special-topics.md"
     if path.exists():
         text = path.read_text(encoding="utf-8")
@@ -212,8 +212,6 @@ def write_outputs_v2(pairs, missing, entries, deprecated, changed_terms):
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
-    # One compact row per affected line for easy human review in connector-only
-    # environments where the full JSON can be large.
     seen = set()
     lines = ["# Unaccepted Residual Summary", ""]
     for e in unaccepted:
@@ -233,6 +231,7 @@ ORIGINAL_DEPRECATED = base.deprecated_replacements
 ORIGINAL_FIX = base.fix_terminology
 ORIGINAL_WRITE = base.write_outputs
 base.source_pairs = source_pairs_v2
+base.protected_segments = protected_segments_v2
 base.classify_occurrence = classify_v2
 base.deprecated_replacements = deprecated_replacements_v2
 base.fix_terminology = fix_terminology_v2
