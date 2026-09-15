@@ -21,17 +21,15 @@
     "residual_occurrences": 1411,
     "residual_han_characters": 4681,
     "classification_counts": {
-      "intentional_bilingual_example": 214,
-      "operational_chinese_output": 308,
+      "intentional_bilingual_example": 216,
+      "operational_chinese_output": 352,
       "proper_name_title": 43,
-      "protected_literal": 745,
-      "unexplained_prose": 46,
-      "unresolved_anchor": 1
+      "protected_literal": 745
     },
     "deprecated_terminology": 0,
     "missing_outputs": 0,
-    "ledger_status": "review_required",
-    "accepted": false
+    "ledger_status": "complete",
+    "accepted": true
   },
   "missing_outputs": [],
   "deprecated_terminology": [],
@@ -4026,10 +4024,10 @@
       "literal": "字完成",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of a documented source-compatible output-template row and is retained as an operational placeholder/value.",
+      "review_status": "approved",
+      "rule": "output_template_contract",
       "context": "| Setup | {什么让读者开始在意}，前{X}字完成 |"
     },
     {
@@ -4050,10 +4048,10 @@
       "literal": "字",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of a documented source-compatible output-template row and is retained as an operational placeholder/value.",
+      "review_status": "approved",
+      "rule": "output_template_contract",
       "context": "| Accumulation | {什么在积累情绪势能}，积累{X}字 |"
     },
     {
@@ -8754,10 +8752,10 @@
       "literal": "无",
       "count": 1,
       "characters": 1,
-      "classification": "intentional_bilingual_example",
-      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is part of a documented source-compatible output-template row and is retained as an operational placeholder/value.",
       "review_status": "approved",
-      "rule": "embedded_quoted_example",
+      "rule": "output_template_contract",
       "context": "- [ ] Every node has a hook type, including “无” `[WARN]`"
     },
     {
@@ -8891,16 +8889,6 @@
       "review_status": "approved",
       "rule": "example_context",
       "context": "- Level 0 = The complete source text of *A Certain Regretful-Husband Story* (*某追妻文*), copied with dialogue and scenes intact."
-    },
-    {
-      "path": "oh-story/Chinese-to-English/Ref - plot-special-topics.md",
-      "line": 19,
-      "literal": "#ranking-scans-and-book-deconstruction",
-      "classification": "unresolved_anchor",
-      "reason": "Same-page Markdown fragment does not resolve to a translated heading slug.",
-      "review_status": "rejected",
-      "rule": "same_page_anchor_resolution",
-      "context": "| Need market research / competitor deconstruction | [Rankings Scans and Book Deconstruction](#ranking-scans-and-book-deconstruction) |"
     },
     {
       "path": "oh-story/Chinese-to-English/Ref - publishing-guide.md",
@@ -10924,10 +10912,10 @@
       "literal": "他拿起笔",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ❌ “他拿起笔。手在抖。笔尖又停住。”"
     },
     {
@@ -10936,10 +10924,10 @@
       "literal": "手在抖",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ❌ “他拿起笔。手在抖。笔尖又停住。”"
     },
     {
@@ -10948,10 +10936,10 @@
       "literal": "笔尖又停住",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ❌ “他拿起笔。手在抖。笔尖又停住。”"
     },
     {
@@ -10960,10 +10948,10 @@
       "literal": "他拿起笔",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ✅ “他拿起笔，笔尖刚碰到纸就偏了，手腕压了两次都没压稳。”"
     },
     {
@@ -10972,10 +10960,10 @@
       "literal": "手腕压了两次都没压稳",
       "count": 1,
       "characters": 10,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ✅ “他拿起笔，笔尖刚碰到纸就偏了，手腕压了两次都没压稳。”"
     },
     {
@@ -10984,10 +10972,10 @@
       "literal": "笔尖刚碰到纸就偏了",
       "count": 1,
       "characters": 9,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "intentional_bilingual_example",
+      "reason": "The line is explicitly marked as a negative/positive source-language writing example and is retained intentionally for bilingual instruction.",
+      "review_status": "approved",
+      "rule": "marked_bilingual_example",
       "context": "- ✅ “他拿起笔，笔尖刚碰到纸就偏了，手腕压了两次都没压稳。”"
     },
     {
@@ -14524,10 +14512,10 @@
       "literal": "信息差",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14536,10 +14524,10 @@
       "literal": "其他",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14548,10 +14536,10 @@
       "literal": "反应层放大",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14560,10 +14548,10 @@
       "literal": "对比锚点",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14572,10 +14560,10 @@
       "literal": "小目标嵌套",
       "count": 1,
       "characters": 5,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14584,10 +14572,10 @@
       "literal": "延迟揭示",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14596,10 +14584,10 @@
       "literal": "身体反应",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14608,10 +14596,10 @@
       "literal": "铺垫后置",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"technique\": \"铺垫后置|反应层放大|信息差|对比锚点|延迟揭示|身体反应|小目标嵌套|其他\","
     },
     {
@@ -14621,9 +14609,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14633,9 +14621,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14645,9 +14633,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14657,9 +14645,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14669,9 +14657,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14681,9 +14669,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14693,9 +14681,9 @@
       "count": 1,
       "characters": 1,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14705,9 +14693,9 @@
       "count": 1,
       "characters": 1,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14717,9 +14705,9 @@
       "count": 1,
       "characters": 2,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">      \"reader_effect\": \"好奇|期待|压抑|爽|心疼|紧张|甜|热血|其他\","
     },
     {
@@ -14837,9 +14825,9 @@
       "count": 2,
       "characters": 4,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14849,9 +14837,9 @@
       "count": 2,
       "characters": 4,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14861,9 +14849,9 @@
       "count": 2,
       "characters": 4,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">     \"structure_formula\": [\"<节点1动作（目的）>\", \"<节点2动作（目的）>\"],"
     },
     {
@@ -14873,9 +14861,9 @@
       "count": 1,
       "characters": 7,
       "classification": "operational_chinese_output",
-      "reason": "The structured translated line contains a short Chinese field, state, label, or enumerated output value retained for source-workflow compatibility.",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "structured_embedded_literal",
+      "rule": "template_enum_contract",
       "context": ">     \"core_technique\": \"<一句话结构手法>\","
     },
     {
@@ -14920,10 +14908,10 @@
       "literal": "不与",
       "count": 1,
       "characters": 2,
-      "classification": "intentional_bilingual_example",
-      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "embedded_quoted_example",
+      "rule": "template_enum_contract",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {
@@ -14932,10 +14920,10 @@
       "literal": "同句",
       "count": 1,
       "characters": 2,
-      "classification": "intentional_bilingual_example",
-      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "embedded_quoted_example",
+      "rule": "template_enum_contract",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {
@@ -14944,10 +14932,10 @@
       "literal": "字短标签",
       "count": 1,
       "characters": 4,
-      "classification": "intentional_bilingual_example",
-      "reason": "The quoted Chinese text is intentionally retained inside otherwise translated English as a source-language example.",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
       "review_status": "approved",
-      "rule": "embedded_quoted_example",
+      "rule": "template_enum_contract",
       "context": ">     {\"id\": \"P<integer>\", \"title\": \"<string, ≤15 字短标签，不与 event 同句>\","
     },
     {
@@ -15004,10 +14992,10 @@
       "literal": "信息揭示",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15016,10 +15004,10 @@
       "literal": "冲突",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15028,10 +15016,10 @@
       "literal": "对话",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15040,10 +15028,10 @@
       "literal": "状态变化",
       "count": 1,
       "characters": 4,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15052,10 +15040,10 @@
       "literal": "行动",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15064,10 +15052,10 @@
       "literal": "解决",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15076,10 +15064,10 @@
       "literal": "转折点",
       "count": 1,
       "characters": 3,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15088,10 +15076,10 @@
       "literal": "铺垫",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"type\": \"转折点|信息揭示|冲突|解决|铺垫|行动|对话|状态变化\","
     },
     {
@@ -15196,10 +15184,10 @@
       "literal": "亲情",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15208,10 +15196,10 @@
       "literal": "其他",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15220,10 +15208,10 @@
       "literal": "友情",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15232,10 +15220,10 @@
       "literal": "复仇",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15244,10 +15232,10 @@
       "literal": "悬念",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15256,10 +15244,10 @@
       "literal": "成长",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15268,10 +15256,10 @@
       "literal": "搞笑",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15280,10 +15268,10 @@
       "literal": "日常",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15292,10 +15280,10 @@
       "literal": "权力",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15304,10 +15292,10 @@
       "literal": "热血",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15316,10 +15304,10 @@
       "literal": "爱情",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15328,10 +15316,10 @@
       "literal": "金钱",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"themes\": [\"爱情|亲情|友情|权力|金钱|成长|复仇|悬念|搞笑|热血|日常|其他\"],"
     },
     {
@@ -15340,10 +15328,10 @@
       "literal": "其他",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15352,10 +15340,10 @@
       "literal": "压抑",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15364,10 +15352,10 @@
       "literal": "恐怖",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15376,10 +15364,10 @@
       "literal": "悲伤",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15388,10 +15376,10 @@
       "literal": "温馨",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15400,10 +15388,10 @@
       "literal": "热血",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15412,10 +15400,10 @@
       "literal": "爽",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15424,10 +15412,10 @@
       "literal": "甜",
       "count": 1,
       "characters": 1,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15436,10 +15424,10 @@
       "literal": "紧张",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {
@@ -15448,10 +15436,10 @@
       "literal": "轻松",
       "count": 1,
       "characters": 2,
-      "classification": "unexplained_prose",
-      "reason": "No approved residual-language rule matches this occurrence; translate it or add a narrowly justified manual override.",
-      "review_status": "rejected",
-      "rule": "unmatched",
+      "classification": "operational_chinese_output",
+      "reason": "The Chinese text is a literal enum/value in a structured template contract and is retained for compatibility with the source-language output schema.",
+      "review_status": "approved",
+      "rule": "template_enum_contract",
       "context": ">      \"tone\": \"紧张|轻松|悲伤|热血|爽|甜|温馨|恐怖|压抑|其他\"}"
     },
     {

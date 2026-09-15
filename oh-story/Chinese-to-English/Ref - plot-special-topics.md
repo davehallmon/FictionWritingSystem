@@ -16,7 +16,7 @@
 | Making the special advantage more interesting through mismatch, subversion, or extreme-martial-arts fiction | [Advanced Special-Advantage Design](#advanced-special-advantage-design) |
 | You have a high-concept idea but do not know how to build a complete story | [Complete Framework for High-Concept Fiction](#complete-framework-for-high-concept-fiction) |
 | Unsure of genre boundaries / worried about drifting | [Genre Boundaries](#genre-boundaries) |
-| Need market research / competitor deconstruction | [Rankings Scans and Book Deconstruction](#ranking-scans-and-book-deconstruction) |
+| Need market research / competitor deconstruction | [Rankings Scans and Book Deconstruction](#rankings-scans-and-book-deconstruction) |
 | Need a comparable title but do not know how to choose one | [Comparable-Title Selection Rules](#comparable-title-selection-rules) |
 | Writing derivative or original fiction and struggling with pacing differences | [Pacing Differences and Core Frameworks: Derivative vs. Original Fiction](#pacing-differences-and-core-frameworks-derivative-vs-original-fiction) |
 | Writing urban high-martial-arts fiction and need plot material | [Urban High-Martial-Arts Plot Templates](#urban-high-martial-arts-plot-templates) |
